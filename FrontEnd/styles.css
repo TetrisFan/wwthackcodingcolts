@@ -14,7 +14,7 @@ Requested button: #BBBBBB
   box-sizing: border-box;
   color: #3E4A59;
 }
-
+ou
 nav {
   background-color: #fff;
   box-shadow: 5px 5px 5px grey;
@@ -24,7 +24,8 @@ nav {
 }
 
 .logo {
-
+  width:auto;
+  height: 80%;
 }
 
 body {
@@ -38,10 +39,12 @@ h1 {
 .card-container {
   margin: auto;
   max-width: 800px;
+  height: 500px;
   background-color: #fff;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -51,9 +54,11 @@ h1 {
   align-items: center;
 }
 
-.sign-in input {
-  padding: 10px 1000px;
+.sign-in input[type="text"] {
+  width: 350px;
+  padding: 12px 20px;
   margin-top: 5px;
   border: 1px solid #DADADA;
-  border-radius: 8px;
+  border-radius: 15px;
+  background-color: #F6F7F9;
 }
