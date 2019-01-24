@@ -9,3 +9,24 @@ Text color: #3E4A59
 Line color: #DADADA
 Requested button: #BBBBBB
 */
+nav {
+  background-color: #fff;
+
+}
+
+.logo {
+
+}
+
+body {
+  background-color: #F6F7F9;
+}
+
+.card-container {
+  max-width: 800px;
+  background-color: #fff;
+}
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+}
