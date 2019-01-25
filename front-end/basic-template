@@ -1,3 +1,15 @@
+<!-- This is the basic template you need to place in all HTML files before
+   you start writing your code.
+
+   Bootstrap already has their own external stylesheets for us.
+   If you use this link here:
+   https://getbootstrap.com/docs/4.0/getting-started/introduction/
+   and search for elements: buttons, containers, images, and etc.
+   You will see how Bootstrap styles these certain elements.
+   Sometimes Bootstrap's external stylesheets will style certain elements
+   in ways where we don't want it to, simply override these styles in our
+   styles.css sheet. */ -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
