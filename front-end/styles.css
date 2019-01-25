@@ -13,6 +13,10 @@ Requested button: #BBBBBB
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 @import url('https://fonts.googleapis.com/css?family=Karla');
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #F6F7F9;
   color: #3E4A59;
@@ -24,12 +28,15 @@ h1 {
   font-size: 42px;
 }
 
+.container {
+  height: 80%;
+}
+
 .jumbotron {
   background-color: #FFFFFF;
   border-radius: 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  padding-top: 150px;
-  padding-bottom: 150px;
+  height: 100%;
 }
 
 .form-signin {
