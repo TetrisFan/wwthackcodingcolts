@@ -54,6 +54,10 @@ h1 {
   padding: 10px 50px;
 }
 
+.btn-primary:active {
+  background-color: #5C6EFF;
+}
+
 /* need to change this background color to a lighter shade of #5C6EFF */
 .btn-primary:hover {
   background-color: #5C6EFF;
