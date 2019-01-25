@@ -8,102 +8,53 @@ Background: #F6F7F9
 Text color: #3E4A59
 Line color: #DADADA
 Requested button: #BBBBBB
-
-font-styles:
-<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 */
-* {
-  margin: 0;
-  box-sizing: border-box;
+
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+body {
+  background-color: #F6F7F9;
   color: #3E4A59;
   font-family: 'Karla', sans-serif;
 }
 
-nav {
-  background-color: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  display: block;
-  width: 100%;
-  border: none;
-  margin-bottom: 25px;
-}
-
-.logo {
-  width: auto;
-  height: 80%;
-}
-
-body {
-  background-color: #F6F7F9;
-}
-
 h1 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Rubik', sans-serif;s
   font-size: 42px;
 }
 
-.card-container {
-  margin: auto;
-  max-width: 800px;
-  height: 500px;
-  background-color: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.0);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.jumbotron {
+  background-color: #FFFFFF;
+  border-radius: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
-.sign-in {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.form-signin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
 }
 
-.sign-in input[type="text"] {
-  width: 400px;
-  padding: 13px 20px;
-  margin-top: 25px;
+.form-signin input {
+  margin-bottom: 25px;
+  padding: 10px 20px;
   border: 1px solid #DADADA;
   border-radius: 20px;
   background-color: #F6F7F9;
 }
 
-.blue-button {
-  padding: 13px 50px;
-  border-radius: 17px;
+.btn-primary {
   background-color: #5C6EFF;
-  color: white;
-  margin-top: 25px;
+  border-radius: 20px;
+  border: 0;
+  padding: 10px 50px;
 }
 
-button {
-    display: inline-block;
-    border: none;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    margin: 0;
-    text-decoration: none;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out,
-                transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-button:hover,
-button:focus {
-    background: #7a89ff;
-}
-
-button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
-
-button:active {
-    transform: scale(0.99);
+/* need to change this background color to a lighter shade of #5C6EFF */
+.btn-primary:hover {
+  background-color: #5C6EFF;
 }
