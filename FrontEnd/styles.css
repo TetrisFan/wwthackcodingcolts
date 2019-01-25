@@ -8,23 +8,28 @@ Background: #F6F7F9
 Text color: #3E4A59
 Line color: #DADADA
 Requested button: #BBBBBB
+
+font-styles:
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 */
 * {
   margin: 0;
   box-sizing: border-box;
   color: #3E4A59;
+  font-family: 'Karla', sans-serif;
 }
-ou
+
 nav {
   background-color: #fff;
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   display: block;
   width: 100%;
   border: none;
+  margin-bottom: 25px;
 }
 
 .logo {
-  width:auto;
+  width: auto;
   height: 80%;
 }
 
@@ -34,6 +39,7 @@ body {
 
 h1 {
   font-family: 'Rubik', sans-serif;
+  font-size: 42px;
 }
 
 .card-container {
@@ -41,6 +47,7 @@ h1 {
   max-width: 800px;
   height: 500px;
   background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.0);
 
   display: flex;
   flex-direction: column;
@@ -55,10 +62,48 @@ h1 {
 }
 
 .sign-in input[type="text"] {
-  width: 350px;
-  padding: 12px 20px;
-  margin-top: 5px;
+  width: 400px;
+  padding: 13px 20px;
+  margin-top: 25px;
   border: 1px solid #DADADA;
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #F6F7F9;
+}
+
+.blue-button {
+  padding: 13px 50px;
+  border-radius: 17px;
+  background-color: #5C6EFF;
+  color: white;
+  margin-top: 25px;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out,
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: #7a89ff;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
 }
