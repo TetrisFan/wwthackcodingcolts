@@ -54,9 +54,7 @@ h1 {
   background-color: #F6F7F9;
 }
 
-
-
-.input-group-text {
+#basic-addon1 {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -72,6 +70,8 @@ h1 {
   background-color: #01EEB8;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
   border: 0;
 }
 
