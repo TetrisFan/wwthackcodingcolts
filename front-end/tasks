@@ -5,13 +5,13 @@ things to do, blue button buds:
 
 do not work on pages that design hasn't fixed yet.
 pages count:
-- mission statement page (waiting until design to fix it)
-- your clubs page
-- sign up page (waiting on design to fix this, going to incorporate teachers/students into one page)
-- sign in page (waiting on design to fix this, going to incorporate teachers/students into one page)
+- mission statement page (waiting until design to fix it) [index.html]
+- your clubs page [yours-clubs.html]
+- sign up page (waiting on design to fix this, going to incorporate teachers/students into one page) [sign-up.html]
+- sign in page (waiting on design to fix this, going to incorporate teachers/students into one page) [sign-in.html]
 
 *** this will be one page, the following pages (1, 2, 3) will be inner page tabs controlled by javascript ***
-club page 
+club page
 1. club profile page
 2. posts page
 3. documents page
