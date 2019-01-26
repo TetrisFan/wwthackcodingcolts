@@ -58,6 +58,7 @@ h1 {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border: 0;
+  background-color: #F6F7F9;
 }
 
 .btn-primary {
@@ -90,9 +91,13 @@ h1 {
 }
 
 .btn-secondary:active {
-  background-color: #01EEB8;
+  background-color: #BBBBBB;
 }
 
 .btn-secondary:hover {
   background-color: #01EEB8;
+}
+
+.row {
+  justify-content: flex-end;
 }
