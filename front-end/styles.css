@@ -39,6 +39,14 @@ h1 {
   height: 100%;
 }
 
+.nav-tabs {
+  border-bottom: none;
+}
+
+.tab-item {
+  border: none;
+}
+
 .form-signin {
   width: 100%;
   max-width: 500px;
