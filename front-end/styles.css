@@ -39,15 +39,6 @@ h1 {
   height: 100%;
 }
 
-.nav-pills {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
-
-.nav-pills>li>a{border-radius:0}
-
-.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:white}
-
 .form-signin {
   width: 100%;
   max-width: 500px;
