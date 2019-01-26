@@ -19,7 +19,7 @@
     </nav>
 
     <main role="main" class="container text-center">
-      <div class="jumbotron d-flex flex-column justify-content-center">
+      <div class="jumbotron d-flex flex-column justify-content-around text-center">
         <img src="#" alt="Illustration">
         <h1>Your Clubs</h1>
         <p>If you're already part of an extracurricular, subscribe to your clubs on this list.</p>
@@ -27,11 +27,32 @@
         <div>
           <a class="btn btn-primary" href="#"  role="button">skip</a>
         </div>
-        <hr>
+        <hr class="my-4">
         <br>
         <br>
-        <div class="container">
-          <div class="row">
+        <div class="container d-flex flex-column justify-content-end">
+            <div class="row ml-5 my-4">
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <img src="#" alt="clubPic">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Club Name</span>
+                  </div>
+                  <button class="btn btn-secondary">subscribe</button>
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group input-group-lg">
+                  <img src="#" alt="clubPic">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Club Name</span>
+                  </div>
+                  <button class="btn btn-secondary">subscribe</button>
+                </div>
+              </div>
+            </div>
+
+          <div class="row ml-5 my-4">
             <div class="col">
               <div class="input-group input-group-lg">
                 <img src="#" alt="clubPic">
@@ -51,8 +72,8 @@
               </div>
             </div>
           </div>
-          <br>
-          <div class="row">
+
+          <div class="row ml-5 my-4">
             <div class="col">
               <div class="input-group input-group-lg">
                 <img src="#" alt="clubPic">
@@ -72,31 +93,11 @@
               </div>
             </div>
           </div>
-          <br>
-          <div class="row">
-            <div class="col">
-              <div class="input-group input-group-lg">
-                <img src="#" alt="clubPic">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Club Name</span>
-                </div>
-                <button class="btn btn-secondary">subscribe</button>
-              </div>
-            </div>
-            <div class="col">
-              <div class="input-group input-group-lg">
-                <img src="#" alt="clubPic">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Club Name</span>
-                </div>
-                <button class="btn btn-secondary">subscribe</button>
-              </div>
-            </div>
-          </div>
+
+          <form class="form-signin">
+            <button type="submit" class="btn btn-primary">submit</button>
+          </form>
       </div>
-        <form class="form-signin">
-          <button type="submit" class="btn btn-primary">submit</button>
-        </form>
     </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
