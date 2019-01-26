@@ -9,8 +9,17 @@ pages count:
 - your clubs page
 - sign up page (waiting on design to fix this, going to incorporate teachers/students into one page)
 - sign in page (waiting on design to fix this, going to incorporate teachers/students into one page)
-- profile page
-- posts page
-- documents page
-- sports profile page
+
+*** this will be one page, the following pages (1, 2, 3) will be inner page tabs controlled by javascript ***
+club page 
+1. club profile page
+2. posts page
+3. documents page
+
+*** this will be one page, the following pages (1, 2, 3) will be inner page tabs controlled by javascript ***
+sports page
+1. sports profile page
+2. posts page (same layout)
+3. documents page (same layout)
+
 - club directory page (waiting on design to fix this)
