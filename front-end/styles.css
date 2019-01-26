@@ -39,27 +39,14 @@ h1 {
   height: 100%;
 }
 
-.nav-tabs {
-  border: 0;
-  padding: 10px;
-  background-color: #FFFFFF;
+.nav-pills {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
-.nav-tabs>li>a {
-  color: #3E4A59;
-  border: 0;
-}
+.nav-pills>li>a{border-radius:0}
 
-.nav-tabs>li>a:hover {
-  color: #3E4A59;
-  border: 0;
-}
-
-.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover {
-  color: #3E4A59;
-  border: 0;
-}
+.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:white}
 
 .form-signin {
   width: 100%;
