@@ -54,6 +54,12 @@ h1 {
   background-color: #F6F7F9;
 }
 
+#basic-addon1 {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 0;
+}
+
 .btn-primary {
   background-color: #5C6EFF;
   border-radius: 20px;
@@ -68,4 +74,25 @@ h1 {
 /* need to change this background color to a lighter shade of #5C6EFF */
 .btn-primary:hover {
   background-color: #5C6EFF;
+}
+
+.input-group-prepend {
+  padding-left: 15px;
+}
+
+.btn-secondary {
+  background-color: #01EEB8;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border: 0;
+}
+
+.btn-secondary:active {
+  background-color: #01EEB8;
+}
+
+.btn-secondary:hover {
+  background-color: #01EEB8;
 }
