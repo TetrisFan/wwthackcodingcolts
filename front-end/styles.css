@@ -67,6 +67,19 @@ h1 {
   padding: 10px 50px;
 }
 
+.btn-primary:active {
+  background-color: #5C6EFF;
+}
+
+/* need to change this background color to a lighter shade of #5C6EFF */
+.btn-primary:hover {
+  background-color: #5C6EFF;
+}
+
+.input-group-prepend {
+  padding-left: 15px;
+}
+
 .btn-secondary {
   background-color: #01EEB8;
   border-top-right-radius: 20px;
@@ -76,11 +89,10 @@ h1 {
   border: 0;
 }
 
-.btn-primary:active {
-  background-color: #5C6EFF;
+.btn-secondary:active {
+  background-color: #01EEB8;
 }
 
-/* need to change this background color to a lighter shade of #5C6EFF */
-.btn-primary:hover {
-  background-color: #5C6EFF;
+.btn-secondary:hover {
+  background-color: #01EEB8;
 }
