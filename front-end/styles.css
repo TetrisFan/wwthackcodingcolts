@@ -54,11 +54,25 @@ h1 {
   background-color: #F6F7F9;
 }
 
+
+
+.input-group-text {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
 .btn-primary {
   background-color: #5C6EFF;
   border-radius: 20px;
   border: 0;
   padding: 10px 50px;
+}
+
+.btn-secondary {
+  background-color: #01EEB8;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 0;
 }
 
 .btn-primary:active {
