@@ -40,10 +40,14 @@ h1 {
 }
 
 .nav-tabs {
-  border-bottom: none;
+  border: none;
+  padding: 10px;
+  color: #3E4A59;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-.tab-item {
+.nav-tabs li {
   border: none;
 }
 
