@@ -57,6 +57,7 @@ h1 {
 #basic-addon1 {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  border: 0;
 }
 
 .btn-primary {
