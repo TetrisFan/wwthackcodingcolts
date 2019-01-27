@@ -10,27 +10,55 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white mb-4 border-bottom">
+    <nav class="navbar navbar-expand-md navbar-light bg-white mb-4 border-bottom justify-content-between">
       <a class="navbar-brand" href="#">Logo</a>
     </nav>
 
     <main role="main" class="container text-center">
       <div class="jumbotron d-flex flex-column justify-content-center">
         <h1>Sign Up</h1>
-        <form class="form-signin">
-          <input type="text" class="form-control" placeholder="First Name">
-          <input type="text" class="form-control" placeholder="Last Name">
-          <input type="text" class="form-control" placeholder="Student ID">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          <button type="submit" class="btn btn-primary">Sign Up</button>
+        <p>I'm a...</p>
+        <form>
+          <input type="radio" class="mr-1" name="user_type" value="student" checked/>
+          <label class="mr-3">Student</label>
+
+          <input type="radio" class="mr-1" name="user_type" value="teacher"/>
+          <label>Teacher</label>
         </form>
+
+        <div id="student" style="display: none">
+          <form class="form-signin">
+            <input type="text" class="form-control" placeholder="Student ID">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
+        <div id="teacher" style="display: none">
+          <form class="form-signin">
+            <input type="text" class="form-control" placeholder="Email">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
       </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#student").show();
+        $("#teacher").hide();
+
+        $("input[name='user_type']:radio").click(function() {
+          $("#student").toggle($(this).val() == "student");
+          $("#teacher").toggle($(this).val() == "teacher");
+        });
+      });
+    </script>
   </body>
 </html>
