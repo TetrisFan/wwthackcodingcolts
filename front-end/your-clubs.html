@@ -20,7 +20,7 @@
 
     <main role="main" class="container text-center">
       <div class="jumbotron d-flex flex-column justify-content-around text-center">
-        <img src="#" alt="Illustration">
+        <img src="#" class="img-fluid" alt="Illustration">
         <h1>Your Clubs</h1>
         <p>If you're already part of an extracurricular, subscribe to your clubs on this list.</p>
         <p>If you're not, then you can skip this step.</p>
@@ -30,7 +30,8 @@
         <hr class="my-4">
         <br>
         <br>
-        <div class="container d-flex flex-column justify-content-end">
+        <!-- Here begins the subscribe buttons as well as their couterparts -->
+        <div class="container d-flex flex-column justify-content-start">
             <div class="row ml-5 my-4">
               <div class="col">
                 <div class="input-group input-group-lg">
@@ -102,5 +103,11 @@
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    <!-- This is the script for the toggle button thing -->
+    <script>
+      $('.btn').click(function() {
+          $(this).toggleClass('active');
+      });
+    </script>
   </body>
 </html>
