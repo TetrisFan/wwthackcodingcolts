@@ -1,6 +1,7 @@
 things to do, blue button buds:
 - change the fonts to a thinner font weight
 - override bootstrap's button's active/hover states
+- organize messy css stylesheet
 - create mobile versions for pages (save this for last)
 
 do not work on pages that design hasn't fixed yet.
