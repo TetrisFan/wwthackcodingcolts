@@ -186,3 +186,31 @@ hr {
   padding: 30px 60px;
   text-align: left;
 }
+
+.card-img-top {
+  max-width: 180px;
+  max-height: 150px;
+  width: 100%;
+}
+
+.card {
+  max-width: 180px;
+  width: 100%;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-deck:last-of-type{
+  margin-top: 10px;
+}
+
+.card-body {
+  max-height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body h5 {
+  margin: 0;
+}
