@@ -1,5 +1,6 @@
 ***** GENERAL TASKS *****
 - change the fonts to a thinner font weight
+- link pages to each other
 - override bootstrap's button's active/hover states
   (when you click on some of the buttons, there's a split second where it
   turns into a different color.)
