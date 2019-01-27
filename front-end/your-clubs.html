@@ -38,7 +38,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Club Name</span>
                   </div>
-                  <button type="button" class="btn btn-secondary" id="button" onclick="subscribeFunction">subscribe</button>
+                  <button type="button" class="btn btn-secondary" onclick="subscribeFunction()"><div id="subButton">subscribe</div></button>
                 </div>
               </div>
               <div class="col">
@@ -111,7 +111,7 @@
     <!-- My code for swapping the text of the secondary button -->
     <script>
       function subscribeFunction() {
-        var x = document.getElementById("button");
+        var x = document.getElementById("subButton");
         if (x.innerHTML === "subscribe") {
           x.innerHTML = "requested";
         } else {
