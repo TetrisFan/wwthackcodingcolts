@@ -1,4 +1,4 @@
-things to do, blue button buds:
+***** GENERAL TASKS *****
 - change the fonts to a thinner font weight
 - override bootstrap's button's active/hover states
   (when you click on some of the buttons, there's a split second where it
@@ -7,25 +7,33 @@ things to do, blue button buds:
   (styling general elements [the red words] at the top, class styles in order of
   page organization, duplicated css styles need to be shortened, go back and
   replace unnecessary code with bootstrap classes)
-- 
-- create mobile versions for pages (save this for last)
 
-pages count:
-- mission statement page (complete!)
-- your clubs page
-- sign up page (complete!)
-- sign in page (complete!)
-
-*** this will be one page, the following pages (1, 2, 3) will be inner page tabs controlled by javascript ***
-club page (complete!)
-1. club profile page (complete!)
-2. posts page (complete!)
-3. documents page (complete!)
-
-*** this will be one page, the following pages (1, 2, 3) will be inner page tabs controlled by javascript ***
-sports page (complete!)
-1. sports profile page (complete!)
-2. posts page (complete!)
-3. documents page (complete!)
-
-- club directory page (complete!)
+***** THINGS TO EDIT ON THESE PAGES *****
+- MISSION STATEMENT PAGE
+  - center 'Create an Account' button to center when viewport is small
+- YOUR CLUBS PAGE
+  - correct responsiveness
+- SIGN UP PAGE
+  - customize radio buttons
+  - change submit color to green/blue depending on radio button checked
+  - add icons inside the input type boxes
+- SIGN IN PAGE
+  - customize radio buttons
+  - change submit color to green/blue depending on radio button checked
+  - add icons inside the input type boxes
+- CLUB PAGE
+  1. CLUB PROFILE PAGE
+    - style temporary club image pic at the top
+    - fix responsiveness of members
+  2. POSTS PAGE
+    - headline modal box
+  3. DOCUMENT PAGE
+- SPORTS PAGE
+  1. sports profile page
+    - style temporary club image pic at the top
+    - fix responsiveness of members
+  2. posts page
+    - headline modal box
+  3. documents page
+- CLUB DIRECTORY PAGE
+  - style search bar
