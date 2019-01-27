@@ -8,8 +8,8 @@ do not work on pages that design hasn't fixed yet.
 pages count:
 - mission statement page (complete!)
 - your clubs page
-- sign up page (working on tabbed content)
-- sign in page
+- sign up page (complete!)
+- sign in page (complete!)
 
 *** this will be one page, the following pages (1, 2, 3) will be inner page tabs controlled by javascript ***
 club page
