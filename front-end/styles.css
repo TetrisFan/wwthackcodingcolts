@@ -29,8 +29,21 @@ h1 {
   font-size: 42px;
 }
 
+.nav-link, .nav-link:hover {
+  color: #3E4A59;
+}
+
+.mission-container {
+  min-height: 85vh;
+  width: 100%;
+}
+
 .container {
   height: 100%;
+}
+
+.row {
+  width: 100%;
 }
 
 .jumbotron {
@@ -71,12 +84,13 @@ h1 {
   width: 80%;
 }
 
+/*
 .col {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+}*/
 
 .profile-pic {
   height: 100px;
@@ -122,6 +136,10 @@ h1 {
   background-color: #5C6EFF;
 }
 
+.shadow {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+}
+
 .input-group-prepend {
   padding-left: 15px;
 }
@@ -141,8 +159,4 @@ h1 {
 
 .btn-secondary:hover {
   background-color: #01EEB8;
-}
-
-.row {
-  justify-content: flex-end;
 }
