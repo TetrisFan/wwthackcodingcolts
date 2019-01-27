@@ -1,7 +1,13 @@
 things to do, blue button buds:
 - change the fonts to a thinner font weight
 - override bootstrap's button's active/hover states
+  (when you click on some of the buttons, there's a split second where it
+  turns into a different color.)
 - organize messy css stylesheet
+  (styling general elements [the red words] at the top, class styles in order of
+  page organization, duplicated css styles need to be shortened, go back and
+  replace unnecessary code with bootstrap classes)
+- 
 - create mobile versions for pages (save this for last)
 
 pages count:
