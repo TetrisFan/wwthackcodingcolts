@@ -84,17 +84,9 @@ h1 {
   width: 80%;
 }
 
-/*
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}*/
-
 .profile-pic {
-  height: 100px;
-  width: 100px;
+  width: 80px;
+  height: auto;
   border-radius: 100%;
 }
 
@@ -159,4 +151,38 @@ h1 {
 
 .btn-secondary:hover {
   background-color: #01EEB8;
+}
+
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: #DADADA;
+  height: 1px;
+}
+
+.position {
+  font-size: 12px;
+}
+
+.headline-container {
+  max-width: 80%;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.headline-container:last-child {
+  margin-bottom: 50px;
+}
+
+.headline {
+  border-bottom: 1px solid #DADADA;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.headline-text {
+  padding: 30px 60px;
+  text-align: left;
 }
