@@ -105,6 +105,18 @@ h1 {
   background-color: #F6F7F9;
 }
 
+.form-inline {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-inline input {
+  padding: 5px 20px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+  background-color: #F6F7F9;
+}
+
 #basic-addon1 {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -179,8 +191,11 @@ hr {
 
 .headline {
   border-bottom: 1px solid #DADADA;
-  padding: 20px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+}
+
+.headline h1 {
+  margin-bottom: 0px;
 }
 
 .headline-text {
