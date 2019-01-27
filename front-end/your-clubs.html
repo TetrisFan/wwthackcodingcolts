@@ -39,7 +39,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Club Name</span>
                   </div>
-                  <button type="button" class="btn btn-secondary">subscribe</button>
+                  <button type="button" class="btn btn-secondary" id="button" onclick="subscribeFunction">subscribe</button>
                 </div>
               </div>
               <div class="col">
@@ -108,6 +108,17 @@
       $('.btn').click(function() {
           $(this).toggleClass('active');
       });
+    </script>
+    <!-- My code for swapping the text of the secondary button -->
+    <script>
+      function subscribeFunction() {
+        var x = document.getElementById("button");
+        if (x.innerHTML === "subscribe") {
+          x.innerHTML = "requested";
+        } else {
+          x.innerHTML = "subscribe";
+        }
+      }
     </script>
   </body>
 </html>
