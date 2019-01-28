@@ -163,9 +163,12 @@ h1 {
 */
 
 /* Here's my css code for toggling the secondary button */
-.btn-secondary.active, .btn-secondary:active {
-    background: #cecece;
-    text-decoration: none;
+.btn-secondary.active {
+    background-color: #BBBBBB;
+}
+
+.btn-secondary:active {
+  background-color: #BBBBBB;
 }
 
 .btn-secondary:hover {
