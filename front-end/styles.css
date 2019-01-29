@@ -29,6 +29,16 @@ h1 {
   font-size: 42px;
 }
 
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: #DADADA;
+  height: 1px;
+  margin-bottom: 3px;
+}
+
 .nav-link, .nav-link:hover {
   color: #3E4A59;
 }
@@ -117,6 +127,16 @@ h1 {
   background-color: #F6F7F9;
 }
 
+.subscribe-box {
+  max-width: 300px;
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 #basic-addon1 {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -144,18 +164,6 @@ h1 {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
 
-.input-group-prepend {
-  padding-left: 15px;
-}
-
-
-
-.noWrap {
-  float: left;
-  clear: both;
-}
-
-
 .btn-secondary {
   background-color: #01EEB8;
   border-top-right-radius: 20px;
@@ -164,21 +172,9 @@ h1 {
   border-top-left-radius: 0px;
   border: 0;
 }
- /*
-.btn-secondary:active {
-  background-color: #BBBBBB;
-}
 
-#01EEB8
-*/
-
-/* Here's my css code for toggling the secondary button */
 .btn-secondary.active {
     background-color: #BBBBBB;
-}
-
-.btn-secondary:active {
-  background-color: #BBBBBB;
 }
 
 .btn-secondary:hover {
@@ -189,23 +185,11 @@ h1 {
   background-color: #BBBBBB;
 }
 
-
-
-
 .club-profile-pic {
   width: 50px;
   height: 50px;
   border-radius: 100%;
-}
-
-hr {
-  border: 0;
-  clear: both;
-  display: block;
-  width: 100%;
-  background-color: #DADADA;
-  height: 1px;
-  margin-bottom: 3px;
+  margin-right: 5px;
 }
 
 .position {
