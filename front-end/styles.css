@@ -148,6 +148,14 @@ h1 {
   padding-left: 15px;
 }
 
+
+
+.noWrap {
+  float: left;
+  clear: both;
+}
+
+
 .btn-secondary {
   background-color: #01EEB8;
   border-top-right-radius: 20px;
@@ -180,6 +188,7 @@ h1 {
 .btn-secondary.toggle {
   background-color: #BBBBBB;
 }
+
 
 
 
