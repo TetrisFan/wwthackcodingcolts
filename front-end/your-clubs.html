@@ -26,20 +26,20 @@
         <p>If you're already part of an extracurricular, subscribe to your clubs on this list.</p>
         <p>If you're not, then you can skip this step.</p>
         <div>
-          <a class="btn btn-primary" href="#"  role="button">skip</a>
+          <a class="btn btn-primary" href="#" role="button">skip</a>
         </div>
+
         <hr class="my-4">
 
-        <form class="form-signin">
+        <form class="form-signin d-flex flex-row justify-content-start">
           <input type="text" class="form-control" placeholder="search">
-          <button type="submit" class="btn btn-primary button-sm">search</button>
         </form>
         <!-- Here begins the subscribe buttons as well as their couterparts -->
-        <form>
-          <div class="d-flex flex-column justify-content-start">
-              <div class="row ml-5 my-4">
-                <div class="col noWrap">
-                  <div class="input-group input-group-lg">
+        <form class="d-flex flex-column align-items-center">
+          <div class="mx-0 d-flex flex-column align-items-center">
+              <div class="row mx-0 d-flex flex-row justify-content-center">
+                <div class="col-sm-12 col-md-6 col-lg">
+                  <div class="input-group input-group-lg d-flex flex-row justify-content-center">
                     <img class="club-profile-pic" src="gray.png"/>
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">Club Name</span>
@@ -47,8 +47,8 @@
                     <button type="button" class="btn btn-secondary" onclick="subscribeFunction()"><div id="subButton">subscribe</div></button>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="input-group input-group-lg">
+                <div class="col-sm-12 col-md-6 col-lg">
+                  <div class="input-group input-group-lg d-flex flex-row justify-content-center">
                     <img class="club-profile-pic" src="gray.png"/>
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">Club Name</span>
@@ -58,9 +58,9 @@
                 </div>
               </div>
 
-            <div class="row ml-5 my-4">
-              <div class="col">
-                <div class="input-group input-group-lg">
+            <div class="row mx-0">
+              <div class="col-sm-12 col-md-6 col-lg">
+                <div class="input-group input-group-lg d-flex flex-row justify-content-center">
                   <img class="club-profile-pic" src="gray.png"/>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Club Name</span>
@@ -68,8 +68,8 @@
                   <button type="button" class="btn btn-secondary" onclick="subscribeFunction3()"><div id="subButton3">subscribe</div></button>
                 </div>
               </div>
-              <div class="col">
-                <div class="input-group input-group-lg">
+              <div class="col-sm-12 col-md-6 col-lg">
+                <div class="input-group input-group-lg d-flex flex-row justify-content-center">
                   <img class="club-profile-pic" src="gray.png"/>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Club Name</span>
@@ -79,9 +79,9 @@
               </div>
             </div>
 
-            <div class="row ml-5 my-4">
-              <div class="col">
-                <div class="input-group input-group-lg">
+            <div class="row mx-0">
+              <div class="col-sm-12 col-md-6 col-lg">
+                <div class="input-group input-group-lg d-flex flex-row justify-content-center">
                   <img class="club-profile-pic" src="gray.png"/>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Club Name</span>
@@ -89,8 +89,8 @@
                   <button type="button" class="btn btn-secondary" onclick="subscribeFunction5()"><div id="subButton5">subscribe</div></button>
                 </div>
               </div>
-              <div class="col">
-                <div class="input-group input-group-lg">
+              <div class="col-sm-12 col-md-6 col-lg">
+                <div class="input-group input-group-lg d-flex flex-row justify-content-center">
                   <img class="club-profile-pic" src="gray.png"/>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Club Name</span>
@@ -101,8 +101,10 @@
             </div>
 
             <div>
-              <button type="submit" class="btn btn-primary">submit</button>
+              <!-- <button class="btn btn-primary"><a href="#" class="btn-text">submit</a></button> -->
+              <a class="btn btn-primary btn-text mt-3" role="button" href="#">submit</a>
             </div>
+          </div>
         </form>
       </div>
 
