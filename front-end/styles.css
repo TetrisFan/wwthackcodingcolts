@@ -144,10 +144,11 @@ hr {
   background-color: #F6F7F9;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show.btn-primary.dropdown-toggle{
-  background-color:#5C6EFF;
+.shadow {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
 
+/* BUTTONS */
 .btn-primary {
   background-color: #5C6EFF;
   border-radius: 20px;
@@ -159,18 +160,17 @@ hr {
   background-color: #5C6EFF;
 }
 
-/* need to change this background color to a lighter shade of #5C6EFF */
 .btn-primary:hover {
   background-color: #5C6EFF;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show.btn-primary.dropdown-toggle{
+  background-color:#5C6EFF;
 }
 
 .btn-text, .btn-text:hover {
   text-decoration: none;
   color: #ffffff;
-}
-
-.shadow {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary {
@@ -196,6 +196,7 @@ hr {
   padding: 0;
 }
 
+/* CLUB PAGE */
 .club-profile-pic {
   width: 50px;
   height: 50px;
@@ -203,10 +204,11 @@ hr {
   margin-right: 5px;
 }
 
-.position {
+.club-role {
   font-size: 12px;
 }
 
+/* HEADLINE CONTAINERS */
 .headline-container {
   max-width: 80%;
   background-color: white;
@@ -231,10 +233,9 @@ hr {
   text-align: left;
 }
 
-.card-img-top {
-  max-width: 180px;
-  max-height: 150px;
-  width: 100%;
+/* MEMBER PROFILE CARDS */
+.card-deck:last-of-type {
+  margin-top: 10px;
 }
 
 .card {
@@ -243,8 +244,10 @@ hr {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.card-deck:last-of-type{
-  margin-top: 10px;
+.card-img-top {
+  max-width: 180px;
+  max-height: 150px;
+  width: 100%;
 }
 
 .card-body {
@@ -257,8 +260,4 @@ hr {
 
 .card-body h5 {
   margin: 0;
-}
-
-.green-button {
-  background-color: #01EEB8;
 }
