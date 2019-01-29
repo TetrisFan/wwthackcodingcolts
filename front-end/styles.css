@@ -124,6 +124,10 @@ h1 {
   background-color: #F6F7F9;
 }
 
+.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show.btn-primary.dropdown-toggle{
+  background-color:#5C6EFF;
+}
+
 .btn-primary {
   background-color: #5C6EFF;
   border-radius: 20px;
