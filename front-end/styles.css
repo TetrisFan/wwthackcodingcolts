@@ -33,21 +33,6 @@ hr {
   border: 0;
   clear: both;
   display: block;
-<<<<<<< HEAD
-=======
-  width: 100%;
-  background-color: #DADADA;
-  height: 1px;
-  margin-bottom: 3px;
-}
-
-.nav-link, .nav-link:hover {
-  color: #3E4A59;
-}
-
-.mission-container {
-  min-height: 85vh;
->>>>>>> e6531b3ed0e8caa1fe98bde4b10e3df307a4fb9e
   width: 100%;
   background-color: #DADADA;
   height: 1px;
@@ -68,68 +53,6 @@ hr {
 }
 
 
-<<<<<<< HEAD
-=======
-.nav-pills .nav-link.active,.nav-pills .show>.nav-link {
-  color: #3E4A59;
-  background-color: #fff;
-  border-bottom: 3px solid #01EEB8;
-}
-
-.content-container {
-  width: 80%;
-}
-
-.profile-pic {
-  width: 80px;
-  height: auto;
-  border-radius: 100%;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: 500px;
-  padding: 15px;
-  margin: 0 auto;
-}
-
-.form-signin input {
-  margin-bottom: 25px;
-  padding: 10px 20px;
-  border: 1px solid #DADADA;
-  border-radius: 20px;
-  background-color: #F6F7F9;
-}
-
-.form-inline {
-  width: 100%;
-  max-width: 400px;
-}
-
-.form-inline input {
-  padding: 5px 20px;
-  border: 1px solid #DADADA;
-  border-radius: 20px;
-  background-color: #F6F7F9;
-}
-
-.subscribe-box {
-  max-width: 300px;
-  width: 100%;
-}
-
-.input-group {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-#basic-addon1 {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border: 0;
-  background-color: #F6F7F9;
-}
->>>>>>> e6531b3ed0e8caa1fe98bde4b10e3df307a4fb9e
 
 .btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show.btn-primary.dropdown-toggle{
   background-color:#5C6EFF;
@@ -151,18 +74,6 @@ hr {
   background-color: #5C6EFF;
 }
 
-<<<<<<< HEAD
-=======
-.btn-text, .btn-text:hover {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.shadow {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
-}
-
->>>>>>> e6531b3ed0e8caa1fe98bde4b10e3df307a4fb9e
 .btn-secondary {
   background-color: #01EEB8;
   border-top-right-radius: 20px;
@@ -171,9 +82,21 @@ hr {
   border-top-left-radius: 0px;
   border: 0;
 }
+ /*
+.btn-secondary:active {
+  background-color: #BBBBBB;
+}
 
+#01EEB8
+*/
+
+/* Here's my css code for toggling the secondary button */
 .btn-secondary.active {
     background-color: #BBBBBB;
+}
+
+.btn-secondary:active {
+  background-color: #BBBBBB;
 }
 
 .btn-secondary:hover {
@@ -182,11 +105,8 @@ hr {
 
 .btn-secondary.toggle {
   background-color: #BBBBBB;
-  margin: 0;
-  padding: 0;
 }
 
-<<<<<<< HEAD
 .card-img-top {
 max-width: 180px;
 max-height: 150px;
@@ -213,13 +133,6 @@ align-items: center;
 
 .card-body h5 {
 margin: 0;
-=======
-.club-profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin-right: 5px;
->>>>>>> e6531b3ed0e8caa1fe98bde4b10e3df307a4fb9e
 }
 
 
