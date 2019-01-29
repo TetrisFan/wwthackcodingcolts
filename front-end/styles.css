@@ -140,6 +140,13 @@ h1 {
   background-color: #5C6EFF;
 }
 
+.btn-text, .btn-text:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+
 .shadow {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
