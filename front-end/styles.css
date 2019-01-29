@@ -25,25 +25,24 @@ body {
 }
 
 h1 {
-  font-family: 'Rubik', sans-serif;s
+  font-family: 'Rubik', sans-serif;
   font-size: 42px;
 }
 
-.nav-link, .nav-link:hover {
-  color: #3E4A59;
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: #DADADA;
+  height: 1px;
+  margin-bottom: 3px;
 }
 
-.mission-container {
-  min-height: 85vh;
-  width: 100%;
-}
+
 
 .container {
   height: 100%;
-}
-
-.row {
-  width: 100%;
 }
 
 .jumbotron {
@@ -53,76 +52,7 @@ h1 {
   min-height: 80%;
 }
 
-.nav-container {
-  width: 100%;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-}
 
-.nav {
-  max-width: 700px;
-  width: 100%;
-}
-
-.nav-pills {
-  line-height: 40px;
-  padding: 0;
-  font-size: 18px;
-}
-
-.nav-pills .nav-link {
-  border-radius: 0;
-  color: #3E4A59;
-}
-
-.nav-pills .nav-link.active,.nav-pills .show>.nav-link {
-  color: #3E4A59;
-  background-color: #fff;
-  border-bottom: 3px solid #01EEB8;
-}
-
-.content-container {
-  width: 80%;
-}
-
-.profile-pic {
-  width: 80px;
-  height: auto;
-  border-radius: 100%;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: 500px;
-  padding: 15px;
-  margin: 0 auto;
-}
-
-.form-signin input {
-  margin-bottom: 25px;
-  padding: 10px 20px;
-  border: 1px solid #DADADA;
-  border-radius: 20px;
-  background-color: #F6F7F9;
-}
-
-.form-inline {
-  width: 100%;
-  max-width: 400px;
-}
-
-.form-inline input {
-  padding: 5px 20px;
-  border: 1px solid #DADADA;
-  border-radius: 20px;
-  background-color: #F6F7F9;
-}
-
-#basic-addon1 {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border: 0;
-  background-color: #F6F7F9;
-}
 
 .btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show.btn-primary.dropdown-toggle{
   background-color:#5C6EFF;
@@ -143,22 +73,6 @@ h1 {
 .btn-primary:hover {
   background-color: #5C6EFF;
 }
-
-.shadow {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
-}
-
-.input-group-prepend {
-  padding-left: 15px;
-}
-
-
-
-.noWrap {
-  float: left;
-  clear: both;
-}
-
 
 .btn-secondary {
   background-color: #01EEB8;
@@ -193,27 +107,39 @@ h1 {
   background-color: #BBBBBB;
 }
 
-
-
-
-.club-profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
+.card-img-top {
+max-width: 180px;
+max-height: 150px;
+width: 100%;
 }
 
-hr {
-  border: 0;
-  clear: both;
-  display: block;
-  width: 100%;
-  background-color: #DADADA;
-  height: 1px;
-  margin-bottom: 3px;
+.card {
+max-width: 180px;
+width: 100%;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.position {
-  font-size: 12px;
+.card-deck:last-of-type{
+margin-top: 10px;
+}
+
+.card-body {
+max-height: 20px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.card-body h5 {
+margin: 0;
+}
+
+
+
+.headline {
+  border-bottom: 1px solid #DADADA;
+  padding-top: 20px;
 }
 
 .headline-container {
@@ -226,11 +152,6 @@ hr {
   margin-bottom: 50px;
 }
 
-.headline {
-  border-bottom: 1px solid #DADADA;
-  padding-top: 20px;
-}
-
 .headline h1 {
   margin-bottom: 0px;
 }
@@ -240,34 +161,123 @@ hr {
   text-align: left;
 }
 
-.card-img-top {
-  max-width: 180px;
-  max-height: 150px;
+
+
+.form-signin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin input {
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+  background-color: #F6F7F9;
+}
+
+.form-inline {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-inline input {
+  padding: 5px 20px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+  background-color: #F6F7F9;
+}
+
+
+
+.nav-container {
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  max-width: 700px;
   width: 100%;
 }
 
-.card {
-  max-width: 180px;
-  width: 100%;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+.nav-pills {
+  line-height: 40px;
+  padding: 0;
+  font-size: 18px;
 }
 
-.card-deck:last-of-type{
-  margin-top: 10px;
+.nav-pills .nav-link {
+  border-radius: 0;
+  color: #3E4A59;
 }
 
-.card-body {
-  max-height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.nav-pills .nav-link.active,.nav-pills .show>.nav-link {
+  color: #3E4A59;
+  background-color: #fff;
+  border-bottom: 3px solid #01EEB8;
 }
 
-.card-body h5 {
-  margin: 0;
+.nav-link, .nav-link:hover {
+  color: #3E4A59;
 }
+
+
+
+.club-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.profile-pic {
+  width: 80px;
+  height: auto;
+  border-radius: 100%;
+}
+
+
 
 .green-button {
   background-color: #01EEB8;
+}
+
+.shadow {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.content-container {
+  width: 80%;
+}
+
+.mission-container {
+  min-height: 85vh;
+  width: 100%;
+}
+
+.noWrap {
+  float: left;
+  clear: both;
+}
+
+.row {
+  width: 100%;
+}
+
+.input-group-prepend {
+  padding-left: 15px;
+}
+
+.position {
+  font-size: 12px;
+}
+
+
+
+#basic-addon1 {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 0;
+  background-color: #F6F7F9;
 }
