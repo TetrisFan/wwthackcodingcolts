@@ -39,6 +39,14 @@ hr {
   margin-bottom: 3px;
 }
 
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #DADADA;
+  display: flex;
+  flex: row;
+  justify-content: between;
+}
+
 .nav-link, .nav-link:hover {
   color: #3E4A59;
 }
