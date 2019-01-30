@@ -152,12 +152,16 @@ hr {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show.btn-primary.dropdown-toggle{
   background-color:#5C6EFF;
 }
 
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
+=======
 =======
 >>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 .btn-text, .btn-text:hover {
@@ -172,6 +176,9 @@ hr {
 }
 
 >>>>>>> e6531b3ed0e8caa1fe98bde4b10e3df307a4fb9e
+<<<<<<< HEAD
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
+=======
 >>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 .btn-secondary {
   background-color: #01EEB8;
@@ -197,9 +204,12 @@ hr {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* CLUB PAGE */
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 .card-img-top {
 max-width: 180px;
 max-height: 150px;
@@ -227,6 +237,9 @@ align-items: center;
 .card-body h5 {
 margin: 0;
 =======
+<<<<<<< HEAD
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
+=======
 >>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 .club-profile-pic {
   width: 50px;
@@ -237,14 +250,20 @@ margin: 0;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .club-role {
   font-size: 12px;
 =======
+=======
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 
 
 .headline {
   border-bottom: 1px solid #DADADA;
   padding-top: 20px;
+<<<<<<< HEAD
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
+=======
 >>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 }
 
@@ -268,6 +287,7 @@ margin: 0;
   text-align: left;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* MEMBER PROFILE CARDS */
 .card-deck:last-of-type {
@@ -320,9 +340,63 @@ margin: 0;
 .nav {
   max-width: 700px;
   width: 100%;
+=======
+
+
+.form-signin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin input {
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+  background-color: #F6F7F9;
+}
+
+.form-inline {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-inline input {
+  padding: 5px 20px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+  background-color: #F6F7F9;
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 }
 <<<<<<< HEAD
 =======
+
+<<<<<<< HEAD
+.nav-pills {
+  line-height: 40px;
+  padding: 0;
+  font-size: 18px;
+}
+
+.nav-pills .nav-link {
+  border-radius: 0;
+  color: #3E4A59;
+}
+
+=======
+
+
+.nav-container {
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  max-width: 700px;
+  width: 100%;
+}
 
 .nav-pills {
   line-height: 40px;
@@ -335,6 +409,7 @@ margin: 0;
   color: #3E4A59;
 }
 
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
 .nav-pills .nav-link.active,.nav-pills .show>.nav-link {
   color: #3E4A59;
   background-color: #fff;
@@ -403,4 +478,7 @@ margin: 0;
   border: 0;
   background-color: #F6F7F9;
 }
+<<<<<<< HEAD
+>>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
+=======
 >>>>>>> e606c8b7c434c66c57259acf13a6e01a313cda3c
