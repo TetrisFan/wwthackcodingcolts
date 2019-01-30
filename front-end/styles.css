@@ -13,6 +13,10 @@ Requested button: #BBBBBB
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 @import url('https://fonts.googleapis.com/css?family=Karla');
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -44,28 +48,33 @@ hr {
 }
 
 .container-fluid {
-  height: 100vh;
+  height: 100%;
 }
 
 .navbar {
   background-color: white;
   border-bottom: 1px solid #DADADA;
-  width: 100vw;
+  width: 100%;
+
   display: flex;
   flex: row;
   justify-content: between;
 }
 
-.nav-link, .nav-link:hover {
+/* links on the main navbar i.e "sign in" link */
+.nav-link {
   color: #3E4A59;
+}
+
+.nav-link:hover {
+  background-color: #f2f2f2;
+  color: #343f4b;
 }
 
 .mission-container {
   min-height: 85vh;
   width: 100%;
 }
-
-
 
 .jumbotron {
   background-color: #FFFFFF;
@@ -300,7 +309,6 @@ margin: 0;
   width: 100%;
 }
 
-
 .form-signin {
   width: 100%;
   max-width: 500px;
@@ -364,10 +372,6 @@ margin: 0;
   color: #3E4A59;
   background-color: #fff;
   border-bottom: 3px solid #01EEB8;
-}
-
-.nav-link, .nav-link:hover {
-  color: #3E4A59;
 }
 
 .club-profile-pic {
