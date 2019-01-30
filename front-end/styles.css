@@ -65,35 +65,22 @@ hr {
   background-color: white;
   border-bottom: 1px solid #DADADA;
   width: 100%;
+
   display: flex;
   flex: row;
   justify-content: between;
 }
 
-/* links on the main navbar i.e "sign in" link */
 .nav-link {
   color: #3E4A59;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
-.navbar .nav-link:hover {
+.nav-link:hover {
   background-color: #f2f2f2;
   color: #343f4b;
-}
-
-/* sign-in form */
-.form-signin {
-  width: 100%;
-  max-width: 500px;
-  padding: 15px;
-  margin: 0 auto;
-}
-
-.form-signin input {
-  margin-bottom: 25px;
-  padding: 10px 20px;
-  border: 1px solid #DADADA;
-  border-radius: 20px;
-  background-color: #F6F7F9;
+  transition: background-color 0.4s ease;
 }
 
 .nav-container {
@@ -103,6 +90,11 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.nav-pills .nav-link:hover {
+  border-top: 3px solid #f2f2f2;
+  border-bottom: 3px solid #f2f2f2;
 }
 
 .nav {
@@ -126,25 +118,40 @@ hr {
 .nav-pills .nav-link {
   border-radius: 0;
   color: #3E4A59;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
-.nav-link:hover {
-  border-top: 3px solid #f2f2f2;
-  border-bottom: 3px solid #f2f2f2;
-  background-color: #f2f2f2;
-  color: #343f4b;
-  transition: background-color 0.4s ease;
+/* sign-in form */
+.form-signin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin input {
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+  background-color: #F6F7F9;
+}
+
+/* club page */
+.club-profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin-bottom: 5px;
+}
+
+.club-role {
+  font-size: 12px;
+  margin-top: 0;
 }
 
 .mission-container {
   min-height: 85vh;
   width: 100%;
-}
-
-.content-container {
-  width: 80%;
 }
 
 .profile-pic {
@@ -230,6 +237,13 @@ hr {
   padding: 0;
 }
 
+
+
+.headline {
+  border-bottom: 1px solid #DADADA;
+  padding-top: 20px;
+}
+
 .card-img-top {
   max-width: 180px;
   max-height: 150px;
@@ -256,22 +270,6 @@ hr {
 
 .card-body h5 {
   margin: 0;
-}
-
-.club-profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin-right: 5px;
-}
-
-.club-role {
-  font-size: 12px;
-}
-
-.headline {
-  border-bottom: 1px solid #DADADA;
-  padding-top: 20px;
 }
 
 /* HEADLINE CONTAINERS */
@@ -316,12 +314,6 @@ hr {
   background-color: #F6F7F9;
 }
 
-.club-profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-}
-
 .profile-pic {
   width: 80px;
   height: auto;
@@ -331,10 +323,6 @@ hr {
 .noWrap {
   float: left;
   clear: both;
-}
-
-.row {
-  width: 100%;
 }
 
 .input-group-prepend {
