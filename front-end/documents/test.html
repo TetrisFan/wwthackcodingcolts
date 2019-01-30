@@ -1,49 +1,43 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sign In</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="styles.css">
-
-    <style>
-      .sub-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-      }
-      .club-name {
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        background-color: grey;
-      }
-      .subscribe-btn {
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        background-color: green;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white mb-4 border-bottom">
-      <a class="navbar-brand" href="#">Logo</a>
-    </nav>
-
-    <main role="main" class="container text-center">
-      <div class="jumbotron d-flex flex-column justify-content-center">
-        <div class="sub-container">
-          <div class="club-name">Club Name</div>
-          <div class="subscribe-btn">Subscribe</div>
+<head>
+<meta charset="UTF-8">
+<title>Keep Selected Bootstrap Tab Active on Page Refresh</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+        localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = localStorage.getItem('activeTab');
+    if(activeTab){
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+    }
+});
+</script>
+</head>
+<body>
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a data-toggle="tab" href="#sectionA">Section A</a></li>
+        <li><a data-toggle="tab" href="#sectionB">Section B</a></li>
+        <li><a data-toggle="tab" href="#sectionC">Section C</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+            <h3>Section A</h3>
+            <p>Aliquip placeat salvia cillum iphone...</p>
         </div>
-      </div>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
-  </body>
+        <div id="sectionB" class="tab-pane fade">
+            <h3>Section B</h3>
+            <p>Vestibulum nec erat eu nulla rhoncus fringilla...</p>
+        </div>
+        <div id="sectionC" class="tab-pane fade">
+            <h3>Section C</h3>
+            <p>Nullam hendrerit justo non leo aliquet...</p>
+        </div>
+    </div>
+</body>
 </html>
