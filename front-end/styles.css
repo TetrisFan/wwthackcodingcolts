@@ -121,6 +121,11 @@ hr {
   color: #3E4A59;
 }
 
+/* search bar */
+.form-inline {
+  max-width: 400px;
+}
+
 /* sign-in form */
 .form-signin {
   width: 100%;
@@ -260,18 +265,6 @@ hr {
   width: 80px;
   height: auto;
   border-radius: 100%;
-}
-
-.form-inline {
-  width: 100%;
-  max-width: 400px;
-}
-
-.form-inline input {
-  padding: 5px 20px;
-  border: 1px solid #DADADA;
-  border-radius: 20px;
-  background-color: #F6F7F9;
 }
 
 .subscribe-box {
