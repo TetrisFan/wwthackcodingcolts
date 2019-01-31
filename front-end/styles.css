@@ -126,6 +126,13 @@ hr {
   max-width: 400px;
 }
 
+.form-inline input {
+  padding: 5px 20px;
+  border: 1px solid #DADADA;
+  border-radius: 20px;
+  background-color: #F6F7F9;
+}
+
 /* sign-in form */
 .form-signin {
   width: 100%;
@@ -143,7 +150,7 @@ hr {
 }
 
 /* club page */
-.club-profile-pic {
+.member-profile-pic {
   width: 100px;
   height: 100px;
   border-radius: 100%;
@@ -210,6 +217,26 @@ hr {
   margin: 0;
 }
 
+/* your clubs page */
+.club-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.subscribe-club-name {
+  background-color: #F6F7F9;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* buttons */
 .btn-primary {
   background-color: #5C6EFF;
@@ -242,53 +269,4 @@ hr {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
   border: 0;
-}
-
-.btn-secondary.active {
-  background-color: #BBBBBB;
-}
-
-.btn-secondary:hover {
-  background-color: #01EEB8;
-}
-
-.btn-secondary.toggle {
-  background-color: #BBBBBB;
-  margin: 0;
-  padding: 0;
-}
-
-
-
-
-.profile-pic {
-  width: 80px;
-  height: auto;
-  border-radius: 100%;
-}
-
-.subscribe-box {
-  max-width: 300px;
-  width: 100%;
-}
-
-.input-group {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-#basic-addon1 {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border: 0;
-  background-color: #F6F7F9;
-}
-
-.noWrap {
-  float: left;
-  clear: both;
-}
-
-.input-group-prepend {
-  padding-left: 15px;
 }

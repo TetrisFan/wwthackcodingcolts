@@ -1,22 +1,6 @@
-***** CONCERNS *****
-- font-family Karla does not have a thinner font-weight
-
-***** GENERAL TASKS *****
-- change the fonts to a thinner font weight
-- link pages to each other
-- override bootstrap's button's active/hover states
-  (when you click on some of the buttons, there's a split second where it
-  turns into a different color.)
-- organize messy css stylesheet
-  (styling general elements [the red words] at the top, class styles in order of
-  page organization, duplicated css styles need to be shortened, go back and
-  replace unnecessary code with bootstrap classes)
-
 ***** THINGS TO EDIT ON THESE PAGES *****
 - MISSION STATEMENT PAGE
   - center 'Create an Account' button to center when viewport is small
-- YOUR CLUBS PAGE
-  - correct responsiveness
 - SIGN UP PAGE
   - customize radio buttons
   - change submit color to green/blue depending on radio button checked
@@ -28,16 +12,14 @@
 - CLUB PAGE
   1. CLUB PROFILE PAGE
     - style temporary club image pic at the top
-    - fix responsiveness of members
   2. POSTS PAGE
     - headline modal box
   3. DOCUMENT PAGE
 - SPORTS PAGE
   1. sports profile page
     - style temporary club image pic at the top
-    - fix responsiveness of members
   2. posts page
     - headline modal box
   3. documents page
-- CLUB DIRECTORY PAGE
-  - style search bar
+- CLUB STREAM PAGE
+  - responsiveness of navbar

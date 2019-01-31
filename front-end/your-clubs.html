@@ -1,180 +1,113 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Your Clubs</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Your Clubs</title>
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="styles.css">
-  </head>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <body>
-    <nav class="navbar mb-4">
-      <a class="navbar-brand" href="#">Logo</a>
-    </nav>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <main role="main" class="container text-center">
-      <div class="jumbotron d-flex flex-column justify-content-around text-center">
-        <!--<img src="#" class="img-fluid" alt="Illustration">-->
-        <h1>Your Clubs</h1>
-        <p>If you're already part of an extracurricular, subscribe to your clubs on this list.</p>
-        <p>If you're not, then you can skip this step.</p>
-        <div>
-          <a class="btn btn-primary" href="#" role="button">skip</a>
-        </div>
+<body>
+  <nav class="navbar mb-4">
+    <a class="navbar-brand" href="#">Logo</a>
+  </nav>
 
-        <hr class="my-4">
-
-        <form class="form-signin d-flex flex-row justify-content-start">
-          <input type="text" class="form-control" placeholder="search">
-        </form>
-
-        <!-- Here begins the subscribe buttons as well as their couterparts -->
-        <form class="d-flex flex-column align-items-center"> <!-- form -->
-          <div class="row mx-0 d-flex flex-row justify-content-center"> <!-- row -->
-            <div class="col-sm-12 col-md-6 col-lg"> <!-- col -->
-              <div class="d-flex flex-row justify-content-center">
-                <img class="club-profile-pic" src="gray.png"/>
-                <div>Club Name</div>
-                <button type="button" class="btn btn-secondary" onclick="subscribeFunction()"><div id="subButton">subscribe</div></button>
-              </div>
-            </div>
-            <!--
-            <div class="col-sm-12 col-md-6 col-lg">
-              <div class="input-group input-group-lg d-flex flex-row justify-content-center">
-                <img class="club-profile-pic" src="gray.png"/>
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Club Name</span>
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="subscribeFunction2()"><div id="subButton2">subscribe</div></button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mx-0">
-            <div class="col-sm-12 col-md-6 col-lg">
-              <div class="input-group input-group-lg d-flex flex-row justify-content-center">
-                <img class="club-profile-pic" src="gray.png"/>
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Club Name</span>
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="subscribeFunction3()"><div id="subButton3">subscribe</div></button>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg">
-              <div class="input-group input-group-lg d-flex flex-row justify-content-center">
-                <img class="club-profile-pic" src="gray.png"/>
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Club Name</span>
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="subscribeFunction4()"><div id="subButton4">subscribe</div></button>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mx-0">
-            <div class="col-sm-12 col-md-6 col-lg">
-              <div class="input-group input-group-lg d-flex flex-row justify-content-center">
-                <img class="club-profile-pic" src="gray.png"/>
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Club Name</span>
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="subscribeFunction5()"><div id="subButton5">subscribe</div></button>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg">
-              <div class="input-group input-group-lg d-flex flex-row justify-content-center">
-                <img class="club-profile-pic" src="gray.png"/>
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Club Name</span>
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="subscribeFunction6()"><div id="subButton6">subscribe</div></button>
-              </div>
-            </div>
-          </div>
-          -->
-          <div>
-            <!-- <button class="btn btn-primary"><a href="#" class="btn-text">submit</a></button> -->
-            <a class="btn btn-primary btn-text mt-3" role="button" href="#">submit</a>
-          </div>
-        </form>
+  <main role="main" class="container text-center">
+    <div class="jumbotron d-flex flex-column justify-content-around text-center">
+      <!--<img src="#" class="img-fluid" alt="Illustration">-->
+      <h1>Your Clubs</h1>
+      <p>If you're already part of an extracurricular, subscribe to your clubs on this list.</p>
+      <p>If you're not, then you can skip this step.</p>
+      <div>
+        <a class="btn btn-primary" href="#" role="button">skip</a>
       </div>
-    </main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
-    <!-- This is the script for the toggle button thing -->
-    <script>
-      $('.btn-secondary').click(function() {
-          $(this).toggleClass('toggle');
-      });
-    </script>
-    <!-- My code for swapping the text of the secondary button -->
-    <script>
-      function subscribeFunction() {
-        var x = document.getElementById("subButton");
-        if (x.innerHTML === "subscribe") {
-          x.innerHTML = "requested";
-        } else {
-          x.innerHTML = "subscribe";
-        }
-      }
-    </script>
-    <script>
-      function subscribeFunction2() {
-        var x = document.getElementById("subButton2");
-        if (x.innerHTML === "subscribe") {
-          x.innerHTML = "requested";
-        } else {
-          x.innerHTML = "subscribe";
-        }
-      }
-    </script>
-    <script>
-      function subscribeFunction3() {
-        var x = document.getElementById("subButton3");
-        if (x.innerHTML === "subscribe") {
-          x.innerHTML = "requested";
-        } else {
-          x.innerHTML = "subscribe";
-        }
-      }
-    </script>
-    <script>
-      function subscribeFunction4() {
-        var x = document.getElementById("subButton4");
-        if (x.innerHTML === "subscribe") {
-          x.innerHTML = "requested";
-        } else {
-          x.innerHTML = "subscribe";
-        }
-      }
-    </script>
-    <script>
-      function subscribeFunction5() {
-        var x = document.getElementById("subButton5");
-        if (x.innerHTML === "subscribe") {
-          x.innerHTML = "requested";
-        } else {
-          x.innerHTML = "subscribe";
-        }
-      }
-    </script>
-    <script>
-      function subscribeFunction6() {
-        var x = document.getElementById("subButton6");
-        if (x.innerHTML === "subscribe") {
-          x.innerHTML = "requested";
-        } else {
-          x.innerHTML = "subscribe";
-        }
-      }
-    </script>
-  </body>
+      <hr class="my-4">
+
+      <form class="form-signin">
+        <input type="text" class="form-control" placeholder="search">
+      </form>
+
+      <form class="d-flex flex-column align-items-center">
+        <div class="row mx-0 d-flex flex-row justify-content-center">
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mx-0 d-flex flex-row justify-content-center">
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row mx-0 d-flex flex-row justify-content-center">
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-text mt-5 mb-3" role="button" href="#">submit</a>
+      </form>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
+  </script>
+  <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+  <script>
+  </script>
+</body>
+
 </html>
