@@ -42,6 +42,11 @@ hr {
   margin-bottom: 3px;
 }
 
+.p-text {
+  font-size: 18px;
+  align-self: center;
+}
+
 .shadow {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
@@ -243,6 +248,8 @@ hr {
   border-radius: 20px;
   border: 0;
   padding: 10px 50px;
+  width: 150px;
+  align-self: center;
 }
 
 .btn-primary:active {
