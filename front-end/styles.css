@@ -230,6 +230,12 @@ hr {
   margin-right: 10px;
 }
 
+.student-profile-pic {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+}
+
 .subscribe-club-name {
   background-color: #F6F7F9;
   padding-left: 50px;
