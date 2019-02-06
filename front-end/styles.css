@@ -354,36 +354,7 @@ input.checkbox:checked + label:before {
   border: 0;
 }
 
-
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  color: white;
-  border-bottom: 1px solid #DADADA;
-}
-
-/* Modal Body */
-.modal-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  border: 1px solid #888;
+.modal-dialog {
   width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  align-self: baseline;
 }
