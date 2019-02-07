@@ -351,3 +351,8 @@ input.checkbox:checked + label:before {
   border-top-left-radius: 0px;
   border: 0;
 }
+
+.modal-dialog {
+  width: 80%;
+  align-self: baseline;
+}
