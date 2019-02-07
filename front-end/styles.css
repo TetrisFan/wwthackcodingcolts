@@ -71,9 +71,7 @@ hr {
   background-color: white;
   border-bottom: 1px solid #DADADA;
   width: 100%;
-
   display: flex;
-  flex: row;
   justify-content: between;
 }
 
@@ -81,6 +79,7 @@ hr {
   color: #3E4A59;
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
+  font-size: 26px;
 }
 
 .nav-link:hover {
