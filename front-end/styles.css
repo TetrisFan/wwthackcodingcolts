@@ -324,7 +324,6 @@ input.checkbox:checked + label:before {
   padding: 10px 50px;
   align-self: center;
   cursor: pointer;
-  width: 5000px;
 }
 
 .btn-primary:active {
