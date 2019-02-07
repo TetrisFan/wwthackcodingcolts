@@ -354,7 +354,9 @@ input.checkbox:checked + label:before {
   border: 0;
 }
 
+
+
 .modal-dialog {
-  width: 80%;
+  width: 100%;
   align-self: baseline;
 }
