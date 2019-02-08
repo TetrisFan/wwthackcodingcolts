@@ -79,7 +79,7 @@ hr {
   color: #3E4A59;
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
-  font-size: 26px;
+  font-size: 18px;
 }
 
 .nav-link:hover {
@@ -155,8 +155,8 @@ hr {
 
 /* club page */
 .member-profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 42px;
+  height: 42px;
   border-radius: 100%;
   margin-bottom: 5px;
 }
