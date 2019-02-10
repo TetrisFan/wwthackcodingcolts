@@ -358,3 +358,10 @@ input.checkbox:checked + label:before {
   width: 100%;
   align-self: baseline;
 }
+
+.text-edit {
+  border: solid;
+  border-color: #3E4A59;
+  border-radius: 2px;
+  border-width: thin;
+}
