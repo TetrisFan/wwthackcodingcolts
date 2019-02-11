@@ -8,7 +8,7 @@ $studentid = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'clubapp'); 
+$db = mysqli_connect('localhost', 'root', 'PASSWORD', 'clubapp'); 
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -57,7 +57,6 @@ if (isset($_POST['reg_user'])) {
     array_push($errors, "Student ID does not exist");
   }
 
-  $results = mysqli_query($db, $query);
     $query2 = "SELECT name FROM clubapp.students WHERE studentid = '$studentid'";
     $results2 = mysqli_query($db, $query2);
     $row = mysqli_fetch_array($results2);

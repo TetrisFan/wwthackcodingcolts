@@ -7,7 +7,7 @@ $password = "PASSWORD";
 
 //These will eventually be replaced with sesssion variables, but for now:
 $clubName = 'Art Club';
-$currentClubID = 0;
+$currentClubID = 1;
 $currentUserID = 65;
 
 
