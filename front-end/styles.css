@@ -415,14 +415,25 @@ input.checkbox:checked + label:before {
   margin: 0;
 }
 
-/* banners */
+/* banner */
 
 .banner {
   background-color: white;
   height: 100px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset, 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
-  display: flex;
-  align-content: center;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+}
+
+.shadow {
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2) inset, 0 0 40px 0 rgba(0, 0, 0, 0.2) inset;
+  position: absolute;
+  top: 69px;
+  left: 0;
+  height: 100px;
+  width: 100%;
 }
 
 /* buttons */

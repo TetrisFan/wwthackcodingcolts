@@ -27,7 +27,23 @@
 
   <!-- <img src="#banner"/> -->
   <div class="banner">
-    <img src="#banner" alt="banner_image">
+    <img src="images/banner-filler.jpeg" alt="banner_img" class="banner-img">
+    <div data-toggle="modal" data-target="#image-edit" class="shadow"></div>
+    <div class="modal fade" id="image-edit" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header d-flex flex-column align-items-center">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Edit Banner</h4>
+          </div>
+          <div class="modal-body flex-row d-flex justify-content-between">
+            <button type="button" class="btn-primary">Upload Image</button>
+            <button type="button" class="btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="nav-container">
     <ul class="nav nav-pills justify-content-center align-items-center" id="myTab" role="tablist">
