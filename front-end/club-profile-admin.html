@@ -34,6 +34,7 @@
       </li>
     </ul>
   </div>
+
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <main role="main" class="container mt-5">
@@ -93,8 +94,37 @@
         </div>
       </main>
     </div>
+
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
       <main role="main" class="container text-center mt-5 d-flex flex-column align-items-center">
+        <button class="btn btn-primary btn-default" role="button" data-toggle="modal" data-target="#myModal6" style="width: 80%;">Create New Post</button>
+        <div>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal6" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <form>
+                <div class="modal-header d-flex flex-column align-items-center">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title"><input type="text" name="Header" placeholder="Title"></h4>
+                </div>
+                <div class="modal-body">
+                  <textarea rows="6" cols="80">Some information about the event</textarea>
+                  <div>
+                    <br>
+                  <button type="submit" class="btn btn-primary btn-default">Post</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
             <h1>Headline</h1>

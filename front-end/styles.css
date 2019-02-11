@@ -312,6 +312,7 @@ input.checkbox:checked + label:before {
     content: "";
 }
 
+
 #prevBtn {
   background-color: #bbbbbb;
 }
