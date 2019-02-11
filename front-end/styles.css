@@ -72,7 +72,6 @@ hr {
   border-bottom: 1px solid #DADADA;
   width: 100%;
   display: flex;
-  justify-content: between;
 }
 
 .nav-link {
@@ -123,6 +122,14 @@ hr {
 .nav-pills .nav-link {
   border-radius: 0;
   color: #3E4A59;
+}
+
+.nav-div {
+  display:flex;
+  flex-direction:row;
+  width: 32%;
+  justify-content:space-between;
+  height: 42px;
 }
 
 /* search bar */
