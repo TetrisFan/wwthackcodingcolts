@@ -124,14 +124,6 @@ hr {
   color: #3E4A59;
 }
 
-.nav-div {
-  display:flex;
-  flex-direction:row;
-  width: 35%;
-  justify-content:space-between;
-  height: 48px;
-}
-
 /* search bar */
 .form-inline {
   max-width: 500px;
@@ -359,6 +351,63 @@ input.checkbox:checked + label:before {
   color: #3E4A59;
   font-family: 'Karla', sans-serif;
   text-decoration: none;
+}
+
+/* club directory */
+.filters {
+  background-color: white;
+  padding: 15px;
+}
+
+.btn-filter {
+  padding: 0px;
+  background-color: #5C6EFF;
+  border-radius: 20px;
+  border: 0;
+  padding: 5px 15px;
+  align-self: center;
+  cursor: pointer;
+  margin-right: 8px;
+  color: white;
+}
+
+.card-club-deck {
+  width: 80%;
+  margin: auto;
+}
+
+.card-club-deck:last-of-type {
+  margin-top: 10px;
+}
+
+.card-club {
+  max-width: 300px;
+  margin-right: 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+.card-club:last-of-type {
+  margin-right: 0;
+}
+
+.card-club-img-top {
+  max-width: 300px;
+  max-height: 150px;
+  width: 100%;
+}
+
+.card-club-body {
+  max-height: 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.card-club-body h5 {
+  margin: 0;
 }
 
 /* buttons */
