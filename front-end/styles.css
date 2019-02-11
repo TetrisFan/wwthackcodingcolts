@@ -178,6 +178,7 @@ hr {
   max-width: 80%;
   background-color: white;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .headline-container:last-child {
