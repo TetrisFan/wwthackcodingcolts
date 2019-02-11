@@ -334,6 +334,32 @@ input.checkbox:checked + label:before {
   outline: none;
 }
 
+/* club results */
+.club-name {
+  display: block;
+  background-color: #F6F7F9;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  color: #3E4A59;
+  font-family: 'Karla', sans-serif;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.club-name:hover {
+  border: 2px solid #01EEB8;
+  transition: background-color 0.4s ease;
+  color: #3E4A59;
+  font-family: 'Karla', sans-serif;
+  text-decoration: none;
+}
+
 /* buttons */
 .btn-primary {
   background-color: #5C6EFF;
