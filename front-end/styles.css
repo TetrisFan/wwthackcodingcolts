@@ -124,14 +124,6 @@ hr {
   color: #3E4A59;
 }
 
-.nav-div {
-  display:flex;
-  flex-direction:row;
-  width: 35%;
-  justify-content:space-between;
-  height: 48px;
-}
-
 /* search bar */
 .form-inline {
   max-width: 500px;
@@ -178,6 +170,7 @@ hr {
   max-width: 80%;
   background-color: white;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .headline-container:last-child {
@@ -257,7 +250,7 @@ hr {
 /* interest-quiz page */
 #quizForm {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   padding: 15px;
   margin: 0 auto;
 }
@@ -269,10 +262,17 @@ hr {
 .quiz-labels {
   display: block;
   margin-bottom: 15px;
-  padding: 10px 20px;
-  border: 1px solid #DADADA;
+  padding: 12px 20px;
+  border: 2px solid #DADADA;
   border-radius: 20px;
   background-color: #F6F7F9;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.quiz-labels:hover {
+  border: 2px solid #01EEB8;
+  transition: background-color 0.4s ease;
 }
 
 .step {
@@ -299,8 +299,8 @@ input[type=checkbox] {
 }
 
 input:checked + label {
-    border: solid 1px #01EEB8;
-    color: #01EEB8;
+    background-color: #01EEB8;
+    border: 2px solid transparent;
 }
 
 input:checked + label:before {
@@ -319,9 +319,100 @@ input.checkbox:checked + label:before {
     content: "";
 }
 
-
 #prevBtn {
   background-color: #bbbbbb;
+}
+
+.quiz-button:focus {
+  outline: none;
+}
+
+/* club results */
+.club-name {
+  display: block;
+  background-color: #F6F7F9;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  color: #3E4A59;
+  font-family: 'Karla', sans-serif;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.club-name:hover {
+  border: 2px solid #01EEB8;
+  transition: background-color 0.4s ease;
+  color: #3E4A59;
+  font-family: 'Karla', sans-serif;
+  text-decoration: none;
+}
+
+/* club directory */
+.filters {
+  background-color: white;
+  padding: 15px;
+}
+
+.btn-filter {
+  padding: 0px;
+  background-color: #5C6EFF;
+  border-radius: 20px;
+  border: 0;
+  padding: 5px 15px;
+  align-self: center;
+  cursor: pointer;
+  margin-right: 8px;
+  color: white;
+}
+
+.btn-filter:hover {
+  background-color: #01EEB8;
+  transition: background-color 0.4s ease;
+}
+
+.card-club-deck {
+  width: 80%;
+  margin: auto;
+}
+
+.card-club-deck:last-of-type {
+  margin-top: 10px;
+}
+
+.card-club {
+  max-width: 300px;
+  margin-right: 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+.card-club:last-of-type {
+  margin-right: 0;
+}
+
+.card-club-img-top {
+  max-width: 300px;
+  max-height: 150px;
+  width: 100%;
+}
+
+.card-club-body {
+  max-height: 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.card-club-body h5 {
+  margin: 0;
 }
 
 /* buttons */
@@ -359,8 +450,6 @@ input.checkbox:checked + label:before {
   border-top-left-radius: 0px;
   border: 0;
 }
-
-
 
 .modal-dialog {
   width: 100%;

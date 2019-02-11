@@ -15,9 +15,16 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <nav class="navbar mb-4">
+    <nav class="navbar">
       <a class="navbar-brand" href="#">Logo</a>
-      <a class="nav-link" href="sign-in.html">Sign In</a>
+      <form class="form-inline w-100 m-0">
+        <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      <div class="d-flex flex-row">
+        <a class="nav-link mr-3 px-5 b-0" href="club-stream.html">Home</a>
+        <a class="nav-link mr-3 px-5 b-0" href="club-directory.html">Explore</a>
+        <img class="member-profile-pic" src="images/white.png">
+      </div>
     </nav>
 
     <main role="main" class="container text-center">
@@ -25,51 +32,51 @@
         <form id="quizForm" action="/action_page.php">
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
-            <input id="answer01" type="checkbox" name="lists[Travel]"/>
+            <input id="answer01" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer01">answer</label>
-            <input id="answer02" type="checkbox" name="lists[Travel]"/>
+            <input id="answer02" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer02">answer</label>
-            <input id="answer03" type="checkbox" name="lists[Travel]"/>
+            <input id="answer03" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer03">answer</label>
-            <input id="answer04" type="checkbox" name="lists[Travel]"/>
+            <input id="answer04" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer04">answer</label>
           </div>
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
-            <input id="answer11" type="checkbox" name="lists[Travel]"/>
+            <input id="answer11" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer11">answer</label>
-            <input id="answer12" type="checkbox" name="lists[Travel]"/>
+            <input id="answer12" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer12">answer</label>
-            <input id="answer13" type="checkbox" name="lists[Travel]"/>
+            <input id="answer13" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer13">answer</label>
-            <input id="answer14" type="checkbox" name="lists[Travel]"/>
+            <input id="answer14" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer14">answer</label>
           </div>
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
-            <input id="answer21" type="checkbox" name="lists[Travel]"/>
+            <input id="answer21" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer21">answer</label>
-            <input id="answer22" type="checkbox" name="lists[Travel]"/>
+            <input id="answer22" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer22">answer</label>
-            <input id="answer23" type="checkbox" name="lists[Travel]"/>
+            <input id="answer23" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer23">answer</label>
-            <input id="answer24" type="checkbox" name="lists[Travel]"/>
+            <input id="answer24" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer24">answer</label>
           </div>
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
-            <input id="answer31" type="checkbox" name="lists[Travel]"/>
+            <input id="answer31" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer31">answer</label>
-            <input id="answer32" type="checkbox" name="lists[Travel]"/>
+            <input id="answer32" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer32">answer</label>
-            <input id="answer33" type="checkbox" name="lists[Travel]"/>
+            <input id="answer33" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer33">answer</label>
-            <input id="answer34" type="checkbox" name="lists[Travel]"/>
+            <input id="answer34" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer34">answer</label>
           </div>
           <div style="overflow:auto;">
             <div>
-              <button class="btn-primary quiz-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+              <button class="btn-primary quiz-button" type="button" id="prevBtn" style="padding-left: 40px; padding-right: 40px;" onclick="nextPrev(-1)">Previous</button>
               <button class="btn-primary quiz-button" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
           </div>
