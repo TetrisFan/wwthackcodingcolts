@@ -6,7 +6,7 @@ $username = "root";
 $password = "PASSWORD";
 
 //These will eventually be replaced with sesssion variables, but for now:
-$clubName = 'Art Club';
+$clubName = 'Coding Colts';
 $currentClubID = 1;
 $currentUserID = 65;
 
@@ -38,6 +38,7 @@ while(($row = mysqli_fetch_assoc($result)))
 //print_r($club);
 
 $resultStudents = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID =  '".$currentClubID."'") or die(mysqli_error($conn));
+
 
 $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID = 1") or die(mysqli_error($conn));
 

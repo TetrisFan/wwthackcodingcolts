@@ -57,11 +57,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `clubapp`.`users` (
   `StudentID` INT(11) NOT NULL AUTO_INCREMENT,
-  `Password` VARCHAR(60) NOT NULL,
+  `FirstName` VARCHAR(45) NULL DEFAULT NULL,
+  `LastName` VARCHAR(45) NULL DEFAULT NULL,
+  `Password` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`StudentID`),
   UNIQUE INDEX `StudentID_UNIQUE` (`StudentID` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 66
+AUTO_INCREMENT = 6659876
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -83,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `clubapp`.`clubstudents` (
     FOREIGN KEY (`StudentID`)
     REFERENCES `clubapp`.`users` (`StudentID`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 69
+AUTO_INCREMENT = 70
 DEFAULT CHARACTER SET = utf8;
 
 
