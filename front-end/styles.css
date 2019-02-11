@@ -72,14 +72,13 @@ hr {
   border-bottom: 1px solid #DADADA;
   width: 100%;
   display: flex;
-  justify-content: between;
 }
 
 .nav-link {
   color: #3E4A59;
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .nav-link:hover {
@@ -123,6 +122,14 @@ hr {
 .nav-pills .nav-link {
   border-radius: 0;
   color: #3E4A59;
+}
+
+.nav-div {
+  display:flex;
+  flex-direction:row;
+  width: 35%;
+  justify-content:space-between;
+  height: 48px;
 }
 
 /* search bar */
