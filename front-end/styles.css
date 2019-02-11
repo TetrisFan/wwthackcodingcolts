@@ -125,7 +125,7 @@ hr {
 }
 
 /* search bar */
-.form-inline {
+/*.form-inline {
   max-width: 500px;
 }
 
@@ -134,7 +134,7 @@ hr {
   border: 1px solid #DADADA;
   border-radius: 20px;
   background-color: #F6F7F9;
-}
+}*/
 
 /* sign-in form */
 .form-signin {
@@ -413,6 +413,16 @@ input.checkbox:checked + label:before {
 
 .card-club-body h5 {
   margin: 0;
+}
+
+/* banners */
+
+.banner {
+  background-color: white;
+  height: 100px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset, 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
+  display: flex;
+  align-content: center;
 }
 
 /* buttons */
