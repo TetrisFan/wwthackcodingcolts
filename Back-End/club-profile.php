@@ -1,9 +1,55 @@
+<?php 
+
+
+$servername = "localhost";
+$username = "root";
+$password = "PASSWORD";
+
+//These will eventually be replaced with sesssion variables, but for now:
+$clubName = 'Coding Colts';
+$currentClubID = 1;
+$currentUserID = 65;
+
+
+$conn = new mysqli($servername, $username, $password, "clubapp");
+
+
+$result = mysqli_query($conn, "SELECT * FROM club WHERE ClubName =  '".$clubName."'") or die(mysqli_error($conn));
+
+if ($conn->connect_error)
+{
+    die("Connection failed: " . $conn->connect_error);
+}
+
+
+$club = array();
+$students = array();
+$studentInfo = array();
+$currentClub = array();
+$studentInClub = array();
+
+while(($row = mysqli_fetch_assoc($result)))
+{
+    $club['ID'] = $row['ClubID'];
+    $club['Name'] = $row['ClubName'];
+    $club['Description'] = $row['ClubDescription'];
+}
+
+//print_r($club);
+
+$resultStudents = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID = 1") or die(mysqli_error($conn));
+
+$resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID = 1") or die(mysqli_error($conn));
+
+
+
+?>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sport Profile</title>
+  <title>Club Profile</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -39,154 +85,96 @@
       <main role="main" class="container mt-5">
         <div class="jumbotron d-flex flex-column align-items-center text-center">
           <div class="w-75 d-flex flex-column align-items-center">
-            <h1>Sport Name</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <button type="submit" class="btn btn-primary mt-3 mb-3">join now</button>
+            <h1><?php echo $club['Name']?></h1>
+            <p><?php echo $club['Description']?></p>
+            <form action="club-profile.php" method='post'>
+                <button type="submit" class="btn btn-primary mt-3 mb-3" name='join'>join now</button>
+            </form>  
+            <?php 
+             if(isset($_POST['join']))
+              {
+                //echo $counter . "<br>" ;
+                //echo "Clicking Detected <br>";
+                $counter = 0;
+                 
+                while (($row = mysqli_fetch_assoc($resultStudentsForInsertion)))
+                {
+                    $studentInClub['StudentID'] = $row['StudentID'];
+                    $studentInClub['ClubID'] = $row["ClubID"];
+                    
+                    if($currentUserID == $studentInClub['StudentID'])
+                    {
+                        
+                        $counter ++;
+
+                    }
+                    
+                }
+                 
+              echo $counter . "<br>";
+                 
+                if ($counter == 0)
+                {
+                  echo "executing statement <br>";
+                  $stmt = $conn->prepare("INSERT INTO clubstudents (ClubID,StudentID,Officer) VALUES(?,?,?)") or die(mysqli_error($conn));
+                  $stmt->bind_param("iii", $ClubID, $Student,$Officer);
+                  //setting params
+                  $ClubID = $currentClubID;
+                  $Student = $currentUserID;
+                  $Officer=0;
+                  //if(!$stmt->execute()) echo $stmt->error;
+                  $stmt->execute();
+                  $counter ++;  
+                  echo "Finished!";
+                 }
+                    
+                
+                 
+                
+              }
+              
+                            
+              ?>
+            
+            
+            
+            
             <hr>
-
-            <h1 class="mt-3 mb-3">Varsity</h1>
+            <h1 class="mt-3 mb-3">Members</h1>
             <form class="form-inline w-100 m-0 mb-4">
               <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
             </form>
             <div class="row d-flex flex-row justify-content-center">
-              <div class="col-lg-3 col-md-4 col-xs-6">
+              <?php 
+                while(($row = mysqli_fetch_assoc($resultStudents)))
+                {
+                $students['StudentID'] = $row['StudentID'];
+                $students['Officer'] = $row['Officer'];
+                    $resultforStudent = mysqli_query($conn, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($conn));
+                     while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
+                     {
+                         $studentInfo['FirstName'] = $rowTwo['FirstName'];
+                         $studentInfo['LastName'] = $rowTwo['LastName'];
+                     }
+                if($students['Officer'] == 1)
+                {
+                echo '<div class="col-lg-3 col-md-4 col-xs-6">
                 <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Coach</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
+                <p class="mb-0"> ' . $studentInfo["FirstName"] ." ". $studentInfo["LastName"] . '</p>
+                <p class="club-role">Officer</p>
+              </div>';
+                }
+                else 
+                {
+                  echo '<div class="col-lg-3 col-md-4 col-xs-6">
                 <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-            </div> <!-- varsity grid -->
-
-            <h1 class="mt-3 mb-3">Junior Varsity</h1>
-            <form class="form-inline w-100 m-0 mb-4">
-              <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <div class="row d-flex flex-row justify-content-center">
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Coach</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-            </div> <!-- jv grid -->
-
-            <h1 class="mt-3 mb-3">Freshmen</h1>
-            <form class="form-inline w-100 m-0 mb-4">
-              <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <div class="row d-flex flex-row justify-content-center">
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Coach</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0">Name</p>
-                <p class="club-role">Position</p>
-              </div>
-            </div> <!-- freshmen grid -->
+                <p class="mb-0"> ' . $studentInfo["FirstName"] ." ". $studentInfo["LastName"] . '</p>
+                <p class="club-role">Member</p>
+              </div>';
+                }
+                }?>
+              </div> 
+            </div>
           </div>
         </div>
       </main>

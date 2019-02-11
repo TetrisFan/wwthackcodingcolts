@@ -1,0 +1,27 @@
+***** THINGS TO EDIT ON THESE PAGES *****
+- MISSION STATEMENT PAGE
+  - center 'Create an Account' button to center when viewport is small
+- SIGN UP PAGE
+  - customize radio buttons
+  - change submit color to green/blue depending on radio button checked
+  - add icons inside the input type boxes
+- SIGN IN PAGE
+  - customize radio buttons
+  - change submit color to green/blue depending on radio button checked
+  - add icons inside the input type boxes
+- YOUR CLUBS PAGE
+  - write js for toggle buttons
+- CLUB PAGE
+  1. CLUB PROFILE PAGE
+    - style temporary club image pic at the top
+  2. POSTS PAGE
+    - headline modal box
+  3. DOCUMENT PAGE
+- SPORTS PAGE
+  1. sports profile page
+    - style temporary club image pic at the top
+  2. posts page
+    - headline modal box
+  3. documents page
+- CLUB STREAM PAGE
+  - responsiveness of navbar
