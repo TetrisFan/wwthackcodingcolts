@@ -235,16 +235,21 @@ hr {
   height: 150px;
 }
 
-.subscribe-club-name {
+.join-club-name {
   background-color: #F6F7F9;
   padding-left: 50px;
   padding-right: 50px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 
+  overflow-x: scroll;
+  height: 60px;
+  width: 180px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 /* interest-quiz page */
@@ -454,6 +459,8 @@ input.checkbox:checked + label:before {
 
 .btn-secondary {
   background-color: #01EEB8;
+  padding-left: 20px;
+  padding-right: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 0px;
