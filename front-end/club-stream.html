@@ -20,7 +20,15 @@
     <div class="d-flex flex-row">
       <a class="nav-link mr-3 px-5 b-0" href="#">Home</a>
       <a class="nav-link mr-3 px-5 b-0" href="club-directory.html">Explore</a>
-      <img class="member-profile-pic" src="images/white.png">
+      <div class="dropdown">
+        <img class="member-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <div id="myDropdown" class="dropdown-content">
+          <a href="student-profile.html">Your Profile</a>
+          <a href="quiz-cover.html">Interest Quiz</a>
+          <a href="#">Manage Clubs</a>
+          <a href="#">Sign Out</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -187,6 +195,27 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+}
+</script>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
   }
 }
 </script>
