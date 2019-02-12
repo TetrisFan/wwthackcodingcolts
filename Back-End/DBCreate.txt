@@ -1,0 +1,245 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema clubapp
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema clubapp
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `clubapp` DEFAULT CHARACTER SET utf8 ;
+-- -----------------------------------------------------
+-- Schema hackdatabase
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema hackdatabase
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `hackdatabase` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+-- -----------------------------------------------------
+-- Schema loginapp
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema loginapp
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `loginapp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `clubapp` ;
+
+-- -----------------------------------------------------
+-- Table `clubapp`.`club`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clubapp`.`club` (
+  `ClubID` INT(11) NOT NULL,
+  `ClubName` VARCHAR(30) NOT NULL,
+  `ClubDescription` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`ClubID`),
+  UNIQUE INDEX `ClubID_UNIQUE` (`ClubID` ASC) VISIBLE,
+  UNIQUE INDEX `ClubName_UNIQUE` (`ClubName` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `clubapp`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clubapp`.`users` (
+  `StudentID` INT(11) NOT NULL AUTO_INCREMENT,
+  `FirstName` VARCHAR(45) NULL DEFAULT NULL,
+  `LastName` VARCHAR(45) NULL DEFAULT NULL,
+  `Password` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`StudentID`),
+  UNIQUE INDEX `StudentID_UNIQUE` (`StudentID` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 6659876
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `clubapp`.`clubstudents`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clubapp`.`clubstudents` (
+  `ClubID` INT(11) NOT NULL,
+  `StudentID` INT(11) NOT NULL,
+  `Officer` INT(2) NOT NULL,
+  `EntryID` INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`EntryID`),
+  INDEX `ClubID` (`ClubID` ASC) VISIBLE,
+  INDEX `StudentID` (`StudentID` ASC) VISIBLE,
+  CONSTRAINT `clubstudents_ibfk_1`
+    FOREIGN KEY (`ClubID`)
+    REFERENCES `clubapp`.`club` (`ClubID`),
+  CONSTRAINT `clubstudents_ibfk_2`
+    FOREIGN KEY (`StudentID`)
+    REFERENCES `clubapp`.`users` (`StudentID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 70
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `clubapp`.`tag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clubapp`.`tag` (
+  `TagID` INT(11) NOT NULL AUTO_INCREMENT,
+  `TagName` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`TagID`),
+  UNIQUE INDEX `TagID_UNIQUE` (`TagID` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `clubapp`.`clubtag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clubapp`.`clubtag` (
+  `TagID` INT(11) NOT NULL,
+  `ClubID` INT(11) NOT NULL,
+  INDEX `clubtag_ibfk_1` (`ClubID` ASC) VISIBLE,
+  INDEX `TagID` (`TagID` ASC) VISIBLE,
+  CONSTRAINT `clubtag_ibfk_1`
+    FOREIGN KEY (`ClubID`)
+    REFERENCES `clubapp`.`club` (`ClubID`),
+  CONSTRAINT `clubtag_ibfk_2`
+    FOREIGN KEY (`TagID`)
+    REFERENCES `clubapp`.`tag` (`TagID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `clubapp`.`posts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clubapp`.`posts` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `user` VARCHAR(100) NOT NULL,
+  `headline` VARCHAR(30) NOT NULL,
+  `desc` VARCHAR(45) NOT NULL,
+  `time` DATETIME NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `clubapp`.`students`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `clubapp`.`students` (
+  `studentid` VARCHAR(7) NOT NULL,
+  `name` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`studentid`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+USE `hackdatabase` ;
+
+-- -----------------------------------------------------
+-- Table `hackdatabase`.`clubs`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackdatabase`.`clubs` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(30) NOT NULL,
+  `Description` LONGBLOB NOT NULL,
+  `Competitiveness` VARCHAR(10) NOT NULL,
+  `Tags` VARCHAR(45) NOT NULL,
+  `Category` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+USE `loginapp` ;
+
+-- -----------------------------------------------------
+-- Table `loginapp`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `loginapp`.`users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(32) NOT NULL,
+  `password` VARCHAR(32) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
+  UNIQUE INDEX `password_UNIQUE` (`password` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`club`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`club` (
+  `ClubID` INT(11) NOT NULL,
+  `ClubName` VARCHAR(30) NOT NULL,
+  `ClubDescription` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`ClubID`),
+  UNIQUE INDEX `ClubID_UNIQUE` (`ClubID` ASC) VISIBLE,
+  UNIQUE INDEX `ClubName_UNIQUE` (`ClubName` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`clubstudents`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`clubstudents` (
+  `ClubID` INT(11) NOT NULL,
+  `StudentID` INT(11) NOT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`clubtag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`clubtag` (
+  `TagID` INT(11) NOT NULL,
+  `CkubID` INT(11) NOT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`students`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`students` (
+  `StudentID` INT(11) NOT NULL AUTO_INCREMENT,
+  `FirstName` VARCHAR(20) NOT NULL,
+  `LastName` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`StudentID`),
+  UNIQUE INDEX `StudentID_UNIQUE` (`StudentID` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`tag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`tag` (
+  `TagID` INT(11) NOT NULL AUTO_INCREMENT,
+  `TagName` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`TagID`),
+  UNIQUE INDEX `TagID_UNIQUE` (`TagID` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
