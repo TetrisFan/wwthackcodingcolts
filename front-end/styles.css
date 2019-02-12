@@ -342,6 +342,10 @@ input.checkbox:checked + label:before {
   border: 2px solid transparent;
   cursor: pointer;
 
+  overflow-x: scroll;
+  height: 60px;
+  width: 180px;
+
   color: #3E4A59;
   font-family: 'Karla', sans-serif;
 
