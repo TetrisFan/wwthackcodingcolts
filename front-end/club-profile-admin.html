@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <nav class="navbar">
+  <nav class="navbar mb-4">
     <a class="navbar-brand" href="#">Logo</a>
     <div class="d-flex flex-row">
       <a class="nav-link mr-3 px-5 b-0" href="club-stream.html">Home</a>
@@ -34,9 +34,6 @@
   </nav>
 
   <!-- <img src="#banner"/> -->
-  <div class="banner">
-    <img src="#banner" alt="banner_image">
-  </div>
   <div class="nav-container">
     <ul class="nav nav-pills justify-content-center align-items-center" id="myTab" role="tablist">
       <li class="nav-item">
@@ -335,6 +332,27 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
+  </script>
+  <script>
+  /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
   </script>
   <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 </body>
