@@ -242,9 +242,13 @@ hr {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 
+  overflow-x: scroll;
+  height: 60px;
+  width: 180px;
+
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: center;
 }
 
 /* interest-quiz page */
