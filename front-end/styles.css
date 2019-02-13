@@ -179,7 +179,7 @@ hr {
 
 .headline {
   border-bottom: 1px solid #DADADA;
-  padding-top: 20px;
+  padding-top: 30px;
   margin: 0;
 }
 
@@ -188,8 +188,12 @@ hr {
 }
 
 .headline-text {
-  padding: 30px 60px;
+  padding: 20px 60px;
   text-align: left;
+}
+
+.post-club-name {
+  margin-top: -10px;
 }
 
 /* document cards */
