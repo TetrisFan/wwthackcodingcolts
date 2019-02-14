@@ -42,7 +42,7 @@ if (isset($_POST['reg_user'])) {
   $student = mysqli_fetch_assoc($result);
   
   if ($student) { // if user exists
-    if ($student['studentid'] === $studentid) {
+    if ($student['StudentID'] === $studentid) {
       array_push($errors, "Student ID already exists");
     }
 
