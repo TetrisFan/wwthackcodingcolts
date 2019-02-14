@@ -50,21 +50,60 @@
          <?php 
 
                $list = $_SESSION['clubnames'];
-               
-               for ($counter = 1; $counter<=count($list); $counter++)
+               echo count($list);
+               print_r($list);
+               if (count($list)%2 == 0)
+               {
+               for ($counter = 0; $counter<count($list); $counter +=2)
                  { 
-        ?>
+              ?>
         <div class="row mx-0 d-flex flex-row justify-content-center">
           <div class="col-sm-12 col-md-6 col-lg mb-2">
           <div class="d-flex flex-row justify-content-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter-1]; ?></a>
+            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
           </div>
         </div>
+        <div class="col-sm-12 col-md-6 col-lg mb-2">
+          <div class="d-flex flex-row justify-content-center">
+            <img class="club-profile-pic" src="images/gray.png" />
+            <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
+          </div>
         </div>
+      </div>
+        
           
           <?php
-                  }
+                  }}
+                else {
+                  for ($counter = 0; $counter<count($list)-1; $counter +=2)
+                 { 
+              ?>
+        <div class="row mx-0 d-flex flex-row justify-content-center">
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+          <div class="d-flex flex-row justify-content-center">
+            <img class="club-profile-pic" src="images/gray.png" />
+            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg mb-2">
+          <div class="d-flex flex-row justify-content-center">
+            <img class="club-profile-pic" src="images/gray.png" />
+            <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
+            </div>
+        </div>
+      </div>
+      <?php
+                } ?>
+
+      <div class="col-sm-12 col-md-6 col-lg mb-2">
+          <div class="d-flex flex-row justify-content-center">
+            <img class="club-profile-pic" src="images/gray.png" />
+            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
+            </div>
+        </div>
+
+              <?php  }
           ?> 
        
         
