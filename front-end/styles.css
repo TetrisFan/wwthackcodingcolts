@@ -221,6 +221,11 @@ hr {
   margin-top: 10px;
 }
 
+.card-deck a {
+  text-decoration: none;
+  color: #3E4A59;
+}
+
 .club-card {
   max-width: 250px;
   width: 100%;
