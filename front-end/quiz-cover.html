@@ -17,56 +17,26 @@
 </head>
 
 <body>
-  <nav class="navbar mb-4">
+  <nav class="navbar">
     <a class="navbar-brand" href="#">Logo</a>
     <div class="d-flex flex-row">
       <a class="nav-link mr-3 px-5 b-0" href="club-stream.html">Home</a>
       <a class="nav-link mr-3 px-5 b-0" href="club-directory.html">Explore</a>
-      <div class="dropdown">
-        <img class="member-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
-        <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
-          <a href="interest-quiz.html">Interest Quiz</a>
-          <a href="#">Manage Clubs</a>
-          <a href="index.html">Sign Out</a>
-        </div>
-      </div>
+      <img class="member-profile-pic" src="images/white.png">
     </div>
   </nav>
 
   <div class="container text-center">
     <div class="jumbotron d-flex flex-column justify-content-center align-items-center text-center">
-      <h1 class="mb-4">Interest Quiz</h1>
+      <h1 class="mb-3">Interest Quiz</h1>
       <div class="w-75">
         <p class="mb-3">Do you want to take the interest quiz? It helps for new people wanting to find out which extracurriculars they may want to get involved in...</p>
         <p class="mb-4">If you don't want to take it now, you can access it later in Settings.</p>
       </div>
-      <a class="btn btn-primary mb-2 mt-3" href="interest-quiz.html" role="button" style="background-color: #01EEB8; padding-left: 68px; padding-right: 68px;">yes</a>
+      <a class="btn btn-primary mb-2" href="interest-quiz.html" role="button" style="background-color: #01EEB8; padding-left: 68px; padding-right: 68px;">yes</a>
       <a class="btn btn-primary" href="club-stream.html">not now</a>
     </div>
   </div>
-
-  <script>
-  /* When the user clicks on the button,
-  toggle between hiding and showing the dropdown content */
-  function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-  </script>
 </body>
 
 </html>
