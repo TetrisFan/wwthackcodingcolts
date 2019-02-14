@@ -7,13 +7,10 @@ $password = "PASSWORD";
 
 //These will eventually be replaced with sesssion variables, but for now:
 $clubName = 'Art Club';
-<<<<<<< HEAD:Front-End/Back-End/club-profile.php
 $currentClubID = 0;
 $currentUserID = $_SESSION['StudentID'];
-=======
 $currentClubID = 1;
 $currentUserID = 65;
->>>>>>> 42049150dfaba1fd013e813bcdf13f7d36f92817:Back-End/club-profile.php
 
 
 $conn = new mysqli($servername, $username, $password, "clubapp");
