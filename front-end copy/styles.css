@@ -153,11 +153,13 @@ hr {
   border-radius: 100%;
 }
 
-.club-profile-pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  margin-right: 10px;
+.member-names {
+  color: #3E4A59;
+}
+
+.member-names:hover {
+  color: #3E4A59;
+  text-decoration: none;
 }
 
 .club-role {
@@ -394,6 +396,10 @@ hr {
   height: 100px;
   border-radius: 100%;
   cursor: pointer;
+}
+
+.your-clubs-thumbnails:hover {
+  box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
 }
 
 /* club directory */
