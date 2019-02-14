@@ -15,28 +15,19 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <nav class="navbar">
+    <nav class="navbar mb-4">
       <a class="navbar-brand" href="#">Logo</a>
-      <div class="d-flex flex-row">
-        <a class="nav-link mr-3 px-5 b-0" href="club-stream.html">Home</a>
-        <a class="nav-link mr-3 px-5 b-0" href="club-directory.html">Explore</a>
-        <img class="member-profile-pic" src="images/white.png">
-      </div>
     </nav>
 
     <main role="main" class="container text-center">
       <div class="jumbotron d-flex flex-column justify-content-center">
-        <form id="quizForm" action="/action_page.php">
+        <form id="quizForm" style="max-width: 700px; width: 100%;" action="/action_page.php">
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
             <input id="answer01" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer01">answer</label>
             <input id="answer02" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer02">answer</label>
-            <input id="answer03" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer03">answer</label>
-            <input id="answer04" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer04">answer</label>
           </div>
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
@@ -44,10 +35,6 @@
             <label class="quiz-labels" for="answer11">answer</label>
             <input id="answer12" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer12">answer</label>
-            <input id="answer13" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer13">answer</label>
-            <input id="answer14" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer14">answer</label>
           </div>
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
@@ -55,10 +42,6 @@
             <label class="quiz-labels" for="answer21">answer</label>
             <input id="answer22" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer22">answer</label>
-            <input id="answer23" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer23">answer</label>
-            <input id="answer24" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer24">answer</label>
           </div>
           <div class="quiz-tab">
             <h1 class="mb-3">Question</h1>
@@ -66,14 +49,10 @@
             <label class="quiz-labels" for="answer31">answer</label>
             <input id="answer32" type="checkbox" name="interest-quiz"/>
             <label class="quiz-labels" for="answer32">answer</label>
-            <input id="answer33" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer33">answer</label>
-            <input id="answer34" type="checkbox" name="interest-quiz"/>
-            <label class="quiz-labels" for="answer34">answer</label>
           </div>
           <div style="overflow:auto;">
             <div>
-              <button class="btn-primary quiz-button" type="button" id="prevBtn" style="padding-left: 40px; padding-right: 40px;" onclick="nextPrev(-1)">Previous</button>
+              <button class="btn-primary quiz-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
               <button class="btn-primary quiz-button" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
           </div>

@@ -26,26 +26,23 @@
   </nav>
 
   <main role="main" class="container text-center">
-    <div class="jumbotron d-flex flex-column justify-content-around text-center">
+    <div class="jumbotron d-flex flex-column justify-content-around text-center align-items-center">
       <!--<img src="#" class="img-fluid" alt="Illustration">-->
-      <h1>Your Clubs</h1>
-      <p>If you're already part of an extracurricular, subscribe to your clubs on this list.</p>
-      <p>If you're not, then you can skip this step.</p>
+      <h1>Results</h1>
+      <div style="width: 60%;"><p>These are the clubs that best match your interests based on your quiz responses. If they seem appealing, request to be a part of them. These results will also be able to be found in settings.</p></div>
       <div>
-        <a class="btn btn-primary" href="#" role="button">skip</a>
+        <a class="btn btn-primary" href="club-stream.html" role="button">go to home</a>
       </div>
 
+      <div class="my-3"></div>
       <hr class="my-4">
-
-      <form class="form-signin">
-        <input type="text" class="form-control" placeholder="search">
-      </form>
+      <div class="my-3"></div>
 
       <form class="d-flex flex-column align-items-center">
         <div class="row mx-0 d-flex flex-row justify-content-center">
           <div class="col-sm-12 col-md-6 col-lg mb-2">
             <div class="d-flex flex-row justify-content-center">
-              <img class="club-profile-pic" src="images/gray.png" />
+              <img class="club-profile-pic" src="images/gray.png"/>
               <div class="subscribe-club-name">Club Name</div>
               <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
                 <div id="subButton">subscribe</div>
@@ -102,7 +99,26 @@
             </div>
           </div>
         </div>
-        <a class="btn btn-primary btn-text mt-5 mb-3" role="button" href="#">submit</a>
+        <div class="row mx-0 d-flex flex-row justify-content-center">
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg mb-2">
+            <div class="d-flex flex-row justify-content-center">
+              <img class="club-profile-pic" src="images/gray.png" />
+              <div class="subscribe-club-name">Club Name</div>
+              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
+                <div id="subButton">subscribe</div>
+              </button>
+            </div>
+          </div>
+        </div>
       </form>
   </main>
 
