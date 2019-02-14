@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class="navbar mb-4">
+  <nav class="navbar">
     <a class="navbar-brand" href="#">Logo</a>
     <div class="d-flex flex-row">
       <a class="nav-link mr-3 px-5 b-0" href="club-stream.html">Home</a>
@@ -32,92 +32,105 @@
     </div>
   </nav>
 
-  <div class="filters d-flex flex-row justify-content-center align-items-center">
-    <button type="checkbox" class="btn btn-filter">Art</button>
-    <button type="checkbox" class="btn btn-filter">Entertainment</button>
-    <button type="checkbox" class="btn btn-filter">Sports</button>
-    <button type="checkbox" class="btn btn-filter">Career</button>
-    <button type="checkbox" class="btn btn-filter">Awareness</button>
-    <button type="checkbox" class="btn btn-filter">STEM</button>
-    <button type="checkbox" class="btn btn-filter">Media</button>
-    <button type="checkbox" class="btn btn-filter">Service</button>
-    <button type="checkbox" class="btn btn-filter m-0">Language</button>
+  <div class="filters">
+    <form class="d-flex flex-row justify-content-center align-items-center">
+      <input id="art" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="art">Art</label>
+      <input id="entertainment" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="entertainment">Entertainment</label>
+      <input id="sports" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="sports">Sports</label>
+      <input id="career" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="career">Career</label>
+      <input id="awareness" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="awareness">Awareness</label>
+      <input id="stem" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="stem">STEM</label>
+      <input id="media" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="media">Media</label>
+      <input id="service" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="service">Service</label>
+      <input id="language" type="checkbox" name="filter"/>
+      <label class="btn-filter btn" for="language">Language</label>
+    </form>
   </div>
-  <div class="card-club-deck d-flex flex-row justify-content-center mb-3 mt-3">
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
+  <div class="d-flex flex-column align-items-center">
+    <div class="card-deck mt-4 d-flex flex-row justify-content-center">
+      <div class="club-card">
+        <img class="club-card-img-top" src="http://r.ddmcdn.com/s_f/o_1/TLC/uploads/2014/07/kb-shortcake-250x150.jpg" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
+      </div>
+      <div class="club-card">
+        <img class="club-card-img-top" src="http://r.ddmcdn.com/s_f/o_1/TLC/uploads/2014/07/kb-shortcake-250x150.jpg" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
+      </div>
+      <div class="club-card">
+        <img class="club-card-img-top" src="http://r.ddmcdn.com/s_f/o_1/TLC/uploads/2014/07/kb-shortcake-250x150.jpg" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
+      </div>
+      <div class="club-card">
+        <img class="club-card-img-top" src="http://r.ddmcdn.com/s_f/o_1/TLC/uploads/2014/07/kb-shortcake-250x150.jpg" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
       </div>
     </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
+    <div class="card-deck mt-4 d-flex flex-row justify-content-center">
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
+      </div>
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
+      </div>
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
+      </div>
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
       </div>
     </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
+    <div class="card-deck mt-4 mb-4 d-flex flex-row justify-content-center">
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
       </div>
-    </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="card-club-deck d-flex flex-row justify-content-center mb-3">
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
       </div>
-    </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
-      </div>
-    </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
-      </div>
-    </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
-      </div>
-    </div>
-  </div>
-  <div class="card-club-deck d-flex flex-row justify-content-center">
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
-      </div>
-    </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
-      </div>
-    </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
-      </div>
-    </div>
-    <div class="card-club">
-      <img class="card-club-img-top" src="images/gray.png" alt="card-club image cap">
-      <div class="card-club-body">
-        <h5 class="card-club-title">club name</h5>
+      <div class="club-card">
+        <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
+        <div class="club-card-body">
+          <h5 class="club-card-title">club name</h5>
+        </div>
       </div>
     </div>
   </div>
@@ -131,7 +144,6 @@
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {

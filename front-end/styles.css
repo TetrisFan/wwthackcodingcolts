@@ -76,15 +76,15 @@ hr {
 
 .nav-link {
   color: #3E4A59;
-  border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent;
+  opacity: 0.7;
+  font-weight: 500;
   font-size: 20px;
 }
 
 .nav-link:hover {
-  background-color: #f2f2f2;
-  color: #343f4b;
-  transition: background-color 0.4s ease;
+  color: #3E4A59;
+  opacity: 1;
+  transition: color 0.4s ease;
 }
 
 .nav-container {
@@ -173,6 +173,11 @@ hr {
   cursor: pointer;
 }
 
+.headline-container:hover {
+  box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
 .headline-container:last-child {
   margin-bottom: 50px;
 }
@@ -222,6 +227,49 @@ hr {
 }
 
 .card-body h5 {
+  margin: 0;
+}
+
+/* club cards */
+.card-deck:last-of-type {
+  margin-top: 10px;
+}
+
+.club-card {
+  max-width: 250px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #DADADA;
+}
+
+.club-card:hover {
+  box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
+}
+
+.club-card-img-top {
+  max-width: 250px;
+  max-height: 150px;
+  width: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.club-card-body {
+  max-height: 20px;
+  background-color: white;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.club-card-body h5 {
   margin: 0;
 }
 
@@ -303,16 +351,16 @@ hr {
   background-color: #01EEB8;
 }
 
-input[type=checkbox] {
+#quizForm input[type=checkbox] {
     display: none;
 }
 
-input:checked + label {
+#quizForm input:checked + label {
     background-color: #01EEB8;
     border: 2px solid transparent;
 }
 
-input:checked + label:before {
+#quizForm input:checked + label:before {
     content: "";
 }
 
@@ -320,11 +368,11 @@ input:checked + label:before {
     visibility: hidden;
 }
 
-input:checked + label .check {
+#quizForm input:checked + label .check {
     visibility: visible;
 }
 
-input.checkbox:checked + label:before {
+#quizForm input.checkbox:checked + label:before {
     content: "";
 }
 
@@ -369,7 +417,9 @@ input.checkbox:checked + label:before {
 /* club directory */
 .filters {
   background-color: white;
-  padding: 15px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
+  padding-bottom: 3px;
 }
 
 .btn-filter {
@@ -380,56 +430,37 @@ input.checkbox:checked + label:before {
   padding: 5px 15px;
   align-self: center;
   cursor: pointer;
-  margin-right: 8px;
+  margin-right: 10px;
   color: white;
+  margin-bottom: 0;
 }
 
 .btn-filter:hover {
   background-color: #01EEB8;
-  transition: background-color 0.4s ease;
+  opacity: 0.8;
 }
 
-.card-club-deck {
-  width: 80%;
-  margin: auto;
+.filters input[type=checkbox] {
+    display: none;
 }
 
-.card-club-deck:last-of-type {
-  margin-top: 10px;
+.filters input:checked + label {
+    background-color: #01EEB8;
 }
 
-.card-club {
-  max-width: 300px;
-  margin-right: 20px;
-  width: 100%;
-  border-radius: 10px;
-}
-.card-club:last-of-type {
-  margin-right: 0;
+.filters input:checked + label:before {
+    content: "";
 }
 
-.card-club-img-top {
-  max-width: 300px;
-  max-height: 150px;
-  width: 100%;
+.filters input:checked + label .check {
+    visibility: visible;
 }
 
-.card-club-body {
-  max-height: 50px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
-
-.card-club-body h5 {
-  margin: 0;
+.filters input.checkbox:checked + label:before {
+    content: "";
 }
 
 /* banners */
-
 .banner {
   background-color: white;
   height: 100px;
