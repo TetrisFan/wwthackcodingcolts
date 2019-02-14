@@ -124,18 +124,6 @@ hr {
   color: #3E4A59;
 }
 
-/* search bar */
-/*.form-inline {
-  max-width: 500px;
-}
-
-.form-inline input {
-  padding: 5px 20px;
-  border: 1px solid #DADADA;
-  border-radius: 20px;
-  background-color: #F6F7F9;
-}*/
-
 /* sign-in form */
 .form-signin {
   width: 100%;
@@ -272,37 +260,6 @@ hr {
   margin: 0;
 }
 
-/* your clubs page */
-.club-profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin-right: 10px;
-}
-
-.student-profile-pic {
-  border-radius: 100%;
-  width: 150px;
-  height: 150px;
-}
-
-.join-club-name {
-  background-color: #F6F7F9;
-  padding-left: 50px;
-  padding-right: 50px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-
-  overflow-x: scroll;
-  height: 60px;
-  width: 180px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 /* interest-quiz page */
 #quizForm {
   width: 100%;
@@ -410,6 +367,14 @@ hr {
   color: #3E4A59;
   font-family: 'Karla', sans-serif;
   text-decoration: none;
+}
+
+/* your clubs */
+.your-clubs-thumbnails {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
 /* club directory */
