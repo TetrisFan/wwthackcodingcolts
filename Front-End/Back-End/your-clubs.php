@@ -1,10 +1,9 @@
-  <?php include('filterclubquiz.php')?>
-
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Your Clubs</title>
+  <title>Club Profile</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -17,59 +16,94 @@
 </head>
 
 <body>
-  <nav class="navbar mb-4">
-    <a class="navbar-brand" href="#">Logo</a>
-  </nav>
-
-  <main role="main" class="container text-center">
-    <div class="jumbotron d-flex flex-column justify-content-around text-center">
-      <!--<img src="#" class="img-fluid" alt="Illustration">-->
-      <h1>Your Clubs</h1>
-      <p>If you're already part of an extracurricular, subscribe to your clubs on this list.</p>
-      <p>If you're not, then you can skip this step.</p>
-      <div>
-        <a class="btn btn-primary" href="#" role="button">skip</a>
-      </div>
-
-      <hr class="my-4">
-
-      <form class="form-signin">
-      <input type="text" class="form-control" placeholder="search">
-      </form>
-      <form class="d-flex flex-column align-items-center">
-        <div class="row mx-0 d-flex flex-row justify-content-center">
-               <?php 
-               $list = $_SESSION['clubnames'];
-               for ($counter = 0; $counter<count($list); $counter++)
-                 { ?>
-            
-          <div class="col-sm-12 col-md-6 col-lg mb-2">
-            <div class="d-flex flex-row justify-content-center">
-              <img class="club-profile-pic" src="images/gray.png" />
-              <div class="subscribe-club-name"> <?php echo $list[$counter]; ?></div>
-              <button type="button" class="btn btn-secondary" onclick="subscribeFunction()">
-                <div id="subButton">subscribe</div>
-              </button>
-            </div>
-          </div>
-          
-          <?php
-                  }
-          ?>   
+  <nav class="navbar">
+    <a class="navbar-brand" href="index.html">Logo</a>
+    <div class="d-flex flex-row">
+      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
+      <div class="dropdown">
+        <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <div id="myDropdown" class="dropdown-content">
+          <a href="student-profile.html">Your Profile</a>
+          <a href="interest-quiz.html">Interest Quiz</a>
+          <a href="your-clubs.html">Your Clubs</a>
+          <a href="index.html">Sign Out</a>
         </div>
-        <a class="btn btn-primary btn-text mt-5 mb-3" role="button" href="#">submit</a>
-      </form>
+      </div>
+    </div>
+  </nav>
+  <main role="main" class="container mt-4 d-flex flex-column">
+    <div class="jumbotron d-flex flex-column align-items-center justify-content-center text-center">
+      <div class="w-75 d-flex flex-column align-items-center">
+        <h1 class="mb-5">Your Clubs</h1>
+        <div class="row d-flex flex-row justify-content-center">
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p class="mb-0">Name</p>
+            <p class="club-role">Officer</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p class="mb-0">Name</p>
+            <p class="club-role">Officer</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p class="mb-0">Name</p>
+            <p class="club-role">Officer</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p class="mb-0">Name</p>
+            <p class="club-role">Officer</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p class="mb-0">Name</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p class="mb-0">Name</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p class="mb-0">Name</p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+            <p>Name</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </main>
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
   </script>
-  <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
   <script>
+  /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
   </script>
-
-
+  <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 </body>
 
 </html>
