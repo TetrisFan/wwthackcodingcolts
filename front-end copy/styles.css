@@ -361,6 +361,12 @@ hr {
   outline: none;
 }
 
+.quiz-button:hover {
+  box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
+  opacity: 0.9;
+  transition: opacity 0.4s ease;
+}
+
 /* club results */
 .club-name {
   display: block;
@@ -380,6 +386,13 @@ hr {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.club-profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin-right: 10px;
 }
 
 .club-name:hover {
