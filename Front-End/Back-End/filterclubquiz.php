@@ -1,7 +1,7 @@
 <?php
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "0000";
+$dbPassword = "PASSWORD";
 $dbName = "clubapp";
 
 $conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
@@ -12,7 +12,7 @@ $conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 
       }
 //tags vairble
-      $Languge = 0;
+      $Language = 0;
       $STEM = 0;
       $sports = 0;
       $Arts=0;
@@ -108,7 +108,7 @@ $conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
             }
 
 
-      $max =max ($STEM, $Languge,$Language,$sports,$Awareness,$Arts,$Service,$Entertainment);
+      $max = max($STEM,$Language,$sports,$Awareness,$Arts,$Service,$Entertainment);
       session_start();
     // $_SESSION['clubnames'] =  $clubnames = array();
     $clubnames = array();    

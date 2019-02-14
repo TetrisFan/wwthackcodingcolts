@@ -1,6 +1,6 @@
 <?php 
 
-
+include ('server.php');
 $servername = "localhost";
 $username = "root";
 $password = "PASSWORD";
@@ -8,7 +8,7 @@ $password = "PASSWORD";
 //These will eventually be replaced with sesssion variables, but for now:
 $clubName = 'Art Club';
 $currentClubID = 0;
-$currentUserID = 2032905;
+$currentUserID = $_SESSION['StudentID'];
 
 
 $conn = new mysqli($servername, $username, $password, "clubapp");
@@ -112,7 +112,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                     
                 }
                  
-              echo $counter . "<br>";
+              //echo $counter . "<br>";
                  
                 if ($counter == 0)
                 {
@@ -127,6 +127,10 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                   $stmt->execute();
                   $counter ++;  
                   echo "Finished!";
+                 }
+                 else
+                 {
+                     echo "You have already joined the club.";
                  }
                     
                 

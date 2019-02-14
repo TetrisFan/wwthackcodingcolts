@@ -70,6 +70,7 @@ if (isset($_POST['reg_user'])) {
   	//$_SESSION['studentid'] = $fname;
   	//$_SESSION['success'] = "You are now logged in";
     $_SESSION['loggedin'] = $row['name'];
+    $_SESSION['StudentID'] = $studentid;
   	header('location: your-clubs.html'); 
   }
 }
@@ -97,6 +98,7 @@ if (isset($_POST['login_student'])) {
       //$_SESSION['success'] = "You are now logged in";
       header('location: club-profile-admin.php');
         $_SESSION['loggedin'] = $row['name'];
+        $_SESSION['StudentID'] = $studentid;
        // $_SESSION['userlevel'] = $row[$this->user_level];
     } else {
       array_push($errors, "Wrong student id/password combination");
@@ -115,13 +117,15 @@ if (isset($_POST['submit_post']))
   if (empty($desc)) { array_push($errors, "Text is required"); }
 
   if (count($errors) == 0) {
-    $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now())";
-    $results = mysqli_query($db, $query);
+    $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now())" ;
+    $results = mysqli_query($db, $query) or die(mysqli_error($db));
   }
 } 
 
   $query2 = "SELECT * FROM clubapp.posts order by id desc"; 
   $results2 = mysqli_query($db, $query2);
   $row=mysqli_fetch_array($results2);
+
+//Display Posts
 
 ?>
