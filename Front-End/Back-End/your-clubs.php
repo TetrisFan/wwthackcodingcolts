@@ -32,6 +32,16 @@
       </div>
     </div>
   </nav>
+
+  <!--
+
+  <?php
+    $queryClub = "SELECT clubname FROM clubapp.clubstudents WHERE studentid = $_SESSION['studentid'] order by id desc"; 
+    $resultsClub = mysqli_query($db, $queryClub);
+    $rowClub=mysqli_fetch_array($resultsClub); 
+  ?>
+
+-->
   <main role="main" class="container mt-4 d-flex flex-column">
     <div class="jumbotron d-flex flex-column align-items-center justify-content-center text-center">
       <div class="w-75 d-flex flex-column align-items-center">
@@ -77,6 +87,8 @@
       </div>
     </div>
     </div>
+
+
   </main>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
