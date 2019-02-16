@@ -1,44 +1,13 @@
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Club Profile</title>
-
-  <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    $(document).ready(() => {
-      let url = location.href.replace(/\/$/, "");
-
-      if (location.hash) {
-        const hash = url.split("#");
-        $('#myTab a[href="#' + hash[1] + '"]').tab("show");
-        url = location.href.replace(/\/#/, "#");
-        history.replaceState(null, null, url);
-        setTimeout(() => {
-          $(window).scrollTop(0);
-        }, 400);
-      }
-
-      $('a[data-toggle="tab"]').on("click", function() {
-        let newUrl;
-        const hash = $(this).attr("href");
-        if (hash == "#profile") {
-          newUrl = url.split("#")[0];
-        } else {
-          newUrl = url.split("#")[0] + hash;
-        }
-        newUrl += "/";
-        history.replaceState(null, null, newUrl);
-      });
-    });
-  </script>
-  <!-- Custom styles for this template -->
+  <!-- custom CSS -->
   <link rel="stylesheet" href="styles.css">
+  <title>How to Add Deep Linking to the Bootstrap 4 Tabs Component</title>
 </head>
 
 <body>
@@ -58,19 +27,18 @@
       </div>
     </div>
   </nav>
-
-  <div class="nav-container"> <!-- tabs -->
-    <ul class="nav nav-pills justify-content-center align-items-center" id="myTab" role="tablist">
+  <div class="nav-container">
+    <ul class="nav nav-mytabs nav-pills justify-content-center align-items-center" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active px-sm-5 px-lg-5" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+        <a class="nav-link active px-sm-5 px-lg-5" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link px-lg-5 px-md-5" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">Posts</a>
+        <a class="nav-link px-sm-5 px-lg-5" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">posts</a>
       </li>
     </ul>
   </div>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <!-- profile page -->
+  <div class="tab-content mytab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <main role="main" class="container mt-4">
         <div class="jumbotron d-flex flex-column align-items-center text-center">
           <div class="w-75 d-flex flex-column align-items-center">
@@ -151,8 +119,8 @@
           </div>
         </div>
       </main>
-    </div> <!-- profile page -->
-    <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab"> <!-- posts page -->
+    </div>
+    <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
       <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
         <button class="btn-primary btn mb-4" data-toggle="modal" data-target="#new-post" style="width: 80%;">Create a new post</button>
         <div class="modal fade" id="new-post" role="dialog">
@@ -324,13 +292,39 @@
             </div>
           </div>
         </div> <!-- modal 5 -->
-    </div> <!-- posts page -->
+    </div>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- custom JS -->
   <script>
-    window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
+  $(document).ready(() => {
+  let url = location.href.replace(/\/$/, "");
+
+  if (location.hash) {
+    const hash = url.split("#");
+    $('#myTab a[href="#'+hash[1]+'"]').tab("show");
+    url = location.href.replace(/\/#/, "#");
+    history.replaceState(null, null, url);
+    setTimeout(() => {
+      $(window).scrollTop(0);
+    }, 400);
+  }
+
+  $('a[data-toggle="tab"]').on("click", function() {
+    let newUrl;
+    const hash = $(this).attr("href");
+    if(hash == "#home") {
+      newUrl = url.split("#")[0];
+    } else {
+      newUrl = url.split("#")[0] + hash;
+    }
+    newUrl += "/";
+    history.replaceState(null, null, newUrl);
+  });
+  });
   </script>
+
   <script>
     /* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
@@ -352,7 +346,6 @@
       }
     }
   </script>
-  <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 </body>
 
 </html>
