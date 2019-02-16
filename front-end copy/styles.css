@@ -66,7 +66,13 @@ hr {
   min-height: inherit;
 }
 
-/* navigation bars */
+/*
+███    ██  █████  ██    ██
+████   ██ ██   ██ ██    ██
+██ ██  ██ ███████ ██    ██
+██  ██ ██ ██   ██  ██  ██
+██   ████ ██   ██   ████
+*/
 .navbar {
   background-color: white;
   border-bottom: 1px solid #DADADA;
@@ -85,6 +91,11 @@ hr {
   color: #3E4A59;
   opacity: 1;
   transition: color 0.4s ease;
+}
+
+.nav-link-active {
+  color: #3E4A59;
+  opacity: 0.9;
 }
 
 .nav-container {
@@ -129,7 +140,52 @@ hr {
   border-radius: 100%;
 }
 
-/* sign-in form */
+/*
+██████  ██████   ██████  ██████  ██████   ██████  ██     ██ ███    ██
+██   ██ ██   ██ ██    ██ ██   ██ ██   ██ ██    ██ ██     ██ ████   ██
+██   ██ ██████  ██    ██ ██████  ██   ██ ██    ██ ██  █  ██ ██ ██  ██
+██   ██ ██   ██ ██    ██ ██      ██   ██ ██    ██ ██ ███ ██ ██  ██ ██
+██████  ██   ██  ██████  ██      ██████   ██████   ███ ███  ██   ████
+*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content a {
+  color: #3E4A59;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #DADADA;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.show {
+  display: block;
+}
+
+/*
+███████ ██  ██████  ███    ██     ██ ███    ██     ███████  ██████  ██████  ███    ███
+██      ██ ██       ████   ██     ██ ████   ██     ██      ██    ██ ██   ██ ████  ████
+███████ ██ ██   ███ ██ ██  ██     ██ ██ ██  ██     █████   ██    ██ ██████  ██ ████ ██
+     ██ ██ ██    ██ ██  ██ ██     ██ ██  ██ ██     ██      ██    ██ ██   ██ ██  ██  ██
+███████ ██  ██████  ██   ████     ██ ██   ████     ██       ██████  ██   ██ ██      ██
+*/
 .form-signin {
   width: 100%;
   max-width: 500px;
@@ -145,140 +201,13 @@ hr {
   background-color: #F6F7F9;
 }
 
-/* club page */
-.member-profile-pic {
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-}
-
-.member-names {
-  color: #3E4A59;
-}
-
-.member-names:hover {
-  color: #3E4A59;
-  text-decoration: none;
-}
-
-.club-role {
-  font-size: 12px;
-  margin-top: 0;
-}
-
-/* headline containers */
-.headline-container {
-  max-width: 80%;
-  background-color: white;
-  margin-bottom: 15px;
-  cursor: pointer;
-}
-
-.headline-container:hover {
-  box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
-}
-
-.headline-container:last-child {
-  margin-bottom: 50px;
-}
-
-.headline {
-  border-bottom: 1px solid #DADADA;
-  padding-top: 30px;
-  margin: 0;
-}
-
-.headline h1 {
-  margin-bottom: 10px;
-}
-
-.headline-text {
-  padding: 20px 60px;
-  text-align: left;
-}
-
-.post-club-name {
-  margin-top: -10px;
-}
-
-/* document cards */
-.card-deck:last-of-type {
-  margin-top: 10px;
-}
-
-.card {
-  max-width: 180px;
-  width: 100%;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-}
-
-.card-img-top {
-  max-width: 180px;
-  max-height: 150px;
-  width: 100%;
-}
-
-.card-body {
-  max-height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-body h5 {
-  margin: 0;
-}
-
-/* club cards */
-.card-deck:last-of-type {
-  margin-top: 10px;
-}
-
-.card-deck a {
-  text-decoration: none;
-  color: #3E4A59;
-}
-
-.club-card {
-  max-width: 250px;
-  width: 100%;
-  margin-right: 20px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  border: 1px solid #DADADA;
-}
-
-.club-card:hover {
-  box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
-}
-
-.club-card-img-top {
-  max-width: 250px;
-  max-height: 150px;
-  width: 100%;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-}
-
-.club-card-body {
-  max-height: 20px;
-  background-color: white;
-  padding: 20px 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.club-card-body h5 {
-  margin: 0;
-}
-
-/* interest-quiz page */
+/*
+██ ███    ██ ████████ ███████ ██████  ███████ ███████ ████████      ██████  ██    ██ ██ ███████
+██ ████   ██    ██    ██      ██   ██ ██      ██         ██        ██    ██ ██    ██ ██    ███
+██ ██ ██  ██    ██    █████   ██████  █████   ███████    ██        ██    ██ ██    ██ ██   ███
+██ ██  ██ ██    ██    ██      ██   ██ ██           ██    ██        ██ ▄▄ ██ ██    ██ ██  ███
+██ ██   ████    ██    ███████ ██   ██ ███████ ███████    ██         ██████   ██████  ██ ███████                                                                   ▀▀
+*/
 #quizForm {
   width: 100%;
   max-width: 600px;
@@ -366,7 +295,149 @@ hr {
   transition: opacity 0.4s ease;
 }
 
-/* club results */
+/*
+ ██████ ██      ██    ██ ██████      ██████  ██████   ██████  ███████ ██ ██      ███████
+██      ██      ██    ██ ██   ██     ██   ██ ██   ██ ██    ██ ██      ██ ██      ██
+██      ██      ██    ██ ██████      ██████  ██████  ██    ██ █████   ██ ██      █████
+██      ██      ██    ██ ██   ██     ██      ██   ██ ██    ██ ██      ██ ██      ██
+ ██████ ███████  ██████  ██████      ██      ██   ██  ██████  ██      ██ ███████ ███████
+*/
+.member-profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+
+.member-names {
+  color: #3E4A59;
+}
+
+.member-names:hover {
+  color: #3E4A59;
+  text-decoration: none;
+}
+
+.club-role {
+  font-size: 12px;
+  margin-top: 0;
+}
+
+/*
+███████ ████████ ██    ██ ██████  ███████ ███    ██ ████████     ██████  ██████   ██████  ███████ ██ ██      ███████
+██         ██    ██    ██ ██   ██ ██      ████   ██    ██        ██   ██ ██   ██ ██    ██ ██      ██ ██      ██
+███████    ██    ██    ██ ██   ██ █████   ██ ██  ██    ██        ██████  ██████  ██    ██ █████   ██ ██      █████
+     ██    ██    ██    ██ ██   ██ ██      ██  ██ ██    ██        ██      ██   ██ ██    ██ ██      ██ ██      ██
+███████    ██     ██████  ██████  ███████ ██   ████    ██        ██      ██   ██  ██████  ██      ██ ███████ ███████
+*/
+.student-profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  margin-bottom: -50px;
+  z-index: 1;
+  align-self: center;
+  box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
+}
+
+/*
+██   ██ ███████  █████  ██████  ██      ██ ███    ██ ███████
+██   ██ ██      ██   ██ ██   ██ ██      ██ ████   ██ ██
+███████ █████   ███████ ██   ██ ██      ██ ██ ██  ██ █████
+██   ██ ██      ██   ██ ██   ██ ██      ██ ██  ██ ██ ██
+██   ██ ███████ ██   ██ ██████  ███████ ██ ██   ████ ███████
+*/
+.headline-container {
+  max-width: 80%;
+  background-color: white;
+  margin-bottom: 15px;
+  cursor: pointer;
+  height: 280px;
+}
+
+.headline-container:hover {
+  box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.03), 0 3px 3px 3px rgba(0, 0, 0, 0.03);
+}
+
+.headline-container:last-child {
+  margin-bottom: 50px;
+}
+
+.headline {
+  border-bottom: 1px solid #DADADA;
+  padding-top: 30px;
+  margin: 0;
+}
+
+.headline h1 {
+  margin-bottom: 10px;
+}
+
+.headline-text {
+  padding: 20px 60px;
+  text-align: left;
+  height: 140px;
+  overflow: hidden;
+}
+
+.post-club-name {
+  margin-top: -10px;
+}
+
+/* club cards */
+.card-deck:last-of-type {
+  margin-top: 10px;
+}
+
+.card-deck a {
+  text-decoration: none;
+  color: #3E4A59;
+}
+
+.club-card {
+  max-width: 250px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #DADADA;
+}
+
+.club-card:hover {
+  box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
+}
+
+.club-card-img-top {
+  max-width: 250px;
+  max-height: 150px;
+  width: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.club-card-body {
+  max-height: 20px;
+  background-color: white;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.club-card-body h5 {
+  margin: 0;
+}
+
+/*
+ ██████ ██      ██    ██ ██████      ██████  ███████ ███████ ██    ██ ██   ████████ ███████
+██      ██      ██    ██ ██   ██     ██   ██ ██      ██      ██    ██ ██      ██    ██
+██      ██      ██    ██ ██████      ██████  █████   ███████ ██    ██ ██      ██    ███████
+██      ██      ██    ██ ██   ██     ██   ██ ██           ██ ██    ██ ██      ██         ██
+ ██████ ███████  ██████  ██████      ██   ██ ███████ ███████  ██████  ███████ ██    ███████
+*/
 .club-name {
   display: block;
   background-color: #F6F7F9;
@@ -402,7 +473,13 @@ hr {
   text-decoration: none;
 }
 
-/* your clubs */
+/*
+██    ██  ██████  ██    ██ ██████       ██████ ██      ██    ██ ██████  ███████
+ ██  ██  ██    ██ ██    ██ ██   ██     ██      ██      ██    ██ ██   ██ ██
+  ████   ██    ██ ██    ██ ██████      ██      ██      ██    ██ ██████  ███████
+   ██    ██    ██ ██    ██ ██   ██     ██      ██      ██    ██ ██   ██      ██
+   ██     ██████   ██████  ██   ██      ██████ ███████  ██████  ██████  ███████
+*/
 .your-clubs-thumbnails {
   width: 100px;
   height: 100px;
@@ -414,7 +491,13 @@ hr {
   box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
 }
 
-/* club directory */
+/*
+ ██████ ██      ██    ██ ██████      ██████  ██ ██████  ███████  ██████ ████████  ██████  ██████  ██    ██
+██      ██      ██    ██ ██   ██     ██   ██ ██ ██   ██ ██      ██         ██    ██    ██ ██   ██  ██  ██
+██      ██      ██    ██ ██████      ██   ██ ██ ██████  █████   ██         ██    ██    ██ ██████    ████
+██      ██      ██    ██ ██   ██     ██   ██ ██ ██   ██ ██      ██         ██    ██    ██ ██   ██    ██
+ ██████ ███████  ██████  ██████      ██████  ██ ██   ██ ███████  ██████    ██     ██████  ██   ██    ██
+*/
 .filters {
   background-color: white;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
@@ -424,63 +507,61 @@ hr {
 
 .btn-filter {
   padding: 0px;
-  background-color: #5C6EFF;
+  background-color: #fff;
   border-radius: 20px;
-  border: 0;
+  border: 2px #5C6EFF solid;
+  color: #5C6EFF;
   padding: 5px 15px;
   align-self: center;
   cursor: pointer;
   margin-right: 10px;
-  color: white;
   margin-bottom: 0;
 }
 
 .btn-filter:hover {
+  background-color: #5C6EFF;
+  color: white;
+}
+
+.btn-filter-submit {
   background-color: #01EEB8;
-  opacity: 0.8;
+  color: #fff;
+  border-radius: 20px;
 }
 
-.filters input[type=checkbox] {
-    display: none;
-}
-
-.filters input:checked + label {
-    background-color: #01EEB8;
-}
-
-.filters input:checked + label:before {
-    content: "";
-}
-
-.filters input:checked + label .check {
-    visibility: visible;
-}
-
-.filters input.checkbox:checked + label:before {
-    content: "";
-}
-
-/* banners */
-.banner {
-  background-color: white;
-  height: 100px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset, 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
-  display: flex;
-  align-content: center;
-}
-
-/* student profile page */
-.student-profile-pic {
-  width: 110px;
-  height: 110px;
-  border-radius: 100%;
-  margin-bottom: -50px;
-  z-index: 1;
-  align-self: center;
+.btn-filter-submit:hover {
   box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
 }
 
-/* buttons */
+.filters input[type=checkbox] {
+  display: none;
+}
+
+.filters input:checked + label {
+  background-color: #5C6EFF;
+  transition: background-color 0.4s ease;
+  color: white;
+}
+
+.filters input:checked + label:before {
+  content: "";
+}
+
+.filters input:checked + label .check {
+  visibility: visible;
+}
+
+.filters input.checkbox:checked + label:before {
+  content: "";
+}
+
+/*
+██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██
+██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██
+██████   ██████     ██       ██     ██████  ██   ████ ███████
+*/
 .btn-primary {
   background-color: #5C6EFF;
   border-radius: 20px;
@@ -519,9 +600,22 @@ hr {
   border: 0;
 }
 
+/*
+███    ███  ██████  ██████   █████  ██
+████  ████ ██    ██ ██   ██ ██   ██ ██
+██ ████ ██ ██    ██ ██   ██ ███████ ██
+██  ██  ██ ██    ██ ██   ██ ██   ██ ██
+██      ██  ██████  ██████  ██   ██ ███████
+*/
 .modal-dialog {
   width: 100%;
   align-self: baseline;
+}
+
+.modal-body p {
+  margin-bottom: 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .text-edit {
@@ -530,36 +624,3 @@ hr {
   border-radius: 2px;
   border-width: thin;
 }
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 160px;
-  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.1);
-  z-index: 1;
-  right: 0;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: #3E4A59;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border-bottom: 1px solid #DADADA;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f2f2f2;}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
