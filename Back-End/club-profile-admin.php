@@ -260,6 +260,10 @@
 
        <?php 
 
+        $query2 = "SELECT * FROM clubapp.posts order by id desc"; 
+        $results2 = mysqli_query($db, $query2);
+        $row=mysqli_fetch_array($results2);
+
       for ($id = $row[0]; $id >= 1; $id--) {     
       
         $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; 
