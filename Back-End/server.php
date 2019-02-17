@@ -92,17 +92,17 @@ if (isset($_POST['login_student'])) {
     $results = mysqli_query($db, $query);
     
     if (mysqli_num_rows($results) == 1) {
-      header('location: club-profile-admin.php');
-        $query2 = "SELECT Name FROM clubapp.users WHERE StudentID = '$studentid'";
-    $results2 = mysqli_query($db, $query2);
-    $row = mysqli_fetch_array($results2);
+      
+        $query2 = "SELECT name FROM clubapp.students WHERE studentid = '$studentid'";
+        $results2 = mysqli_query($db, $query2);
+        $row = mysqli_fetch_array($results2);
         $_SESSION['loggedin'] = $row['name'];
         $_SESSION['studentid'] = $studentid;
         //$queryOfficer = "SELECT * from clubapp.clubstudents WHERE studentid = '$studentid'";
         //$resultsOfficer = mysqli_query($db, $queryOfficer);
         //$rowOfficer = mysqli_fetch_array($resultsOfficer);
         //$_SESSION['officer'] = $rowOfficer['officer'];
-
+        header('location: club-profile-admin.php');
     } else {
       array_push($errors, "Wrong student id/password combination");
     }
