@@ -1,24 +1,19 @@
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Club Profile</title>
-
-  <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  <!-- Custom styles for this template -->
+  <!-- custom CSS -->
   <link rel="stylesheet" href="styles.css">
+  <title>How to Add Deep Linking to the Bootstrap 4 Tabs Component</title>
 </head>
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="index.html">Logo</a>
-    <div class="d-flex flex-row">
+    <a class="navbar-brand" href="club-stream.html">Logo</a>
+    <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
@@ -32,99 +27,99 @@
       </div>
     </div>
   </nav>
-
-  <!-- <img src="#banner"/> -->
   <div class="nav-container">
-    <ul class="nav nav-pills justify-content-center align-items-center" id="myTab" role="tablist">
+    <ul class="nav nav-mytabs nav-pills justify-content-center align-items-center" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active px-sm-5 px-lg-5" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+        <a class="nav-link active px-sm-5 px-lg-5" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link px-lg-5 px-md-5" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">Posts</a>
+        <a class="nav-link px-sm-5 px-lg-5" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">posts</a>
       </li>
     </ul>
   </div>
-  <div class="tab-content" id="myTabContent">
+  <div class="tab-content mytab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <main role="main" class="container mt-5">
+      <main role="main" class="container mt-4">
         <div class="jumbotron d-flex flex-column align-items-center text-center">
           <div class="w-75 d-flex flex-column align-items-center">
-            <h1>Club Name</h1>
+            <h1 class="mb-4">Club Name</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <button type="submit" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
-            <!-- Modal -->
-            <div class="modal fade" id="welcome-msg" role="dialog">
+            <div class="modal fade" id="welcome-msg" role="dialog"> <!-- welcome msg -->
               <div class="modal-dialog modal-dialog-centered modal-lg">
-                <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header d-flex flex-column align-items-center">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Welcome!</h4>
                   </div>
-                  <div class="modal-body px-5 py-3">
-                    <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+                  <div class="modal-body p-3">
+                    <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat
+                      diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis
+                      tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et
+                      pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <hr>
-
+            </div> <!-- welcome msg -->
+          </div>
+          <hr>
+          <div class="w-75 d-flex flex-column align-items-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
                 <p class="club-role">Teacher</p>
               </div>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
                 <p class="club-role">Officer</p>
               </div>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
                 <p class="club-role">Officer</p>
               </div>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
                 <p class="club-role">Officer</p>
               </div>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
               </div>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
               </div>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
               </div>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <a href="student-profile.html" class="mb-0 member-names">
                   <img class="member-profile-pic" src="images/gray.png" alt="">
                 </a>
-                Name
+                <a href="student-profile.html">Name</a>
               </div>
             </div>
           </div>
@@ -132,166 +127,214 @@
       </main>
     </div>
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-      <main role="main" class="container text-center mt-5 d-flex flex-column align-items-center">
+      <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
             <h1>Headline</h1>
+            <p class="post-club-name">Posted by club name</p>
           </div>
           <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
+            tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
+            libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. </div>
         </div>
-        <div>
-          <!-- Modal -->
+        <div> <!-- modal 1 -->
           <div class="modal fade" id="myModal1" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-              <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header d-flex flex-column align-items-center">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h1>Headline</h1>
+                  <p class="post-club-name mb-0">Posted by club name</p>
                 </div>
                 <div class="modal-body">
-                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                    laborum. Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a
+                    volutpat diam
+                    tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique
+                    orci
+                    libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-
+        </div> <!-- modal -->
         <div class="headline-container" data-toggle="modal" data-target="#myModal2">
           <div class="headline">
             <h1>Headline</h1>
+            <p class="post-club-name">Posted by club name</p>
           </div>
           <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
         </div>
-
-        <div>
-          <!-- Modal -->
+        <div> <!-- modal 2 -->
           <div class="modal fade" id="myModal2" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-              <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header d-flex flex-column align-items-center">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h1>Headline</h1>
+                  <p class="post-club-name mb-0">Posted by club name</p>
                 </div>
                 <div class="modal-body">
-                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat
+                    diam
+                    tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique
+                    orci
+                    libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum
+                    ac
+                    diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="headline-container"  data-toggle="modal" data-target="#myModal3">
+        </div> <!-- modal 2 -->
+        <div class="headline-container" data-toggle="modal" data-target="#myModal3">
           <div class="headline">
             <h1>Headline</h1>
+            <p class="post-club-name">Posted by club name</p>
           </div>
           <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
         </div>
-
-        <div>
-          <!-- Modal -->
+        <div> <!-- modal 3 -->
           <div class="modal fade" id="myModal3" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-              <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header d-flex flex-column align-items-center">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h1>Headline</h1>
+                  <p class="post-club-name mb-0">Posted by club name</p>
                 </div>
                 <div class="modal-body">
-                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat
+                    diam
+                    tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique
+                    orci
+                    libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum
+                    ac
+                    diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="headline-container"  data-toggle="modal" data-target="#myModal4">
+        <div class="headline-container" data-toggle="modal" data-target="#myModal4">
           <div class="headline">
             <h1>Headline</h1>
+            <p class="post-club-name">Posted by club name</p>
           </div>
           <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
         </div>
-
-        <div>
-          <!-- Modal -->
+        <div> <!-- modal 4 -->
           <div class="modal fade" id="myModal4" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-              <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header d-flex flex-column align-items-center">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h1>Headline</h1>
+                  <p class="post-club-name mb-0">Posted by club name</p>
                 </div>
                 <div class="modal-body">
-                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat
+                    diam
+                    tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique
+                    orci
+                    libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum
+                    ac
+                    diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
+        </div> <!-- modal 4 -->
         <div class="headline-container" data-toggle="modal" data-target="#myModal5">
           <div class="headline">
             <h1>Headline</h1>
+            <p class="post-club-name">Posted by club name</p>
           </div>
           <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
         </div>
-
-        <div>
-          <!-- Modal -->
+        <div> <!-- modal 5 -->
           <div class="modal fade" id="myModal5" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-              <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header d-flex flex-column align-items-center">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h1>Headline</h1>
+                  <p class="post-club-name mb-0">Posted by club name</p>
                 </div>
                 <div class="modal-body">
-                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+                  <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat
+                    diam
+                    tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique
+                    orci
+                    libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum
+                    ac
+                    diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </div> <!-- modal 5 -->
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- custom JS -->
+  <script>
+  $(document).ready(() => {
+  let url = location.href.replace(/\/$/, "");
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script>
-    window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
-  </script>
-  <script>
-  /* When the user clicks on the button,
-  toggle between hiding and showing the dropdown content */
-  function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  if (location.hash) {
+    const hash = url.split("#");
+    $('#myTab a[href="#'+hash[1]+'"]').tab("show");
+    url = location.href.replace(/\/#/, "#");
+    history.replaceState(null, null, url);
+    setTimeout(() => {
+      $(window).scrollTop(0);
+    }, 400);
   }
 
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+  $('a[data-toggle="tab"]').on("click", function() {
+    let newUrl;
+    const hash = $(this).attr("href");
+    if(hash == "#home") {
+      newUrl = url.split("#")[0];
+    } else {
+      newUrl = url.split("#")[0] + hash;
+    }
+    newUrl += "/";
+    history.replaceState(null, null, newUrl);
+  });
+  });
+  </script>
+
+  <script>
+    /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
         }
       }
     }
-  }
   </script>
-  <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 </body>
 
 </html>

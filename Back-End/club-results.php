@@ -1,5 +1,4 @@
 <?php include('filterclubquiz.php')?>
-
 <html lang="en">
 
 <head>
@@ -18,95 +17,88 @@
 </head>
 
 <body>
-  <nav class="navbar mb-4">
-    <a class="navbar-brand" href="#">Logo</a>
-    <div class="d-flex flex-row">
-      <a class="nav-link mr-3 px-5 b-0" href="club-stream.html">Home</a>
-      <a class="nav-link mr-3 px-5 b-0" href="club-directory.html">Explore</a>
+  <nav class="navbar">
+    <a class="navbar-brand" href="club-stream.html">Logo</a>
+    <div class="d-flex flex-row align-items-center">
+      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
-        <img class="member-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.html">Interest Quiz</a>
-          <a href="#">Manage Clubs</a>
+          <a href="your-clubs.html">Your Clubs</a>
           <a href="index.html">Sign Out</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <main role="main" class="container text-center">
-    <div class="jumbotron d-flex flex-column justify-content-around align-items-center text-center">
-      <!--<img src="#" class="img-fluid" alt="Illustration">-->
-      <h1 style="margin-bottom: 10px;">Results</h1>
-      <div class="w-75">
+  <main role="main" class="container mt-4 text-center">
+    <div class="jumbotron d-flex flex-column justify-content-center align-items-center text-center">
+      <h1 class="mb-4">Results</h1>
+      <div class="mb-4">
         <p>These are the clubs that best match your interests based on your quiz responses.</br> If they seem appealing, check them out!</p>
-        <a class="btn btn-primary" style="margin-top: 10px" href="club-stream.html" role="button">go to home</a>
       </div>
 
-      <hr class="my-3">
-
-      <div class="row mx-0 d-flex flex-row justify-content-center">
-         <?php 
+     
+        <?php 
 
                $list = $_SESSION['clubnames'];
-               echo count($list);
-               print_r($list);
+               
                if (count($list)%2 == 0)
                {
                for ($counter = 0; $counter<count($list); $counter +=2)
                  { 
               ?>
         <div class="row mx-0 d-flex flex-row justify-content-center">
-          <div class="col-sm-12 col-md-6 col-lg mb-2">
-          <div class="d-flex flex-row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg mb-4">
+          <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
+            <a href="club-profile.html" class="club-name"><?php echo $list[$counter];?></a>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg mb-2">
-          <div class="d-flex flex-row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg mb-4">
+          <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
             <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
           </div>
         </div>
       </div>
-        
-          
-          <?php
+       <?php
                   }}
                 else {
                   for ($counter = 0; $counter<count($list)-1; $counter +=2)
                  { 
               ?>
-        <div class="row mx-0 d-flex flex-row justify-content-center">
-          <div class="col-sm-12 col-md-6 col-lg mb-2">
-          <div class="d-flex flex-row justify-content-center">
+      <div class="row mx-0 d-flex flex-row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg mb-4">
+          <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
             <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg mb-2">
-          <div class="d-flex flex-row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg mb-4">
+          <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
             <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
-            </div>
+          </div>
         </div>
       </div>
       <?php
                 } ?>
-
-      <div class="col-sm-12 col-md-6 col-lg mb-2">
-          <div class="d-flex flex-row justify-content-center">
+      <div class="row mx-0 d-flex flex-row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg mb-4">
+          <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
             <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
-            </div>
+          </div>
         </div>
-
-              <?php  }
+          <?php  }
           ?> 
        
         
+      </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

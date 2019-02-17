@@ -15,10 +15,10 @@
 </head>
 
 <body>
-  <nav class="navbar mb-4">
-    <a class="navbar-brand" href="index.html">Logo</a>
-    <div class="d-flex flex-row">
-      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
+  <nav class="navbar">
+    <a class="navbar-brand" href="club-stream.html">Logo</a>
+    <div class="d-flex flex-row align-items-center">
+      <a class="nav-link mr-5 b-0 nav-link-active" href="club-stream.html">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
@@ -32,33 +32,36 @@
     </div>
   </nav>
 
-  <main role="main" class="container text-center d-flex flex-column align-items-center">
+  <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
     <div data-toggle="modal" data-target="#myModal1" class="headline-container">
       <div class="headline">
         <h1>Headline</h1>
         <p class="post-club-name">Posted by club name</p>
       </div>
       <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
+        tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
+        libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. </div>
     </div>
-    <div>
-      <!-- Modal -->
+    <div> <!-- modal 1 -->
       <div class="modal fade" id="myModal1" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header d-flex flex-column align-items-center">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Modal Header</h4>
+              <h1>Headline</h1>
+              <p class="post-club-name mb-0">Posted by club name</p>
             </div>
             <div class="modal-body">
-              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
+                tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
+                libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
+    </div> <!-- modal -->
     <div class="headline-container" data-toggle="modal" data-target="#myModal2">
       <div class="headline">
         <h1>Headline</h1>
@@ -67,26 +70,26 @@
       <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
     </div>
-
-    <div>
-      <!-- Modal -->
+    <div> <!-- modal 2 -->
       <div class="modal fade" id="myModal2" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header d-flex flex-column align-items-center">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Modal Header</h4>
+              <h1>Headline</h1>
+              <p class="post-club-name mb-0">Posted by club name</p>
             </div>
             <div class="modal-body">
-              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
+                tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
+                libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac
+                diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="headline-container"  data-toggle="modal" data-target="#myModal3">
+    </div> <!-- modal 2 -->
+    <div class="headline-container" data-toggle="modal" data-target="#myModal3">
       <div class="headline">
         <h1>Headline</h1>
         <p class="post-club-name">Posted by club name</p>
@@ -94,26 +97,26 @@
       <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
     </div>
-
-    <div>
-      <!-- Modal -->
+    <div> <!-- modal 3 -->
       <div class="modal fade" id="myModal3" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header d-flex flex-column align-items-center">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Modal Header</h4>
+              <h1>Headline</h1>
+              <p class="post-club-name mb-0">Posted by club name</p>
             </div>
             <div class="modal-body">
-              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
+                tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
+                libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac
+                diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="headline-container"  data-toggle="modal" data-target="#myModal4">
+    <div class="headline-container" data-toggle="modal" data-target="#myModal4">
       <div class="headline">
         <h1>Headline</h1>
         <p class="post-club-name">Posted by club name</p>
@@ -121,25 +124,25 @@
       <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
     </div>
-
-    <div>
-      <!-- Modal -->
+    <div> <!-- modal 4 -->
       <div class="modal fade" id="myModal4" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header d-flex flex-column align-items-center">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Modal Header</h4>
+              <h1>Headline</h1>
+              <p class="post-club-name mb-0">Posted by club name</p>
             </div>
             <div class="modal-body">
-              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
+                tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
+                libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac
+                diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
+    </div> <!-- modal 4 -->
     <div class="headline-container" data-toggle="modal" data-target="#myModal5">
       <div class="headline">
         <h1>Headline</h1>
@@ -148,77 +151,76 @@
       <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
     </div>
-
-    <div>
-      <!-- Modal -->
+    <div> <!-- modal 5 -->
       <div class="modal fade" id="myModal5" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header d-flex flex-column align-items-center">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Modal Header</h4>
+              <h1>Headline</h1>
+              <p class="post-club-name mb-0">Posted by club name</p>
             </div>
             <div class="modal-body">
-              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+              <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
+                tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
+                libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et pulvinar in, interdum ac
+                diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
+    </div> <!-- modal 5 -->
   </main>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
   </script>
-  <script> // Get the modal
-var modal = document.getElementById('myModal');
+  <script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "flex";
-}
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-<script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
       }
     }
-  }
-}
-</script>
+  </script>
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
   <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 </body>
 
