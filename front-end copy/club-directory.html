@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Club Stream</title>
+  <title>Club Directory</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,10 +16,10 @@
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="index.html">Logo</a>
-    <div class="d-flex flex-row">
+    <a class="navbar-brand" href="club-stream.html">Logo</a>
+    <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
+      <a class="nav-link mr-5 b-0 nav-link-active" href="club-directory.html">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
@@ -52,110 +52,113 @@
       <label class="btn-filter btn" for="service">Service</label>
       <input id="language" type="checkbox" name="filter"/>
       <label class="btn-filter btn" for="language">Language</label>
+      <button role="submit" class="btn btn-filter-submit">Apply Changes</button>
     </form>
   </div>
-  <div class="d-flex flex-column align-items-center">
-    <div class="card-deck mt-4 d-flex flex-row justify-content-center">
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+  <div class="container">
+    <div class="d-flex flex-column">
+      <div class="card-deck mt-4 d-flex flex-row justify-content-between"> <!-- in a deck of cards, there are 4 individual cards -->
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
-    <div class="card-deck mt-4 d-flex flex-row justify-content-center">
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+      </div>
+      <div class="card-deck mt-4 d-flex flex-row justify-content-between"> <!-- delete extra deck if amount of cards are less than 4 -->
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
-    <div class="card-deck mt-4 mb-4 d-flex flex-row justify-content-center">
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+      </div>
+      <div class="card-deck mt-4 mb-4 d-flex flex-row justify-content-between">
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <a href="club-profile.html">
-        <div class="club-card">
-          <img class="club-card-img-top" src="images/gray.png" alt="club-card image cap">
-          <div class="club-card-body">
-            <h5 class="club-card-title">club name</h5>
+        </a>
+        <a href="club-profile.html">
+          <div class="club-card">
+            <img class="club-card-img-top" src="images/gray.png">
+            <div class="club-card-body">
+              <h5 class="club-card-title">club name</h5>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -163,11 +166,10 @@
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
   </script>
   <script>
-  /* When the user clicks on the button,
-  toggle between hiding and showing the dropdown content */
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
+
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {

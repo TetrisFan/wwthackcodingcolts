@@ -22,7 +22,7 @@
 
     <main role="main" class="container text-center">
       <div class="jumbotron d-flex flex-column justify-content-center">
-        <form id="quizForm" action="/phptutorial/your-clubs.php" method ="POST">
+        <form id="quizForm" action="club-results.php" method ="POST">
           <div class="quiz-tab">
             <h1 class="mb-3">I am interested in ___________</h1>
             <input id="answer01" type="checkbox" name="q1" value = "y"/>
