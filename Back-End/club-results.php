@@ -45,7 +45,7 @@
         <?php 
 
                $list = $_SESSION['clubnames'];
-               
+              
                if (count($list)%2 == 0)
                {
                for ($counter = 0; $counter<count($list); $counter +=2)

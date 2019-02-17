@@ -1,7 +1,7 @@
 <?php
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "0000";
+$dbPassword = "PASSWORD";
 $dbName = "clubapp";
 
 $conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
@@ -115,7 +115,7 @@ $conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 function selectclub($tagindex)
       {
             global $conn;
-            $sql= "SELECT clubid FROM clubapp.clubtag  WHERE tagid = $tagindex;";
+            $sql= "SELECT ClubID FROM clubapp.clubtag  WHERE TagID = $tagindex;";
             $result = mysqli_query($conn, $sql);
             $datas = array();
             if (mysqli_num_rows($result)>0)
@@ -128,7 +128,7 @@ function selectclub($tagindex)
              $clubid = array();
             foreach ($datas as $data)
             {
-                  $clubid[] =  $data['clubid'];
+                  $clubid[] =  $data['ClubID'];
             }
             //print_r ($clubid);                    //test statement
 
@@ -136,8 +136,8 @@ function selectclub($tagindex)
            
             foreach($clubid as $loops)
             {
-             $clubid = $row['clubid'];
-             $club = "SELECT clubname FROM clubapp.club WHERE clubid = '$loops'";
+             $clubid = $row['ClubID'];
+             $club = "SELECT ClubName FROM clubapp.club WHERE ClubID = '$loops'";
              $result = mysqli_query($conn, $club);
              $datas = array();
              while ($row = mysqli_fetch_assoc($result))
@@ -148,7 +148,7 @@ function selectclub($tagindex)
              
              foreach($datas as $loopdata)
                   {
-                         $clubnames [] =  $loopdata['clubname'];   // output 
+                         $clubnames [] =  $loopdata['ClubName'];   // output 
                   }
             }
             
