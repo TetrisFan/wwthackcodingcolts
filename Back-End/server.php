@@ -112,18 +112,13 @@ if (isset($_POST['login_student'])) {
 
 
 if (isset($_POST['submit_post'])) 
-{
+  {
   $headline = mysqli_real_escape_string($db, $_POST['headline']);
   $desc = mysqli_real_escape_string($db, $_POST['desc']);
 
-  if (empty($headline)) { array_push($errors, "Headline is required"); }
-  if (empty($desc)) { array_push($errors, "Text is required"); }
-
-  if (count($errors) == 0) {
-    $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now())" ;
-    $results = mysqli_query($db, $query) or die(mysqli_error($db));
-  }
-} 
+  $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now())" ;
+  $results = mysqli_query($db, $query); //or die(mysqli_error($db));
+  } 
 
 
   
