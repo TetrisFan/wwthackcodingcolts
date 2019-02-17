@@ -129,36 +129,36 @@
         <button class="btn-primary btn mb-4" data-toggle="modal" data-target="#new-post" style="width: 80%;">Create a new post</button>
         <div class="modal fade" id="new-post" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content"> 
+            <div class="modal-content">
                 <form method="post" action="club-profile-admin.php">
               <div class="modal-header d-flex flex-column align-items-center">
                 <button type="button" class="close mb-2" data-dismiss="modal">&times;</button>
                 <form class="w-100">
                   <div class="form-group">
-                    <textarea class="form-control rounded-0" rows="1" name="headline" placeholder="Post title"></textarea>
+                    <textarea class="form-control rounded-0" rows="1" name="headline" placeholder="Post title" required></textarea>
                   </div>
-                  <textarea class="form-control rounded-0" rows="10" name="desc" placeholder="Post description."></textarea>
-                <button type="submit" class="btn btn-primary mt-3" role="button" name="submit_post">save changes</button>
+                  <textarea class="form-control rounded-0" rows="10" name="desc" placeholder="Post description." required></textarea>
+                <button type="submit" class="btn btn-primary mt-3" role="button" name="submit_post">post</button>
                 </form>
               </div>
             </div>
           </div>
         </div> <!-- edit modal -->
 
-        
-        <?php 
 
-        $query2 = "SELECT * FROM clubapp.posts order by id desc"; 
+        <?php
+
+        $query2 = "SELECT * FROM clubapp.posts order by id desc";
         $results2 = mysqli_query($db, $query2);
         $row=mysqli_fetch_array($results2);
 
-      for ($id = $row[0]; $id >= 1; $id--) {     
-      
-        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; 
+      for ($id = $row[0]; $id >= 1; $id--) {
+
+        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
         $results = mysqli_query($db, $query);
         $posts=mysqli_fetch_array($results);
-        
-        ?> 
+
+        ?>
 
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
@@ -169,8 +169,8 @@
         </div>
 <br>
 
-  <?php                                    
-      } 
+  <?php
+      }
 
       ?>
 
