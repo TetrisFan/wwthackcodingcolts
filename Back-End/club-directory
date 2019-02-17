@@ -1,11 +1,15 @@
 <?php
-  require('config.php');
+  
+  $servername = "localhost";
+  $username = "root";
+  $password = "PASSWORD";
+  $conn = new mysqli($servername, $username, $password, "clubapp");
 
   // Create Query
-  $query = 'SELECT club.clubname, club.clubid, tag.tagname
+  $query = 'SELECT club.ClubName, club.ClubID, tag.TagName
       FROM club
-      INNER JOIN clubtag ON club.clubid = clubtag.clubid
-      INNER JOIN tag ON clubtag.tagid = tag.tagid
+      INNER JOIN clubtag ON club.ClubID = clubtag.ClubID
+      INNER JOIN tag ON clubtag.TagID = tag.TagID
       ORDER BY club.clubname';
 
   // Get Result
