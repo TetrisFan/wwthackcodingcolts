@@ -30,7 +30,7 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM clubapp.users WHERE studentid='$studentid' LIMIT 1"; 
+  $user_check_query = "SELECT * FROM clubapp.users WHERE StudentID='$studentid' LIMIT 1"; 
   $result = mysqli_query($db, $user_check_query);
   $student = mysqli_fetch_assoc($result);
   
@@ -42,7 +42,7 @@ if (isset($_POST['reg_user'])) {
   }
 
 
- $id_check_query = "SELECT * FROM clubapp.users WHERE studentid='$studentid' LIMIT 1"; 
+ $id_check_query = "SELECT * FROM clubapp.students WHERE studentid='$studentid' LIMIT 1"; 
   $result = mysqli_query($db, $id_check_query);
   $id = mysqli_fetch_assoc($result);
   
@@ -50,23 +50,26 @@ if (isset($_POST['reg_user'])) {
     array_push($errors, "Student ID does not exist");
   }
 
-    $query2 = "SELECT name FROM clubapp.users WHERE studentid = '$studentid'";
-    $results2 = mysqli_query($db, $query2);
-    $row = mysqli_fetch_array($results2);
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-    $password = $password_1;//encrypt the password before saving in the database
-
-    $query = "INSERT INTO clubapp.users (studentid, password) 
+    $password = $password_1;
+    $query = "INSERT INTO clubapp.users (StudentID, Password) 
           VALUES('$studentid', '$password')";
     mysqli_query($db, $query);
+
+// create a session for the logged in student's id and name
+    $query2 = "SELECT name FROM clubapp.students WHERE studentid = '$studentid'";
+    $results2 = mysqli_query($db, $query2);
+    $row = mysqli_fetch_array($results2);
     $_SESSION['loggedin'] = $row['name'];
     $_SESSION['studentid'] = $studentid;
-    $queryOfficer = "SELECT * from clubapp.clubstudents WHERE studentid = '$studentid'";
-    $resultsOfficer = mysqli_query($db, $queryOfficer);
-    $rowOfficer = mysqli_fetch_array($resultsOfficer);
-    $_SESSION['officer'] = $rowOfficer['officer'];
-    header('location: club-stream.php'); 
+    
+// create a session for the loggin in student's officer status
+    //$queryOfficer = "SELECT * from clubapp.clubstudents WHERE StudentID = '$studentid'";
+    //$resultsOfficer = mysqli_query($db, $queryOfficer);
+    //$rowOfficer = mysqli_fetch_array($resultsOfficer);
+    //$_SESSION['Officer'] = $rowOfficer['Officer'];
+    header('location: club-profile-admin.php'); 
   }
 }
 
@@ -85,19 +88,20 @@ if (isset($_POST['login_student'])) {
 
   if (count($errors) == 0) {
 
-    $query = "SELECT * FROM clubapp.users WHERE studentid='$studentid' AND  password='$password'";
+    $query = "SELECT * FROM clubapp.users WHERE StudentID='$studentid' AND Password='$password'";
     $results = mysqli_query($db, $query);
-    $query2 = "SELECT name FROM clubapp.users WHERE studentid = '$studentid'";
+    
+    if (mysqli_num_rows($results) == 1) {
+      header('location: club-profile-admin.php');
+        $query2 = "SELECT Name FROM clubapp.users WHERE StudentID = '$studentid'";
     $results2 = mysqli_query($db, $query2);
     $row = mysqli_fetch_array($results2);
-    if (mysqli_num_rows($results) == 1) {
-      header('location: club-stream.php');
         $_SESSION['loggedin'] = $row['name'];
         $_SESSION['studentid'] = $studentid;
-        $queryOfficer = "SELECT * from clubapp.clubstudents WHERE studentid = '$studentid'";
-        $resultsOfficer = mysqli_query($db, $queryOfficer);
-        $rowOfficer = mysqli_fetch_array($resultsOfficer);
-        $_SESSION['officer'] = $rowOfficer['officer'];
+        //$queryOfficer = "SELECT * from clubapp.clubstudents WHERE studentid = '$studentid'";
+        //$resultsOfficer = mysqli_query($db, $queryOfficer);
+        //$rowOfficer = mysqli_fetch_array($resultsOfficer);
+        //$_SESSION['officer'] = $rowOfficer['officer'];
 
     } else {
       array_push($errors, "Wrong student id/password combination");
@@ -121,9 +125,8 @@ if (isset($_POST['submit_post']))
   }
 } 
 
-  $query2 = "SELECT * FROM clubapp.posts order by id desc"; 
-  $results2 = mysqli_query($db, $query2);
-  $row=mysqli_fetch_array($results2);
+
+  
 
 //Display Posts
 
