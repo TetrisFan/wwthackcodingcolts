@@ -58,6 +58,10 @@ button {
   padding: 0;
 }
 
+button:focus {
+  outline: none;
+}
+
 .p-text {
   font-size: 18px;
   align-self: center;
