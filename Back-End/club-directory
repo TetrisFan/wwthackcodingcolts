@@ -84,8 +84,7 @@
       $k = 0;
       $info = $clubInfo["$k"];
       if(isset($_POST['filter'])) :
-        var_dump($_POST['filter']);
-        for($i = 0; $i < 3; $i++) :
+        for($i = 0; $i < count($clubInfo); $i++) :
     ?>
     <div class="d-flex flex-column">
       <div class="card-deck mt-4 d-flex flex-row justify-content-between"> <!-- in a deck of cards, there are 4 individual cards -->
@@ -172,7 +171,7 @@
     endif;
 
     if(!isset($_POST['filter'])) :
-      for($i = 0; $i < 3; $i++) :
+      for($i = 0; $i < count($clubInfo); $i++) :
     ?>
     <div class="d-flex flex-column">
       <div class="card-deck mt-4 d-flex flex-row justify-content-between"> <!-- in a deck of cards, there are 4 individual cards -->
