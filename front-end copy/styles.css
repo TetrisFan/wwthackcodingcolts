@@ -53,6 +53,11 @@ a:hover {
   color: #3E4A59;
 }
 
+button {
+  border: 0;
+  padding: 0;
+}
+
 .p-text {
   font-size: 18px;
   align-self: center;
