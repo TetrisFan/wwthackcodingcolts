@@ -1,20 +1,27 @@
 <?php 
 
-
+include ('server.php');
 $servername = "localhost";
 $username = "root";
 $password = "PASSWORD";
 
+$conn = new mysqli($servername, $username, $password, "clubapp");
 //These will eventually be replaced with sesssion variables, but for now:
-$clubName = 'Art Club';
+//$clubName = isset($_POST['c1'])?$_POST['c1']:"";
+
+$clubreceive = mysqli_real_escape_string($conn, $_POST['c1']);
+$clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+//$clubname = $_SESSION['club'];
+$currentClubID = 0;
+$currentUserID = $_SESSION['studentid'];
 $currentClubID = 1;
 $currentUserID = 65;
 
 
-$conn = new mysqli($servername, $username, $password, "clubapp");
+//$ = mysqli_real_escape_string($db, $_POST['headline']);
+//$result = mysqli_query($conn, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($conn));
 
 
-$result = mysqli_query($conn, "SELECT * FROM club WHERE ClubName =  '".$clubName."'") or die(mysqli_error($conn));
 
 if ($conn->connect_error)
 {
@@ -28,12 +35,14 @@ $studentInfo = array();
 $currentClub = array();
 $studentInClub = array();
 
-while(($row = mysqli_fetch_assoc($result)))
+while(($row = mysqli_fetch_assoc($clubNames)))
 {
     $club['ID'] = $row['ClubID'];
     $club['Name'] = $row['ClubName'];
     $club['Description'] = $row['ClubDescription'];
 }
+
+
 
 //print_r($club);
 
@@ -111,7 +120,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                     
                 }
                  
-              echo $counter . "<br>";
+              //echo $counter . "<br>";
                  
                 if ($counter == 0)
                 {
@@ -126,6 +135,10 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                   $stmt->execute();
                   $counter ++;  
                   echo "Finished!";
+                 }
+                 else
+                 {
+                     echo "You have already joined the club.";
                  }
                     
                 
