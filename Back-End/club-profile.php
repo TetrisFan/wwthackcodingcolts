@@ -14,7 +14,7 @@ $clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$club
 //$clubname = $_SESSION['club'];
 $currentClubID = 0;
 $currentUserID = $_SESSION['studentid'];
-$currentClubID = 1;
+
 $currentUserID = 65;
 
 
@@ -46,9 +46,9 @@ while(($row = mysqli_fetch_assoc($clubNames)))
 
 //print_r($club);
 
-$resultStudents = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID =  '".$currentClubID."'") or die(mysqli_error($conn));
+$resultStudents = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID = " . $club['ID']) or die(mysqli_error($conn));
 
-$resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID = 1") or die(mysqli_error($conn));
+$resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($conn));
 
 
 
@@ -73,8 +73,8 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
-          <a href="interest-quiz.html">Interest Quiz</a>
+          <a href="student-profile.php">Your Profile</a>
+          <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>
         </div>
@@ -130,7 +130,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                   $stmt = $conn->prepare("INSERT INTO clubstudents (ClubID,StudentID,Officer) VALUES(?,?,?)") or die(mysqli_error($conn));
                   $stmt->bind_param("iii", $ClubID, $Student,$Officer);
                   //setting params
-                  $ClubID = $currentClubID;
+                  $ClubID = $club['ID'];
                   $Student = $currentUserID;
                   $Officer=0;
                   //if(!$stmt->execute()) echo $stmt->error;
@@ -180,21 +180,25 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                      }
                 if($students['Officer'] == 1)
                 {
-                echo '<div class="col-lg-3 col-md-4 col-xs-6">
+                  ?>
+              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0"> ' . $studentInfo["FirstName"] ." ". $studentInfo["LastName"] . '</p>
+                <a > <?php echo $studentInfo["FirstName"]." ".$studentInfo["LastName"];?></a>
                 <p class="club-role">Officer</p>
-              </div>';
-                }
+              </div>
+          <?php }
                 else 
                 {
-                  echo '<div class="col-lg-3 col-md-4 col-xs-6">
+                  ?>
+              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0"> ' . $studentInfo["FirstName"] ." ". $studentInfo["LastName"] . '</p>
+                <p class="mb-0"> <?php echo $studentInfo["FirstName"]." ". $studentInfo["LastName"]; ?></p>
                 <p class="club-role">Member</p>
-              </div>';
+              </div>
+                <?php
                 }
-                }?>
+                }
+                ?>
              </div> 
              
             </div>
@@ -204,17 +208,32 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
     </div>
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
       <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
+         <?php 
+
+        $query2 = "SELECT * FROM clubapp.posts order by id desc"; 
+        $results2 = mysqli_query($db, $query2);
+        $row=mysqli_fetch_array($results2);
+
+      for ($id = $row[0]; $id >= 1; $id--) {     
+      
+        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; 
+        $results = mysqli_query($db, $query);
+        $posts=mysqli_fetch_array($results);
+        
+        ?> 
+
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
-            <h1>Headline</h1>
-            <p class="post-club-name">Posted by club name</p>
+            <h1><?php echo $posts[2];?></h1>
+            <p class="post-club-name"> Posted by <?php echo $posts[1];?> at <?php echo $posts[4];?> </p>
+            <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
-          <div class="headline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat diam
-            tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis tristique orci
-            libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. </div>
         </div>
+        <br>
+
+  <?php                                    
+      } 
+  ?>
         <div> <!-- modal 1 -->
           <div class="modal fade" id="myModal1" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
