@@ -572,6 +572,7 @@ button:focus {
   margin-bottom: 10px;
   cursor: pointer;
   border: 1px solid #DADADA;
+  margin-right: 20px;
 }
 
 .club-card:last-child {
