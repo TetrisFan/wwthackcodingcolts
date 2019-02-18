@@ -168,13 +168,43 @@ if (!$max ==0)                                 //select club from the tag
       {
       case $STEM:
         //Select club id from tag id
-            $tagindex = 1;
+            $tagindex = 4;
             selectclub($tagindex);
             break;
       case $Language:
+            $tagindex = 9; 
+            selectclub($tagindex);
+            break;
+      
+      case $Arts:
+            $tagindex = 1; 
+            selectclub($tagindex);
+            break;
+      case $Entertainment:
             $tagindex = 2; 
             selectclub($tagindex);
             break;
-      }
+            case $sports:
+            $tagindex = 3; 
+            selectclub($tagindex);
+            break;
+            case $Career:
+            $tagindex = 5; 
+            selectclub($tagindex);
+            break;
+            case $Awareness:
+            $tagindex = 6; 
+            selectclub($tagindex);
+            break;
+            case $Media:
+            $tagindex = 7; 
+            selectclub($tagindex);
+            break;
+            case $Servic:
+            $tagindex = 8; 
+            selectclub($tagindex);
+            break;
+            
+          }
 }
 ?>
