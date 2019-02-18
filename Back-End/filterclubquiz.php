@@ -154,7 +154,7 @@ function selectclub($tagindex)
             
 
             shuffle($clubnames);
-            //print_r ($clubnames);
+            print_r ($clubnames);
              $_SESSION['clubnames'] =  $clubnames;
          //   session_start();
            // $_SESSION['answer']  = $clubname;

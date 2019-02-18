@@ -45,56 +45,80 @@
         <?php 
 
                $list = $_SESSION['clubnames'];
-              
+              print_r($list);
                if (count($list)%2 == 0)
                {
                for ($counter = 0; $counter<count($list); $counter +=2)
                  { 
-              ?>
+
+              ?>     
         <div class="row mx-0 d-flex flex-row justify-content-center">
+      <form action="club-profile.php" method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter];?></a>
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
+              ?>
+            </button>
           </div>
         </div>
+      </form>
+      <form action="club-profile.php"method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $list[$counter+1];?> checked></input>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter+1]; ?></button>
           </div>
         </div>
-      </div>
+       </form>
+       </div>
        <?php
+
                   }}
                 else {
                   for ($counter = 0; $counter<count($list)-1; $counter +=2)
                  { 
               ?>
-      <div class="row mx-0 d-flex flex-row justify-content-center">
+       <div class="row mx-0 d-flex flex-row justify-content-center">
+      <form action="club-profile.php" method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
+              ?>
+            </button>
           </div>
         </div>
+      </form>
+      <form action="club-profile.php"method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $list[$counter+1];?> checked></input>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter+1]; ?></button>
           </div>
         </div>
-      </div>
+       </form>
+       </div>
       <?php
                 } ?>
-      <div class="row mx-0 d-flex flex-row justify-content-center">
+      <form action="club-profile.php" method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
+              ?>
+            </button>
           </div>
         </div>
+      </form>
           <?php  }
+          
+
           ?> 
        
         
