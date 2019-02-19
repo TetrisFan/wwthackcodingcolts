@@ -6,10 +6,21 @@ include ('server.php');
 
 
 if (isset($_POST['c1'])) {
+$_SESSION['c1'] = $_POST['c1'];
 $clubreceive = mysqli_real_escape_string($db, $_POST['c1']);
-$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+}
+else {
+$clubreceive = mysqli_real_escape_string($db, $_SESSION['c1']);
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
 }
 //$clubname = $_SESSION['club'];
+if ($_SESSION['clubCounter'] !==1)
+{
+  $clubreceive = mysqli_real_escape_string($db, $_SESSION['c1']);
+  $_SESSION['clubCounter'] = 1;
+}
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
 
 $currentUserID = $_SESSION['studentid'];
 
