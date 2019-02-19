@@ -18,7 +18,7 @@
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="club-stream.html"> <img src="images/connect-me-logo2.png"> </a>
+    <a class="navbar-brand" href="club-stream.html"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>

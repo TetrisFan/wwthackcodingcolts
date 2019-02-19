@@ -36,7 +36,7 @@
 
     <nav class="navbar navbar-expand-md navbar-light bg-white mb-4 border-bottom justify-content-between">
 
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
 
     </nav>
 
