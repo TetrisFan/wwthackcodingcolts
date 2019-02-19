@@ -1,31 +1,30 @@
-<?php 
+<?php
 
 include ('server.php');
-$servername = "localhost";
-$username = "root";
-$password = "PASSWORD";
 
-$conn = new mysqli($servername, $username, $password, "clubapp");
 //These will eventually be replaced with sesssion variables, but for now:
 //$clubName = isset($_POST['c1'])?$_POST['c1']:"";
 
-$clubreceive = mysqli_real_escape_string($conn, $_POST['c1']);
-$clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+if ($_SESSION['clubCounter'] !==1)
+{
+  $clubreceive = mysqli_real_escape_string($db, $_POST['c1']);
+  $_SESSION['clubCounter'] = 1;
+}
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
 //$clubname = $_SESSION['club'];
-$currentClubID = 0;
+
 $currentUserID = $_SESSION['studentid'];
 
-$currentUserID = 65;
 
 
 //$ = mysqli_real_escape_string($db, $_POST['headline']);
-//$result = mysqli_query($conn, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($conn));
+//$result = mysqli_query($db, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($db));
 
 
 
-if ($conn->connect_error)
+if ($db->connect_error)
 {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $db->connect_error);
 }
 
 
@@ -42,13 +41,13 @@ while(($row = mysqli_fetch_assoc($clubNames)))
     $club['Description'] = $row['ClubDescription'];
 }
 
-
+$currentClubID = $club['ID'];
 
 //print_r($club);
 
-$resultStudents = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID = " . $club['ID']) or die(mysqli_error($conn));
+$resultStudents = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID = " . $club['ID']) or die(mysqli_error($db));
 
-$resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($conn));
+$resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($db));
 
 
 
@@ -100,34 +99,34 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
             <p><?php echo $club['Description']?></p>
             <form action="club-profile.php" method='post'>
             <button type="submit" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
-            </form>  
-            <?php 
+            </form>
+            <?php
              if(isset($_POST['join']))
               {
                 //echo $counter . "<br>" ;
                 //echo "Clicking Detected <br>";
                 $counter = 0;
-                 
+
                 while (($row = mysqli_fetch_assoc($resultStudentsForInsertion)))
                 {
                     $studentInClub['StudentID'] = $row['StudentID'];
                     $studentInClub['ClubID'] = $row["ClubID"];
-                    
+
                     if($currentUserID == $studentInClub['StudentID'])
                     {
-                        
+
                         $counter ++;
 
                     }
-                    
+
                 }
-                 
+
               //echo $counter . "<br>";
-                 
+
                 if ($counter == 0)
                 {
                   echo "executing statement <br>";
-                  $stmt = $conn->prepare("INSERT INTO clubstudents (ClubID,StudentID,Officer) VALUES(?,?,?)") or die(mysqli_error($conn));
+                  $stmt = $db->prepare("INSERT INTO clubstudents (ClubID,StudentID,Officer) VALUES(?,?,?)") or die(mysqli_error($db));
                   $stmt->bind_param("iii", $ClubID, $Student,$Officer);
                   //setting params
                   $ClubID = $club['ID'];
@@ -135,14 +134,14 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                   $Officer=0;
                   //if(!$stmt->execute()) echo $stmt->error;
                   $stmt->execute();
-                  $counter ++;  
+                  $counter ++;
                   echo "Finished!";
                  }
                  else
                  {
                      echo "You have already joined the club.";
                  }
-                
+
               }
               ?>
             <div class="modal fade" id="welcome-msg" role="dialog"> <!-- welcome msg -->
@@ -163,19 +162,19 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
             </div> <!-- welcome msg -->
           </div>
           <hr>
-          <div class="w-75 d-flex flex-column align-items-center">
+          <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
-             
-                 <?php 
+
+                 <?php
                 while(($row = mysqli_fetch_assoc($resultStudents)))
                 {
                 $students['StudentID'] = $row['StudentID'];
                 $students['Officer'] = $row['Officer'];
-                    $resultforStudent = mysqli_query($conn, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($conn));
+                    $resultforStudent = mysqli_query($db, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
-                         $studentInfo['name'] = $_SESSION['loggedin'];
+                         $studentInfo['name'] = $rowTwo['name'];
                          //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
                 if($students['Officer'] == 1)
@@ -187,7 +186,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                 <p class="club-role">Officer</p>
               </div>
           <?php }
-                else 
+                else
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
@@ -199,8 +198,8 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                 }
                 }
                 ?>
-             </div> 
-             
+             </div>
+
             </div>
           </div>
         </div>
@@ -208,19 +207,19 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
     </div>
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
       <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
-         <?php 
+         <?php
 
-        $query2 = "SELECT * FROM clubapp.posts order by id desc"; 
+        $query2 = "SELECT * FROM clubapp.posts order by id desc";
         $results2 = mysqli_query($db, $query2);
         $row=mysqli_fetch_array($results2);
 
-      for ($id = $row[0]; $id >= 1; $id--) {     
-      
-        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; 
+      for ($id = $row[0]; $id >= 1; $id--) {
+
+        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
         $results = mysqli_query($db, $query);
         $posts=mysqli_fetch_array($results);
-        
-        ?> 
+
+        ?>
 
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
@@ -231,8 +230,8 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
         </div>
         <br>
 
-  <?php                                    
-      } 
+  <?php
+      }
   ?>
         <div> <!-- modal 1 -->
           <div class="modal fade" id="myModal1" role="dialog">

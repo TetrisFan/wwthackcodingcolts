@@ -107,7 +107,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
             </div>
           </div>
           <hr>
-          <div class="w-75 d-flex flex-column align-items-center">
+          <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">

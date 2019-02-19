@@ -20,13 +20,12 @@
     <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row">
       <a class="nav-link mr-3 px-5 b-0" href="#">Home</a>
-      <a class="nav-link mr-3 px-5 b-0" href="club-directory.html">Explore</a>
+      <a class="nav-link mr-3 px-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
         <img class="member-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
-          <a href="interest-quiz.html">Interest Quiz</a>
-          <a href="#">Manage Clubs</a>
+          <a href="interest-quiz.php">Interest Quiz</a>
+          <a href="your-clubs.php" onClick="Func()">Manage Clubs</a>
           <a href="index.html">Sign Out</a>
         </div>
       </div>
