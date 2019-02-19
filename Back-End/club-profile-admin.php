@@ -1,4 +1,52 @@
-<?php include('server.php') ?>
+<?php
+
+include ('server.php');
+
+//These will eventually be replaced with sesssion variables, but for now:
+//$clubName = isset($_POST['c1'])?$_POST['c1']:"";
+
+$clubreceive = mysqli_real_escape_string($db, $_POST['c1']);
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
+//$clubname = $_SESSION['club'];
+
+$currentUserID = $_SESSION['studentid'];
+
+
+
+//$ = mysqli_real_escape_string($db, $_POST['headline']);
+//$result = mysqli_query($db, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($db));
+
+
+
+if ($db->connect_error)
+{
+    die("Connection failed: " . $db->connect_error);
+}
+
+
+$club = array();
+$students = array();
+$studentInfo = array();
+$currentClub = array();
+$studentInClub = array();
+
+while(($row = mysqli_fetch_assoc($clubNames)))
+{
+    $club['ID'] = $row['ClubID'];
+    $club['Name'] = $row['ClubName'];
+    $club['Description'] = $row['ClubDescription'];
+}
+
+$currentClubID = $club['ID'];
+
+
+//print_r($club);
+
+$resultStudents = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID = " . $club['ID']) or die(mysqli_error($db));
+
+$resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($db));
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -44,11 +92,8 @@
       <main role="main" class="container mt-4">
         <div class="jumbotron d-flex flex-column align-items-center text-center">
           <div class="w-75 d-flex flex-column align-items-center">
-            <h1 class="mb-4">Club Name</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h1 class="mb-4"><?php echo $club['Name']?></h1>
+            <p><?php echo $club['Description']?></p>
             <button class="btn btn-primary mb-3 mt-2" type="button" data-toggle="collapse" data-target="#editDesc" aria-expanded="false" aria-controls="editDesc">
               Edit club description
             </button>
@@ -167,7 +212,7 @@
           </div>
             <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
-        
+
 
 
   <?php
