@@ -22,7 +22,7 @@
       <a class="nav-link mr-3 px-5 b-0" href="#">Home</a>
       <a class="nav-link mr-3 px-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
-        <img class="member-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <img class="member-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.html">Interest Quiz</a>
