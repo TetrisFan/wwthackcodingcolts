@@ -32,6 +32,9 @@
       </div>
     </div>
   </nav>
+
+<main role="main" class="container text-center d-flex flex-column align-items-center">
+
 <?php 
 
 $resultsOfPosts = mysqli_query($db, "SELECT * FROM posts") or die(mysqli_error($db));
@@ -53,7 +56,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     }
 
     $FrontEnd = ('
-  <main role="main" class="container text-center d-flex flex-column align-items-center">
+  
     <div data-toggle="modal" data-target="#myModal1" class="headline-container">
       <div class="headline">
         <h1>%s</h1>
@@ -61,7 +64,6 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       </div>
       <div class="headline-text">%s</div>
     </div>
-    <div>
       
  '); 
  echo sprintf($FrontEnd, $post['Headline'],$clubName , $Description, $Headline, $Description);   
