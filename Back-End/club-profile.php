@@ -71,7 +71,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
       <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="student-profile.php">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
@@ -176,13 +176,17 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
                          $studentInfo['name'] = $_SESSION['loggedin'];
+
                          //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
+
+                      
+
                 if($students['Officer'] == 1)
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
+                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?>" alt="">
                 <a > <?php echo $studentInfo["name"];?></a>
                 <p class="club-role">Officer</p>
               </div>
@@ -191,7 +195,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="images/gray.png" alt="">
+                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
                 <p class="mb-0"> <?php echo $studentInfo["name"]; ?></p>
                 <p class="club-role">Member</p>
               </div>

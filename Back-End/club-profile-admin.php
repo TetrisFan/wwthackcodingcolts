@@ -19,7 +19,7 @@
       <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.html">Interest Quiz</a>
@@ -154,7 +154,7 @@
 
       for ($id = $row[0]; $id >= 1; $id--) {
 
-        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
+        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; //AND clubid = whatever;
         $results = mysqli_query($db, $query);
         $posts=mysqli_fetch_array($results);
 
@@ -167,8 +167,6 @@
           </div>
             <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
-        
-
 
   <?php
       }
