@@ -48,7 +48,7 @@
 
         <h1>Sign Up</h1>
 
-        <form method="post" action="signup.php">
+        <form class="form-signin" method="post" action="signup.php">
             
             <?php include('errors.php'); ?>
 

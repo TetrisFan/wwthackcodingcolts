@@ -14,7 +14,7 @@
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="club-stream.html">Logo</a>
+    <a class="navbar-brand" href="club-stream.html"> <img src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
@@ -130,7 +130,7 @@
         <div class="modal fade" id="new-post" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <form method="post" action="club-profile-admin.php">
+                <form class = "form-group" method="post" action="club-profile-admin.php">
               <div class="modal-header d-flex flex-column align-items-center">
                 <button type="button" class="close mb-2" data-dismiss="modal">&times;</button>
                 <form class="w-100">
@@ -164,10 +164,11 @@
           <div class="headline">
             <h1><?php echo $posts[2];?></h1>
             <p class="post-club-name"> Posted by <?php echo $posts[1];?> at <?php echo $posts[4];?> </p>
+          </div>
             <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
-        </div>
-<br>
+        
+
 
   <?php
       }
