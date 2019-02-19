@@ -9,8 +9,15 @@ $conn = new mysqli($servername, $username, $password, "clubapp");
 //These will eventually be replaced with sesssion variables, but for now:
 //$clubName = isset($_POST['c1'])?$_POST['c1']:"";
 
+if (isset($_POST['c1'])) {
+$_SESSION['c1'] = $_POST['c1'];
 $clubreceive = mysqli_real_escape_string($conn, $_POST['c1']);
 $clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+}
+else {
+  $clubreceive = mysqli_real_escape_string($conn, $_SESSION['c1']);
+$clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+}
 //$clubname = $_SESSION['club'];
 $currentClubID = 0;
 $currentUserID = $_SESSION['studentid'];

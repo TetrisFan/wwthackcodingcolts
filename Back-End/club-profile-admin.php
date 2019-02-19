@@ -4,8 +4,11 @@ include ('server.php');
 //These will eventually be replaced with sesssion variables, but for now:
 //$clubName = isset($_POST['c1'])?$_POST['c1']:"";
 
+
+if (isset($_POST['c1'])) {
 $clubreceive = mysqli_real_escape_string($db, $_POST['c1']);
 $clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
+}
 //$clubname = $_SESSION['club'];
 
 $currentUserID = $_SESSION['studentid'];
