@@ -110,7 +110,7 @@
         <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
+            <img class="club-profile-pic" src="<?php echo $images[$counter]; ?>" />
             <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
               ?>
             </button>
@@ -121,7 +121,7 @@
         <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $list[$counter+1];?> checked></input>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
+            <img class="club-profile-pic" src="<?php echo $images[$counter+1]; ?>" />
             <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter+1]; ?></button>
           </div>
         </div>
@@ -129,6 +129,10 @@
        </div>
       <?php
                 } ?>
+
+
+
+
       <form action="club-profile.php" method = "POST">
         <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
