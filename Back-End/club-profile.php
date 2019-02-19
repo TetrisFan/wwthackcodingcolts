@@ -186,7 +186,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                 {
                 $students['StudentID'] = $row['StudentID'];
                 $students['Officer'] = $row['Officer'];
-                    $resultforStudent = mysqli_query($db, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
+                    $resultforStudent = mysqli_query($db, "SELECT * FROM students WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
                          $studentInfo['name'] = $rowTwo['name'];
