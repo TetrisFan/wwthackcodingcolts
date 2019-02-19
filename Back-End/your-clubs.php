@@ -25,7 +25,6 @@
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.php">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.php">Sign Out</a>
@@ -36,10 +35,11 @@
 
   <main role="main" class="container mt-4 d-flex flex-column">
     <div class="jumbotron d-flex flex-column align-items-center justify-content-center text-center">
-      <div class="w-75 d-flex flex-column align-items-center">
+      <div class="w-75 d-flex flex-column justify-content-center">
         <h1 class="mb-5">Your Clubs</h1>
-        <div class="row d-flex flex-row justify-content-center">
+        <div class="row d-flex flex-row mx-auto">
           <?php
+    $_SESSION['clubCounter'] = 0;
     $id = $_SESSION['studentid'];//replacement
   	//$id = '3026263'; //test statment
     //$queryClub = "SELECT ClubID FROM clubapp.clubstudents WHERE StudentID = $id;";
@@ -54,29 +54,39 @@
     		{
     			$ClubName['Clubname']  = $rowTwo['ClubName'];
     		}
-    	
+
     	if($club['Officer'] == 1)
                 {
    ?>
-         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
-                <p class="mb-0"> <?php echo $ClubName["Clubname"]; ?></p>
-                <p class="club-role"> Officer </p>
+         <form action="club-profile-admin.php" method="post">
+           <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
+             <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $ClubName["Clubname"];?> checked></input>
+             <div class= "container1">
+               <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+               <button href="club-profile-admin.php" class="btn btn-link d-flex mx-auto" type="submit"><?php echo $ClubName["Clubname"];?></button>
+               <p class="club-role"> Officer </p>
              </div>
-  <?php  		
-				}							
-                else 
+           </div>
+         </form>
+  <?php
+				}
+                else
                 {
   	?>
-         <div class="col-lg-3 col-md-4 col-xs-6">
-            <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
-                <p class="mb-0"> <?php echo $ClubName["Clubname"];?> </p>
-         </div>
-     <?php 
+    <form action="club-profile.php" method="post">
+      <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
+        <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $ClubName["Clubname"];?> checked></input>
+        <div class= "container1">
+          <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+          <button href="club-profile.php" class="btn btn-link d-flex mx-auto" type="submit"><?php echo $ClubName["Clubname"];?></button>
+        </div>
+      </div>
+    </form>
+     <?php
     		}
     	}
    	?>
-         
+
         </div>
       </div>
     </div>

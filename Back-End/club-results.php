@@ -25,7 +25,6 @@
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>
@@ -41,8 +40,8 @@
         <p>These are the clubs that best match your interests based on your quiz responses.</br> If they seem appealing, check them out!</p>
       </div>
 
-     
-        <?php 
+
+        <?php
 
                $list = $_SESSION['clubnames'];
 
@@ -72,10 +71,10 @@
                if (count($list)%2 == 0)
                {
                for ($counter = 0; $counter<count($list); $counter +=2)
-                 {                    
-                   
+                 {
 
-              ?>     
+
+              ?>
         <div class="row mx-0 d-flex flex-row justify-content-center">
       <form action="club-profile.php" method = "POST">
         <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
@@ -103,7 +102,7 @@
                   }}
                 else {
                   for ($counter = 0; $counter<count($list)-1; $counter +=2)
-                 { 
+                 {
               ?>
        <div class="row mx-0 d-flex flex-row justify-content-center">
       <form action="club-profile.php" method = "POST">
@@ -145,11 +144,11 @@
         </div>
       </form>
           <?php  }
-          
 
-          ?> 
-       
-        
+
+          ?>
+
+
       </div>
   </main>
 

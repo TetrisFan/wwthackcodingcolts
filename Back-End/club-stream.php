@@ -19,14 +19,21 @@
   <nav class="navbar mb-4">
     <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row">
+<<<<<<< HEAD
+      <a class="nav-link mr-3 px-5 b-0" href="#">Home</a>
+=======
       <a class="nav-link mr-3 px-5 b-0" href="club-stream.php">Home</a>
+>>>>>>> 10ede1015ef2dc12e1c673984ca9f82e9b4c185e
       <a class="nav-link mr-3 px-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
+<<<<<<< HEAD
+          <a href="your-clubs.php" onClick="Func()">Manage Clubs</a>
+=======
           <a href="club-profile.php">Manage Clubs</a>
+>>>>>>> 10ede1015ef2dc12e1c673984ca9f82e9b4c185e
           <a href="index.html">Sign Out</a>
         </div>
       </div>
