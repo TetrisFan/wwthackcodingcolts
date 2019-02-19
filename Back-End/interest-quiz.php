@@ -15,16 +15,27 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <nav class="navbar mb-4">
-      <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
-      <a class="nav-link" href="signin.php">Sign In</a>
+     <nav class="navbar mb-4">
+      <a class="navbar-brand" href="index.html"><img class="logo" src="images/connect-me-logo2.png"></a>
+      <div class="d-flex flex-row align-items-center">
+        <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
+        <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+        <div class="dropdown">
+          <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+          <div id="myDropdown" class="dropdown-content">
+            <a href="interest-quiz.php">Interest Quiz</a>
+            <a href="your-clubs.php">Your Clubs</a>
+            <a href="index.php">Sign Out</a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <main role="main" class="container text-center">
       <div class="jumbotron d-flex flex-column justify-content-center">
         <form id="quizForm" action="club-results.php" method ="POST">
           <div class="quiz-tab">
-            <h1 class="mb-3">I am interested in ___________</h1>
+            <h1 style="margin-bottom: 30px;">I am interested in ___________</h1>
             <input id="answer01" type="checkbox" name="q1" value = "y"/>
             <label class="quiz-labels" for="answer01">writing, art, drama</label>
             <input id="answer02" type="checkbox" name="q2"value = "y"/>
@@ -35,7 +46,7 @@
             <label class="quiz-labels" for="answer04">foreign languages</label>
           </div>
           <div class="quiz-tab">
-            <h1 class="mb-3">Would you rather ?</h1>
+            <h1 style="margin-bottom: 30px;">Would you rather ?</h1>
             <input id="answer11" type="checkbox" name="q5"value = "y"/>
             <label class="quiz-labels" for="answer11">engage in creative activities</label>
             <input id="answer12" type="checkbox" name="q6"value = "y"/>
@@ -46,7 +57,7 @@
             <label class="quiz-labels" for="answer14">write and create publications for the community</label>
           </div>
           <div class="quiz-tab">
-            <h1 class="mb-3">Would you rather ?</h1>
+            <h1 style="margin-bottom: 30px;">Would you rather ?</h1>
             <input id="answer21" type="checkbox" name="q9"value = "y"/>
             <label class="quiz-labels" for="answer21">Learn mathematics or coding</label>
             <input id="answer22" type="checkbox" name="q10"value = "y"/>
@@ -57,7 +68,7 @@
             <label class="quiz-labels" for="answer24">Participate in community service projects</label>
           </div>
           <div class="quiz-tab">
-            <h1 class="mb-3">Would you rather ?</h1>
+            <h1 style="margin-bottom: 30px;">Would you rather ?</h1>
             <input id="answer31" type="checkbox" name="q13"value = "y"/>
             <label class="quiz-labels" for="answer31">Interact with languages beyond the classroom</label>
             <input id="answer32" type="checkbox" name="14"value = "y"/>
@@ -68,9 +79,9 @@
             <label class="quiz-labels" for="answer34">Pursue my career interests</label>
           </div>
           <div style="overflow:auto;">
-            <div>
-              <button class="btn-primary quiz-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-              <button class="btn-primary quiz-button" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            <div style="margin-top: 20px;">
+              <button class="quiz-button" type="button" id="prevBtn" style="padding-left: 40px; padding-right: 40px;" onclick="nextPrev(-1)">Previous</button>
+              <button class="quiz-button" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
           </div>
           <!-- Circles which indicates the steps of the form: -->
@@ -157,6 +168,25 @@
       }
       //... and adds the "active" class on the current step:
       x[n].className += " active";
+    }
+    </script>
+    <script>
+     function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
     }
     </script>
 
