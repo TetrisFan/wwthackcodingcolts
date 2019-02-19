@@ -194,7 +194,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
-                <p class="mb-0"> <?php echo $studentInfo["name"]; ?></p>
+                <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
                 <p class="club-role">Member</p>
               </div>
                 <?php

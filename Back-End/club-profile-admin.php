@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ('server.php');
 
 //These will eventually be replaced with sesssion variables, but for now:
@@ -109,58 +109,41 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
           <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Teacher</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Officer</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Officer</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Officer</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
+                               <?php
+                              while(($row = mysqli_fetch_assoc($resultStudents)))
+                              {
+                              $students['StudentID'] = $row['StudentID'];
+                              $students['Officer'] = $row['Officer'];
+                                  $resultforStudent = mysqli_query($db, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
+                                   while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
+                                   {
+                                       $studentInfo['name'] = $rowTwo['name'];
+                                       //$studentInfo['LastName'] = $rowTwo['LastName'];
+                                   }
+
+
+
+                              if($students['Officer'] == 1)
+                              {
+                                ?>
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
+                              <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?>" alt="">
+                              <a > <?php echo $studentInfo["name"];?></a>
+                              <p class="club-role">Officer</p>
+                            </div>
+                        <?php }
+                              else
+                              {
+                                ?>
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
+                              <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
+                              <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
+                              <p class="club-role">Member</p>
+                            </div>
+                              <?php
+                              }
+                              }
+                              ?>
             </div>
           </div>
         </div>

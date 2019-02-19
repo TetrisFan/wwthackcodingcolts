@@ -1,8 +1,9 @@
 <?php
 session_start();
 // initializing variables
-$studentid = "";
+$studentid = 0;
 $errors = array();
+
 $_SESSION['clubCounter'] = 0;
 // connect to the database
 $db = mysqli_connect('localhost', 'root', 'PASSWORD', 'clubapp');
@@ -26,39 +27,62 @@ if (isset($_POST['reg_user'])) {
     array_push($errors, "Password cannot match student ID");
   }
 
-
-
   // first check the database to make sure
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM clubapp.users WHERE StudentID='$studentid' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
+  $user_check_query = " SELECT * FROM users WHERE StudentID = $studentid";
+  $result = mysqli_query($db, $user_check_query) or die(mysqli_error($db));
   $student = mysqli_fetch_assoc($result);
-
-  if (! $student) { // if user exists
-    if ($student['StudentID'] === $studentid) {
-      array_push($errors, "Student ID doesn't exist");
-    }
-
+  $userData = array();
+  if (mysqli_num_rows($result)== 0)
+  {
+    echo "There was nothing.";
   }
+  else
+  {
+    echo "Running while <br>";
+    while($row = $result->fetch_assoc())
+    {
+      echo "StudentID: " . $row["StudentID"] . "Name " . $row["name"];
+    }
+    echo "Done with while";
+  }
+  $test = mysqli_fetch_assoc($result);
+  print_r($test);
+  echo "<br>";
+  echo $studentid;
+  echo "<br>";
+
+  while(($rowForSignUp = mysqli_fetch_assoc($result)))
+  {
+    $userData['StudentID'] = $rowForSignUp["StudentID"];
+    echo $userData['StudentID'];
+  }
+
+  print_r($userData);
+
+  //if ($student) { // if  user doesn't exist
+  //  if ($student['StudentID'] != $studentid) {
+  //    array_push($errors, "Student ID doesn't exist");
+    //}
+
+  //}
 
 
  //$id_check_query = "SELECT * FROM clubapp.students WHERE studentid='$studentid' LIMIT 1";
 //  $result = mysqli_query($db, $id_check_query);
-  $id = mysqli_fetch_assoc($result);
 
-//  if (! $id) { // if id does not exist
-//    array_push($errors, "Student ID does not exist");
-//  }
+if (! $userData["StudentID"]) { // if id does not exist
+   array_push($errors, "Student ID does not exist");
+  }
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
     $password = $password_1;
-    $query = "INSERT INTO clubapp.users (StudentID, Password)
-          VALUES('$studentid', '$password')";
+    $query = "UPDATE `clubapp`.`users` SET `Password` = '".$password."' WHERE ('StudentID'  = '".$userData["StudentID"]."')" or die(mysqli_error($db));
     mysqli_query($db, $query);
 
 // create a session for the logged in student's id and name
-    $query2 = "SELECT name, picture FROM clubapp.students WHERE studentid = '$studentid'";
+    $query2 = "SELECT name, picture FROM clubapp.students WHERE studentid = ". $userData['StudentID'];
     $results2 = mysqli_query($db, $query2);
     $row = mysqli_fetch_array($results2);
     $_SESSION['loggedin'] = $row['name'];

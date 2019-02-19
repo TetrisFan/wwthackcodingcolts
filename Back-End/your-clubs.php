@@ -25,12 +25,8 @@
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-<<<<<<< HEAD
 
           <a href="student-profile.php">Your Profile </a>
-=======
-          <a href="student-profile.php">Your Profile</a>
->>>>>>> fe4810fb3c0effdca5760548d2643f25eb37eca7
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.php">Sign Out</a>
@@ -45,10 +41,7 @@
         <h1 class="mb-5">Your Clubs</h1>
         <div class="row d-flex flex-row mx-auto">
           <?php
-<<<<<<< HEAD
     $_SESSION['clubCounter'] = 0;
-=======
->>>>>>> fe4810fb3c0effdca5760548d2643f25eb37eca7
     $id = $_SESSION['studentid'];//replacement
   	//$id = '3026263'; //test statment
     //$queryClub = "SELECT ClubID FROM clubapp.clubstudents WHERE StudentID = $id;";
