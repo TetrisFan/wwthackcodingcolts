@@ -20,8 +20,6 @@
     <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row">
 
-      <a class="nav-link mr-3 px-5 b-0" href="#">Home</a>
-
       <a class="nav-link mr-3 px-5 b-0" href="club-stream.php">Home</a>
 
       <a class="nav-link mr-3 px-5 b-0" href="club-directory.php">Explore</a>
