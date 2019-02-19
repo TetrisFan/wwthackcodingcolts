@@ -6,7 +6,7 @@
   $conn = new mysqli($servername, $username, $password, "clubapp");
 
   // Create Query
-  $query = 'SELECT clubapp.club.ClubName, clubapp.club.ClubID, clubapp.tag.TagName
+  $query = 'SELECT clubapp.club.ClubName, clubapp.club.ClubID, clubapp.tag.TagName, clubapp.club.image
       FROM club
       INNER JOIN clubtag ON club.ClubID = clubtag.ClubID
       INNER JOIN tag ON clubtag.TagID = tag.TagID
@@ -185,7 +185,7 @@
       <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
         <a href="club-profile.html">
           <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
+            <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
             <div class="club-card-body">
               <h5 class="club-card-title">
                 <?php
@@ -199,7 +199,7 @@
         </a>
         <a href="club-profile.html">
           <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
+            <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
             <div class="club-card-body">
                 <h5 class="club-card-title">
                   <?php
@@ -213,7 +213,7 @@
         </a>
         <a href="club-profile.html">
           <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
+            <img class="club-card-img-top" src=" <?php echo $info['image']; ?> ">
             <div class="club-card-body">
               <h5 class="club-card-title">
                 <?php
@@ -227,7 +227,7 @@
         </a>
         <a href="club-profile.html">
           <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
+            <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
             <div class="club-card-body">
               <h5 class="club-card-title">
                 <?php

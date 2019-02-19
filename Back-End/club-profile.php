@@ -175,15 +175,15 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                     $resultforStudent = mysqli_query($conn, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($conn));
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
-                         $studentInfo['FirstName'] = $rowTwo['FirstName'];
-                         $studentInfo['LastName'] = $rowTwo['LastName'];
+                         $studentInfo['name'] = $_SESSION['loggedin'];
+                         //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
                 if($students['Officer'] == 1)
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/gray.png" alt="">
-                <a > <?php echo $studentInfo["FirstName"]." ".$studentInfo["LastName"];?></a>
+                <a > <?php echo $studentInfo["name"];?></a>
                 <p class="club-role">Officer</p>
               </div>
           <?php }
@@ -192,7 +192,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/gray.png" alt="">
-                <p class="mb-0"> <?php echo $studentInfo["FirstName"]." ". $studentInfo["LastName"]; ?></p>
+                <p class="mb-0"> <?php echo $studentInfo["name"]; ?></p>
                 <p class="club-role">Member</p>
               </div>
                 <?php

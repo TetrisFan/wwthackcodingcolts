@@ -45,11 +45,35 @@
         <?php 
 
                $list = $_SESSION['clubnames'];
+
+                    $images = array();
+
+                    $query = "SELECT image FROM clubapp.club WHERE clubName = '$list[0]'";
+                    $img1 = mysqli_query($conn, $query);
+                    $row = mysqli_fetch_array($img1);
+
+                    $query1 = "SELECT image FROM clubapp.club WHERE clubName = '$list[1]'";
+                    $img1 = mysqli_query($conn, $query1);
+                    $row1 = mysqli_fetch_array($img1);
+
+                    $query2 = "SELECT image FROM clubapp.club WHERE clubName = '$list[2]'";
+                    $img2 = mysqli_query($conn, $query2);
+                    $row2 = mysqli_fetch_array($img2);
+
+                    $query3 = "SELECT image FROM clubapp.club WHERE clubName = '$list[3]'";
+                    $img3 = mysqli_query($conn, $query3);
+                    $row3 = mysqli_fetch_array($img3);
+
+                    array_push($images, "$row[0]", "$row1[0]", "$row2[0]", "$row3[0]");
+
+
+
               print_r($list);
                if (count($list)%2 == 0)
                {
                for ($counter = 0; $counter<count($list); $counter +=2)
-                 { 
+                 {                    
+                   
 
               ?>     
         <div class="row mx-0 d-flex flex-row justify-content-center">
@@ -57,7 +81,7 @@
         <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
+            <img class="club-profile-pic" src=" <?php echo $images[$counter]; ?>" />
             <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
               ?>
             </button>
@@ -68,7 +92,7 @@
         <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $list[$counter+1];?> checked></input>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
+            <img class="club-profile-pic" src="<?php echo $images[$counter+1]; ?>" />
             <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter+1]; ?></button>
           </div>
         </div>
