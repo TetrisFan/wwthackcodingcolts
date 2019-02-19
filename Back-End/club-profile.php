@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include ('server.php');
 $servername = "localhost";
@@ -61,7 +61,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- custom CSS -->
   <link rel="stylesheet" href="styles.css">
-  <title>How to Add Deep Linking to the Bootstrap 4 Tabs Component</title>
+  <title>Club Profile</title>
 </head>
 
 <body>
@@ -100,30 +100,30 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
             <p><?php echo $club['Description']?></p>
             <form action="club-profile.php" method='post'>
             <button type="submit" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
-            </form>  
-            <?php 
+            </form>
+            <?php
              if(isset($_POST['join']))
               {
                 //echo $counter . "<br>" ;
                 //echo "Clicking Detected <br>";
                 $counter = 0;
-                 
+
                 while (($row = mysqli_fetch_assoc($resultStudentsForInsertion)))
                 {
                     $studentInClub['StudentID'] = $row['StudentID'];
                     $studentInClub['ClubID'] = $row["ClubID"];
-                    
+
                     if($currentUserID == $studentInClub['StudentID'])
                     {
-                        
+
                         $counter ++;
 
                     }
-                    
+
                 }
-                 
+
               //echo $counter . "<br>";
-                 
+
                 if ($counter == 0)
                 {
                   echo "executing statement <br>";
@@ -135,14 +135,14 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                   $Officer=0;
                   //if(!$stmt->execute()) echo $stmt->error;
                   $stmt->execute();
-                  $counter ++;  
+                  $counter ++;
                   echo "Finished!";
                  }
                  else
                  {
                      echo "You have already joined the club.";
                  }
-                
+
               }
               ?>
             <div class="modal fade" id="welcome-msg" role="dialog"> <!-- welcome msg -->
@@ -166,8 +166,8 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
           <div class="w-75 d-flex flex-column align-items-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
-             
-                 <?php 
+
+                 <?php
                 while(($row = mysqli_fetch_assoc($resultStudents)))
                 {
                 $students['StudentID'] = $row['StudentID'];
@@ -180,7 +180,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                          //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
 
-                      
+
 
                 if($students['Officer'] == 1)
                 {
@@ -191,7 +191,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                 <p class="club-role">Officer</p>
               </div>
           <?php }
-                else 
+                else
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
@@ -203,8 +203,8 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                 }
                 }
                 ?>
-             </div> 
-             
+             </div>
+
             </div>
           </div>
         </div>
@@ -212,19 +212,19 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
     </div>
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
       <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
-         <?php 
+         <?php
 
-        $query2 = "SELECT * FROM clubapp.posts order by id desc"; 
+        $query2 = "SELECT * FROM clubapp.posts order by id desc";
         $results2 = mysqli_query($db, $query2);
         $row=mysqli_fetch_array($results2);
 
-      for ($id = $row[0]; $id >= 1; $id--) {     
-      
-        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; 
+      for ($id = $row[0]; $id >= 1; $id--) {
+
+        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
         $results = mysqli_query($db, $query);
         $posts=mysqli_fetch_array($results);
-        
-        ?> 
+
+        ?>
 
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
@@ -235,8 +235,8 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
         </div>
         <br>
 
-  <?php                                    
-      } 
+  <?php
+      }
   ?>
         <div> <!-- modal 1 -->
           <div class="modal fade" id="myModal1" role="dialog">
