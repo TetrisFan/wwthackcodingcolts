@@ -22,10 +22,16 @@
       <a class="nav-link mr-3 px-5 b-0" href="#">Home</a>
       <a class="nav-link mr-3 px-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="member-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
+<<<<<<< HEAD
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php" onClick="Func()">Manage Clubs</a>
+=======
+          <a href="student-profile.html">Your Profile</a>
+          <a href="interest-quiz.php">Interest Quiz</a>
+          <a href="#">Manage Clubs</a>
+>>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
           <a href="index.html">Sign Out</a>
         </div>
       </div>
