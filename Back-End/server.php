@@ -124,8 +124,15 @@ if (isset($_POST['submit_post']))
   header('location: club-profile-admin.php#posts');
   } 
 
+/*
+if (isset($_POST['edit_desc'])) 
+{
+  $clubdesc = mysqli_real_escape_string($db, $_POST['clubdesc']);
 
-  
+  $query = "INSERT INTO clubapp.club VALUES('$clubdesc')";
+  $results = mysqli_query($db, $query);
+}
+*/  
 
 //Display Posts
 

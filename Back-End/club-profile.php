@@ -66,14 +66,14 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="club-stream.html"> <img class="logo" src="images/connect-me-logo2.png"> </a>
+    <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row align-items-center">
-      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
+      <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.php">Your Profile</a>
+          <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>

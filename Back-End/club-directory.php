@@ -96,7 +96,7 @@
             foreach($_POST['filter'] as $tag) : 
               if($tag == $info['TagName']) :
         ?>
-          <a href="club-profile.html">
+          <a href="club-profile.php">
             <div class="club-card">
               <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
               <div class="club-card-body">
@@ -124,7 +124,7 @@
           while($clubCounter < $numOfClubs) :
             $info = $clubInfo["$clubCounter"];
         ?>
-          <a href="club-profile.html">
+          <a href="club-profile.php">
             <div class="club-card">
               <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
               <div class="club-card-body">
