@@ -1,31 +1,30 @@
 <?php
 
 include ('server.php');
-$servername = "localhost";
-$username = "root";
-$password = "PASSWORD";
 
-$conn = new mysqli($servername, $username, $password, "clubapp");
 //These will eventually be replaced with sesssion variables, but for now:
 //$clubName = isset($_POST['c1'])?$_POST['c1']:"";
 
-$clubreceive = mysqli_real_escape_string($conn, $_POST['c1']);
-$clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+if ($_SESSION['clubCounter'] !==1)
+{
+  $clubreceive = mysqli_real_escape_string($db, $_POST['c1']);
+  $_SESSION['clubCounter'] = 1;
+}
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
 //$clubname = $_SESSION['club'];
-$currentClubID = 0;
+
 $currentUserID = $_SESSION['studentid'];
 
-$currentUserID = 65;
 
 
 //$ = mysqli_real_escape_string($db, $_POST['headline']);
-//$result = mysqli_query($conn, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($conn));
+//$result = mysqli_query($db, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($db));
 
 
 
-if ($conn->connect_error)
+if ($db->connect_error)
 {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $db->connect_error);
 }
 
 
@@ -42,13 +41,13 @@ while(($row = mysqli_fetch_assoc($clubNames)))
     $club['Description'] = $row['ClubDescription'];
 }
 
-
+$currentClubID = $club['ID'];
 
 //print_r($club);
 
-$resultStudents = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID = " . $club['ID']) or die(mysqli_error($conn));
+$resultStudents = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID = " . $club['ID']) or die(mysqli_error($db));
 
-$resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($conn));
+$resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($db));
 
 
 
@@ -127,7 +126,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                 if ($counter == 0)
                 {
                   echo "executing statement <br>";
-                  $stmt = $conn->prepare("INSERT INTO clubstudents (ClubID,StudentID,Officer) VALUES(?,?,?)") or die(mysqli_error($conn));
+                  $stmt = $db->prepare("INSERT INTO clubstudents (ClubID,StudentID,Officer) VALUES(?,?,?)") or die(mysqli_error($db));
                   $stmt->bind_param("iii", $ClubID, $Student,$Officer);
                   //setting params
                   $ClubID = $club['ID'];
@@ -163,7 +162,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
             </div> <!-- welcome msg -->
           </div>
           <hr>
-          <div class="w-75 d-flex flex-column align-items-center">
+          <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
 
@@ -172,11 +171,10 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                 {
                 $students['StudentID'] = $row['StudentID'];
                 $students['Officer'] = $row['Officer'];
-                    $resultforStudent = mysqli_query($conn, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($conn));
+                    $resultforStudent = mysqli_query($db, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
-                         $studentInfo['name'] = $_SESSION['loggedin'];
-
+                         $studentInfo['name'] = $rowTwo['name'];
                          //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
 
@@ -196,7 +194,7 @@ $resultStudentsForInsertion = mysqli_query($conn, "SELECT * FROM clubstudents WH
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
-                <p class="mb-0"> <?php echo $studentInfo["name"]; ?></p>
+                <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
                 <p class="club-role">Member</p>
               </div>
                 <?php

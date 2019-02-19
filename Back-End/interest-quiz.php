@@ -17,7 +17,7 @@
   <body>
     <nav class="navbar mb-4">
       <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
-      <a class="nav-link" href="sign-in.html">Sign In</a>
+      <a class="nav-link" href="signin.php">Sign In</a>
     </nav>
 
     <main role="main" class="container text-center">
