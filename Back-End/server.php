@@ -63,23 +63,15 @@ if (isset($_POST['reg_user'])) {
     $row = mysqli_fetch_array($results2);
     $_SESSION['loggedin'] = $row['name'];
     $_SESSION['studentid'] = $studentid;
-<<<<<<< HEAD
-
-=======
     $_SESSION['picture'] = $row['picture'];
 
-    
->>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
+
 // create a session for the loggin in student's officer status
     //$queryOfficer = "SELECT * from clubapp.clubstudents WHERE StudentID = '$studentid'";
     //$resultsOfficer = mysqli_query($db, $queryOfficer);
     //$rowOfficer = mysqli_fetch_array($resultsOfficer);
     //$_SESSION['Officer'] = $rowOfficer['Officer'];
-<<<<<<< HEAD
     header('location: club-stream.php');
-=======
-    header('location: club-stream.php'); 
->>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
   }
 }
 
@@ -102,13 +94,8 @@ if (isset($_POST['login_student'])) {
     $results = mysqli_query($db, $query);
 
     if (mysqli_num_rows($results) == 1) {
-<<<<<<< HEAD
 
-        $query2 = "SELECT name FROM clubapp.students WHERE studentid = '$studentid'";
-=======
-      
         $query2 = "SELECT name, picture FROM clubapp.students WHERE studentid = '$studentid'";
->>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
         $results2 = mysqli_query($db, $query2);
         $row = mysqli_fetch_array($results2);
         $_SESSION['loggedin'] = $row['name'];
@@ -134,26 +121,20 @@ if (isset($_POST['submit_post']))
 
   $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now())" ;
   $results = mysqli_query($db, $query); //or die(mysqli_error($db));
-<<<<<<< HEAD
+  header('location: club-profile-admin.php#posts');
   }
 
-=======
-  header('location: club-profile-admin.php#posts');
-  } 
->>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
 
 /*
-if (isset($_POST['edit_desc'])) 
+if (isset($_POST['edit_desc']))
 {
   $clubdesc = mysqli_real_escape_string($db, $_POST['clubdesc']);
 
-<<<<<<< HEAD
-=======
   $query = "INSERT INTO clubapp.club VALUES('$clubdesc')";
   $results = mysqli_query($db, $query);
 }
-*/  
->>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
+*/
+
 
 //Display Posts
 

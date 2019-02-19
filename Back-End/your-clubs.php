@@ -25,11 +25,8 @@
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-<<<<<<< HEAD
+
           <a href="student-profile.php">Your Profile </a>
-=======
-          <a href="student-profile.html">Your Profile </a>
->>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>

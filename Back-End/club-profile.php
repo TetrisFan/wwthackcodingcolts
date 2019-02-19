@@ -174,16 +174,11 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                     $resultforStudent = mysqli_query($db, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
-<<<<<<< HEAD
                          $studentInfo['name'] = $rowTwo['name'];
-=======
-                         $studentInfo['name'] = $_SESSION['loggedin'];
-
->>>>>>> 146e4b9d200012ab07524b8dcb0ae2cfbfe2274b
                          //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
 
-                      
+
 
                 if($students['Officer'] == 1)
                 {
