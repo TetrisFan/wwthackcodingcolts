@@ -25,7 +25,7 @@
         <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="student-profile.html">Your Profile</a>
-          <a href="interest-quiz.html">Interest Quiz</a>
+          <a href="interest-quiz.php">Interest Quiz</a>
           <a href="#">Manage Clubs</a>
           <a href="index.html">Sign Out</a>
         </div>
