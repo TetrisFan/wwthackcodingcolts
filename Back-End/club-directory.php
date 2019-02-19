@@ -85,165 +85,59 @@
   <div class="container">
   <div class="d-flex flex-column">
     <?php 
-      $k = 5;
-      $info = $clubInfo["$k"];
-      var_dump($info);
+      $clubCounter = 0;
+      $numOfClubs = count($clubInfo);
       if(isset($_POST['filter'])) :
-        var_dump($_POST['filter']);
-        for($i = 0; $i < 14; $i++) :
     ?>
       <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
-            <div class="club-card-body">
-              <h5 class="club-card-title">
-                <?php
-                  foreach($_POST['filter'] as $tag) {
-                    if($tag == $info['TagName']) {
-                      echo $info['ClubName'];
-                      break;
-                    }
-                  } 
-                  $k++;
-                  $info = $clubInfo["$k"];
-                ?>
-              </h5>
-            </div>
-          </div>
-        </a>
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
-            <div class="club-card-body">
+        <?php
+          while($clubCounter < $numOfClubs) :
+            $info = $clubInfo["$clubCounter"];
+            foreach($_POST['filter'] as $tag) : 
+              if($tag == $info['TagName']) :
+        ?>
+          <a href="club-profile.html">
+            <div class="club-card">
+              <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
+              <div class="club-card-body">
                 <h5 class="club-card-title">
-                  <?php
-                    foreach($_POST['filter'] as $tag) {
-                      if($tag == $info['TagName']) {
-                        echo $info['ClubName'];
-                        break;
-                      }
-                    } 
-                    $k++;
-                    $info = $clubInfo["$k"];
-                  ?>
+                <?php
+                  echo $info['ClubName'];
+                ?>
                 </h5>
+              </div>
             </div>
-          </div>
-        </a>
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
-            <div class="club-card-body">
-              <h5 class="club-card-title">
-                <?php
-                  foreach($_POST['filter'] as $tag) {
-                    if($tag == $info['TagName']) {
-                      echo $info['ClubName'];
-                      break;
-                    }
-                  } 
-                  $k++;
-                  $info = $clubInfo["$k"];
-                ?>                
-              </h5>
-            </div>
-          </div>
-        </a>
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src="images/gray.png">
-            <div class="club-card-body">
-              <h5 class="club-card-title">
-                <?php
-                  foreach($_POST['filter'] as $tag) {
-                    if($tag == $info['TagName']) {
-                      echo $info['ClubName'];
-                      break;
-                    }
-                  } 
-                  $k++;
-                  $info = $clubInfo["$k"];
-                ?>               
-              </h5>
-            </div>
-          </div>
-        </a>
-      </div> 
+          </a>
+        <?php
+              endif;
+            endforeach;
+            $clubCounter++;
+          endwhile;
+        ?>
+      </div>
     <?php
-      endfor;
       endif;
-    ?>
-    </div>
-    <div class="d-flex flex-column">
-    <?php 
-    $k = 0;
-    $info = $clubInfo["$k"];
-    if(!isset($_POST['filter'])) :
-      for($i = 0; $i < 14; $i++) :
+      if(!isset($_POST['filter'])) :
     ?>
       <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
-            <div class="club-card-body">
-              <h5 class="club-card-title">
+        <?php while($clubCounter < $numOfClubs) : ?>
+          <a href="club-profile.html">
+            <div class="club-card">
+              <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
+              <div class="club-card-body">
+                <h5 class="club-card-title">
                 <?php
                   echo $info['ClubName']; 
                   $k++;
                   $info = $clubInfo["$k"];
                 ?>
-              </h5>
-            </div>
-          </div>
-        </a>
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
-            <div class="club-card-body">
-                <h5 class="club-card-title">
-                  <?php
-                    echo $info['ClubName']; 
-                    $k++;
-                    $info = $clubInfo["$k"];
-                  ?>
                 </h5>
+              </div>
             </div>
-          </div>
-        </a>
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src=" <?php echo $info['image']; ?> ">
-            <div class="club-card-body">
-              <h5 class="club-card-title">
-                <?php
-                  echo $info['ClubName']; 
-                  $k++;
-                  $info = $clubInfo["$k"];
-                ?>                
-              </h5>
-            </div>
-          </div>
-        </a>
-        <a href="club-profile.html">
-          <div class="club-card">
-            <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
-            <div class="club-card-body">
-              <h5 class="club-card-title">
-                <?php
-                  echo $info['ClubName']; 
-                  $k++;
-                  $info = $clubInfo["$k"];
-                ?>                
-              </h5>
-            </div>
-          </div>
-        </a>
-      </div>    
-    <?php 
-      endfor;
-      endif;
-    ?>
+          </a>
+        <?php endwhile; ?>
+      </div>
+    <?php endif;?>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
