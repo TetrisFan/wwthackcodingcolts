@@ -68,7 +68,6 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>

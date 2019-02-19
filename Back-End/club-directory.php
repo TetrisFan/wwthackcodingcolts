@@ -1,5 +1,5 @@
 <?php include('server.php');
-  
+
   $servername = "localhost";
   $username = "root";
   $password = "PASSWORD";
@@ -50,7 +50,6 @@
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>
@@ -84,7 +83,7 @@
   </div>
   <div class="container">
   <div class="d-flex flex-column">
-    <?php 
+    <?php
       $clubCounter = 0;
       $numOfClubs = count($clubInfo);
       if(isset($_POST['filter'])) :
@@ -93,7 +92,7 @@
         <?php
           while($clubCounter < $numOfClubs) :
             $info = $clubInfo["$clubCounter"];
-            foreach($_POST['filter'] as $tag) : 
+            foreach($_POST['filter'] as $tag) :
               if($tag == $info['TagName']) :
         ?>
           <a href="club-profile.php">
@@ -120,7 +119,7 @@
       if(!isset($_POST['filter'])) :
     ?>
       <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
-        <?php 
+        <?php
           while($clubCounter < $numOfClubs) :
             $info = $clubInfo["$clubCounter"];
         ?>
@@ -130,7 +129,7 @@
               <div class="club-card-body">
                 <h5 class="club-card-title">
                   <?php
-                    echo $info['ClubName']; 
+                    echo $info['ClubName'];
                     $clubCounter++;
                   ?>
                 </h5>
