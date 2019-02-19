@@ -101,9 +101,9 @@
               <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
               <div class="club-card-body">
                 <h5 class="club-card-title">
-                <?php
-                  echo $info['ClubName'];
-                ?>
+                  <?php
+                    echo $info['ClubName'];
+                  ?>
                 </h5>
               </div>
             </div>
@@ -126,11 +126,11 @@
               <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
               <div class="club-card-body">
                 <h5 class="club-card-title">
-                <?php
-                  echo $info['ClubName']; 
-                  $k++;
-                  $info = $clubInfo["$k"];
-                ?>
+                  <?php
+                  $info = $clubInfo["$clubCounter"];
+                    echo $info['ClubName']; 
+                    $clubCounter++;
+                  ?>
                 </h5>
               </div>
             </div>
@@ -166,4 +166,3 @@
 </body>
 
 </html>
-  
