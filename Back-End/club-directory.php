@@ -120,14 +120,16 @@
       if(!isset($_POST['filter'])) :
     ?>
       <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
-        <?php while($clubCounter < $numOfClubs) : ?>
+        <?php 
+          while($clubCounter < $numOfClubs) :
+            $info = $clubInfo["$clubCounter"];
+        ?>
           <a href="club-profile.html">
             <div class="club-card">
               <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
               <div class="club-card-body">
                 <h5 class="club-card-title">
                   <?php
-                  $info = $clubInfo["$clubCounter"];
                     echo $info['ClubName']; 
                     $clubCounter++;
                   ?>
