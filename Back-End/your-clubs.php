@@ -18,17 +18,17 @@
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="index.html"> <img class="logo" src="images/connect-me-logo2.png"> </a>
+    <a class="navbar-brand" href="index.php">Logo</a>
     <div class="d-flex flex-row">
-      <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile </a>
+          <a href="student-profile.php">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
-          <a href="index.html">Sign Out</a>
+          <a href="index.php">Sign Out</a>
         </div>
       </div>
     </div>
@@ -40,8 +40,8 @@
         <h1 class="mb-5">Your Clubs</h1>
         <div class="row d-flex flex-row justify-content-center">
           <?php
-  //	$id = $_SESSION['studentid'];//replacement
-  	$id = '3026263'; //test statment
+    $id = $_SESSION['studentid'];//replacement
+  	//$id = '3026263'; //test statment
     //$queryClub = "SELECT ClubID FROM clubapp.clubstudents WHERE StudentID = $id;";
     $resultsClub = mysqli_query($db, "SELECT * FROM clubapp.clubstudents WHERE StudentID = $id;");
     while($rowClub=mysqli_fetch_array($resultsClub))
