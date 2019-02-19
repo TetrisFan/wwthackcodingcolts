@@ -20,8 +20,8 @@
   <nav class="navbar">
     <a class="navbar-brand" href="index.php">Logo</a>
     <div class="d-flex flex-row">
-      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
+      <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
