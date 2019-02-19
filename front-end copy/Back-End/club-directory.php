@@ -6,11 +6,11 @@
   $conn = new mysqli($servername, $username, $password, "clubapp");
 
   // Create Query
-  $query = 'SELECT club.ClubName, club.ClubID, tag.TagName
+  $query = 'SELECT clubapp.club.ClubName, clubapp.club.ClubID, clubapp.tag.TagName
       FROM club
       INNER JOIN clubtag ON club.ClubID = clubtag.ClubID
       INNER JOIN tag ON clubtag.TagID = tag.TagID
-      ORDER BY club.clubname';
+      ORDER BY club.ClubName';
 
   // Get Result
   $result = mysqli_query($conn, $query);
@@ -83,15 +83,16 @@
     </form>
   </div>
   <div class="container">
-
+  <div class="d-flex flex-column">
     <?php 
-      $k = 0;
+      $k = 5;
       $info = $clubInfo["$k"];
+      var_dump($info);
       if(isset($_POST['filter'])) :
-        for($i = 0; $i < count($clubInfo); $i++) :
+        var_dump($_POST['filter']);
+        for($i = 0; $i < 14; $i++) :
     ?>
-    <div class="d-flex flex-column">
-      <div class="card-deck mt-4 d-flex flex-row justify-content-between"> <!-- in a deck of cards, there are 4 individual cards -->
+      <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
         <a href="club-profile.html">
           <div class="club-card">
             <img class="club-card-img-top" src="images/gray.png">
@@ -99,8 +100,8 @@
               <h5 class="club-card-title">
                 <?php
                   foreach($_POST['filter'] as $tag) {
-                    if($tag == $info['tagname']) {
-                      echo $info['clubname'];
+                    if($tag == $info['TagName']) {
+                      echo $info['ClubName'];
                       break;
                     }
                   } 
@@ -118,8 +119,8 @@
                 <h5 class="club-card-title">
                   <?php
                     foreach($_POST['filter'] as $tag) {
-                      if($tag == $info['tagname']) {
-                        echo $info['clubname'];
+                      if($tag == $info['TagName']) {
+                        echo $info['ClubName'];
                         break;
                       }
                     } 
@@ -137,8 +138,8 @@
               <h5 class="club-card-title">
                 <?php
                   foreach($_POST['filter'] as $tag) {
-                    if($tag == $info['tagname']) {
-                      echo $info['clubname'];
+                    if($tag == $info['TagName']) {
+                      echo $info['ClubName'];
                       break;
                     }
                   } 
@@ -156,8 +157,8 @@
               <h5 class="club-card-title">
                 <?php
                   foreach($_POST['filter'] as $tag) {
-                    if($tag == $info['tagname']) {
-                      echo $info['clubname'];
+                    if($tag == $info['TagName']) {
+                      echo $info['ClubName'];
                       break;
                     }
                   } 
@@ -168,24 +169,27 @@
             </div>
           </div>
         </a>
-      </div>
-    </div>
+      </div> 
     <?php
       endfor;
-    endif;
-
-    if(!isset($_POST['filter'])) :
-      for($i = 0; $i < count($clubInfo); $i++) :
+      endif;
     ?>
+    </div>
     <div class="d-flex flex-column">
-      <div class="card-deck mt-4 d-flex flex-row justify-content-between"> <!-- in a deck of cards, there are 4 individual cards -->
+    <?php 
+    $k = 0;
+    $info = $clubInfo["$k"];
+    if(!isset($_POST['filter'])) :
+      for($i = 0; $i < 14; $i++) :
+    ?>
+      <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
         <a href="club-profile.html">
           <div class="club-card">
             <img class="club-card-img-top" src="images/gray.png">
             <div class="club-card-body">
               <h5 class="club-card-title">
                 <?php
-                  echo $info['clubname']; 
+                  echo $info['ClubName']; 
                   $k++;
                   $info = $clubInfo["$k"];
                 ?>
@@ -199,7 +203,7 @@
             <div class="club-card-body">
                 <h5 class="club-card-title">
                   <?php
-                    echo $info['clubname']; 
+                    echo $info['ClubName']; 
                     $k++;
                     $info = $clubInfo["$k"];
                   ?>
@@ -213,7 +217,7 @@
             <div class="club-card-body">
               <h5 class="club-card-title">
                 <?php
-                  echo $info['clubname']; 
+                  echo $info['ClubName']; 
                   $k++;
                   $info = $clubInfo["$k"];
                 ?>                
@@ -227,7 +231,7 @@
             <div class="club-card-body">
               <h5 class="club-card-title">
                 <?php
-                  echo $info['clubname']; 
+                  echo $info['ClubName']; 
                   $k++;
                   $info = $clubInfo["$k"];
                 ?>                
@@ -236,11 +240,11 @@
           </div>
         </a>
       </div>    
-    </div>
     <?php 
       endfor;
       endif;
     ?>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
@@ -268,3 +272,4 @@
 </body>
 
 </html>
+  

@@ -40,7 +40,7 @@
 
   <nav class="navbar mb-4">
 
-    <a class="navbar-brand" href="#">Logo</a>
+    <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
 
   </nav>
 
@@ -66,7 +66,7 @@
 
       <div id="student" style="display: none"> <!-- student sign in form -->
 
-       <form method="post" action="signin.php">
+       <form class = "form-signin" method="post" action="signin.php">
 
           <?php include('errors.php'); ?>
 

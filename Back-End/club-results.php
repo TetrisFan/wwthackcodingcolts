@@ -18,16 +18,15 @@
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="club-stream.html">Logo</a>
+    <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row align-items-center">
-      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
+      <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
-          <a href="interest-quiz.html">Interest Quiz</a>
-          <a href="your-clubs.html">Your Clubs</a>
+          <a href="interest-quiz.php">Interest Quiz</a>
+          <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>
         </div>
       </div>
@@ -41,63 +40,115 @@
         <p>These are the clubs that best match your interests based on your quiz responses.</br> If they seem appealing, check them out!</p>
       </div>
 
-     
-        <?php 
+
+        <?php
 
                $list = $_SESSION['clubnames'];
-              
+
+                    $images = array();
+
+                    $query = "SELECT image FROM clubapp.club WHERE clubName = '$list[0]'";
+                    $img1 = mysqli_query($conn, $query);
+                    $row = mysqli_fetch_array($img1);
+
+                    $query1 = "SELECT image FROM clubapp.club WHERE clubName = '$list[1]'";
+                    $img1 = mysqli_query($conn, $query1);
+                    $row1 = mysqli_fetch_array($img1);
+
+                    $query2 = "SELECT image FROM clubapp.club WHERE clubName = '$list[2]'";
+                    $img2 = mysqli_query($conn, $query2);
+                    $row2 = mysqli_fetch_array($img2);
+
+                    $query3 = "SELECT image FROM clubapp.club WHERE clubName = '$list[3]'";
+                    $img3 = mysqli_query($conn, $query3);
+                    $row3 = mysqli_fetch_array($img3);
+
+                    array_push($images, "$row[0]", "$row1[0]", "$row2[0]", "$row3[0]");
+
+
+
+              print_r($list);
                if (count($list)%2 == 0)
                {
                for ($counter = 0; $counter<count($list); $counter +=2)
-                 { 
+                 {
+
+
               ?>
         <div class="row mx-0 d-flex flex-row justify-content-center">
+      <form action="club-profile.php" method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter];?></a>
+            <img class="club-profile-pic" src=" <?php echo $images[$counter]; ?>" />
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
+              ?>
+            </button>
           </div>
         </div>
+      </form>
+      <form action="club-profile.php"method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $list[$counter+1];?> checked></input>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
+            <img class="club-profile-pic" src="<?php echo $images[$counter+1]; ?>" />
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter+1]; ?></button>
           </div>
         </div>
-      </div>
+       </form>
+       </div>
        <?php
+
                   }}
                 else {
                   for ($counter = 0; $counter<count($list)-1; $counter +=2)
-                 { 
+                 {
               ?>
-      <div class="row mx-0 d-flex flex-row justify-content-center">
+       <div class="row mx-0 d-flex flex-row justify-content-center">
+      <form action="club-profile.php" method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
+            <img class="club-profile-pic" src="<?php echo $images[$counter]; ?>" />
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
+              ?>
+            </button>
           </div>
         </div>
+      </form>
+      <form action="club-profile.php"method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $list[$counter+1];?> checked></input>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
-            <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter+1]; ?></a>
+            <img class="club-profile-pic" src="<?php echo $images[$counter+1]; ?>" />
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter+1]; ?></button>
           </div>
         </div>
-      </div>
+       </form>
+       </div>
       <?php
                 } ?>
-      <div class="row mx-0 d-flex flex-row justify-content-center">
+
+
+
+
+      <form action="club-profile.php" method = "POST">
+        <input type="checkbox" style="display: none;" name = "c1" value= <?php echo $list[$counter] ?> checked>
         <div class="col-sm-12 col-md-6 col-lg mb-4">
           <div class="d-flex flex-row justify-content-center align-items-center">
             <img class="club-profile-pic" src="images/gray.png" />
-            <a href="club-profile.html" class="club-name"><?php echo $list[$counter]; ?></a>
+            <button href="club-profile.php" class="club-name" type="submit"><?php echo $list[$counter];
+              ?>
+            </button>
           </div>
         </div>
+      </form>
           <?php  }
-          ?> 
-       
-        
+
+
+          ?>
+
+
       </div>
   </main>
 

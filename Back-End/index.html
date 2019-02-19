@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sign Up</title>
+  <title>ConnectMe</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,25 +16,33 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="d-flex flex-column align-items-center">
   <nav class="navbar">
     <a class="navbar-brand" href="index.html"><img class="logo" src="images/connect-me-logo2.png"></a>
+    <div class="d-flex flex-row">
+      <a class="nav-link text-secondary" href="signin.php">Sign In</a>
+    </div>
   </nav>
 
-  <div class="container mt-4">
-    <div class="jumbotron d-flex flex-column justify-content-center text-center">
-      <h1>Get Started</h1>
-      <form class="form-signin">
-        <input type="text" class="form-control" placeholder="ID">
-        <input type="password" class="form-control" placeholder="Password">
-        <input type="password" class="form-control" placeholder="Confirm Password">
-        <a role="button" href="welcome.html" class="btn btn-primary">Sign Up</a>
-      </form>
+  <div class="container-fluid my-auto d-flex flex-row align-items-center justify-content-center">
+    <div class="row d-flex flex-row align-items-center justify-content-around">
+      <div class="col-11 col-md-5 col-lg-5 mb-4">
+        <h1 class="mb-lg-3">Mission Statement</h1>
+        <p class="mb-lg-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <a class="btn btn-primary shadow" href="signup.php" role="button">Get Started</a>
+      </div>
+      <div class="col-11 col-md-6 col-lg-6">
+        <img class="img-fluid" src="images/image.png" />
+      </div>
     </div>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
+  </script>
+  <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 </body>
 
 </html>

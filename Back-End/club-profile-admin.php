@@ -1,4 +1,65 @@
-<?php include('server.php') ?>
+<?php
+include ('server.php');
+
+//These will eventually be replaced with sesssion variables, but for now:
+//$clubName = isset($_POST['c1'])?$_POST['c1']:"";
+
+
+if (isset($_POST['c1'])) {
+$_SESSION['c1'] = $_POST['c1'];
+$clubreceive = mysqli_real_escape_string($db, $_POST['c1']);
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+}
+else {
+$clubreceive = mysqli_real_escape_string($db, $_SESSION['c1']);
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+}
+//$clubname = $_SESSION['club'];
+if ($_SESSION['clubCounter'] !==1)
+{
+  $clubreceive = mysqli_real_escape_string($db, $_SESSION['c1']);
+  $_SESSION['clubCounter'] = 1;
+}
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
+
+$currentUserID = $_SESSION['studentid'];
+
+
+
+//$ = mysqli_real_escape_string($db, $_POST['headline']);
+//$result = mysqli_query($db, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($db));
+
+
+
+if ($db->connect_error)
+{
+    die("Connection failed: " . $db->connect_error);
+}
+
+
+$club = array();
+$students = array();
+$studentInfo = array();
+$currentClub = array();
+$studentInClub = array();
+
+while(($row = mysqli_fetch_assoc($clubNames)))
+{
+    $club['ID'] = $row['ClubID'];
+    $club['Name'] = $row['ClubName'];
+    $club['Description'] = $row['ClubDescription'];
+}
+
+$currentClubID = $club['ID'];
+
+
+//print_r($club);
+
+$resultStudents = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID = " . $club['ID']) or die(mysqli_error($db));
+
+$resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($db));
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -14,16 +75,15 @@
 
 <body>
   <nav class="navbar">
-    <a class="navbar-brand" href="club-stream.html">Logo</a>
+    <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row align-items-center">
-      <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
+      <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
-          <a href="interest-quiz.html">Interest Quiz</a>
-          <a href="your-clubs.html">Your Clubs</a>
+          <a href="interest-quiz.php">Interest Quiz</a>
+          <a href="your-clubs.php">Your Clubs</a>
           <a href="index.html">Sign Out</a>
         </div>
       </div>
@@ -44,79 +104,59 @@
       <main role="main" class="container mt-4">
         <div class="jumbotron d-flex flex-column align-items-center text-center">
           <div class="w-75 d-flex flex-column align-items-center">
-            <h1 class="mb-4">Club Name</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h1 class="mb-4"><?php echo $club['Name']?></h1>
+            <p><?php echo $club['Description']?></p>
             <button class="btn btn-primary mb-3 mt-2" type="button" data-toggle="collapse" data-target="#editDesc" aria-expanded="false" aria-controls="editDesc">
               Edit club description
             </button>
             <div class="collapse w-100 mt-3" id="editDesc">
-              <form>
+              <form class = "form-signin" method="post" action="club-profile-admin.php">
                 <div class="form-group">
-                  <textarea class="form-control rounded-0" rows="10" placeholder="Edit your club description."></textarea>
+                  <textarea class="form-control rounded-0" rows="10" name="clubdesc" placeholder="Edit your club description."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3 mb-2">save changes</button>
+                <button type="submit" role="button" name="edit_desc" class="btn btn-primary mt-3 mb-2">save changes</button>
               </form>
             </div>
           </div>
           <hr>
-          <div class="w-75 d-flex flex-column align-items-center">
+          <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Teacher</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Officer</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Officer</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-                <p class="club-role">Officer</p>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
-              <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <button class="member-names">
-                  <img class="member-profile-pic" src="images/gray.png" alt="">
-                  <p class="mb-0">Name</p>
-                </button>
-              </div>
+                               <?php
+                              while(($row = mysqli_fetch_assoc($resultStudents)))
+                              {
+                              $students['StudentID'] = $row['StudentID'];
+                              $students['Officer'] = $row['Officer'];
+                                  $resultforStudent = mysqli_query($db, "SELECT * FROM users WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
+                                   while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
+                                   {
+                                       $studentInfo['name'] = $rowTwo['name'];
+                                       //$studentInfo['LastName'] = $rowTwo['LastName'];
+                                   }
+
+
+
+                              if($students['Officer'] == 1)
+                              {
+                                ?>
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
+                              <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?>" alt="">
+                              <a > <?php echo $studentInfo["name"];?></a>
+                              <p class="club-role">Officer</p>
+                            </div>
+                        <?php }
+                              else
+                              {
+                                ?>
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
+                              <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
+                              <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
+                              <p class="club-role">Member</p>
+                            </div>
+                              <?php
+                              }
+                              }
+                              ?>
             </div>
           </div>
         </div>
@@ -130,7 +170,7 @@
         <div class="modal fade" id="new-post" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <form method="post" action="club-profile-admin.php">
+                <form class = "form-group" method="post" action="club-profile-admin.php">
               <div class="modal-header d-flex flex-column align-items-center">
                 <button type="button" class="close mb-2" data-dismiss="modal">&times;</button>
                 <form class="w-100">
@@ -154,7 +194,7 @@
 
       for ($id = $row[0]; $id >= 1; $id--) {
 
-        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
+        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; //AND clubid = whatever;
         $results = mysqli_query($db, $query);
         $posts=mysqli_fetch_array($results);
 
@@ -164,10 +204,9 @@
           <div class="headline">
             <h1><?php echo $posts[2];?></h1>
             <p class="post-club-name"> Posted by <?php echo $posts[1];?> at <?php echo $posts[4];?> </p>
+          </div>
             <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
-        </div>
-<br>
 
   <?php
       }
