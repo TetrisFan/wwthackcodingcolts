@@ -35,7 +35,7 @@
 
 <main role="main" class="container text-center d-flex flex-column align-items-center">
 
-<?php 
+<?php
 
 $resultsOfPosts = mysqli_query($db, "SELECT * FROM posts") or die(mysqli_error($db));
 $post = array();
@@ -44,11 +44,10 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     $clubName = "";
     $post['Description'] = $row['desc'];
     $post['Headline'] = $row['headline'];
-    $post['ClubID'] = $row['id'];
+    $post['ClubID'] = $row['clubid'];
     $Headline = $post['Headline'];
     $Description = $post['Description'];
-    $resultsForClubs = mysqli_query($db, "SELECT * FROM club WHERE ClubID = '".$post['ClubID']."'") or die(mysqli_error($db));
-    
+    $resultsForClubs = mysqli_query($db, "SELECT * FROM club WHERE ClubID = '".$post["ClubID"]."'") or die(mysqli_error($db));
     while(($clubrow = mysqli_fetch_assoc($resultsForClubs)))
     {
         $club['Name'] = $clubrow['ClubName'];
@@ -56,7 +55,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     }
 
     $FrontEnd = ('
-  
+
     <div data-toggle="modal" data-target="#myModal1" class="headline-container">
       <div class="headline">
         <h1>%s</h1>
@@ -64,13 +63,14 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       </div>
       <div class="headline-text">%s</div>
     </div>
-      
- '); 
- echo sprintf($FrontEnd, $post['Headline'],$clubName , $Description, $Headline, $Description);   
+
+ ');
+
+ echo sprintf($FrontEnd, $post['Headline'],$clubName , $Description, $Headline, $Description);
 }
 
-  ?>  
-   
+  ?>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
