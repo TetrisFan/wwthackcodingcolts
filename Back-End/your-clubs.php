@@ -23,9 +23,9 @@
       <a class="nav-link mr-5 b-0" href="club-stream.html">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.html">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.html">Your Profile</a>
+          <a href="student-profile.html">Your Profile </a>
           <a href="interest-quiz.html">Interest Quiz</a>
           <a href="your-clubs.html">Your Clubs</a>
           <a href="index.html">Sign Out</a>
