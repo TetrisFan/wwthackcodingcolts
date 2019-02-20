@@ -30,7 +30,7 @@
 
           <a href="your-clubs.php" onClick="Func()">Your Clubs</a>
 
-          
+
 
           <a href="index.html">Sign Out</a>
         </div>
@@ -42,7 +42,7 @@
 
 <?php
 
-$resultsOfPosts = mysqli_query($db, "SELECT * FROM posts") or die(mysqli_error($db));
+$resultsOfPosts = mysqli_query($db, "SELECT * FROM posts ORDER BY time DESC") or die(mysqli_error($db));
 $post = array();
 while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 {

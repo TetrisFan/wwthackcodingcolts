@@ -1,4 +1,3 @@
-
 <?php include('server.php') ?>
 
 <!doctype html>

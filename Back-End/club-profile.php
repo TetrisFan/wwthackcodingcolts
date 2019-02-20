@@ -54,6 +54,7 @@ while(($row = mysqli_fetch_assoc($clubNames)))
     $club['ID'] = $row['ClubID'];
     $club['Name'] = $row['ClubName'];
     $club['Description'] = $row['ClubDescription'];
+    $club['welcomeMessage'] = $row['welcome'];
 }
 
 $currentClubID = $club['ID'];
@@ -123,17 +124,17 @@ $clubid = $club['ID'];
             //echo $_SESSION['firstjoin'];  //session test statment
             if ($_SESSION['firstjoin'] ==1)
             {
-              
+
               ?>
-              
+
               <script>
               $(document).ready(function(){$('#welcome-msg').modal('show')})
               </script>
             <?php
               $_SESSION ['firstjoin'] = 0;
             }
-              
-             
+
+
              if(isset($_POST['button1']))
               {
                 //echo $counter . "<br>" ;
@@ -150,7 +151,7 @@ $clubid = $club['ID'];
 
                         $counter ++;
                     }
-                    
+
 
                 }
 
@@ -170,18 +171,18 @@ $clubid = $club['ID'];
                   $stmt->execute();
                   $counter ++;
                   echo "Finished!";*/
-                  
-                  
+
+
                   $insertion = "INSERT INTO clubapp.clubstudents (`ClubID`, `StudentID`, `Officer`) VALUES ('$clubid', '$currentUserID','0');";
-                  
+
                   mysqli_query($db, $insertion);
                   $_SESSION['firstjoin'] = 1;
-                }  
+                }
                  else
                  {
                      $_SESSION['firstjoin'] = 0;
                  }
-                  
+
               }
               ?>
             <div class="modal fade" id="welcome-msg" role="dialog"> <!-- welcome msg -->
@@ -192,10 +193,7 @@ $clubid = $club['ID'];
                     <h4 class="modal-title">Welcome!</h4>
                   </div>
                   <div class="modal-body p-3">
-                    <p>Donec condimentum erat a arcu pretium, consequat iaculis lacus tincidunt. Vivamus gravida eros tortor. Praesent iaculis in ligula id vehicula. Nunc vehicula, eros nec efficitur laoreet, ligula turpis commodo felis, a volutpat
-                      diam tellus ac dolor. Donec nulla nisi, luctus eget justo id, auctor elementum turpis. Praesent faucibus felis ante, nec posuere ligula efficitur sit amet. Ut aliquet, eros a vehicula viverra, augue est dapibus lorem, quis
-                      tristique orci libero sed ante. Aenean placerat augue at lectus porttitor, et elementum nibh consequat. Morbi facilisis ipsum in posuere euismod. Pellentesque porttitor convallis porttitor. Fusce dolor risus, tincidunt et
-                      pulvinar in, interdum ac diam. Aenean imperdiet libero molestie, lacinia arcu id, lacinia magna. Fusce accumsan erat eget pulvinar blandit. Sed et nunc est. Proin at consequat augue, sed dignissim tellus.</p>
+                    <p><?php $club['welcomeMessage'];?></p>
                   </div>
                 </div>
               </div>
@@ -224,7 +222,7 @@ $clubid = $club['ID'];
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?>" alt="">
+                <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
                 <a > <?php echo $studentInfo["name"];?></a>
                 <p class="club-role">Officer</p>
               </div>
@@ -233,7 +231,7 @@ $clubid = $club['ID'];
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
+                <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
                 <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
                 <p class="club-role">Member</p>
               </div>
@@ -247,7 +245,6 @@ $clubid = $club['ID'];
           </div>
         </div>
       </main>
-    </div>
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
       <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
          <?php
@@ -418,6 +415,7 @@ $clubid = $club['ID'];
             </div>
           </div>
         </div> <!-- modal 5 -->
+      </div>
     </div>
   </div>
   <!-- custom JS -->
