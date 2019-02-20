@@ -77,6 +77,9 @@ $clubid = $club['ID'];
   <!-- custom CSS -->
   <link rel="stylesheet" href="styles.css">
   <title>Club Profile</title>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -86,7 +89,7 @@ $clubid = $club['ID'];
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
@@ -120,8 +123,13 @@ $clubid = $club['ID'];
             //echo $_SESSION['firstjoin'];  //session test statment
             if ($_SESSION['firstjoin'] ==1)
             {
-              echo  "<script>$('#welcome-msg').modal('show')</script>";
-            
+              
+              ?>
+              
+              <script>
+              $(document).ready(function(){$('#welcome-msg').modal('show')})
+              </script>
+            <?php
               $_SESSION ['firstjoin'] = 0;
             }
               
@@ -216,7 +224,7 @@ $clubid = $club['ID'];
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
+                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?>" alt="">
                 <a > <?php echo $studentInfo["name"];?></a>
                 <p class="club-role">Officer</p>
               </div>
@@ -225,7 +233,7 @@ $clubid = $club['ID'];
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="images/blank-avatar-green.png alt="">
+                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
                 <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
                 <p class="club-role">Member</p>
               </div>
@@ -412,8 +420,6 @@ $clubid = $club['ID'];
         </div> <!-- modal 5 -->
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- custom JS -->
   <script>
   $(document).ready(() => {
