@@ -69,11 +69,7 @@ if (isset($_POST['reg_user'])) {
     //$resultsOfficer = mysqli_query($db, $queryOfficer);
     //$rowOfficer = mysqli_fetch_array($resultsOfficer);
     //$_SESSION['Officer'] = $rowOfficer['Officer'];
-<<<<<<< HEAD
     header('location: welcome.php');
-=======
-    header('location: club-stream.php'); 
->>>>>>> 3ebe98a6ed70d864886b5609abc64b7a9a04507c
   }
 }
 
@@ -123,14 +119,8 @@ if (isset($_POST['submit_post']))
   $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now())" ;
   $results = mysqli_query($db, $query); //or die(mysqli_error($db));
 
-<<<<<<< HEAD
-  header('location: club-profile-admin.php#posts');
-  }
-
-=======
   header('location: club-stream.php');
-  } 
->>>>>>> 3ebe98a6ed70d864886b5609abc64b7a9a04507c
+  }
 
 
 
