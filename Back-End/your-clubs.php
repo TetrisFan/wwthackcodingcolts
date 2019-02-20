@@ -37,7 +37,7 @@
     <div class="jumbotron d-flex flex-column align-items-center justify-content-center text-center">
       <div class="w-75 d-flex flex-column justify-content-center">
         <h1 class="mb-5">Your Clubs</h1>
-        <div class="row d-flex flex-row mx-auto">
+        <div class="row d-flex flex-row justify-content-center">
           <?php
     $_SESSION['clubCounter'] = 0;
     $id = $_SESSION['studentid'];//replacement

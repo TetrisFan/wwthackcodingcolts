@@ -109,6 +109,7 @@ $clubid = $club['ID'];
       </li>
     </ul>
   </div>
+
   <div class="tab-content mytab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <main role="main" class="container mt-4">
@@ -199,7 +200,7 @@ $clubid = $club['ID'];
               </div>
             </div> <!-- welcome msg -->
           </div>
-          <hr>
+        </hr>
           <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div class="row d-flex flex-row justify-content-center">
@@ -243,8 +244,8 @@ $clubid = $club['ID'];
 
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
       <main role="main" class="container mt-4 text-center d-flex flex-column align-items-center">
          <?php
