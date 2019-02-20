@@ -95,18 +95,21 @@
             foreach($_POST['filter'] as $tag) :
               if($tag == $info['TagName']) :
         ?>
-          <a href="club-profile.php">
-            <div class="club-card">
-              <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
-              <div class="club-card-body">
-                <h5 class="club-card-title">
-                  <?php
-                    echo $info['ClubName'];
-                  ?>
+          <form action="club-profile.php" method = "POST">
+            <input type="checkbox" style="display: none;" name = "c1" value="<?php echo $info['ClubName'];?>" checked>
+            <button href = "club-profile.php" class="club-card" type="submit">
+             <div class="">
+               <img class="club-card-img-top" src="<?php echo $info['image']; ?>" />
+               <div class="club-card-body">
+                 <h5 class="club-card-title">
+                   <?php 
+                     echo $info['ClubName'];
+                   ?>
                 </h5>
               </div>
-            </div>
-          </a>
+             </div>
+            </button>
+          </form>
         <?php
               endif;
             endforeach;
@@ -123,20 +126,25 @@
           while($clubCounter < $numOfClubs) :
             $info = $clubInfo["$clubCounter"];
         ?>
-          <a href="club-profile.php">
-            <div class="club-card">
-              <img class="club-card-img-top" src="<?php echo $info['image']; ?>">
-              <div class="club-card-body">
-                <h5 class="club-card-title">
-                  <?php
-                    echo $info['ClubName'];
-                    $clubCounter++;
-                  ?>
+          <form action="club-profile.php" method = "POST">
+            <input type="checkbox" style="display: none;" name = "c1" value="<?php echo $info['ClubName'];?>" checked>
+            <button href = "club-profile.php" class="club-card" type="submit">
+             <div class="">
+               <img class="club-card-img-top" src="<?php echo $info['image']; ?>" />
+               <div class="club-card-body">
+                 <h5 class="club-card-title">
+                   <?php 
+                     echo $info['ClubName'];
+                   ?>
                 </h5>
               </div>
-            </div>
-          </a>
-        <?php endwhile; ?>
+             </div>
+            </button>
+          </form>
+        <?php 
+          $clubCounter++;
+          endwhile; 
+        ?>
       </div>
     <?php endif;?>
   </div>
