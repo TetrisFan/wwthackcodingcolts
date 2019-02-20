@@ -41,8 +41,8 @@
         <p class="mb-3">To start connecting with clubs, would you like to take the interest quiz? It will help you find out the clubs available at our school that will be of interest to you!</p>
         <p class="mb-4">If you don't want to take it now, you can access it later in Settings.</p>
       </div>
-      <a class="btn btn-primary mb-1 mt-2" href="interest-quiz.html" role="button" style="background-color: #01EEB8; padding-left: 55px; padding-right: 55px;">take it now</a>
-      <a class="btn btn-primary mt-2" href="club-stream.html">maybe later</a>
+      <a class="btn btn-primary mb-1 mt-2" href="interest-quiz.php" role="button" style="background-color: #01EEB8; padding-left: 55px; padding-right: 55px;">take it now</a>
+      <a class="btn btn-primary mt-2" href="club-stream.php">maybe later</a>
     </div>
   </div>
 

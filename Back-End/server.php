@@ -2,10 +2,10 @@
 session_start();
 // initializing variables
 $studentid = "";
-$errors = array(); 
+$errors = array();
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', 'PASSWORD', 'clubapp'); 
+$db = mysqli_connect('localhost', 'root', 'PASSWORD', 'clubapp');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -22,18 +22,18 @@ if (isset($_POST['reg_user'])) {
   if ($password_1 != $password_2) {
   array_push($errors, "The two passwords do not match");
   }
-  if ($password_1 == $studentid) { 
+  if ($password_1 == $studentid) {
     array_push($errors, "Password cannot match student ID");
   }
 
 
 
-  // first check the database to make sure 
+  // first check the database to make sure
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM clubapp.users WHERE StudentID='$studentid' LIMIT 1"; 
+  $user_check_query = "SELECT * FROM clubapp.users WHERE StudentID='$studentid' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $student = mysqli_fetch_assoc($result);
-  
+
   if ($student) { // if user exists
     if ($student['StudentID'] === $studentid) {
       array_push($errors, "Student ID already exists");
@@ -42,10 +42,10 @@ if (isset($_POST['reg_user'])) {
   }
 
 
- $id_check_query = "SELECT * FROM clubapp.students WHERE studentid='$studentid' LIMIT 1"; 
+ $id_check_query = "SELECT * FROM clubapp.students WHERE studentid='$studentid' LIMIT 1";
   $result = mysqli_query($db, $id_check_query);
   $id = mysqli_fetch_assoc($result);
-  
+
   if (! $id) { // if id does not exist
     array_push($errors, "Student ID does not exist");
   }
@@ -53,7 +53,7 @@ if (isset($_POST['reg_user'])) {
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
     $password = $password_1;
-    $query = "INSERT INTO clubapp.users (StudentID, Password) 
+    $query = "INSERT INTO clubapp.users (StudentID, Password)
           VALUES('$studentid', '$password')";
     mysqli_query($db, $query);
 
@@ -63,13 +63,13 @@ if (isset($_POST['reg_user'])) {
     $row = mysqli_fetch_array($results2);
     $_SESSION['loggedin'] = $row['name'];
     $_SESSION['studentid'] = $studentid;
-    
+
 // create a session for the loggin in student's officer status
     //$queryOfficer = "SELECT * from clubapp.clubstudents WHERE StudentID = '$studentid'";
     //$resultsOfficer = mysqli_query($db, $queryOfficer);
     //$rowOfficer = mysqli_fetch_array($resultsOfficer);
     //$_SESSION['Officer'] = $rowOfficer['Officer'];
-    header('location: club-profile-admin.php'); 
+    header('location: welcome.php');
   }
 }
 
@@ -90,9 +90,9 @@ if (isset($_POST['login_student'])) {
 
     $query = "SELECT * FROM clubapp.users WHERE StudentID='$studentid' AND Password='$password'";
     $results = mysqli_query($db, $query);
-    
+
     if (mysqli_num_rows($results) == 1) {
-      
+
         $query2 = "SELECT name FROM clubapp.students WHERE studentid = '$studentid'";
         $results2 = mysqli_query($db, $query2);
         $row = mysqli_fetch_array($results2);
@@ -102,16 +102,16 @@ if (isset($_POST['login_student'])) {
         //$resultsOfficer = mysqli_query($db, $queryOfficer);
         //$rowOfficer = mysqli_fetch_array($resultsOfficer);
         //$_SESSION['officer'] = $rowOfficer['officer'];
-        header('location: club-profile-admin.php');
+        header('location: club-stream.php');
     } else {
       array_push($errors, "Wrong student id/password combination");
     }
-     
+
   }
 }
 
 
-if (isset($_POST['submit_post'])) 
+if (isset($_POST['submit_post']))
   {
   $headline = mysqli_real_escape_string($db, $_POST['headline']);
   $desc = mysqli_real_escape_string($db, $_POST['desc']);
@@ -120,12 +120,11 @@ if (isset($_POST['submit_post']))
   $results = mysqli_query($db, $query); //or die(mysqli_error($db));
 
   header('location: club-profile-admin.php#posts');
-  } 
+  }
 
 
-  
+
 
 //Display Posts
 
 ?>
-
