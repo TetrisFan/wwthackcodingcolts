@@ -116,6 +116,7 @@ $clubid = $club['ID'];
             <button type="submit" name = "button1" value="1" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
             </form>
             <?php
+            settype($_SESSION ['firstjoin'], "integer");
             //echo $_SESSION['firstjoin'];  //session test statment
             if ($_SESSION['firstjoin'] ==1)
             {
