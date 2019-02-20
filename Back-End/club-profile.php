@@ -32,7 +32,6 @@ $clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubre
 $currentUserID = $_SESSION['studentid'];
 
 
-
 //$ = mysqli_real_escape_string($db, $_POST['headline']);
 //$result = mysqli_query($db, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($db));
 
@@ -65,6 +64,7 @@ $resultStudents = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID = "
 
 $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID =" . $club['ID']) or die(mysqli_error($db));
 
+$clubid = $club['ID'];
 
 
 ?><!doctype html>
@@ -77,6 +77,9 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
   <!-- custom CSS -->
   <link rel="stylesheet" href="styles.css">
   <title>Club Profile</title>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -112,11 +115,26 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
           <div class="w-75 d-flex flex-column align-items-center">
             <h1 class="mb-4"><?php echo $club['Name']?></h1>
             <p><?php echo $club['Description']?></p>
-            <form action="club-profile.php" method='post'>
-            <button type="submit" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
+            <form  action="club-profile.php" method='post'>
+            <button type="submit" name = "button1" value="1" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
             </form>
             <?php
-             if(isset($_POST['join']))
+            settype($_SESSION ['firstjoin'], "integer");
+            //echo $_SESSION['firstjoin'];  //session test statment
+            if ($_SESSION['firstjoin'] ==1)
+            {
+              
+              ?>
+              
+              <script>
+              $(document).ready(function(){$('#welcome-msg').modal('show')})
+              </script>
+            <?php
+              $_SESSION ['firstjoin'] = 0;
+            }
+              
+             
+             if(isset($_POST['button1']))
               {
                 //echo $counter . "<br>" ;
                 //echo "Clicking Detected <br>";
@@ -131,8 +149,8 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                     {
 
                         $counter ++;
-
                     }
+                    
 
                 }
 
@@ -140,6 +158,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
 
                 if ($counter == 0)
                 {
+                   /*Tre's prepare method
                   echo "executing statement <br>";
                   $stmt = $db->prepare("INSERT INTO clubstudents (ClubID,StudentID,Officer) VALUES(?,?,?)") or die(mysqli_error($db));
                   $stmt->bind_param("iii", $ClubID, $Student,$Officer);
@@ -150,13 +169,19 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                   //if(!$stmt->execute()) echo $stmt->error;
                   $stmt->execute();
                   $counter ++;
-                  echo "Finished!";
-                 }
+                  echo "Finished!";*/
+                  
+                  
+                  $insertion = "INSERT INTO clubapp.clubstudents (`ClubID`, `StudentID`, `Officer`) VALUES ('$clubid', '$currentUserID','0');";
+                  
+                  mysqli_query($db, $insertion);
+                  $_SESSION['firstjoin'] = 1;
+                }  
                  else
                  {
-                     echo "You have already joined the club.";
+                     $_SESSION['firstjoin'] = 0;
                  }
-
+                  
               }
               ?>
             <div class="modal fade" id="welcome-msg" role="dialog"> <!-- welcome msg -->
@@ -395,8 +420,6 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
         </div> <!-- modal 5 -->
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- custom JS -->
   <script>
   $(document).ready(() => {
