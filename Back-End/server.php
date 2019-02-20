@@ -82,12 +82,11 @@ if (! $userData["StudentID"]) { // if id does not exist
     mysqli_query($db, $query);
 
 // create a session for the logged in student's id and name
-    $query2 = "SELECT name, picture FROM clubapp.students WHERE studentid = ". $userData['StudentID'];
+    $query2 = "SELECT name FROM clubapp.students WHERE studentid = ". $userData['StudentID'];
     $results2 = mysqli_query($db, $query2);
     $row = mysqli_fetch_array($results2);
     $_SESSION['loggedin'] = $row['name'];
     $_SESSION['studentid'] = $studentid;
-    $_SESSION['picture'] = $row['picture'];
 
 
 // create a session for the loggin in student's officer status
@@ -119,12 +118,11 @@ if (isset($_POST['login_student'])) {
 
     if (mysqli_num_rows($results) == 1) {
 
-        $query2 = "SELECT name, picture FROM clubapp.students WHERE studentid = '$studentid'";
+        $query2 = "SELECT name FROM clubapp.students WHERE studentid = '$studentid'";
         $results2 = mysqli_query($db, $query2);
         $row = mysqli_fetch_array($results2);
         $_SESSION['loggedin'] = $row['name'];
         $_SESSION['studentid'] = $studentid;
-        $_SESSION['picture'] = $row['picture'];
         //$queryOfficer = "SELECT * from clubapp.clubstudents WHERE studentid = '$studentid'";
         //$resultsOfficer = mysqli_query($db, $queryOfficer);
         //$rowOfficer = mysqli_fetch_array($resultsOfficer);

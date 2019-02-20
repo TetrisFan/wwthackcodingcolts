@@ -24,7 +24,7 @@
 
       <a class="nav-link mr-3 px-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="interest-quiz.php">Interest Quiz</a>
 
