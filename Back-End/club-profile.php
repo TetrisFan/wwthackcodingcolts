@@ -224,7 +224,7 @@ $clubid = $club['ID'];
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?>" alt="">
+                <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
                 <a > <?php echo $studentInfo["name"];?></a>
                 <p class="club-role">Officer</p>
               </div>
@@ -233,7 +233,7 @@ $clubid = $club['ID'];
                 {
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                <img class="member-profile-pic" src="<?php echo $_SESSION['picture']; ?> alt="">
+                <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
                 <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
                 <p class="club-role">Member</p>
               </div>

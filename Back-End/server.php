@@ -69,7 +69,7 @@ if (isset($_POST['reg_user'])) {
     //$resultsOfficer = mysqli_query($db, $queryOfficer);
     //$rowOfficer = mysqli_fetch_array($resultsOfficer);
     //$_SESSION['Officer'] = $rowOfficer['Officer'];
-    header('location: club-profile-admin.php'); 
+    header('location: club-stream.php'); 
   }
 }
 
@@ -102,7 +102,7 @@ if (isset($_POST['login_student'])) {
         //$resultsOfficer = mysqli_query($db, $queryOfficer);
         //$rowOfficer = mysqli_fetch_array($resultsOfficer);
         //$_SESSION['officer'] = $rowOfficer['officer'];
-        header('location: club-profile-admin.php');
+        header('location: club-stream.php');
     } else {
       array_push($errors, "Wrong student id/password combination");
     }
@@ -119,7 +119,7 @@ if (isset($_POST['submit_post']))
   $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now())" ;
   $results = mysqli_query($db, $query); //or die(mysqli_error($db));
 
-  header('location: club-profile-admin.php#posts');
+  header('location: club-stream.php');
   } 
 
 
