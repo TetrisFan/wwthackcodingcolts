@@ -186,19 +186,23 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
         </div> <!-- edit modal -->
 
 
-        <?php
+         <?php
+
 
         $query2 = "SELECT * FROM clubapp.posts order by id desc";
         $results2 = mysqli_query($db, $query2);
         $row=mysqli_fetch_array($results2);
 
+
       for ($id = $row[0]; $id >= 1; $id--) {
 
-        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'"; //AND clubid = whatever;
+          $query = "IF EXISTS (SELECT * FROM clubapp.posts WHERE id = '$id' AND clubid = '".$club['ID']."')";
         $results = mysqli_query($db, $query);
-        $posts=mysqli_fetch_array($results);
-
-        ?>
+        
+        if ($results)
+        {
+          $posts=mysqli_fetch_array($results); 
+           ?>
 
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
@@ -207,11 +211,12 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
           </div>
             <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
-
-  <?php
+        <?php
+        }
+  
+  
       }
-
-      ?>
+  ?>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
