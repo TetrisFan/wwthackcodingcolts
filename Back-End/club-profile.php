@@ -118,22 +118,9 @@ $clubid = $club['ID'];
             <h1 class="mb-4"><?php echo $club['Name']?></h1>
             <p><?php echo $club['Description']?></p>
             <form  f="club-profile.php" method='post'>
-            <button type="submit" name = "button1" value="1" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
+            <button type="submit" name = "button1" value="1" class="btn btn-primary mt-3 mb-3">join now</button>
             </form>
             <?php
-            settype($_SESSION ['firstjoin'], "integer");
-            //echo $_SESSION['firstjoin'];  //session test statment
-            if ($_SESSION['firstjoin'] ==1)
-            {
-
-              ?>
-
-              <script>
-              $(document).ready(function(){$('#welcome-msg').modal('show')})
-              </script>
-            <?php
-              $_SESSION ['firstjoin'] = 0;
-            }
 
 
              if(isset($_POST['button1']))
@@ -151,6 +138,7 @@ $clubid = $club['ID'];
                     {
 
                         $counter ++;
+                        echo "You are already in this club.";
                     }
 
 
@@ -177,13 +165,16 @@ $clubid = $club['ID'];
                   $insertion = "INSERT INTO clubapp.clubstudents (`ClubID`, `StudentID`, `Officer`) VALUES ('$clubid', '$currentUserID','0');";
 
                   mysqli_query($db, $insertion);
-                  $_SESSION['firstjoin'] = 1;
-                }
-                 else
-                 {
-                     $_SESSION['firstjoin'] = 0;
-                 }
 
+                  ?>
+
+                  <script>
+                  $(document).ready(function(){$('#welcome-msg').modal('show')})
+                  </script>
+                <?php 
+
+                }
+                 
               }
               ?>
             <div class="modal fade" id="welcome-msg" role="dialog"> <!-- welcome msg -->
@@ -194,7 +185,7 @@ $clubid = $club['ID'];
                     <h4 class="modal-title">Welcome!</h4>
                   </div>
                   <div class="modal-body p-3">
-                    <p><?php $club['welcomeMessage'];?></p>
+                    <p><?php echo $club['welcomeMessage'];?></p>
                   </div>
                 </div>
               </div>
@@ -206,7 +197,11 @@ $clubid = $club['ID'];
             <div class="row d-flex flex-row justify-content-center">
 
                  <?php
-                while(($row = mysqli_fetch_assoc($resultStudents)))
+
+                 $resultStudentsUpdated = mysqli_query($db, "SELECT * FROM clubstudents WHERE clubID = ".$club['ID']);
+
+
+                while(($row = mysqli_fetch_assoc($resultStudentsUpdated)))
                 {
                 $students['StudentID'] = $row['StudentID'];
                 $students['Officer'] = $row['Officer'];
