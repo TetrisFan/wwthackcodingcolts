@@ -47,19 +47,19 @@
 
                     $images = array();
 
-                    $query = "SELECT image FROM clubapp.club WHERE clubName = '$list[0]'";
+                    $query = "SELECT icon FROM clubapp.club WHERE clubName = '$list[0]'";
                     $img1 = mysqli_query($conn, $query);
                     $row = mysqli_fetch_array($img1);
 
-                    $query1 = "SELECT image FROM clubapp.club WHERE clubName = '$list[1]'";
+                    $query1 = "SELECT icon FROM clubapp.club WHERE clubName = '$list[1]'";
                     $img1 = mysqli_query($conn, $query1);
                     $row1 = mysqli_fetch_array($img1);
 
-                    $query2 = "SELECT image FROM clubapp.club WHERE clubName = '$list[2]'";
+                    $query2 = "SELECT icon FROM clubapp.club WHERE clubName = '$list[2]'";
                     $img2 = mysqli_query($conn, $query2);
                     $row2 = mysqli_fetch_array($img2);
 
-                    $query3 = "SELECT image FROM clubapp.club WHERE clubName = '$list[3]'";
+                    $query3 = "SELECT icon FROM clubapp.club WHERE clubName = '$list[3]'";
                     $img3 = mysqli_query($conn, $query3);
                     $row3 = mysqli_fetch_array($img3);
 
@@ -128,8 +128,6 @@
        </div>
       <?php
                 } ?>
-
-
 
 
       <form action="club-profile.php" method = "POST">
