@@ -52,6 +52,7 @@
     		$resultfromclub = mysqli_query($db,"SELECT * FROM clubapp.club WHERE ClubID = ".$club['ClubID']);//or die (mysqli_error($db));
     		while (($rowTwo = mysqli_fetch_assoc($resultfromclub)) )
     		{
+          $ClubIcon['icon'] = $rowTwo['icon'];
     			$ClubName['Clubname']  = $rowTwo['ClubName'];
     		}
 
@@ -62,7 +63,7 @@
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
              <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $ClubName["Clubname"];?> checked></input>
              <div class= "container1">
-               <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+               <img class="your-clubs-thumbnails" src="<?php echo $ClubIcon["icon"];?>" alt="">
                <button href="club-profile-admin.php" class="btn btn-link d-flex mx-auto" type="submit"><?php echo $ClubName["Clubname"];?></button>
                <p class="club-role"> Officer </p>
              </div>
@@ -77,7 +78,7 @@
       <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
         <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $ClubName["Clubname"];?> checked></input>
         <div class= "container1">
-          <img class="your-clubs-thumbnails" src="images/gray.png" alt="">
+          <img class="your-clubs-thumbnails" src="<?php echo $ClubIcon["icon"];?>" alt="">
           <button href="club-profile.php" class="btn btn-link d-flex mx-auto" type="submit"><?php echo $ClubName["Clubname"];?></button>
         </div>
       </div>

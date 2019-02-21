@@ -36,7 +36,7 @@
       <div class="jumbotron d-flex flex-column justify-content-center">
         <form id="quizForm" action="club-results.php" method ="POST">
           <div class="quiz-tab">
-            <h1 style="margin-bottom: 30px;">I am interested in ___________</h1>
+            <h1 style="margin-bottom: 30px;">I am interested in...</h1>
             <input id="answer01" type="checkbox" name="q1" value = "y"/>
             <label class="quiz-labels" for="answer01">writing, art, drama</label>
             <input id="answer02" type="checkbox" name="q2"value = "y"/>
