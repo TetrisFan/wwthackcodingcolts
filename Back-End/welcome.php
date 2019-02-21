@@ -23,9 +23,8 @@
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/white.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="student-profile.php">Your Profile</a>
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
           <a href="index.php">Sign Out</a>

@@ -117,7 +117,7 @@ $clubid = $club['ID'];
           <div class="w-75 d-flex flex-column align-items-center">
             <h1 class="mb-4"><?php echo $club['Name']?></h1>
             <p><?php echo $club['Description']?></p>
-            <form  action="club-profile.php" method='post'>
+            <form  f="club-profile.php" method='post'>
             <button type="submit" name = "button1" value="1" data-toggle="modal" data-target="#welcome-msg" class="btn btn-primary mt-3 mb-3">join now</button>
             </form>
             <?php

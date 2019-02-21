@@ -170,7 +170,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
         <div class="modal fade" id="new-post" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <form class = "form-group" method="post" action="club-profile-admin.php#posts">
+                <form class = "form-group" method="post" action="club-profile-admin.php">
               <div class="modal-header d-flex flex-column align-items-center">
                 <button type="button" class="close mb-2" data-dismiss="modal">&times;</button>
                 <form class="w-100">
