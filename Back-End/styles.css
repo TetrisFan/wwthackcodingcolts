@@ -397,7 +397,6 @@ button:focus {
   background-color: white;
   margin-bottom: 15px;
   cursor: pointer;
-  height: 280px;
 }
 
 .headline-container:hover {
