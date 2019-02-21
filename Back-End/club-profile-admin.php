@@ -200,30 +200,35 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
   //header('location: club-stream.php');
   }
 
-        $query2 = "SELECT * FROM clubapp.posts WHERE clubid = '".$club['ID']."' order by id desc";
-        $results2 = mysqli_query($db, $query2);
-        $row=mysqli_fetch_array($results2);
+           $resultsOfPosts = mysqli_query($db, "SELECT * FROM clubapp.posts WHERE clubid = '".$club['ID']."'ORDER BY time DESC") or die(mysqli_error($db));
+$post = array();
+while(($row = mysqli_fetch_assoc($resultsOfPosts)))
+{
+    $clubName = "";
+    $post['Description'] = $row['desc'];
+    $post['Headline'] = $row['headline'];
+    $post['Time'] = $row['time'];
+    $post['User'] = $row['user'];
+    $Headline = $post['Headline'];
+    $Description = $post['Description'];
+    $Time = $post['Time'];
+    $User = $post['User'];
 
 
+    $FrontEnd = ('
 
+    <div data-toggle="modal" data-target="#myModal1" class="headline-container">
+      <div class="headline">
+        <h1>%s</h1>
+        <p class="post-club-name">Posted by %s at %s</p>
+      </div>
+      <div class="headline-text">%s</div>
+    </div>
 
-      for ($id = $row[0]; $id >= 1; $id--) {
+ ');
 
-        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
-        $results = msysqli_query($db, $query);
-        $posts=mysqli_fetch_array($results); 
-           
-        ?>
-        <div data-toggle="modal" data-target="#myModal1" class="headline-container">
-          <div class="headline">
-            <h1><?php echo $posts[2];?></h1>
-            <p class="post-club-name"> Posted by <?php echo $posts[1];?> at <?php echo $posts[4];?> </p>
-          </div>
-            <div class="headline-text"> <?php echo $posts[3];?> </div>
-          </div>
-        <?php
-      }
-
+ echo sprintf($FrontEnd, $post['Headline'],$User , $Time,  $Description, $Headline, $Description);
+}
       
   ?>
 
