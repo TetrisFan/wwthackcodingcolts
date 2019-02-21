@@ -90,7 +90,7 @@ $clubid = $club['ID'];
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="<?php echo $_SESSION['picture']; ?>" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
@@ -251,15 +251,15 @@ $clubid = $club['ID'];
          <?php
 
 
-        $query2 = "SELECT * FROM clubapp.posts order by id desc";
+        $query2 = "SELECT * FROM clubapp.posts WHERE clubid = '".$club['ID']."' order by id desc";
         $results2 = mysqli_query($db, $query2);
         $row=mysqli_fetch_array($results2);
 
 
       for ($id = $row[0]; $id >= 1; $id--) {
 
-          $query = "SELECT * FROM clubapp.posts WHERE id = '$id' AND clubid = '".$club['ID']."'";
-        $results = mysqli_query($db, $query);
+          $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
+          $results = mysqli_query($db, $query);
           $posts=mysqli_fetch_array($results); 
            
            ?>

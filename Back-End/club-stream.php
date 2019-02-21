@@ -50,8 +50,11 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     $post['Description'] = $row['desc'];
     $post['Headline'] = $row['headline'];
     $post['ClubID'] = $row['clubid'];
+    $post['Time'] = $row['time'];
     $Headline = $post['Headline'];
     $Description = $post['Description'];
+    $Time = $post['Time'];
+
     $resultsForClubs = mysqli_query($db, "SELECT * FROM club WHERE ClubID = '".$post["ClubID"]."'") or die(mysqli_error($db));
     while(($clubrow = mysqli_fetch_assoc($resultsForClubs)))
     {
@@ -64,14 +67,14 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     <div data-toggle="modal" data-target="#myModal1" class="headline-container">
       <div class="headline">
         <h1>%s</h1>
-        <p class="post-club-name">%s</p>
+        <p class="post-club-name">%s at %s</p>
       </div>
       <div class="headline-text">%s</div>
     </div>
 
  ');
 
- echo sprintf($FrontEnd, $post['Headline'],$clubName , $Description, $Headline, $Description);
+ echo sprintf($FrontEnd, $post['Headline'],$clubName , $Time,  $Description, $Headline, $Description);
 }
 
   ?>
