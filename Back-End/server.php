@@ -110,8 +110,8 @@ if (isset($_POST['login_student'])) {
   }
 }
 
-
-if (isset($_POST['submit_post']))
+/*
+  if (isset($_POST['submit_post']))
   {
   $headline = mysqli_real_escape_string($db, $_POST['headline']);
   $desc = mysqli_real_escape_string($db, $_POST['desc']);
@@ -120,7 +120,7 @@ if (isset($_POST['submit_post']))
   $results = mysqli_query($db, $query); //or die(mysqli_error($db));
 
   header('location: club-stream.php');
-  }
+  } */
 
 
 

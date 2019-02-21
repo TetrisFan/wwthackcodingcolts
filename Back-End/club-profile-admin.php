@@ -170,7 +170,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
         <div class="modal fade" id="new-post" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <form class = "form-group" method="post" action="club-profile-admin.php">
+                <form class = "form-group" method="post" action="club-profile-admin.php#posts">
               <div class="modal-header d-flex flex-column align-items-center">
                 <button type="button" class="close mb-2" data-dismiss="modal">&times;</button>
                 <form class="w-100">
@@ -178,7 +178,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                     <textarea class="form-control rounded-0" rows="1" name="headline" placeholder="Post title" required></textarea>
                   </div>
                   <textarea class="form-control rounded-0" rows="10" name="desc" placeholder="Post description." required></textarea>
-                <button type="submit" class="btn btn-primary mt-3" role="button" name="submit_post">post</button>
+                  <button type="submit" class="btn btn-primary mt-3" role="button" name="submit_post">post</button>
                 </form>
               </div>
             </div>
@@ -189,21 +189,31 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
          <?php
 
 
-        $query2 = "SELECT * FROM clubapp.posts order by id desc";
+         if (isset($_POST['submit_post']))
+  {
+  $headline = mysqli_real_escape_string($db, $_POST['headline']);
+  $desc = mysqli_real_escape_string($db, $_POST['desc']);
+
+  $query = "INSERT INTO clubapp.posts (`user`, `headline`, `desc`, `time`, `clubid`) VALUES('".$_SESSION['loggedin']."', '$headline', '$desc', now(), '".$club['ID']."')" ;
+  $results = mysqli_query($db, $query); //or die(mysqli_error($db));
+
+  //header('location: club-stream.php');
+  }
+
+        $query2 = "SELECT * FROM clubapp.posts WHERE clubid = '".$club['ID']."' order by id desc";
         $results2 = mysqli_query($db, $query2);
         $row=mysqli_fetch_array($results2);
 
 
+
+
       for ($id = $row[0]; $id >= 1; $id--) {
 
-          $query = "IF EXISTS (SELECT * FROM clubapp.posts WHERE id = '$id' AND clubid = '".$club['ID']."')";
-        $results = mysqli_query($db, $query);
-        
-        if ($results)
-        {
-          $posts=mysqli_fetch_array($results); 
-           ?>
-
+        $query = "SELECT * FROM clubapp.posts WHERE id = '$id'";
+        $results = msysqli_query($db, $query);
+        $posts=mysqli_fetch_array($results); 
+           
+        ?>
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
           <div class="headline">
             <h1><?php echo $posts[2];?></h1>
@@ -212,10 +222,9 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
             <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
         <?php
-        }
-  
-  
       }
+
+      
   ?>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

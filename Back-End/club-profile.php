@@ -258,12 +258,10 @@ $clubid = $club['ID'];
 
       for ($id = $row[0]; $id >= 1; $id--) {
 
-          $query = "IF EXISTS (SELECT * FROM clubapp.posts WHERE id = '$id' AND clubid = '".$club['ID']."')";
+          $query = "SELECT * FROM clubapp.posts WHERE id = '$id' AND clubid = '".$club['ID']."'";
         $results = mysqli_query($db, $query);
-        
-        if ($results)
-        {
           $posts=mysqli_fetch_array($results); 
+           
            ?>
 
         <div data-toggle="modal" data-target="#myModal1" class="headline-container">
@@ -274,8 +272,8 @@ $clubid = $club['ID'];
             <div class="headline-text"> <?php echo $posts[3];?> </div>
           </div>
         <?php
-        }
-  
+        
+
   
       }
   ?>
