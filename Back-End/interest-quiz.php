@@ -38,27 +38,27 @@
           <div class="quiz-tab">
             <h1 style="margin-bottom: 30px;">I am interested in...</h1>
             <input id="answer01" type="checkbox" name="q1" value = "y"/>
-            <label class="quiz-labels" for="answer01">writing, art, drama</label>
+            <label class="quiz-labels" for="answer01">Writing, art, drama</label>
             <input id="answer02" type="checkbox" name="q2"value = "y"/>
-            <label class="quiz-labels" for="answer02">athletics and being active</label>
+            <label class="quiz-labels" for="answer02">Athletics and being active</label>
             <input id="answer03" type="checkbox" name="q3" value = "y"/>
-            <label class="quiz-labels" for="answer03">science and engineering</label>
+            <label class="quiz-labels" for="answer03">Science and engineering</label>
             <input id="answer04" type="checkbox" name="q4" value = "y"/>
-            <label class="quiz-labels" for="answer04">foreign languages</label>
+            <label class="quiz-labels" for="answer04">Foreign languages</label>
           </div>
           <div class="quiz-tab">
-            <h1 style="margin-bottom: 30px;">Would you rather ?</h1>
+            <h1 style="margin-bottom: 30px;">Would you rather....</h1>
             <input id="answer11" type="checkbox" name="q5"value = "y"/>
-            <label class="quiz-labels" for="answer11">engage in creative activities</label>
+            <label class="quiz-labels" for="answer11">Engage in creative activities</label>
             <input id="answer12" type="checkbox" name="q6"value = "y"/>
-            <label class="quiz-labels" for="answer12">be active in a group setting</label>
+            <label class="quiz-labels" for="answer12">Be active in a group setting</label>
             <input id="answer13" type="checkbox" name="q7"value = "y"/>
-            <label class="quiz-labels" for="answer13">play games</label>
+            <label class="quiz-labels" for="answer13">Play games</label>
             <input id="answer14" type="checkbox" name="q8"value = "y"/>
-            <label class="quiz-labels" for="answer14">write and create publications for the community</label>
+            <label class="quiz-labels" for="answer14">Write and create publications for the community</label>
           </div>
           <div class="quiz-tab">
-            <h1 style="margin-bottom: 30px;">Would you rather ?</h1>
+            <h1 style="margin-bottom: 30px;">Would you rather...</h1>
             <input id="answer21" type="checkbox" name="q9"value = "y"/>
             <label class="quiz-labels" for="answer21">Learn mathematics or coding</label>
             <input id="answer22" type="checkbox" name="q10"value = "y"/>
@@ -69,7 +69,7 @@
             <label class="quiz-labels" for="answer24">Participate in community service projects</label>
           </div>
           <div class="quiz-tab">
-            <h1 style="margin-bottom: 30px;">Would you rather ?</h1>
+            <h1 style="margin-bottom: 30px;">Would you rather...</h1>
             <input id="answer31" type="checkbox" name="q13"value = "y"/>
             <label class="quiz-labels" for="answer31">Interact with languages beyond the classroom</label>
             <input id="answer32" type="checkbox" name="14"value = "y"/>

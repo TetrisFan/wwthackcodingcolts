@@ -421,7 +421,7 @@ button:focus {
 .headline-text {
   padding: 20px 60px;
   text-align: left;
-  height: 140px;
+  height: auto;
   overflow: hidden;
 }
 

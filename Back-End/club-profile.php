@@ -102,10 +102,10 @@ $clubid = $club['ID'];
   <div class="nav-container">
     <ul class="nav nav-mytabs nav-pills justify-content-center align-items-center" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active px-sm-5 px-lg-5" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">profile</a>
+        <a class="nav-link active px-sm-5 px-lg-5" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link px-sm-5 px-lg-5" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">posts</a>
+        <a class="nav-link px-sm-5 px-lg-5" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">Posts</a>
       </li>
     </ul>
   </div>
@@ -118,7 +118,7 @@ $clubid = $club['ID'];
             <h1 class="mb-4"><?php echo $club['Name']?></h1>
             <p><?php echo $club['Description']?></p>
             <form  f="club-profile.php" method='post'>
-            <button type="submit" name = "button1" value="1" class="btn btn-primary mt-3 mb-3">join now</button>
+            <button type="submit" name = "button1" value="1" class="btn btn-primary mt-3 mb-3">Join Now</button>
             </form>
             <?php
 
@@ -171,10 +171,10 @@ $clubid = $club['ID'];
                   <script>
                   $(document).ready(function(){$('#welcome-msg').modal('show')})
                   </script>
-                <?php 
+                <?php
 
                 }
-                 
+
               }
               ?>
             <div class="modal fade" id="welcome-msg" role="dialog"> <!-- welcome msg -->
@@ -276,7 +276,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 }
 
   ?>
-        
+
   <!-- custom JS -->
   <script>
   $(document).ready(() => {
