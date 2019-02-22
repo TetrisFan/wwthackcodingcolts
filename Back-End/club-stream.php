@@ -16,8 +16,8 @@
 </head>
 
 <body>
-  <nav class="navbar mb-4">
-    <a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a>
+  <nav class="navbar mb-4 d-flex flex-row justify-content-between">
+    <div><a class="navbar-brand" href="#"> <img class="logo" src="images/connect-me-logo2.png"> </a></div>
     <div class="d-flex flex-row">
 
       <a class="nav-link mr-3 px-5 b-0" href="club-stream.php">Home</a>
@@ -39,7 +39,7 @@
   </nav>
 
 <main role="main" class="container text-center d-flex flex-column align-items-center">
-
+  <div style="position:absolute; top: 15px; left: 46%; font-size: 30px; font-weight: 500; ">Club Stream</div>
 <?php
 
 $resultsOfPosts = mysqli_query($db, "SELECT * FROM posts ORDER BY time DESC") or die(mysqli_error($db));
