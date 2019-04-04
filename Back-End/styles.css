@@ -631,7 +631,7 @@ button:focus {
 }
 
 .btn-primary:hover {
-  background-color: #6678ff;
+  background-color: #df0135;
   box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
 }
 
