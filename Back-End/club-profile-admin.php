@@ -114,9 +114,19 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                 <div class="form-group">
                   <textarea class="form-control rounded-0" rows="10" name="clubdesc" placeholder="Edit your club description."></textarea>
                 </div>
+                  <?php
+                    if(isset($_POST['clubdesc'])) {
+                      $change = mysqli_real_escape_string($db, $_POST['clubdesc']);
+                      $name = mysqli_real_escape_string($db, $club['Name']);
+                      $query = mysqli_query($db, "UPDATE club SET ClubDescription = '$change' WHERE ClubName = '$name'") or die(mysqli_error($conn));
+                    }
+                  ?>
                 <button type="submit" role="button" name="edit_desc" class="btn btn-primary mt-3 mb-2">save changes</button>
               </form>
             </div>
+              <?php if(isset($_POST['clubdesc'])) : ?>
+                <p><?php echo "Description successfully updated" ?></p>
+              <?php endif; ?>
           </div>
           <hr>
           <div class="w-75 d-flex flex-column justify-content-center">
