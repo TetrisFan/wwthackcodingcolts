@@ -2,12 +2,14 @@
 Header and title: Rubik
 Body and detail text: Karla
 
-Deep blue: #5C6EFF
-Mint green: #01EEB8
+Deep blue: #df0135
+Mint green: #df0135
 Background: #F6F7F9
 Text color: #3E4A59
 Line color: #DADADA
 Requested button: #BBBBBB
+
+#df0135
 */
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 @import url('https://fonts.googleapis.com/css?family=Karla');
@@ -141,7 +143,7 @@ button:focus {
   color: #3E4A59;
   background-color: #fff;
   border-top: 3px solid transparent;
-  border-bottom: 3px solid #01EEB8;
+  border-bottom: 3px solid #df0135;
 }
 
 .nav-pills {
@@ -248,7 +250,7 @@ button:focus {
   display: block;
   margin-bottom: 15px;
   padding: 12px 20px;
-  border: 2px solid #5C6EFF;
+  border: 2px solid #df0135;
   border-radius: 20px;
   background-color: #fff;
   font-size: 18px;
@@ -259,7 +261,7 @@ button:focus {
   box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
   transition: background-color 0.4s ease;
   transition: color 0.4s ease;
-  background-color: #5C6EFF;
+  background-color: #df0135;
   color: white;
 }
 
@@ -279,7 +281,7 @@ button:focus {
 }
 
 .step.finish {
-  background-color: #01EEB8;
+  background-color: #df0135;
 }
 
 #quizForm input[type=checkbox] {
@@ -287,7 +289,7 @@ button:focus {
 }
 
 #quizForm input:checked + label {
-    background-color: #5C6EFF;
+    background-color: #df0135;
     box-shadow: 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05), 0 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.05);
     color: white;
 }
@@ -313,7 +315,7 @@ button:focus {
 }
 
 .quiz-button {
-  background-color: #01e4af;
+  background-color: #df0135;
   overflow: auto;
   border-radius: 20px;
   border: 0;
@@ -513,8 +515,8 @@ button:focus {
   padding: 0px;
   background-color: #fff;
   border-radius: 20px;
-  border: 2px #5C6EFF solid;
-  color: #5C6EFF;
+  border: 2px #df0135 solid;
+  color: #df0135;
   padding: 5px 15px;
   align-self: center;
   cursor: pointer;
@@ -523,12 +525,12 @@ button:focus {
 }
 
 .btn-filter:hover {
-  background-color: #5C6EFF;
+  background-color: #df0135;
   color: white;
 }
 
 .btn-filter-submit {
-  background-color: #01EEB8;
+  background-color: #df0135;
   color: #fff;
   border-radius: 20px;
 }
@@ -542,7 +544,7 @@ button:focus {
 }
 
 .filters input:checked + label {
-  background-color: #5C6EFF;
+  background-color: #df0135;
   transition: background-color 0.4s ease;
   color: white;
 }
@@ -617,7 +619,7 @@ button:focus {
 ██████   ██████     ██       ██     ██████  ██   ████ ███████
 */
 .btn-primary {
-  background-color: #5C6EFF;
+  background-color: #df0135;
   border-radius: 20px;
   border: 0;
   padding: 10px 50px;
@@ -627,7 +629,7 @@ button:focus {
 }
 
 .btn-primary:active {
-  background-color: #5C6EFF;
+  background-color: #df0135;
 }
 
 .btn-primary:hover {
@@ -636,7 +638,7 @@ button:focus {
 }
 
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show.btn-primary.dropdown-toggle {
-  background-color: #5C6EFF;
+  background-color: #df0135;
 }
 
 .btn-text, .btn-text:hover {
@@ -645,7 +647,7 @@ button:focus {
 }
 
 .btn-secondary {
-  background-color: #01EEB8;
+  background-color: #df0135;
   padding-left: 20px;
   padding-right: 20px;
   border-top-right-radius: 20px;
