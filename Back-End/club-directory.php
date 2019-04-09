@@ -102,7 +102,7 @@
                <img class="club-card-img-top" src="<?php echo $info['image']; ?>" />
                <div class="club-card-body">
                  <h5 class="club-card-title">
-                   <?php 
+                   <?php
                      echo $info['ClubName'];
                    ?>
                 </h5>
@@ -121,7 +121,7 @@
       endif;
       if(!isset($_POST['filter'])) :
     ?>
-      <div class="card-deck mt-4 d-flex flex-row justify-content-center"> <!-- in a deck of cards, there are 4 individual cards -->
+      <div class="card-deck mt-4 d-flex flex-column flex-sm-row align-items-center justify-content-sm-center"> <!-- in a deck of cards, there are 4 individual cards -->
         <?php
           while($clubCounter < $numOfClubs) :
             $info = $clubInfo["$clubCounter"];
@@ -133,7 +133,7 @@
                <img class="club-card-img-top" src="<?php echo $info['image']; ?>" />
                <div class="club-card-body">
                  <h5 class="club-card-title">
-                   <?php 
+                   <?php
                      echo $info['ClubName'];
                    ?>
                 </h5>
@@ -141,9 +141,9 @@
              </div>
             </button>
           </form>
-        <?php 
+        <?php
           $clubCounter++;
-          endwhile; 
+          endwhile;
         ?>
       </div>
     <?php endif;?>
