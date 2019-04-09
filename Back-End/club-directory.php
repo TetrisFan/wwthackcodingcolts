@@ -61,24 +61,24 @@
   <div class="filters">
     <form method = "POST" class="d-flex flex-wrap flex-row justify-content-center align-items-center">
       <input id="art" type="checkbox" name="filter[1]" value="Arts"/>
-      <label class="btn-filter btn" for="art">Art</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="art">Art</label>
       <input id="entertainment" type="checkbox" name="filter[2]" value="Entertainment" />
-      <label class="btn-filter btn" for="entertainment">Entertainment</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="entertainment">Entertainment</label>
       <input id="sports" type="checkbox" name="filter[3]" value="Sports"/>
-      <label class="btn-filter btn" for="sports">Sports</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="sports">Sports</label>
       <input id="career" type="checkbox" name="filter[4]" value="Career"/>
-      <label class="btn-filter btn" for="career">Career</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="career">Career</label>
       <input id="awareness" type="checkbox" name="filter[5]" value="Awareness"/>
-      <label class="btn-filter btn" for="awareness">Awareness</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="awareness">Awareness</label>
       <input id="stem" type="checkbox" name="filter[6]" value="STEM"/>
-      <label class="btn-filter btn" for="stem">STEM</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="stem">STEM</label>
       <input id="media" type="checkbox" name="filter[7]" value="Media"/>
-      <label class="btn-filter btn" for="media">Media</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="media">Media</label>
       <input id="service" type="checkbox" name="filter[8]" value="Service"/>
-      <label class="btn-filter btn" for="service">Service</label>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="service">Service</label>
       <input id="language" type="checkbox" name="filter[9]" value="Language"/>
-      <label class="btn-filter btn" for="language">Language</label>
-      <button role="submit" class="btn btn-filter-submit">Apply Changes</button>
+      <label class="btn-filter btn mb-2 mb-xl-0" for="language">Language</label>
+      <button role="submit" class="btn btn-filter-submit mb-sm-2 mb-xl-0">Apply Changes</button>
     </form>
   </div>
   <div class="container">
