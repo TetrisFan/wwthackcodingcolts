@@ -6,25 +6,27 @@ $uid = "";
 $firstname = "";
 $lastname = "";
 $email = "";
-$picture = "";
+$image = "";
 
 $errors = array();
 
 // connect to the database
 $db = mysqli_connect('localhost', 'root', 'PASSWORD', 'clubapp');
 
-$uid =  "document.write(id);";
+$uid =  $_POST['uid'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$email = $_POST['email'];
+$image = $_POST['image'];
 
+$query = "SELECT * FROM clubapp.googlelogin WHERE uid = '$uid'";
+$results = mysqli_query($db, $query);
+//mysqli_num_rows($results);
 
-$firstname = "document.write(firstname);";
-$lastname = "document.write(lastname);";
-$email = "document.write(email);";
-
-$picture = "document.write(image);";
-echo gettype($picture);
-
-//$query = "INSERT INTO clubapp.googlelogin (uid, first_name,last_name,email,picture) VALUES ('$uid', '$firstname','$lastname','$email','$picture')";
-$query = "INSERT INTO clubapp.googlelogin (uid, first_name,last_name,email,picture) VALUES ('1', 'test','test','test','test')";
-mysqli_query($db,$query);
-
+if(mysqli_num_rows($results)==0)
+{
+	$query1 = "INSERT INTO clubapp.googlelogin (uid, first_name,last_name,email,picture) VALUES ('$uid','$firstname','$lastname','$email','$image')";
+	mysqli_query($db,$query1);
+}
+echo $uid;
 ?>

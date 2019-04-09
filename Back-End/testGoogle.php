@@ -12,32 +12,45 @@
 </head>
 <body>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-<script>
-
-
-	var id;
-  var name;
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="text/javascript"> 
+  var uid;
+  var firstname;
+  var lastname;
   var image;
   var email;
 
   function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
-  id = profile.getId(); // Do not send to your backend! Use an ID token instead.
-  firstname = profile.getGivenName();
-	lastname = profile.getFamilyName();
-	image = profile.getImageUrl();
-  email = profile.getEmail(); // This is null if the 'email' scope is not present.
+  uid = String(profile.getId()); // Do not send to your backend! Use an ID token instead.
+  firstname = String(profile.getGivenName());
+	lastname = String(profile.getFamilyName());
+	image = String(profile.getImageUrl());
+  email = String(profile.getEmail()); // This is null if the 'email' scope is not present.
+
   //document.write(id);
   //document.write(firstname);
 	//document.write(lastname);
   //document.write(image);
   //document.write(email);
-	<?php
-	 $id =  "document.write(id);";
+  //document.write(uid);
 
-	?>
+
+
+//call ajax
+$.ajax({
+            type: 'POST',
+            url: 'server2.php',
+            data:  {uid:uid,firstname:firstname,lastname:lastname,image:image,email:email},
+             success: function(result) {
+                $('#sonuc').html(result);
+            },
+            error: function() {
+                alert('Some error found. Please try again!');
+            }
+    });
 }
+
 
 </script>
 
@@ -51,5 +64,6 @@
     });
   }
 </script>
+<p id ='sonuc' ></p>  <!-- execute the ajax calling -->
 </body>
 </html>
