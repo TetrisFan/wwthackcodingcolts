@@ -59,7 +59,7 @@
   </nav>
 
   <div class="filters">
-    <form method = "POST" class="d-flex flex-row justify-content-center align-items-center">
+    <form method = "POST" class="d-flex flex-wrap flex-row justify-content-center align-items-center">
       <input id="art" type="checkbox" name="filter[1]" value="Arts"/>
       <label class="btn-filter btn" for="art">Art</label>
       <input id="entertainment" type="checkbox" name="filter[2]" value="Entertainment" />
