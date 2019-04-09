@@ -571,12 +571,6 @@ button:focus {
   color: #3E4A59;
 }
 
-@media (min-width: 0){
-  .card-deck{
-    flex-direction: column !important;
-  }
-}
-
 .club-card {
   max-width: 250px;
   width: 100%;
