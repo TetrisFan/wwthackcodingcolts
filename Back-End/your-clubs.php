@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <nav class="navbar">
+  <nav class="navbar justify-content-center justify-content-sm-between">
     <a class="navbar-brand" href="index.php">Logo</a>
     <div class="d-flex flex-row">
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
@@ -87,6 +87,17 @@
     		}
     	}
    	?>
+
+    <!-- NEW CLUB BUTTON -->
+    <form action="club-profile.php" method="post">
+      <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
+        <input type="checkbox" style="display: none;" name = "new_club_button" value="" checked></input>
+        <div class= "container1">
+          <img class="your-clubs-thumbnails" src="#" alt="Get pic from design plz">
+          <button href="club-profile.php" class="btn btn-link d-flex mx-auto" type="submit">Create New</button>
+        </div>
+      </div>
+    </form>
 
         </div>
       </div>
