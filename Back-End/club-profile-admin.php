@@ -135,12 +135,13 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                <?php
                               while(($row = mysqli_fetch_assoc($resultStudents)))
                               {
-                              $students['StudentID'] = $row['StudentID'];
+                              $students['StudentID'] = $row['GoogleStudentID'];
                               $students['Officer'] = $row['Officer'];
-                                  $resultforStudent = mysqli_query($db, "SELECT * FROM students WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
+                                  $resultforStudent = mysqli_query($db, "SELECT * FROM googlelogin WHERE uid = " . $students['StudentID']) or die(mysqli_error($db));
                                    while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                                    {
-                                       $studentInfo['name'] = $rowTwo['name'];
+                                       $studentInfo['firstname'] = $rowTwo['first_name'];
+                                       $studentInfo['lastname'] = $rowTwo['last_name'];
                                        //$studentInfo['LastName'] = $rowTwo['LastName'];
                                    }
 
@@ -151,7 +152,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                 ?>
                             <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                              <a > <?php echo $studentInfo["name"];?></a>
+                              <a > <?php echo $studentInfo['firstname']." ".$studentInfo['lastname'];?></a>
                               <p class="club-role">Officer</p>
                             </div>
                         <?php }
@@ -160,7 +161,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                 ?>
                             <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                              <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
+                              <p class="mb-0"> <?php echo$studentInfo["firstname"]." ".$studentInfo["lastname"];?></p>
                               <p class="club-role">Member</p>
                             </div>
                               <?php
