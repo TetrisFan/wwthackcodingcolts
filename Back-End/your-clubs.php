@@ -1,4 +1,6 @@
-<?php include ('server.php');?>
+<?php include ('server.php');
+     // include('server2.php');        
+?>
 <html lang="en">
 
 <head>
@@ -40,10 +42,12 @@
         <div class="row d-flex flex-row justify-content-center">
           <?php
     $_SESSION['clubCounter'] = 0;
-    $id = $_SESSION['studentid'];//replacement
+    $id = $_SESSION['studentid'];
+    //print $id;
+    //replacement
   	//$id = '3026263'; //test statment
     //$queryClub = "SELECT ClubID FROM clubapp.clubstudents WHERE StudentID = $id;";
-    $resultsClub = mysqli_query($db, "SELECT * FROM clubapp.clubstudents WHERE StudentID = $id;");
+    $resultsClub = mysqli_query($db, "SELECT * FROM clubapp.clubstudents WHERE GoogleStudentID = $id;");
     while($rowClub=mysqli_fetch_array($resultsClub))
     	{
     		$club['ClubID'] = $rowClub['ClubID'];
