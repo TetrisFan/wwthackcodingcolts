@@ -1,6 +1,7 @@
 <?php
 
 include ('server.php');
+//include('server2.php');
 
 //These will eventually be replaced with sesssion variables, but for now:
 //$clubName = isset($_POST['c1'])?$_POST['c1']:"";
@@ -30,7 +31,7 @@ $clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubre
 //$clubname = $_SESSION['club'];
 
 $currentUserID = $_SESSION['studentid'];
-
+//echo $currentUserID;
 
 //$ = mysqli_real_escape_string($db, $_POST['headline']);
 //$result = mysqli_query($db, "SELECT * FROM club WHERE ClubName =  '".$_SESSION['club']."'") or die(mysqli_error($db));
@@ -131,7 +132,7 @@ $clubid = $club['ID'];
 
                 while (($row = mysqli_fetch_assoc($resultStudentsForInsertion)))
                 {
-                    $studentInClub['StudentID'] = $row['StudentID'];
+                    $studentInClub['StudentID'] = $row['GoogleStudentID'];
                     $studentInClub['ClubID'] = $row["ClubID"];
 
                     if($currentUserID == $studentInClub['StudentID'])
@@ -162,7 +163,7 @@ $clubid = $club['ID'];
                   echo "Finished!";*/
 
 
-                  $insertion = "INSERT INTO clubapp.clubstudents (`ClubID`, `StudentID`, `Officer`) VALUES ('$clubid', '$currentUserID','0');";
+                  $insertion = "INSERT INTO clubapp.clubstudents (`ClubID`, `GoogleStudentID`, `Officer`) VALUES ('$clubid', '$currentUserID','0');";
 
                   mysqli_query($db, $insertion);
 
@@ -203,12 +204,13 @@ $clubid = $club['ID'];
 
                 while(($row = mysqli_fetch_assoc($resultStudentsUpdated)))
                 {
-                $students['StudentID'] = $row['StudentID'];
+                $students['StudentID'] = $row['GoogleStudentID'];
                 $students['Officer'] = $row['Officer'];
-                    $resultforStudent = mysqli_query($db, "SELECT * FROM students WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
+                    $resultforStudent = mysqli_query($db, "SELECT * FROM googlelogin WHERE uid = " . $students['StudentID']) or die(mysqli_error($db));
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
-                         $studentInfo['name'] = $rowTwo['name'];
+                         $studentInfo['firstname'] = $rowTwo['first_name'];
+                         $studentInfo['lastname'] = $rowTwo['last_name'];
                          //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
 
@@ -219,7 +221,7 @@ $clubid = $club['ID'];
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                <a > <?php echo $studentInfo["name"];?></a>
+                <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></a>
                 <p class="club-role">Officer</p>
               </div>
           <?php }
@@ -228,7 +230,7 @@ $clubid = $club['ID'];
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
+                <p class="mb-0"> <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></p>
                 <p class="club-role">Member</p>
               </div>
                 <?php
