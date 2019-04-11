@@ -28,5 +28,7 @@ if(mysqli_num_rows($results)==0)
 	$query1 = "INSERT INTO clubapp.googlelogin (uid, first_name,last_name,email,picture) VALUES ('$uid','$firstname','$lastname','$email','$image')";
 	mysqli_query($db,$query1);
 }
-echo $uid;
+$_SESSION['loggedin'] = $firstname." ".$lastname;
+$_SESSION['studentid'] = $uid;
+//echo $uid;
 ?>
