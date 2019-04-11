@@ -150,7 +150,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               {
                                 ?>
                             <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
+                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
                               <a > <?php echo $studentInfo["name"];?></a>
                               <p class="club-role">Officer</p>
                             </div>
@@ -159,7 +159,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               {
                                 ?>
                             <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
+                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
                               <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
                               <p class="club-role">Member</p>
                             </div>
@@ -194,6 +194,25 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
             </div>
           </div>
         </div> <!-- edit modal -->
+
+        <!-- Modal stuff for removing members -->
+        <div class="modal fade" id="remove-member" role="dialog">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header d-flex flex-column align-items-center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div>
+                  <h3 class="mb-3">Remove Member</h3>
+                </div>
+                <hr class="w-100 mt-0">
+                <p class="mt-3 mb-4">Are you sure you want to proceed?</p>
+                <div class="d-flex flex-row justify-content-center">
+                  <button type="button" class="btn btn-primary d-flex flex-row justify-content-center mb-2">yes, I do</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- edit modal -->
 
 
          <?php
@@ -239,7 +258,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 
  echo sprintf($FrontEnd, $post['Headline'],$User , $Time,  $Description, $Headline, $Description);
 }
-      
+
   ?>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
