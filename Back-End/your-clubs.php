@@ -1,5 +1,5 @@
 <?php include ('server.php');
-     // include('server2.php');        
+     // include('server2.php');
 ?>
 <html lang="en">
 
@@ -20,10 +20,10 @@
 
 <body>
   <nav class="navbar justify-content-center justify-content-sm-between">
-    <a class="navbar-brand" href="index.php">Logo</a>
-    <div class="d-flex flex-row">
+    <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
+    <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+      <a class="nav-link mr-5 b-0 nav-link-active" href="club-directory.php">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
