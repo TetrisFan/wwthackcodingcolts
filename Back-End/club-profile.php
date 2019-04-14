@@ -195,6 +195,12 @@ $clubid = $club['ID'];
         </hr>
           <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
+            <div>
+              <form class="form-signin d-flex flex-row align-items-center">
+                <input type="text" class="form-control" style="margin-bottom: 0px !important;" name="email" placeholder="Student Email">
+                <button type="button" class="btn btn-primary d-flex flex-row justify-content-center" style="background-color: #111753; max-width: 20%;" type="submit">find member</button>
+              </form>
+            </div>
             <div class="row d-flex flex-row justify-content-center">
 
                  <?php
