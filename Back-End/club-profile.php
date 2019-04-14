@@ -284,6 +284,32 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 }
 
   ?>
+<!-- HERE IS THE ADMIN VIEW FOR POSTS ON THE CLUB ADMIN PAGE
+
+  <div class="headline-container" onclick="myFunction1()">
+    <div class="dropdown" class="mx-0 my-0">
+      <div class="mx-0 my-0 d-flex flex-row justify-content-end newthingy">&hellip;</div>
+        <div id="editdelete" class="dropdown-content">
+          <a>edit</a>
+          <a>delete</a>
+        </div>
+    </div>
+    <div class="headline">
+      <h1>%s</h1>
+      <p class="post-club-name">Posted by %s at %s</p>
+    </div>
+    <div class="headline-text">%s</div>
+  </div>
+
+-->
+
+<div class="dropdown">
+  <div id="editdelete" class="dropdown-content">
+    <a>edit</a>
+    <a>delete</a>
+  </div>
+</div>
+
 
   <!-- custom JS -->
   <script>
@@ -324,6 +350,27 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
       if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+    function myFunction1() {
+      document.getElementById("editdelete").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.newthingy')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
