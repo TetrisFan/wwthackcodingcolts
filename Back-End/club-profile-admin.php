@@ -150,11 +150,9 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               if($students['Officer'] == 1)
                               {
                                 ?>
-                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                              <a > <?php echo $studentInfo['firstname']." ".$studentInfo['lastname'];?></a>
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">      
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
-                              <a > <?php echo $studentInfo["name"];?></a>
+                              <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></a>
                               <p class="club-role">Officer</p>
                             </div>
                         <?php }
@@ -164,9 +162,6 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                             <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
                               <p class="mb-0"> <?php echo$studentInfo["firstname"]." ".$studentInfo["lastname"];?></p>
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
-                              <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
-                              <p class="club-role">Member</p>
                             </div>
                               <?php
                               }
