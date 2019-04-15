@@ -84,7 +84,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
         <div id="myDropdown" class="dropdown-content">
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
-          <a href="index.html">Sign Out</a>
+          <a href="index.php">Sign Out</a>
         </div>
       </div>
     </div>
