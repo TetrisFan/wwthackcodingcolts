@@ -1,4 +1,6 @@
-<?php include ('server.php');?>
+<?php include ('server.php');
+     // include('server2.php');
+?>
 <html lang="en">
 
 <head>
@@ -18,10 +20,10 @@
 
 <body>
   <nav class="navbar justify-content-center justify-content-sm-between">
-    <a class="navbar-brand" href="index.php">Logo</a>
-    <div class="d-flex flex-row">
+    <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
+    <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+      <a class="nav-link mr-5 b-0 nav-link-active" href="club-directory.php">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
@@ -40,10 +42,12 @@
         <div class="row d-flex flex-row justify-content-center">
           <?php
     $_SESSION['clubCounter'] = 0;
-    $id = $_SESSION['studentid'];//replacement
+    $id = $_SESSION['studentid'];
+    //print $id;
+    //replacement
   	//$id = '3026263'; //test statment
     //$queryClub = "SELECT ClubID FROM clubapp.clubstudents WHERE StudentID = $id;";
-    $resultsClub = mysqli_query($db, "SELECT * FROM clubapp.clubstudents WHERE StudentID = $id;");
+    $resultsClub = mysqli_query($db, "SELECT * FROM clubapp.clubstudents WHERE GoogleStudentID = $id;");
     while($rowClub=mysqli_fetch_array($resultsClub))
     	{
     		$club['ClubID'] = $rowClub['ClubID'];

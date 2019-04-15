@@ -1,6 +1,7 @@
 <?php
 
 include ('server.php');
+//include('server2.php');
 
 //These will eventually be replaced with sesssion variables, but for now:
 //$clubName = isset($_POST['c1'])?$_POST['c1']:"";
@@ -36,7 +37,7 @@ $clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubre
 //$clubname = $_SESSION['club'];
 
 $currentUserID = $_SESSION['studentid'];
-
+//echo $currentUserID;
 
 
 //$ = mysqli_real_escape_string($db, $_POST['headline']);
@@ -91,11 +92,11 @@ $clubid = $club['ID'];
 </head>
 
 <body>
-  <nav class="navbar">
+  <nav class="navbar justify-content-center justify-content-sm-between">
     <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+      <a class="nav-link mr-5 b-0 nav-link-active" href="club-directory.php">Explore</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
@@ -138,7 +139,7 @@ $clubid = $club['ID'];
 
                 while (($row = mysqli_fetch_assoc($resultStudentsForInsertion)))
                 {
-                    $studentInClub['StudentID'] = $row['StudentID'];
+                    $studentInClub['StudentID'] = $row['GoogleStudentID'];
                     $studentInClub['ClubID'] = $row["ClubID"];
 
                     if($currentUserID == $studentInClub['StudentID'])
@@ -169,7 +170,7 @@ $clubid = $club['ID'];
                   echo "Finished!";*/
 
 
-                  $insertion = "INSERT INTO clubapp.clubstudents (`ClubID`, `StudentID`, `Officer`) VALUES ('$clubid', '$currentUserID','0');";
+                  $insertion = "INSERT INTO clubapp.clubstudents (`ClubID`, `GoogleStudentID`, `Officer`) VALUES ('$clubid', '$currentUserID','0');";
 
                   mysqli_query($db, $insertion);
 
@@ -201,6 +202,12 @@ $clubid = $club['ID'];
         </hr>
           <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
+            <div>
+              <form class="form-signin d-flex flex-row align-items-center">
+                <input type="text" class="form-control" style="margin-bottom: 0px !important;" name="email" placeholder="Student Email">
+                <button type="button" class="btn btn-primary d-flex flex-row justify-content-center" style="background-color: #111753; max-width: 20%;" type="submit">add</button>
+              </form>
+            </div>
             <div class="row d-flex flex-row justify-content-center">
 
                  <?php
@@ -210,12 +217,13 @@ $clubid = $club['ID'];
 
                 while(($row = mysqli_fetch_assoc($resultStudentsUpdated)))
                 {
-                $students['StudentID'] = $row['StudentID'];
+                $students['StudentID'] = $row['GoogleStudentID'];
                 $students['Officer'] = $row['Officer'];
-                    $resultforStudent = mysqli_query($db, "SELECT * FROM students WHERE StudentID = " . $students['StudentID']) or die(mysqli_error($db));
+                    $resultforStudent = mysqli_query($db, "SELECT * FROM googlelogin WHERE uid = " . $students['StudentID']) or die(mysqli_error($db));
                      while(($rowTwo = mysqli_fetch_assoc($resultforStudent)))
                      {
-                         $studentInfo['name'] = $rowTwo['name'];
+                         $studentInfo['firstname'] = $rowTwo['first_name'];
+                         $studentInfo['lastname'] = $rowTwo['last_name'];
                          //$studentInfo['LastName'] = $rowTwo['LastName'];
                      }
 
@@ -226,7 +234,7 @@ $clubid = $club['ID'];
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                <a > <?php echo $studentInfo["name"];?></a>
+                <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></a>
                 <p class="club-role">Officer</p>
               </div>
           <?php }
@@ -235,7 +243,7 @@ $clubid = $club['ID'];
                   ?>
               <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                 <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                <p class="mb-0"> <?php echo $studentInfo['name'];?></p>
+                <p class="mb-0"> <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></p>
                 <p class="club-role">Member</p>
               </div>
                 <?php
@@ -283,6 +291,32 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 }
 
   ?>
+<!-- HERE IS THE ADMIN VIEW FOR POSTS ON THE CLUB ADMIN PAGE
+
+  <div class="headline-container" onclick="myFunction1()">
+    <div class="dropdown" class="mx-0 my-0">
+      <div class="mx-0 my-0 d-flex flex-row justify-content-end newthingy">&hellip;</div>
+        <div id="editdelete" class="dropdown-content">
+          <a>edit</a>
+          <a>delete</a>
+        </div>
+    </div>
+    <div class="headline">
+      <h1>%s</h1>
+      <p class="post-club-name">Posted by %s at %s</p>
+    </div>
+    <div class="headline-text">%s</div>
+  </div>
+
+-->
+
+<div class="dropdown">
+  <div id="editdelete" class="dropdown-content">
+    <a>edit</a>
+    <a>delete</a>
+  </div>
+</div>
+
 
   <!-- custom JS -->
   <script>
@@ -323,6 +357,27 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
       if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+    function myFunction1() {
+      document.getElementById("editdelete").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.newthingy')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
