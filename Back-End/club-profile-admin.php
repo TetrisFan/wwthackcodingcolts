@@ -168,6 +168,25 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               }
                               }
                               ?>
+
+                                <!-- Modal stuff for removing members -->
+        <div class="modal fade" id="remove-member" role="dialog">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header d-flex flex-column align-items-center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div>
+                  <h3 class="mb-3">Remove Member</h3>
+                </div>
+                <hr class="w-100 mt-0">
+                <p class="mt-3 mb-4">Are you sure you want to proceed?</p>
+                <div class="d-flex flex-row justify-content-center">
+                  <button type="button" class="btn btn-primary d-flex flex-row justify-content-center mb-2">yes, I do</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- edit modal -->
             </div>
           </div>
         </div>
@@ -196,24 +215,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
           </div>
         </div> <!-- edit modal -->
 
-        <!-- Modal stuff for removing members -->
-        <div class="modal fade" id="remove-member" role="dialog">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header d-flex flex-column align-items-center">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <div>
-                  <h3 class="mb-3">Remove Member</h3>
-                </div>
-                <hr class="w-100 mt-0">
-                <p class="mt-3 mb-4">Are you sure you want to proceed?</p>
-                <div class="d-flex flex-row justify-content-center">
-                  <button type="button" class="btn btn-primary d-flex flex-row justify-content-center mb-2">yes, I do</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><!-- edit modal -->
+      
 
 
          <?php
