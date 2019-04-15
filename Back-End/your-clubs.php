@@ -89,12 +89,12 @@
    	?>
 
     <!-- NEW CLUB BUTTON -->
-    <form action="club-profile.php" method="post">
+    <form action="New-Club.php" method="post">
       <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
         <input type="checkbox" style="display: none;" name = "new_club_button" value="" checked></input>
         <div class= "container1">
           <img class="your-clubs-thumbnails" src="#" alt="Get pic from design plz">
-          <button href="club-profile.php" class="btn btn-link d-flex mx-auto" type="submit">Create New</button>
+          <button href="New-Club.php" class="btn btn-link d-flex mx-auto" type="submit">Create New</button>
         </div>
       </div>
     </form>

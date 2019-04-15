@@ -16,6 +16,12 @@ $_SESSION['c1'] = $_POST['c1'];
 $clubreceive = mysqli_real_escape_string($conn, $_POST['c1']);
 $clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
 }
+else if (isset($_POST['submit']))
+{
+    $_SESSION['c1'] = $_POST['newClubName'];
+    $clubreceive = mysqli_real_escape_string($conn, $_POST['newClubName']);
+    $clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+}
 else {
 $clubreceive = mysqli_real_escape_string($conn, $_SESSION['c1']);
 $clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
@@ -30,6 +36,7 @@ $clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubre
 //$clubname = $_SESSION['club'];
 
 $currentUserID = $_SESSION['studentid'];
+
 
 
 //$ = mysqli_real_escape_string($db, $_POST['headline']);

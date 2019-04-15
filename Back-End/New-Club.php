@@ -1,4 +1,4 @@
-
+<?php include('server.php'); ?>
 <html lang="en">
 
 <head>
@@ -37,9 +37,9 @@
     <div class="jumbotron d-flex flex-column align-items-center justify-content-start text-center">
       <div class="w-75 d-flex flex-column justify-content-center">
         <h1 class="mb-5 mt-1">Create New Club</h1>
-        <form>
+        <form method="post" action="club-profile.php">
           <div class="form-group">
-            <textarea class="form-control rounded-0" rows="1" name="headline" placeholder="Name of club" required></textarea>
+            <textarea class="form-control rounded-0" rows="1" name="newClubName" placeholder="Name of club" required></textarea>
           </div>
             <div class="mt-5">
               <p class="mb-3">Which tags best describe your club? (up to 2)</p>
@@ -108,9 +108,22 @@
         </div>
         <p>Describe your club's purpose.</p>
         <textarea class="my-4 form-control rounded-0" rows="4" name="headline" placeholder="" required></textarea>
-        <button type="submit" role="button" name="GIVE_ME_A_NAME_THANKS" class="btn btn-primary mt-3 mb-2">submit</button>
+            <a href = "/your-clubs.php"><button type="submit" role="button" name="submit" class="btn btn-primary mt-3 mb-2">submit</button></a>
         </form>
-
+        <?php 
+          if (isset($_POST['submit'])) 
+          {
+              $clubDescription = $_POST['headline'];
+              $clubName = $_POST['newClubName'];
+              echo "executing statement <br>";
+              $stmt = $db->prepare("INSERT INTO club(ClubName,ClubDescription) VALUES(?,?)") or die(mysqli_error($db));
+              echo $clubDescription;
+              $stmt->bind_param("ss", $clubDescription,$clubName);
+              //setting params
+              //if(!$stmt->execute()) echo $stmt->error;
+              $stmt->execute();
+              echo "Finished!";
+          } ?>
       </div>
     </div>
 
@@ -120,6 +133,7 @@
 
 
   </main>
+  
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
