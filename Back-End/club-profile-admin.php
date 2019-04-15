@@ -150,7 +150,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               if($students['Officer'] == 1)
                               {
                                 ?>
-                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">      
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
                               <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></a>
                               <p class="club-role">Officer</p>
@@ -291,6 +291,33 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     history.replaceState(null, null, newUrl);
   });
   });
+  </script>
+
+  <script> // Get the modal
+  var modal = document.getElementById('myModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "flex";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
   </script>
 
   <script>
