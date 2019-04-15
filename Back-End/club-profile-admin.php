@@ -159,9 +159,10 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               else
                               {
                                 ?>
-                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="">
-                              <p class="mb-0"> <?php echo$studentInfo["firstname"]." ".$studentInfo["lastname"];?></p>
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">      
+                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
+                              <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></a>
+                              
                             </div>
                               <?php
                               }
