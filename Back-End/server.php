@@ -1,14 +1,53 @@
 <?php
 session_start();
 // initializing variables
-$studentid = "";
-$errors = array();
+//$studentid = "";
+//$errors = array();
 
 // connect to the database
 $db = mysqli_connect('localhost', 'root', 'PASSWORD', 'clubapp');
 
+ $memberNames = array();
+$member = array();
+
+if (isset($_POST['member'])) {
+  $_SESSION['member'] = $_POST['member'];
+   $member = mysqli_real_escape_string($db, $_POST['member']);
+  $members = mysqli_query($db,"SELECT GoogleStudentID FROM clubstudents WHERE GoogleStudentID LIKE '".$member."%'");
+   while(($row = mysqli_fetch_assoc($members)))
+        {   
+          $_SESSION['id'] = $row['GoogleStudentID'];
+          
+    //$club['firstname'] = $row['ClubName'];
+    //$club['lastname'] = $row['ClubDescription'];
+        }
+
+  $memberNames = mysqli_query($db,"SELECT * FROM googlelogin WHERE uid LIKE '".$_SESSION['id']."%'");
+
+        while(($row2 = mysqli_fetch_assoc($memberNames)))
+        {   
+          $_SESSION['fname'] = $row2['first_name'];
+    $_SESSION['lname'] = $row2['last_name'];
+        }
+        
+    //$club['firstname'] = $row['ClubName'];
+    //$club['lastname'] = $row['ClubDescription'];
+        }
+
+  if (isset($_POST['remove_student'])) {  
+    $query = "DELETE FROM clubstudents WHERE GoogleStudentID = '".$_SESSION['id']."'";
+    $result = mysqli_query($db, $query);
+  }
+
+
+
+//if (isset($_POST['remove_user'])) {
+  //$query = "SELECT * FROM clubapp.googlelogin WHERE firstname = $studentInfo["firstname"] AND lastname = $studentinfo["lastname"]";
+//}
+
 // REGISTER USER
-if (isset($_POST['reg_user'])) {
+
+/* if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $studentid = mysqli_real_escape_string($db, $_POST['studentid']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
