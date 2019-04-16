@@ -146,17 +146,14 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                        //$studentInfo['LastName'] = $rowTwo['LastName'];
                                    }
 
-
-
-
-
                               if($students['Officer'] == 1)
                               {
                                 ?>
                             <form action="club-profile-admin.php" method="post">
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">      
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
-                              <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></a>
+                              <button href type="submit" style = "background-color: white;">
+                              <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
                               <p class="club-role">Officer</p>
              <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
            </div>
@@ -167,10 +164,11 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               {
                                 ?>
                             
-                            <form action="club-profile-admin.php" method="post">
+                           <form action="club-profile-admin.php" method="post">
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">      
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
-                              <button class="btn btn-link d-flex mx-auto" data-toggle="modal" data-target="#remove-member" type="submit"><?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></button>
+                              <button href type="submit" style = "background-color: white;">
+                              <a> <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?> </a>
                               
              <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
            </div>
