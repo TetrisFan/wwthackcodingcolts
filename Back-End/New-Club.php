@@ -108,10 +108,26 @@
         </div>
         <p>Describe your club's purpose.</p>
         <textarea class="my-4 form-control rounded-0" rows="4" name="headline" placeholder="" required></textarea>
-            <a href = "/your-clubs.php"><button type="submit" role="button" name="submit" class="btn btn-primary mt-3 mb-2">submit</button></a>
+        <button name="submit" class="btn btn-primary mt-3 mb-2" data-toggle="modal" data-target="#finished">submit</button>
+        <div class="modal fade" id="finished" role="dialog">
+          <div class="modal-dialog modal-dialog-centered modal">
+            <div class="modal-content">
+              <div class="modal-header d-flex flex-column align-items-center">
+                <div>
+                  <h3 class="mb-4">All Finished!</h3>
+                </div>
+                <hr class="w-100 mt-0">
+                <div class="d-flex flex-row justify-content-center">
+                  <button type="submit" href="your-clubs.php" class="btn btn-primary d-flex flex-row justify-content-center mb-2 mt-3" role="button">ok</button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         </form>
-        <?php 
-          if (isset($_POST['submit'])) 
+        <?php
+          if (isset($_POST['submit']))
           {
               $clubDescription = $_POST['headline'];
               $clubName = $_POST['newClubName'];
@@ -132,8 +148,9 @@
 
 
 
+
   </main>
-  
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
