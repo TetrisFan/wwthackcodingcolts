@@ -67,7 +67,7 @@ $.ajax({
                 alert('Some error found. Please try again!');
             }
     });
-window.location.replace('./club-stream.php');
+
 }
 
 
