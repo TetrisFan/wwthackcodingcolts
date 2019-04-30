@@ -37,7 +37,7 @@
     <div class="jumbotron d-flex flex-column align-items-center justify-content-start text-center">
       <div class="w-75 d-flex flex-column justify-content-center">
         <h1 class="mb-5 mt-1">Create New Club</h1>
-        <form method="post" action="club-profile.php">
+        <form method="post" acition = "New-Club.php" >
           <div class="form-group">
             <textarea class="form-control rounded-0" rows="1" name="newClubName" placeholder="Name of club" required></textarea>
           </div>
@@ -47,19 +47,19 @@
               <div class="d-flex flex-column align-items-start flex-wrap">
               <div class="d-flex justify-content-center">
                   <label class="thing mx-4">Art
-                    <input type="checkbox">
+                    <input type="checkbox" name="attribute">
                     <span class="checkmark"></span>
                   </label>
                 </div>
                 <div class="d-flex justify-content-center">
                   <label class="thing mx-4">Career
-                    <input type="checkbox">
+                    <input type="checkbox" name="attribute">
                     <span class="checkmark"></span>
                   </label>
                 </div>
                 <div class="d-flex justify-content-center">
                   <label class="thing mx-4">STEM
-                    <input type="checkbox">
+                    <input type="checkbox" name="attribute">
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -67,19 +67,19 @@
               <div class="d-flex flex-column align-items-start flex-wrap">
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Entertainment
-                  <input type="checkbox">
+                  <input type="checkbox" name="attribute">
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Awareness
-                  <input type="checkbox">
+                  <input type="checkbox" name="attribute">
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Language
-                  <input type="checkbox">
+                  <input type="checkbox" name="attribute">
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -87,19 +87,19 @@
               <div class="d-flex flex-column align-items-start flex-wrap">
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Sports
-                  <input type="checkbox">
+                  <input type="checkbox" name="attribute">
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Media
-                  <input type="checkbox">
+                  <input type="checkbox" name="attribute">
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Service
-                  <input type="checkbox">
+                  <input type="checkbox" name="attribute">
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -108,7 +108,7 @@
         </div>
         <p>Describe your club's purpose.</p>
         <textarea class="my-4 form-control rounded-0" rows="4" name="headline" placeholder="" required></textarea>
-        <button name="submit" class="btn btn-primary mt-3 mb-2" data-toggle="modal" data-target="#finished">submit</button>
+        <a class="btn btn-primary mt-3 mb-2" style="color: white;" data-toggle="modal" data-target="#finished">submit</a>
         <div class="modal fade" id="finished" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal">
             <div class="modal-content">
@@ -177,6 +177,15 @@
   }
   </script>
   <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+
+  <script>
+$('input[type=checkbox]').on('change', function (e) {
+    if ($('input[type=checkbox]:checked').length > 2) {
+        $(this).prop('checked', false);
+        alert("You may only check 2");
+    }
+});
+</script>
 </body>
 
 </html>
