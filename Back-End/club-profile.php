@@ -203,10 +203,7 @@ $clubid = $club['ID'];
           <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div>
-              <form class="form-signin d-flex flex-row align-items-center">
-                <input type="text" class="form-control" style="margin-bottom: 0px !important;" name="email" placeholder="Student Email">
-                <button type="button" class="btn btn-primary d-flex flex-row justify-content-center" style="background-color: #111753; max-width: 20%;" type="submit">add</button>
-              </form>
+             
             </div>
             <div class="row d-flex flex-row justify-content-center">
 
@@ -310,13 +307,13 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 
 -->
 
+
 <div class="dropdown">
   <div id="editdelete" class="dropdown-content">
     <a>edit</a>
     <a>delete</a>
   </div>
 </div>
-
 
   <!-- custom JS -->
   <script>
@@ -368,6 +365,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       }
     }
   </script>
+  <!--
   <script>
     /* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
@@ -389,6 +387,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       }
     }
   </script>
+-->
 </body>
 
 </html>
