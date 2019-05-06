@@ -35,8 +35,24 @@
 <main role="main" class="container text-center d-flex flex-column align-items-center">
   <div style="position:absolute; top: 15px; left: 46%; font-size: 30px; font-weight: 500; ">Club Stream</div>
 <?php
+$id = $_SESSION['studentid'];
 
-$resultsOfPosts = mysqli_query($db, "SELECT * FROM posts ORDER BY time DESC") or die(mysqli_error($db));
+//personalized club stream
+$resultsClub = mysqli_query($db, "SELECT ClubID FROM clubapp.clubstudents WHERE GoogleStudentID = $id;");
+if ($resultsClub->num_rows === 0)
+{
+ $resultsOfPosts = mysqli_query($db, "SELECT * FROM posts ORDER BY time DESC;") or die(mysqli_error($db));
+}
+else
+{
+while($rowClub=mysqli_fetch_array($resultsClub))
+      {
+        $club[] = $rowClub['ClubID'];
+      }
+      $ids = join(",", $club);
+//Get the posts
+$resultsOfPosts = mysqli_query($db, "SELECT * FROM posts WHERE clubid IN ($ids) ORDER BY time DESC;") or die(mysqli_error($db));
+}
 $post = array();
 while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 {
