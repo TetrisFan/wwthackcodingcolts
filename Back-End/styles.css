@@ -590,7 +590,7 @@ button:focus {
 
 .club-card-img-top {
   max-width: 250px;
-  max-height: 150px;
+  height: 150px;
   width: 100%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
