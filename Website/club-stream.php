@@ -74,7 +74,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 
     $FrontEnd = ('
 
-    <div data-toggle="modal" data-target="#myModal1" class="headline-container">
+    <div data-toggle="modal" data-target="#myModal1" class="headline-container my-3">
       <div class="headline">
         <h1>%s</h1>
         <p class="post-club-name">%s at %s</p>
