@@ -203,7 +203,7 @@ $clubid = $club['ID'];
           <div class="w-75 d-flex flex-column justify-content-center">
             <h1 class="mt-4 mb-4">Members</h1>
             <div>
-             
+
             </div>
             <div class="row d-flex flex-row justify-content-center">
 
@@ -315,6 +315,21 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
   </div>
 </div>
 
+<div class="btn btn-secondary mt-3 mb-3" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
+
+<div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column align-items-center">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Are you sure you want to leave?</h4>
+      </div>
+      <div class="modal-body p-3">
+        <button class="btn btn-primary">leave club</button>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- custom JS -->
   <script>
   $(document).ready(() => {
@@ -369,8 +384,8 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
   <script>
     /* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
-    function myFunction1() {
-      document.getElementById("editdelete").classList.toggle("show");
+    function leaveClubConfirm() {
+      document.getElementById("are-you-sure").classList.toggle("show");
     }
 
     // Close the dropdown menu if the user clicks outside of it

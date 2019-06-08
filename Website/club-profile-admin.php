@@ -150,7 +150,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               {
                                 ?>
                             <form action="club-profile-admin.php" method="post">
-           <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">      
+           <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
                               <button href type="submit" style = "background-color: white;">
                               <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
@@ -163,29 +163,29 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               else
                               {
                                 ?>
-                            
+
                            <form action="club-profile-admin.php" method="post">
-           <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">      
+           <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
                               <button href type="submit" style = "background-color: white;">
                               <a> <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?> </a>
-                              
+
              <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
            </div>
          </form>
 
-          
+
             <!--
 
              <form  method="post">
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-              <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>      
+              <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
                               <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" >
                               <button class="btn btn-link d-flex mx-auto" data-toggle="modal" data-target="#remove-member" type="submit"><?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></button>
            </div>
          </form> -->
 
-          
+
 
 
                               <?php
@@ -242,7 +242,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
           </div>
         </div> <!-- edit modal -->
 
-      
+
 
 
          <?php
@@ -290,6 +290,24 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 }
 
   ?>
+
+
+
+  <div class="btn btn-secondary mt-3 mb-3" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
+
+  <div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header d-flex flex-column align-items-center">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are you sure you want to leave?</h4>
+        </div>
+        <div class="modal-body p-3">
+          <button class="btn btn-primary">leave club</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
