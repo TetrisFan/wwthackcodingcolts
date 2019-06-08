@@ -250,24 +250,26 @@ $clubid = $club['ID'];
              </div>
 
             </div>
-          </div>
 
-        <div class="btn btn-secondary mt-3 mb-3" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
+            <div class="btn btn-primary mt-3 mb-3" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
 
-          <div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header d-flex flex-column align-items-center">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Are you sure you want to leave?</h4>
-                </div>
-                <div class="modal-body p-3">
-                  <button class="btn btn-primary">leave club</button>
+              <div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header d-flex flex-column align-items-center">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Are you sure you want to leave?</h4>
+                    </div>
+                    <div class="modal-body p-3">
+                      <button class="btn btn-primary">leave club</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+
           </div>
-          
+
+
         </main>
       </div>
     <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
