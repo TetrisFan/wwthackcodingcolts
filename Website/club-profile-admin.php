@@ -310,7 +310,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     <div class="dropdown">
       <div id="adminDropdown" class="dropdown-content-admin">
         <button type="submit">remove</button> <!-- this is the remove post button, Ill leave it up to back end to put forms and stuff b/c I dont want to mess anything up -->
-        <button type="submit" data-target="#edit-post">edit</button> <!-- this button will pull up a modal similar to the one to create a new post, the modal is the big thing right under it. -->
+        <button type="submit" data-target="#edit-post" data-toggle="modal">edit</button> <!-- this button will pull up a modal similar to the one to create a new post, the modal is the big thing right under it. -->
           <div class="modal fade" id="edit-post" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
