@@ -205,7 +205,7 @@ button:focus {
 
 .dropdown-content-admin {
   display: none;
-  position: relative;
+  position: absolute;
   background-color: #fff;
   min-width: 160px;
   max-width: 200px;

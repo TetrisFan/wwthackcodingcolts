@@ -299,6 +299,29 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     <div class="headline-container">
       <div class="justify-content-end">
         <button type="button" class="close dropbtn-admin" onclick="openDropdown()">&#8942;</button>
+        <div class="dropdown">
+          <div id="adminDropdown" class="dropdown-content-admin">
+            <button type="submit">remove</button> <!-- this is the remove post button, Ill leave it up to back end to put forms and stuff b/c I dont want to mess anything up -->
+            <button type="submit" data-target="#edit-post" data-toggle="modal">edit</button> <!-- this button will pull up a modal similar to the one to create a new post, the modal is the big thing right under it. -->
+              <div class="modal fade" id="edit-post" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                      <form class = "form-group" method="post" action="###">
+                    <div class="modal-header d-flex flex-column align-items-center">
+                      <button type="button" class="close mb-2" data-dismiss="modal">&times;</button>
+                      <form class="w-100">
+                        <div class="form-group">
+                          <textarea class="form-control rounded-0" rows="1" name="headline" required></textarea>
+                        </div>
+                        <textarea class="form-control rounded-0" rows="10" name="desc" required></textarea>
+                        <button type="submit" class="btn btn-primary mt-3" role="button" name="###">post</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
       </div>
       <div data-toggle="modal" data-target="#myModal1" class="headline">
         <h1>%s</h1>
@@ -307,29 +330,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       <div data-toggle="modal" data-target="#myModal1" class="headline-text">%s</div>
     </div>
 
-    <div class="dropdown">
-      <div id="adminDropdown" class="dropdown-content-admin">
-        <button type="submit">remove</button> <!-- this is the remove post button, Ill leave it up to back end to put forms and stuff b/c I dont want to mess anything up -->
-        <button type="submit" data-target="#edit-post" data-toggle="modal">edit</button> <!-- this button will pull up a modal similar to the one to create a new post, the modal is the big thing right under it. -->
-          <div class="modal fade" id="edit-post" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                  <form class = "form-group" method="post" action="###">
-                <div class="modal-header d-flex flex-column align-items-center">
-                  <button type="button" class="close mb-2" data-dismiss="modal">&times;</button>
-                  <form class="w-100">
-                    <div class="form-group">
-                      <textarea class="form-control rounded-0" rows="1" name="headline" required></textarea>
-                    </div>
-                    <textarea class="form-control rounded-0" rows="10" name="desc" required></textarea>
-                    <button type="submit" class="btn btn-primary mt-3" role="button" name="###">post</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
+
 
  ');
 
