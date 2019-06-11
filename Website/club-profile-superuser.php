@@ -79,6 +79,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
     <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+      <!-- <a class="nav-link mr-5 b-0 nav-link-active" href="club-approval.php">Pending Approval</a> -->
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
@@ -217,17 +218,17 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
             </div>
           </div>
 
-          <div class="btn btn-primary mt-3 mb-3" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
+          <div class="btn btn-primary mt-3 mb-3" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave">Archive Club</div>
 
           <div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header d-flex flex-column align-items-center">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Are you sure you want to leave?</h4>
+                  <h4 class="modal-title">Are you sure you want to archivce this club?</h4>
                 </div>
                 <div class="modal-body p-3">
-                  <button class="btn btn-primary">leave club</button>
+                  <button class="btn btn-primary">confirm</button>
                 </div>
               </div>
             </div>
