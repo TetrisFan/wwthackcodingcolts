@@ -217,7 +217,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
             </div>
           </div>
 
-          <div class="btn btn-primary mt-3 mb-3" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
+          <div class="btn btn-primary mt-5 mb-1" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
 
           <div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
             <div class="modal-dialog modal-dialog-centered">
