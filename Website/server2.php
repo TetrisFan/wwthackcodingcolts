@@ -21,6 +21,7 @@ $image = $_POST['image'];
 
 $query = "SELECT * FROM clubapp.googlelogin WHERE uid = '$uid'";
 $results = mysqli_query($db, $query);
+$resultarray = mysqli_fetch_array($results);
 //mysqli_num_rows($results);
 
 if(mysqli_num_rows($results)==0)
@@ -29,9 +30,13 @@ if(mysqli_num_rows($results)==0)
 	mysqli_query($db,$query1);
 	header('location:./welcome.php');
 	
-}else 
+}elseif($resultarray['superuser'] == 1) // Checks if the user is actually a superuser
 {?>
-	<script> window.location.replace('./club-stream.php');</script>
+	<script> window.location.replace('./club-stream-superuser.php');</script>
+<?php
+}else
+{ ?>
+	<script>window.location.replace('./club-stream.php');</script>
 <?php
 }
 $_SESSION['loggedin'] = $firstname." ".$lastname;

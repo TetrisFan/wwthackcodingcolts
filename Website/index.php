@@ -52,9 +52,6 @@
 	image = String(profile.getImageUrl());
   email = String(profile.getEmail()); // This is null if the 'email' scope is not present.
   
-
-
-
 //call ajax
 $.ajax({
             type: 'POST',
