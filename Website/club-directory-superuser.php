@@ -1,5 +1,8 @@
 <?php include('server.php');
-
+  if (!session_id()) session_start();
+  if ($_SESSION['admin'] !==  'true'){ 
+      die();
+  }
   $servername = "localhost";
   $username = "root";
   $password = "PASSWORD";
@@ -152,6 +155,7 @@
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
   </script>
   <script>
+    
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }

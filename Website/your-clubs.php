@@ -75,6 +75,7 @@
            </div>
          </form>
   <?php
+      $_SESSION['clubadmin'] = "true";
 				}
                 else
                 {

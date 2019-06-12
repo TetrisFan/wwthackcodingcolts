@@ -2,8 +2,16 @@
 include ('server.php');
 
 //These will eventually be replaced with sesssion variables, but for now:
-//$clubName = isset($_POST['c1'])?$_POST['c1']:"";
+//$clubName = isset($_POST['c1'])?$_POST['c1']:"";\
 
+if (!isset($_SESSION['clubadmin']))
+{
+  $_SESSION['clubadmin'] = 0;
+}
+if ($_SESSION['clubadmin'] !== "true")
+{
+  die("Access Denied.");
+}
 
 if (isset($_POST['c1'])) {
 $_SESSION['c1'] = $_POST['c1'];
@@ -106,13 +114,13 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
           <div class="w-75 d-flex flex-column align-items-center">
             <h1 class="mb-4"><?php echo $club['Name']?></h1>
             <p><?php echo $club['Description']?></p>
-            <button class="btn btn-primary mb-3 mt-2" type="button" data-toggle="collapse" data-target="#editDesc" aria-expanded="false" aria-controls="editDesc">
+            <button class="btn btn-primary mb-3 mt-2" type="button" data-toggle="collapse" data-target="#editDesc" aria-expanded="false" aria-controls="editDesc" name="editDesc" onClick="getCurrentDesc()">
               Edit club description
             </button>
             <div class="collapse w-100 mt-3" id="editDesc">
               <form class = "form-signin" method="post" action="club-profile-admin.php">
                 <div class="form-group">
-                  <textarea class="form-control rounded-0" rows="10" name="clubdesc" placeholder="Edit your club description."></textarea>
+                  <textarea class="form-control rounded-0" rows="10" name="clubdesc" placeholder="Edit your club description." id="edit-desc-textarea"></textarea>
                 </div>
                   <?php
                     if(isset($_POST['clubdesc'])) {
@@ -346,6 +354,19 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- custom JS -->
+  <script> //AJAX call for the current club description
+    function getCurrentDesc() {
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('edit-desc-textarea').innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET","getDescription.php", true);
+        xhttp.send();
+    }
+  </script>
   <script>
   $(document).ready(() => {
   let url = location.href.replace(/\/$/, "");

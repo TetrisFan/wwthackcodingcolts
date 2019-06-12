@@ -1,4 +1,10 @@
-<?php include('server.php'); ?>
+<?php include('server.php'); 
+//echo $_SESSION['admin'];
+if (!session_id()) session_start();
+if ($_SESSION['admin'] !==  'true'){ 
+    die();
+}
+?>
 <html lang="en">
 
 <head>
@@ -63,6 +69,8 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     $Headline = $post['Headline'];
     $Description = $post['Description'];
     $Time = $post['Time'];
+    $TimeDay = date("m/d/y", strtotime($Time));
+    $TimeTime = date("h:i a", strtotime($Time));
 
     $resultsForClubs = mysqli_query($db, "SELECT * FROM club WHERE ClubID = '".$post["ClubID"]."'") or die(mysqli_error($db));
     while(($clubrow = mysqli_fetch_assoc($resultsForClubs)))
@@ -76,14 +84,14 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     <div data-toggle="modal" data-target="#myModal1" class="headline-container my-3">
       <div class="headline">
         <h1>%s</h1>
-        <p class="post-club-name">%s at %s</p>
+        <p class="post-club-name">%s on %s at %s</p>
       </div>
       <div class="headline-text">%s</div>
     </div>
 
  ');
 
- echo sprintf($FrontEnd, $post['Headline'],$clubName , $Time,  $Description, $Headline, $Description);
+ echo sprintf($FrontEnd, $post['Headline'],$clubName , $TimeDay, $TimeTime, $Description, $Headline, $Description);
 }
 
   ?>

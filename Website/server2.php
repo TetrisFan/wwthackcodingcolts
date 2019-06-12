@@ -31,7 +31,9 @@ if(mysqli_num_rows($results)==0)
 	header('location:./welcome.php');
 	
 }elseif($resultarray['superuser'] == 1) // Checks if the user is actually a superuser
-{?>
+{
+	$_SESSION['admin'] = 'true'; ?>
+	
 	<script> window.location.replace('./club-stream-superuser.php');</script>
 <?php
 }else
