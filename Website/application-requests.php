@@ -1,7 +1,7 @@
 <?php include ('server.php');
      // include('server2.php');
      if (!session_id()) session_start();
-    if ($_SESSION['admin'] !==  'true'){ 
+    if ($_SESSION['admin'] !==  'true'){
       die();
     }
 ?>

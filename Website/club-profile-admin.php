@@ -82,13 +82,13 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
 </head>
 
 <body>
-  <nav class="navbar">
-    <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
-    <div class="d-flex flex-row align-items-center">
-      <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+  <nav class="navbar d-flex flex-row justify-content-between">
+    <a href="club-stream.php"> <img class="logo" src="/Users/vivian/Documents/Test/images/connect-me-logo2.png"> </a>
+    <div class="d-flex flex-row align-items-center justify-content-between w-50" style="width: 200px; max-width: 370px;">
+      <a class="nav-link p-0 pr-lg-5 pr-md-5" href="club-stream.php">Home</a>
+      <a class="nav-link p-0 pr-lg-5 pr-md-5 nav-link-active" href="club-directory.php">Explore</a>
       <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
+        <img class="navbar-profile-pic dropbtn" src="/Users/vivian/Documents/Test/images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
           <a href="interest-quiz.php">Interest Quiz</a>
           <a href="your-clubs.php">Your Clubs</a>
