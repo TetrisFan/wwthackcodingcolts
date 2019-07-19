@@ -71,6 +71,7 @@
             </li>
         </ul>
     </div>
+  </nav>
 
   <div class="filters">
     <form method = "POST" class="d-flex flex-wrap flex-row justify-content-center align-items-center">
