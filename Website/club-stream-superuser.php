@@ -1,9 +1,6 @@
 <?php include('server.php'); 
 //echo $_SESSION['admin'];
 if (!session_id()) session_start();
-if ($_SESSION['admin'] !==  'true'){ 
-    die();
-}
 ?>
 <html lang="en">
 

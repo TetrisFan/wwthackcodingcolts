@@ -1,12 +1,5 @@
 <?php include('server.php');
   if (!session_id()) session_start();
-  if ($_SESSION['admin'] !==  'true'){
-      die();
-  }
-  $servername = "localhost";
-  $username = "root";
-  $password = "PASSWORD";
-  $conn = new mysqli($servername, $username, $password, "clubapp");
 
   // Create Query
   $query = 'SELECT clubapp.club.ClubName, clubapp.club.ClubID, clubapp.tag.TagName, clubapp.club.image
@@ -16,16 +9,13 @@
       ORDER BY club.ClubName';
 
   // Get Result
-  $result = mysqli_query($conn, $query);
+  $result = mysqli_query($db, $query);
 
   // Fetch Data
   $clubInfo = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   // Free Result
   mysqli_free_result($result);
-
-  // Close Connection
-  mysqli_close($conn);
 ?>
 
 <html lang="en">

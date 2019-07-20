@@ -3,29 +3,21 @@
 include ('server.php');
 //include('server2.php');
 
-//These will eventually be replaced with sesssion variables, but for now:
-//$clubName = isset($_POST['c1'])?$_POST['c1']:"";
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "PASSWORD";
-$dbName = "clubapp";
-
-$conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 
 if (isset($_POST['c1'])) {
 $_SESSION['c1'] = $_POST['c1'];
-$clubreceive = mysqli_real_escape_string($conn, $_POST['c1']);
-$clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+$clubreceive = mysqli_real_escape_string($db, $_POST['c1']);
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
 }
 else if (isset($_POST['submit']))
 {
     $_SESSION['c1'] = $_POST['newClubName'];
-    $clubreceive = mysqli_real_escape_string($conn, $_POST['newClubName']);
-    $clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+    $clubreceive = mysqli_real_escape_string($db, $_POST['newClubName']);
+    $clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
 }
 else {
-$clubreceive = mysqli_real_escape_string($conn, $_SESSION['c1']);
-$clubNames = mysqli_query($conn,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($conn));
+$clubreceive = mysqli_real_escape_string($db, $_SESSION['c1']);
+$clubNames = mysqli_query($db,"SELECT * FROM club WHERE Clubname LIKE '".$clubreceive."%'") or die(mysqli_error($db));
 }
 
 if ($_SESSION['clubCounter'] !==1)
