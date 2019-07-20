@@ -139,13 +139,9 @@
         <?php
           if (isset($_POST['headline']) && isset($_POST['newClubName']) && isset($_POST['attribute']))
           {
-            echo "Processing ."."<br/>";
-
             $clubDescription = mysqli_real_escape_string($db, $_POST['headline']);
             $clubName = mysqli_real_escape_string($db, $_POST['newClubName']);
             $clubTag = $_POST['attribute'];
-
-            var_dump($clubTag); echo "<br/>";
 
             $i = 0; $tagOne; $tagTwo; $tagsSelected = array(2);
             foreach($clubTag as $tag) {
@@ -156,17 +152,8 @@
             if(!isset($tagsSelected[1]))
               $tagsSelected[1] = 0;
 
-            var_dump($tagsSelected); echo "<br/>";
-
             $tagOne = $tagsSelected[0];
             $tagTwo = $tagsSelected[1];
-
-            echo "Processing . ."."<br/>";
-            echo "Club Name: ".$clubName."<br/>";
-            echo "Club Description: ".$clubDescription."<br/>";
-            echo "Tag One: ".$tagOne."<br/>";
-            echo"Tag Two: ".$tagTwo."<br/>";
-            echo "Processing . . ."."<br/>";
 
             $stmt = mysqli_query($db, "INSERT INTO pending(ClubName, ClubDescription, tag1, tag2, user) VALUES ('$clubName', '$clubDescription', '$tagOne', '$tagTwo', 'potato')") or die(mysqli_error($db));
 
