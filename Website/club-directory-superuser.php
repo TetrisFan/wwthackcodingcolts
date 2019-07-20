@@ -1,6 +1,6 @@
 <?php include('server.php');
   if (!session_id()) session_start();
-  if ($_SESSION['admin'] !==  'true'){ 
+  if ($_SESSION['admin'] !==  'true'){
       die();
   }
   $servername = "localhost";
@@ -31,7 +31,7 @@
 <html lang="en">
 
 <head>
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Club Directory</title>
 
@@ -45,18 +45,37 @@
 </head>
 
 <body>
-  <nav class="navbar justify-content-center justify-content-sm-between">
-    <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
-    <div class="d-flex flex-row align-items-center">
-      <a class="nav-link mr-5 b-0" href="club-stream-superuser.php">Home</a>
-      <a class="nav-link mr-5 b-0 nav-link-active" href="club-directory-superuser.php">Explore</a>
-     <a class="nav-link mr-5 b-0 nav-link-active" href="application-requests.php">Pending Approval</a>
-      <div class="dropdown">
-        <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
-        <div id="myDropdown" class="dropdown-content">
-          <a href="index.php">Sign Out</a>
-        </div>
-      </div>
+  <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img class="logo" src="/images/connect-me-logo2.png"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul class="navbar-nav w-100 justify-content-center">
+          <!-- Search form -->
+          <input class="form-control w-100 nav-search-bar" style="border-radius: 18px;" type="text" placeholder="Search" aria-label="Search">
+        </ul>
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link navbar-nav-link border-0 mr-4" href="club-stream.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link border-0 mr-4" href="club-directory.php">Explore</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link border-0 mr-4" href="application-requests.php">Pending Approval</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <img class="navbar-profile-pic dropbtn" src="/Users/vivian/Documents/Test/images/blank-avatar-green.png" onclick="myFunction()">
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="interest-quiz.php">Interest Quiz</a>
+                  <a href="your-clubs.php">Your Clubs</a>
+                  <a href="index.php">Sign Out</a>
+                </div>
+              </div>
+            </li>
+        </ul>
     </div>
   </nav>
 
@@ -155,7 +174,7 @@
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
   </script>
   <script>
-    
+
   function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }

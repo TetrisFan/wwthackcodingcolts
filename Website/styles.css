@@ -96,6 +96,7 @@ button:focus {
 ██  ██ ██ ██   ██  ██  ██
 ██   ████ ██   ██   ████
 */
+
 .navbar {
   background-color: white;
   border-bottom: 1px solid #DADADA;
@@ -162,11 +163,49 @@ button:focus {
   width: 50px;
   height: 50px;
   border-radius: 100%;
+  margin-top: 5px;
 }
 
 .logo {
   height: 40px;
 }
+
+@media (max-width: 768px) {
+  .nav-search-bar {
+    margin-top: 10px;
+  }
+
+  .navbar-nav-link {
+    margin-bottom: -20px;
+  }
+
+  .navbar-profile-pic {
+    margin-top: 0px;
+  }
+
+  .dropdown-content {
+    left: 0;
+  }
+}
+
+.add-on .input-group-btn > .btn {
+  border-left-width:0;left:-2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+ box-shadow:none;
+ -webkit-box-shadow:none;
+ border-color:#cccccc;
+}
+.form-control{width:20%}
+.navbar-nav > li > a {
+  border-right: 1px solid #ddd;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.navbar-nav:last-child{ border-right:0}
 
 /*
 ██████  ██████   ██████  ██████  ██████   ██████  ██     ██ ███    ██
@@ -185,7 +224,7 @@ button:focus {
   display: none;
   position: absolute;
   background-color: #fff;
-  min-width: 160px;
+  min-width: 130px;
   box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.1);
   z-index: 1;
   right: 0;
@@ -232,6 +271,33 @@ button:focus {
   display: block;
 }
 
+.dropdown-menu.columns-2 {
+	width: 320px;
+}
+
+.multi-column-dropdown {
+	list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.multi-column-dropdown li a {
+	display: block;
+	clear: both;
+	line-height: 1.428571429;
+	color: #333;
+	white-space: normal;
+}
+
+.multi-column-dropdown li a:hover {
+	text-decoration: none;
+	color: #262626;
+	background-color: #999;
+}
+
+.dropdown-center {
+  margin-left: -140%;
+}
 /*
 ███████ ██  ██████  ███    ██     ██ ███    ██     ███████  ██████  ██████  ███    ███
 ██      ██ ██       ████   ██     ██ ████   ██     ██      ██    ██ ██   ██ ████  ████
@@ -683,6 +749,10 @@ button:focus {
   border: 0;
 }
 
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: none;
+}
+
 /*
 ███    ███  ██████  ██████   █████  ██
 ████  ████ ██    ██ ██   ██ ██   ██ ██
@@ -707,8 +777,6 @@ button:focus {
   border-radius: 2px;
   border-width: thin;
 }
-
-
 
 .thing {
   display: block;
@@ -775,29 +843,3 @@ button:focus {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- .newthingy {
-
- }
