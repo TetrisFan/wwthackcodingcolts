@@ -37,7 +37,12 @@
     <div class="jumbotron d-flex flex-column align-items-center justify-content-start text-center">
       <div class="w-75 d-flex flex-column justify-content-center">
         <h1 class="mb-5 mt-1">Create New Club</h1>
-        <form method="post" acition = "New-Club.php" >
+
+
+
+
+
+        <form method="POST" action="New-Club.php">
           <div class="form-group">
             <textarea class="form-control rounded-0" rows="1" name="newClubName" placeholder="Name of club" required></textarea>
           </div>
@@ -47,19 +52,19 @@
               <div class="d-flex flex-column align-items-start flex-wrap">
               <div class="d-flex justify-content-center">
                   <label class="thing mx-4">Art
-                    <input type="checkbox" name="attribute">
+                    <input type="checkbox" name="attribute[1]" value=1>
                     <span class="checkmark"></span>
                   </label>
                 </div>
                 <div class="d-flex justify-content-center">
                   <label class="thing mx-4">Career
-                    <input type="checkbox" name="attribute">
+                    <input type="checkbox" name="attribute[2]" value=2>
                     <span class="checkmark"></span>
                   </label>
                 </div>
                 <div class="d-flex justify-content-center">
                   <label class="thing mx-4">STEM
-                    <input type="checkbox" name="attribute">
+                    <input type="checkbox" name="attribute[3]" value=3>
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -67,19 +72,19 @@
               <div class="d-flex flex-column align-items-start flex-wrap">
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Entertainment
-                  <input type="checkbox" name="attribute">
+                  <input type="checkbox" name="attribute[4]" value=4>
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Awareness
-                  <input type="checkbox" name="attribute">
+                  <input type="checkbox" name="attribute[5]" value=5>
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Language
-                  <input type="checkbox" name="attribute">
+                  <input type="checkbox" name="attribute[6]" value=6>
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -87,19 +92,19 @@
               <div class="d-flex flex-column align-items-start flex-wrap">
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Sports
-                  <input type="checkbox" name="attribute">
+                  <input type="checkbox" name="attribute[7]" value=7>
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Media
-                  <input type="checkbox" name="attribute">
+                  <input type="checkbox" name="attribute[8]" value=8>
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="d-flex justify-content-center">
                 <label class="thing mx-4">Service
-                  <input type="checkbox" name="attribute">
+                  <input type="checkbox" name="attribute[9]" value=9>
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -118,8 +123,13 @@
                 </div>
                 <hr class="w-100 mt-0">
                 <div class="d-flex flex-row justify-content-center">
-                  <button type="submit" href="your-clubs.php" class="btn btn-primary d-flex flex-row justify-content-center mb-2 mt-3" role="button">ok</button>
+                  <button type="submit" href="New-Club.php" class="btn btn-primary d-flex flex-row justify-content-center mb-2 mt-3" role="button">ok</button>
                 </form>
+
+
+
+
+
                 </div>
               </div>
             </div>
@@ -127,19 +137,42 @@
         </div>
         </form>
         <?php
-          if (isset($_POST['submit']))
+          if (isset($_POST['headline']) && isset($_POST['newClubName']) && isset($_POST['attribute']))
           {
-              $clubDescription = $_POST['headline'];
-              $clubName = $_POST['newClubName'];
-              echo "executing statement <br>";
-              $stmt = $db->prepare("INSERT INTO club(ClubName,ClubDescription) VALUES(?,?)") or die(mysqli_error($db));
-              echo $clubDescription;
-              $stmt->bind_param("ss", $clubDescription,$clubName);
-              //setting params
-              //if(!$stmt->execute()) echo $stmt->error;
-              $stmt->execute();
-              echo "Finished!";
-          } ?>
+            echo "Processing ."."<br/>";
+
+            $clubDescription = mysqli_real_escape_string($db, $_POST['headline']);
+            $clubName = mysqli_real_escape_string($db, $_POST['newClubName']);
+            $clubTag = $_POST['attribute'];
+
+            var_dump($clubTag); echo "<br/>";
+
+            $i = 0; $tagOne; $tagTwo; $tagsSelected = array(2);
+            foreach($clubTag as $tag) {
+              settype($tag, "int");
+              $tagsSelected[$i] = $tag;
+              $i++;
+            }
+            if(!isset($tagsSelected[1]))
+              $tagsSelected[1] = 0;
+
+            var_dump($tagsSelected); echo "<br/>";
+
+            $tagOne = $tagsSelected[0];
+            $tagTwo = $tagsSelected[1];
+
+            echo "Processing . ."."<br/>";
+            echo "Club Name: ".$clubName."<br/>";
+            echo "Club Description: ".$clubDescription."<br/>";
+            echo "Tag One: ".$tagOne."<br/>";
+            echo"Tag Two: ".$tagTwo."<br/>";
+            echo "Processing . . ."."<br/>";
+
+            $stmt = mysqli_query($db, "INSERT INTO pending(ClubName, ClubDescription, tag1, tag2, user) VALUES ('$clubName', '$clubDescription', '$tagOne', '$tagTwo', 'potato')") or die(mysqli_error($db));
+
+            echo "Finished!";
+          } 
+        ?>
       </div>
     </div>
 
