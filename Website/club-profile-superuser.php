@@ -50,10 +50,22 @@ while(($row = mysqli_fetch_assoc($clubNames)))
     $club['ID'] = $row['ClubID'];
     $club['Name'] = $row['ClubName'];
     $club['Description'] = $row['ClubDescription'];
+    $club['Welcome'] = $row['welcome'];
+    $club['Image'] = $row['image'];
+    $club['Icon'] = $row['icon'];
 }
 
 $currentClubID = $club['ID'];
 
+$queryForUserInfo = "SELECT * FROM clubapp.clubstudents WHERE ClubID = ? AND GoogleStudentID = ?"; //or die(mysqli_error($conn));
+$prepEin = $db->prepare($queryForUserInfo);
+$userInfo = $prepEin->bind_param("ii", $currentClubID, $_SESSION['studentid']);
+
+while ($row = mysqli_fetch_assoc($userInfo))
+{
+  $studentInClub['ID'] = $row['GoogleStudentID'];
+  $studentInClub['Officer'] = $row['Officer'];
+}
 
 //print_r($club);
 
@@ -79,14 +91,13 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
   <nav class="navbar">
     <a class="navbar-brand" href="club-stream.php"> <img class="logo" src="images/connect-me-logo2.png"> </a>
     <div class="d-flex flex-row align-items-center">
-      <a class="nav-link mr-5 b-0" href="club-stream.php">Home</a>
-      <a class="nav-link mr-5 b-0" href="club-directory.php">Explore</a>
+      <a class="nav-link mr-5 b-0" href="club-stream-superuser.php">Home</a>
+      <a class="nav-link mr-5 b-0" href="club-directory-superuser.php">Explore</a>
+      <a class="nav-link mr-5 b-0 nav-link-active" href="application-requests.php">Pending Approval</a>
       <!-- <a class="nav-link mr-5 b-0 nav-link-active" href="club-requests.php">Pending Approval</a> -->
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
-          <a href="interest-quiz.php">Interest Quiz</a>
-          <a href="your-clubs.php">Your Clubs</a>
           <a href="index.php">Sign Out</a>
         </div>
       </div>
@@ -229,15 +240,31 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Are you sure you want to archivce this club?</h4>
                 </div>
-                <div class="modal-body p-3">
-                  <button class="btn btn-primary">confirm</button>
-                </div>
+                <form method ="post" action = "club-directory-superuser.php">
+                  <div class="modal-body p-3">
+                    <button class="btn btn-primary" name="archiveButton" >confirm</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
 
         </div>
+<?php
 
+if(isset($_POST['archiveButton']))
+{
+ $insertionQuery = "INSERT INTO clubapp.clubarchive (`clubID`, `clubName`, `clubDescription`, `image`, `welcome`, `icon`) VALUES (?,?,?,?,?,?) or die(mysqli_error($conn))";
+ $deletionQuery = "DELETE FROM `club` WHERE clubID LIKE ? or die(mysqli_error($conn))";
+ $prepOne = $mysqli->prepare($insertionQuery);
+ $preOne->bind_param("isssss", $club["ID"], $club["Name"], $club["Description"], $club["Image"], $clubp["Welcome"], $club["Icon"]);
+ $prepTwo = $mysqli->prepare($deletionQuery);
+ $prepTwo->bind_param("i",$club["ID"]);
+
+}
+
+
+?>
 
 
       </main>

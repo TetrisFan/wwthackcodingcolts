@@ -60,6 +60,15 @@ while(($row = mysqli_fetch_assoc($clubNames)))
 
 $currentClubID = $club['ID'];
 
+$queryForUserInfo = "SELECT * FROM clubapp.clubstudents WHERE ClubID = ? AND GoogleStudentID = ?";
+$prepEin = $mysqli->prepare($queryForUserInfo);
+$userInfo = $prepEin->bind_param("ii", $currentClubID, $_SESSION['studentid']);
+
+while ($row = mysqli_fetch_assoc($userInfo)) 
+{
+  $studentInClub['ID'] = $userInfo['GoogleStudentID'];
+  $studentInClub['Officer'] = $userInfo['Officer'];
+}
 
 //print_r($club);
 
@@ -168,6 +177,20 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
          </form>
 
                         <?php }
+                              else if ($students['Officer'] == 2)
+                              {
+                                ?>
+                                <form action="club-profile-admin.php" method="post">
+                                <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
+                                                   <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
+                                                   <button href type="submit" style = "background-color: white;">
+                                                   <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
+                                                   <p class="club-role">Sub-Officer</p>
+                                  <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
+                                </div>
+                              </form>
+                              <?php
+                              }
                               else
                               {
                                 ?>
@@ -209,7 +232,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
               <div class="modal-header d-flex flex-column align-items-center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div>
-                  <h3 class="mb-3">Remove <?php echo $_SESSION['fname']." ".$_SESSION["lname"];?></h3>
+                  <h3 class="mb-3">Remove <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></h3>
                 </div>
                 <hr class="w-100 mt-0">
                 <p class="mt-3 mb-4">Are you sure you want to proceed?</p>
@@ -217,6 +240,17 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                   <form method="post" action="club-profile-admin.php">
                   <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center mb-2" role="button" name="remove_student">yes, I do</button>
                 </form>
+                <?php 
+                  if(isset($_POST['remove_student']))
+                  {
+                    $removeStudentStatement = "DELETE from clubapp.clubstudents WHERE GoogleStudentID = ?" or die(msqli_error($conn));
+                    $prepUno = $mysqli->prepare($removeStudentStatement);
+                    $prepUno->bind_param("i", $studentInfo['id']);
+                  }
+                ?>
+
+
+
                 </div>
               </div>
             </div>

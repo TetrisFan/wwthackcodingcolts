@@ -3,7 +3,7 @@ session_start();
 // initializing variables
 //$studentid = "";
 //$errors = array();
-
+$_SESSION['clubCounter'] = 0;
 // connect to the database
 $db = mysqli_connect('localhost', 'root', 'PASSWORD', 'clubapp');
 
@@ -34,10 +34,10 @@ if (isset($_POST['member'])) {
     //$club['lastname'] = $row['ClubDescription'];
         }
 
-  if (isset($_POST['remove_student'])) {  
-    $query = "DELETE FROM clubstudents WHERE GoogleStudentID = '".$_SESSION['id']."'";
-    $result = mysqli_query($db, $query);
-  }
+  //if (isset($_POST['remove_student'])) {  
+    //$query = "DELETE FROM clubstudents WHERE GoogleStudentID = '".$_SESSION['id']."'";
+    //$result = mysqli_query($db, $query);
+  //}
 
 
 
