@@ -44,7 +44,6 @@
   </nav>
 
 <main role="main" class="container text-center d-flex flex-column align-items-center">
-  <div style="position:absolute; top: 15px; left: 46%; font-size: 30px; font-weight: 500; ">Club Stream</div>
 <?php
 $id = $_SESSION['studentid'];
 
