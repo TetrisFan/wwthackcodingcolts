@@ -47,13 +47,13 @@
         </ul>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item">
-                <a class="nav-link navbar-nav-link border-0 mr-4" href="club-stream.php">Home</a>
+                <a class="nav-link navbar-nav-link border-0 mr-4" href="club-stream-superuser.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link border-0 mr-4" href="club-directory.php">Explore</a>
+                <a class="nav-link border-0 mr-4" href="club-directory-superuser.php">Explore</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link border-0 mr-4" href="application-requests.php">Pending Approval</a>
+                <a class="nav-link border-0 mr-4" href="pending-approval.php">Pending Approval</a>
             </li>
             <li class="nav-item">
               <div class="dropdown">

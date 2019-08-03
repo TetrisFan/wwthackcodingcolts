@@ -1,4 +1,7 @@
-<?php include('server.php'); ?>
+<?php include('server.php'); 
+
+
+?>
 <html lang="en">
 
 <head>
@@ -155,9 +158,81 @@
             $tagOne = $tagsSelected[0];
             $tagTwo = $tagsSelected[1];
 
-            $stmt = mysqli_query($db, "INSERT INTO pending(ClubName, ClubDescription, tag1, tag2, user) VALUES ('$clubName', '$clubDescription', '$tagOne', '$tagTwo', 'potato')") or die(mysqli_error($db));
+            switch($tagOne)
+            {
+              case 1:
+                $tagOne = "Art";
+                break;
+              case 2:
+                $tagOne = "Career";
+                break;
+              case 3:
+                $tagOne = "STEM";
+                break;
+              case 4: 
+                $tagOne = "Entertainment";
+                break;
+              case 5:
+                $tagOne = "Awareness";
+                break;
+              case 6:
+                $tagOne = "Language";
+                break;
+              case 7:
+                $tagOne = "Sports";
+                break;
+              case 8:
+                $tagOne = "Media";
+                break;
+              case 9:
+                $tagOne = "Service";
+                break;
+              default:
+                $tagOne = null;
+                break;
+            }
 
+            switch($tagTwo)
+            {
+              case 1:
+                $tagTwo = "Art";
+                break;
+              case 2:
+                $tagTwo = "Career";
+                break;
+              case 3:
+                $tagTwo = "STEM";
+                break;
+              case 4: 
+                $tagTwo = "Entertainment";
+                break;
+              case 5:
+                $tagTwo = "Awareness";
+                break;
+              case 6:
+                $tagTwo = "Language";
+                break;
+              case 7:
+                $tagTwo = "Sports";
+                break;
+              case 8:
+                $tagTwo = "Media";
+                break;
+              case 9:
+                $tagTwo = "Service";
+                break;
+              default:
+                $tagTwo = null;
+                break;
+            }
+            $date = date("m/d/y");
+            //echo $date;
+            $stmt = "INSERT INTO pendingClubs (clubName, clubDescription, tag1, tag2, user, userID, submitTime) VALUES (?, ?, ?, ?, ?, ?, ?)" or die(mysqli_error($db));
+            $prep = $db->prepare($stmt);
+            $prep->bind_param("sssssis", $clubName, $clubDescription, $tagOne, $tagTwo, $_SESSION['loggedin'], $_SESSION['studentid'], $date);
+            $prep->execute() or die(mysqli_error($db));
             echo "Finished!";
+            $prep->close(); 
           } 
         ?>
       </div>

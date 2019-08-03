@@ -87,6 +87,20 @@
   <?php
       $_SESSION['clubadmin'] = "true";
 				}
+                elseif ($club['Officer'] == 2) 
+                {
+                    ?>
+                  <form action="club-profile-admin.php" method="post">
+                            <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
+                              <input type="checkbox" style="display: none;" name = "c1" value=<?php echo $ClubName["Clubname"];?> checked></input>
+                              <div class= "container1">
+                                <img class="your-clubs-thumbnails" src="<?php echo $ClubIcon["icon"];?>" alt="">
+                                <button href="club-profile-admin.php" class="btn btn-link d-flex mx-auto" type="submit"><?php echo $ClubName["Clubname"];?></button>
+                                <p class="club-role"> Sub-Officer </p>
+                              </div>
+                            </div>
+                  </form>
+                } 
                 else
                 {
   	?>

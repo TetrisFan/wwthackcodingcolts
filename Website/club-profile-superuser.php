@@ -61,11 +61,11 @@ $queryForUserInfo = "SELECT * FROM clubapp.clubstudents WHERE ClubID = ? AND Goo
 $prepEin = $db->prepare($queryForUserInfo);
 $userInfo = $prepEin->bind_param("ii", $currentClubID, $_SESSION['studentid']);
 
-while ($row = mysqli_fetch_assoc($userInfo))
+/*while ($row = mysqli_fetch_assoc($userInfo))
 {
   $studentInClub['ID'] = $row['GoogleStudentID'];
   $studentInClub['Officer'] = $row['Officer'];
-}
+}*/
 
 //print_r($club);
 
@@ -93,7 +93,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
     <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream-superuser.php">Home</a>
       <a class="nav-link mr-5 b-0" href="club-directory-superuser.php">Explore</a>
-      <a class="nav-link mr-5 b-0 nav-link-active" href="application-requests.php">Pending Approval</a>
+      <a class="nav-link mr-5 b-0 nav-link-active" href="pending-approval.php">Pending Approval</a>
       <!-- <a class="nav-link mr-5 b-0 nav-link-active" href="club-requests.php">Pending Approval</a> -->
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">

@@ -171,6 +171,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                        $studentInfo['firstname'] = $rowTwo['first_name'];
                                        $studentInfo['lastname'] = $rowTwo['last_name'];
                                        $studentInfo['id'] = $rowTwo['uid'];
+                                       $studentInfo['Officer'] = $students['Officer'];
                                        //$studentInfo['LastName'] = $rowTwo['LastName'];
                                    }
 
@@ -179,7 +180,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                 ?>
                             <form action="club-profile-admin.php" method="post">
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
+                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id=<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname'] . "/" . $studentInfo['lastname'] . "/" . $studentInfo['Officer']?>>
                               <button href type="submit" style = "background-color: white;">
                               <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
                               <p class="club-role">Officer</p>
@@ -192,13 +193,13 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                               {
                                 ?>
                                 <form action="club-profile-admin.php" method="post">
-                                <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                                                   <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
-                                                   <button href type="submit" style = "background-color: white;">
-                                                   <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
-                                                   <p class="club-role">Sub-Officer</p>
-                                  <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
-                                </div>
+                                  <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
+                                        <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id=<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname'] . "/" . $studentInfo['lastname']?>>
+                                        <button href type="submit" style = "background-color: white;">
+                                        <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
+                                        <p class="club-role">Sub-Officer</p>
+                                    <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
+                                  </div>
                               </form>
                               <?php
                               }
@@ -208,9 +209,10 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
 
                            <form action="club-profile-admin.php" method="post">
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member">
+                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id="<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname']?>>
                               <button href type="submit" style = "background-color: white;">
                               <a> <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?> </a>
+                             <?php echo $studentInfo['Officer']; ?>
 
              <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
            </div>
@@ -243,22 +245,19 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
               <div class="modal-header d-flex flex-column align-items-center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div>
-                  <h3 class="mb-3">Remove <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?></h3>
+                  <h3 class="mb-3" id="needsMemberName">Error</h3>
                 </div>
                 <hr class="w-100 mt-0">
-                <p class="mt-3 mb-4">Are you sure you want to proceed?</p>
+                <p class="mt-3 mb-4">How would you like to proceed?</p>
                 <div class="d-flex flex-row justify-content-center">
-                  <form method="post" action="club-profile-admin.php">
-                  <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center mb-2" role="button" name="remove_student">yes, I do</button>
+                <form method="post" action="">
+                <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center mb-2" id="member_remove" role="button" name="remove_student">Delete Member</button>
+                  <div class="d-flex flex-row justify-content-center">
+                    <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center ml-2 mr-2" id="member_promote" role="button" name="promote_member" style="background-color:#111753">Promote Member</button>
+                    <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center ml-2" id="member_demote" role="button" name="demote_member" style="background-color:#660066">Demote Member</button>
+                  </div>
                 </form>
-                <?php 
-                  if(isset($_POST['remove_student']))
-                  {
-                    $removeStudentStatement = "DELETE from clubapp.clubstudents WHERE GoogleStudentID = ?" or die(msqli_error($conn));
-                    $prepUno = $mysqli->prepare($removeStudentStatement);
-                    $prepUno->bind_param("i", $studentInfo['id']);
-                  }
-                ?>
+                
 
 
 
@@ -381,11 +380,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
         <p class="post-club-name">Posted by %s at %s</p>
       </div>
       <div data-toggle="modal" data-target="#myModal1" class="headline-text">%s</div>
-    </div>
-
-
-
- ');
+    </div>');
 
  echo sprintf($FrontEnd, $post['Headline'],$User , $Time,  $Description, $Headline, $Description);
 }
@@ -396,7 +391,8 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <!--<script src="http://code.jquery.com/jquery-1.11.0.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- custom JS -->
   <script> //AJAX call for the current club description
@@ -509,6 +505,77 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
         }
       }
     }
+  </script>
+  <script>
+  var id = "0";
+  var site = window.location.pathname;
+    $('#member_remove').click(function(){
+      $.ajax ({
+        type: "GET",
+        url: "deleteMember.php",
+        data: {id: id},
+        error: function(){
+          altert('oof.');
+        },
+        success: function(){
+          alert("User removed successfully.");
+        }
+      });
+    });
+    $('.member-profile-pic').click(function() {
+      var information = $(this).attr('id').split("/");
+      //console.log($(this).attr('id').split("/"));
+      console.log(information);
+      id = information[0];
+      var name = information[1] + " " + information[2];
+      console.log(name);
+      history.pushState(null, '', site + "?id=" + id);
+      document.getElementById("needsMemberName").innerHTML = name;
+        });
+    $('#member_promote').click(function() {
+      if (information[3] != 2) 
+      {
+            $.ajax({
+            type:'GET',
+            url:'promoteMemberProcessing.php',
+            data: {id: id},
+            success: function(result) {
+              alert(result);
+              //console.log(result);
+            },
+            error: function(data) {
+              alert("Something isn't quite right...");
+            }
+          })
+        }
+      
+      else 
+      {
+        alert("Error: You don't have permission to do this.");
+      }
+    })
+    $('#member_demote').click(function() {
+      if (information[3] != 2) 
+      {
+            $.ajax ({
+            type: 'GET',
+            url: 'demoteMemberProcessing.php',
+            data: {id: id},
+            success: function(result) {
+              alert(result);
+              //console.log(result);
+            },
+            error: function(data) {
+              alert("Something isn't quite right...");
+            }
+          })
+        }
+      else 
+      {
+        alert("You don't have permission to do this.");
+      }
+    })
+
   </script>
 </body>
 

@@ -24,7 +24,7 @@ if (!session_id()) session_start();
     <div class="d-flex flex-row align-items-center">
       <a class="nav-link mr-5 b-0" href="club-stream-superuser.php">Home</a>
       <a class="nav-link mr-5 b-0 nav-link-active" href="club-directory-superuser.php">Explore</a>
-     <a class="nav-link mr-5 b-0 nav-link-active" href="application-requests.php">Pending Approval</a>
+     <a class="nav-link mr-5 b-0 nav-link-active" href="pending-approval.php">Pending Approval</a>
       <div class="dropdown">
         <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
         <div id="myDropdown" class="dropdown-content">
@@ -63,6 +63,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
     $post['Headline'] = $row['headline'];
     $post['ClubID'] = $row['clubid'];
     $post['Time'] = $row['time'];
+    $post['ID'] = $row['id'];
     $Headline = $post['Headline'];
     $Description = $post['Description'];
     $Time = $post['Time'];
@@ -78,7 +79,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 
     $FrontEnd = ('
 
-    <div data-toggle="modal" data-target="#myModal1" class="headline-container my-3">
+    <div data-toggle="modal" data-target="#myModal1" class="headline-container my-3" id="%s">
       <div class="headline">
         <h1>%s</h1>
         <p class="post-club-name">%s on %s at %s</p>
@@ -88,7 +89,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 
  ');
 
- echo sprintf($FrontEnd, $post['Headline'],$clubName , $TimeDay, $TimeTime, $Description, $Headline, $Description);
+ echo sprintf($FrontEnd, $post['ID'],$post['Headline'],$clubName , $TimeDay, $TimeTime, $Description, $Headline, $Description);
 }
 
   ?>
@@ -144,7 +145,22 @@ window.onclick = function(event) {
   }
 }
 </script>
-  <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+<script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+var postID;
+$('.headline-container').click(function() {
+  postID = $(this).attr('id');
+  $.ajax({
+    type : 'POST',
+    url : 'postDeleteProcessing.php',
+    data : {postID : postID},
+    success : function(result) {
+      alert(result);
+    }
+  })
+})
+</script>
 </body>
 
 </html>

@@ -254,7 +254,7 @@ $clubid = $club['ID'];
 
             </div>
 
-            <div class="btn btn-primary mt-5 mb-1" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave">Leave Club</div>
+            <div class="btn btn-primary mt-5 mb-1" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave" id="Leave">Leave Club</div>
 
               <div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
                 <div class="modal-dialog modal-dialog-centered">
@@ -264,7 +264,7 @@ $clubid = $club['ID'];
                       <h4 class="modal-title">Are you sure you want to leave?</h4>
                     </div>
                     <div class="modal-body p-3">
-                      <button class="btn btn-primary">leave club</button>
+                      <button class="btn btn-primary" id="Leave">leave club</button>
                     </div>
                   </div>
                 </div>
@@ -339,6 +339,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
 
 
   <!-- custom JS -->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
   $(document).ready(() => {
   let url = location.href.replace(/\/$/, "");
@@ -387,8 +388,21 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
         }
       }
     }
+
+    $('#Leave').click(function() {
+      $.ajax ({
+        type: 'POST',
+        url: 'leaveProcessing.php',
+        success: function(result) {
+          alert(result);
+        },
+        error: function(result) {
+          alert(result);
+        }
+      })
+    })
   </script>
-  <!--
+  
   <script>
     /* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
@@ -410,7 +424,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       }
     }
   </script>
--->
+
 </body>
 
 </html>

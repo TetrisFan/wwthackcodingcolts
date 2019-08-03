@@ -40,6 +40,8 @@ if (isset($_POST['member'])) {
   //}
 
 
+  
+
 
 //if (isset($_POST['remove_user'])) {
   //$query = "SELECT * FROM clubapp.googlelogin WHERE firstname = $studentInfo["firstname"] AND lastname = $studentinfo["lastname"]";

@@ -1,4 +1,6 @@
-<?php include('server.php');
+<?php 
+include('server.php');
+include('server3.php');
   // Create Query
   $query = 'SELECT clubapp.club.ClubName, clubapp.club.ClubID, clubapp.tag.TagName, clubapp.club.image
       FROM club
@@ -8,7 +10,6 @@
 
   // Get Result
   $result = mysqli_query($db, $query);
-
   // Fetch Data
   $clubInfo = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
