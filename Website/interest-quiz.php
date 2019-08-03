@@ -44,14 +44,14 @@
     </nav>
 
     <main role="main" class="container text-center">
-      <div class="jumbotron d-flex flex-column justify-content-center">
+      <div class="mt-4 jumbotron d-flex flex-column justify-content-center">
         <form id="quizForm" action="club-results.php" method ="POST">
           <div class="quiz-tab">
             <h1 style="margin-bottom: 30px;">I am interested in...</h1>
             <input id="answer01" type="checkbox" name="q1" value = "y"/>
-            <label class="quiz-labels" for="answer01">Writing, art, drama</label>
+            <label class="quiz-labels" for="answer01">Writing, art, and drama</label>
             <input id="answer02" type="checkbox" name="q2"value = "y"/>
-            <label class="quiz-labels" for="answer02">Athletics and being active</label>
+            <label class="quiz-labels" for="answer02">Athletics</label>
             <input id="answer03" type="checkbox" name="q3" value = "y"/>
             <label class="quiz-labels" for="answer03">Science and engineering</label>
             <input id="answer04" type="checkbox" name="q4" value = "y"/>
@@ -205,7 +205,7 @@
 <?php
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "0000";
+$dbPassword = "PASSWORD";
 $dbName = "clubapp";
 
 $conn = mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
