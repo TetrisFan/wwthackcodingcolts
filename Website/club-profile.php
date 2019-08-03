@@ -254,7 +254,7 @@ $clubid = $club['ID'];
 
             </div>
 
-            <div class="btn btn-primary mt-5 mb-1" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave" id="Leave">Leave Club</div>
+            <div class="btn btn-primary mt-4 mb-1" style="background-color: #111753;" data-toggle="modal" data-target="#confirm-leave" id="Leave">Leave Club</div>
 
               <div class="modal fade" id="#confirm-leave" role="dialog"> <!-- are you sure you want to leave? msg -->
                 <div class="modal-dialog modal-dialog-centered">
@@ -402,7 +402,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       })
     })
   </script>
-  
+
   <script>
     /* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
