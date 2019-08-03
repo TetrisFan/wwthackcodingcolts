@@ -35,7 +35,7 @@ include('server3.php');
 
 <body>
   <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-    <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img class="logo" src="/images/connect-me-logo2.png"/></a>
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img class="logo" src="images/connect-me-logo2.png"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,7 +53,7 @@ include('server3.php');
             </li>
             <li class="nav-item">
               <div class="dropdown">
-                <img class="navbar-profile-pic dropbtn" src="/Users/vivian/Documents/Test/images/blank-avatar-green.png" onclick="myFunction()">
+                <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
                 <div id="myDropdown" class="dropdown-content">
                   <a href="interest-quiz.php">Interest Quiz</a>
                   <a href="your-clubs.php">Your Clubs</a>

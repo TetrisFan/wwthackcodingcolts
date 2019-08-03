@@ -20,7 +20,7 @@
 
 <body>
   <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-    <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img class="logo" src="/images/connect-me-logo2.png"/></a>
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img class="logo" src="images/connect-me-logo2.png"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,7 +34,7 @@
             </li>
             <li class="nav-item">
               <div class="dropdown">
-                <img class="navbar-profile-pic dropbtn" src="/images/blank-avatar-green.png" onclick="myFunction()">
+                <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
                 <div id="myDropdown" class="dropdown-content">
                   <a href="interest-quiz.php">Interest Quiz</a>
                   <a href="your-clubs.php">Your Clubs</a>
@@ -123,8 +123,8 @@
       <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
         <input type="checkbox" style="display: none;" name = "new_club_button" value="" checked></input>
         <div class= "container1">
-          <img class="your-clubs-thumbnails" src="images/new-club-button.png" alt="Get pic from design plz"> <!-- This is probably copyrighted, should change later if possible -->
-          <button href="New-Club.php" class="btn btn-link d-flex mx-auto" type="submit">Create New</button>
+          <img style="height: 97px; width: 100px; opacity: 0.8" class="your-clubs-thumbnails m-0" src="images/new-club-button.png" alt="Get pic from design plz"> <!-- This is probably copyrighted, should change later if possible -->
+          <button style="text-decoration: none; color: #3E4A59" href="New-Club.php" class="mt-2 btn btn-link d-flex mx-auto" type="submit">Create New</button>
         </div>
       </div>
     </form>

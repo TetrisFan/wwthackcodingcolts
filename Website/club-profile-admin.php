@@ -64,7 +64,7 @@ $queryForUserInfo = "SELECT * FROM clubapp.clubstudents WHERE ClubID = ? AND Goo
 $prepEin = $mysqli->prepare($queryForUserInfo);
 $userInfo = $prepEin->bind_param("ii", $currentClubID, $_SESSION['studentid']);
 
-while ($row = mysqli_fetch_assoc($userInfo)) 
+while ($row = mysqli_fetch_assoc($userInfo))
 {
   $studentInClub['ID'] = $userInfo['GoogleStudentID'];
   $studentInClub['Officer'] = $userInfo['Officer'];
@@ -92,7 +92,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
 
 <body>
   <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-    <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img class="logo" src="/images/connect-me-logo2.png"/></a>
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img class="logo" src="images/connect-me-logo2.png"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -106,7 +106,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
             </li>
             <li class="nav-item">
               <div class="dropdown">
-                <img class="navbar-profile-pic dropbtn" src="/images/blank-avatar-green.png" onclick="myFunction()">
+                <img class="navbar-profile-pic dropbtn" src="images/blank-avatar-green.png" onclick="myFunction()">
                 <div id="myDropdown" class="dropdown-content">
                   <a href="interest-quiz.php">Interest Quiz</a>
                   <a href="your-clubs.php">Your Clubs</a>
@@ -257,10 +257,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                     <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center ml-2" id="member_demote" role="button" name="demote_member" style="background-color:#660066">Demote Member</button>
                   </div>
                 </form>
-                
-
-
-
+              
                 </div>
               </div>
             </div>
