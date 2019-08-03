@@ -109,7 +109,7 @@
       <div class="col-lg-3 col-md-4 col-xs-6 d-flex mx-auto justify-content-center">
         <input type="checkbox" style="display: none;" name = "new_club_button" value="" checked></input>
         <div class= "container1">
-          <img style="height: 50px; width: 50px; opacity: 0.8" class="your-clubs-thumbnails m-0" src="images/new-club-button.png" alt="Get pic from design plz"> <!-- This is probably copyrighted, should change later if possible -->
+          <img style="height: 97px; width: 100px; opacity: 0.8" class="your-clubs-thumbnails m-0" src="images/new-club-button.png" alt="Get pic from design plz"> <!-- This is probably copyrighted, should change later if possible -->
           <button style="text-decoration: none; color: #3E4A59" href="New-Club.php" class="mt-2 btn btn-link d-flex mx-auto" type="submit">Create New</button>
         </div>
       </div>
