@@ -29,14 +29,14 @@
     <!--<div class="d-flex flex-row">
       <a class="nav-link text-secondary" href="signin.php">Sign In</a>
     </div>-->
-   
+
 
   </nav>
 <script>
  // document.write("Hello");
   </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-<script type="text/javascript"> 
+<script type="text/javascript">
   var uid;
   var firstname;
   var lastname;
@@ -51,7 +51,7 @@
 	lastname = String(profile.getFamilyName());
 	image = String(profile.getImageUrl());
   email = String(profile.getEmail()); // This is null if the 'email' scope is not present.
-  
+
 
 
 
