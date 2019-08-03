@@ -36,19 +36,21 @@
   <main role="main" class="container mt-4 d-flex flex-column">
     <div class="jumbotron d-flex flex-column align-items-center justify-content-start text-center">
       <div class="w-75 d-flex flex-column justify-content-center">
-        <h1 class="mb-5 mt-1">Create New Club</h1>
+
+        <h1 class="mt-1">Create New Club</h1>
+        <p class="mt-3 mb-0">What is the name of your club?</p>
 
 
 
 
 
         <form method="POST" action="New-Club.php">
-          <div class="form-group">
-            <textarea class="form-control rounded-0" rows="1" name="newClubName" placeholder="Name of club" required></textarea>
+          <div class="form-group d-flex flex-row justify-content-center">
+            <textarea style="width: 300px; text-align: center; margin-top: 10px;" class="m-0 mt-2 form-control rounded-0" rows="1" name="newClubName" required></textarea>
           </div>
-            <div class="mt-5">
-              <p class="mb-3">Which tags best describe your club? (up to 2)</p>
-              <div class="my-4 d-flex flex-row justify-content-center">
+            <div style="margin-top: 30px;" class="mb-0">
+              <p class="">Which tags best describe your club? (up to 2)</p>
+              <div class="mt-3 mb-4 d-flex flex-row justify-content-center">
               <div class="d-flex flex-column align-items-start flex-wrap">
               <div class="d-flex justify-content-center">
                   <label class="thing mx-4">Art
@@ -112,7 +114,9 @@
             </div>
         </div>
         <p>Describe your club's purpose.</p>
-        <textarea class="my-4 form-control rounded-0" rows="4" name="headline" placeholder="" required></textarea>
+        <div class="d-flex flex-row justify-content-center">
+          <textarea style="width: 500px;" class=" form-control rounded-0" rows="4" name="headline" placeholder="" required></textarea>
+        </div>
         <a class="btn btn-primary mt-3 mb-2" style="color: white;" data-toggle="modal" data-target="#finished">submit</a>
         <div class="modal fade" id="finished" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal">
@@ -158,7 +162,7 @@
             $stmt = mysqli_query($db, "INSERT INTO pending(ClubName, ClubDescription, tag1, tag2, user) VALUES ('$clubName', '$clubDescription', '$tagOne', '$tagTwo', 'potato')") or die(mysqli_error($db));
 
             echo "Finished!";
-          } 
+          }
         ?>
       </div>
     </div>
