@@ -252,13 +252,15 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                 <p class="mt-3 mb-4">How would you like to proceed?</p>
                 <div class="d-flex flex-row justify-content-center">
                 <form method="post" action="">
-                <button href = "#" type="submit" class="btn btn-primary d-flex flex-row justify-content-center mb-2" id="member_remove" role="button" name="remove_student">Delete Member</button>
+                  <div style="display: flex; align-items: center; justify-content: center;">
+                    <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center mb-2" id="member_remove" role="button" name="remove_student">Delete Member</button>
+                  </div>
                   <div class="d-flex flex-row justify-content-center">
                     <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center ml-2 mr-2" id="member_promote" role="button" name="promote_member" style="background-color:#111753">Promote Member</button>
                     <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center ml-2" id="member_demote" role="button" name="demote_member" style="background-color:#660066">Demote Member</button>
                   </div>
                 </form>
-              
+
                 </div>
               </div>
             </div>
@@ -547,8 +549,8 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
             }
           })
         }
-      
-      else 
+
+      else
       {
         alert("Error: You don't have permission to do this.");
       }
@@ -569,7 +571,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
             }
           })
         }
-      else 
+      else
       {
         alert("You don't have permission to do this.");
       }
