@@ -1,7 +1,4 @@
-<?php include('server.php'); 
-//echo $_SESSION['admin'];
-if (!session_id()) session_start();
-?>
+
 <html lang="en">
 
 <head>
@@ -34,66 +31,88 @@ if (!session_id()) session_start();
     </div>
   </nav>
 
-<main role="main" class="container text-center d-flex flex-column align-items-center">
-  <div style="position:absolute; top: 15px; left: 46%; font-size: 30px; font-weight: 500; ">Club Stream</div>
-<?php
-$id = $_SESSION['studentid'];
+  <div class="stream-filters d-flex flex-row justify-content-center bg-white p-2" style="box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" style="font-size: 20px;" data-toggle="dropdown">Filters<b class="ml-2 caret"></b></a>
+      <ul class="dropdown-menu dropdown-menu-center multi-column columns-2 dropdown-center">
+        <form style="margin-bottom: 0;">
+          <div class="row d-flex flex-row justify-content-around" style="width: 320px; margin-left: 0; margin-right: 0;">
+            <div class="col-sm d-flex flex-row justify-content-sm-center" style="max-width: 180px; margin-left: 0; margin-right: 0;">
+              <ul class="multi-column-dropdown d-flex flex-column align-items-left">
+                <li><input id="news" type="checkbox" name="filter[1]" value="News"/>
+                <label class="btn m-0 p-0 pl-3" for="news" id="News">News</label></li>
+                <li><input id="art" type="checkbox" name="filter[2]" value="Art"/>
+                <label class="btn m-0 p-0 pl-3" for="art" id="Art">Art</label></li>
+                <li><input id="awareness" type="checkbox" name="filter[3]" value="Awareness"/>
+                <label class="btn m-0 p-0 pl-3" for="awareness" id="Awareness">Awareness</label></li>
+                <li><input id="career" type="checkbox" name="filter[4]" value="Career"/>
+                <label class="btn m-0 p-0 pl-3" for="career" id="Career">Career</label></li>
+                <li><input id="entertainment" type="checkbox" name="filter[5]" value="Entertainment"/>
+                <label class="btn m-0 p-0 pl-3" for="entertainment" id="Entertainment">Entertainment</label></li>
+              </ul>
+            </div>
+            <div class="col-sm d-flex flex-row justify-content-sm-center" style="max-width: 140px; ">
+              <ul class="multi-column-dropdown d-flex flex-column align-items-left">
+                <li><input id="language" type="checkbox" name="filter[6]" value="Language"/>
+                <label class="btn m-0 p-0 pl-3" for="language">Language</label></li>
+                <li><input id="media" type="checkbox" name="filter[7]" value="Media"/>
+                <label class="btn m-0 p-0 pl-3" for="media">Media</label></li>
+                <li><input id="Service" type="checkbox" name="filter[8]" value="Service"/>
+                <label class="btn m-0 p-0 pl-3" for="Service">Service</label></li>
+                <li><input id="STEM" type="checkbox" name="filter[9]" value="STEM"/>
+                <label class="btn m-0 p-0 pl-3" for="STEM">STEM</label></li>
+                <li><input id="sports" type="checkbox" name="filter[10]" value="Sports"/>
+                <label class="btn m-0 p-0 pl-3" for="sports">Sports</label></li>
+              </ul>
+            </div>
+          </div>
+          <hr style="margin-top: 7px; margin-bottom: 3px;"/>
+          <div class="d-flex flex-row justify-content-center">
+            <button role="submit" style="padding-left: 15px; padding-right: 15px; padding-top: 0px; padding-bottom: 0px" class="btn btn-filter-submit mt-2 mb-1">Apply Changes</button>
+          </div>
+        </form>
+      </ul>
+    </li>
+  </div>
 
-//personalized club stream
-$resultsClub = mysqli_query($db, "SELECT ClubID FROM clubapp.clubstudents WHERE GoogleStudentID = $id;");
-if ($resultsClub->num_rows === 0)
-{
- $resultsOfPosts = mysqli_query($db, "SELECT * FROM posts ORDER BY time DESC;") or die(mysqli_error($db));
-}
-else
-{
-while($rowClub=mysqli_fetch_array($resultsClub))
-      {
-        $club[] = $rowClub['ClubID'];
-      }
-      $ids = join(",", $club);
-//Get the posts
-$resultsOfPosts = mysqli_query($db, "SELECT * FROM posts WHERE clubid IN ($ids) ORDER BY time DESC;") or die(mysqli_error($db));
-}
-$post = array();
-while(($row = mysqli_fetch_assoc($resultsOfPosts)))
-{
-    $clubName = "";
-    $post['Description'] = $row['desc'];
-    $post['Headline'] = $row['headline'];
-    $post['ClubID'] = $row['clubid'];
-    $post['Time'] = $row['time'];
-    $post['ID'] = $row['id'];
-    $Headline = $post['Headline'];
-    $Description = $post['Description'];
-    $Time = $post['Time'];
-    $TimeDay = date("m/d/y", strtotime($Time));
-    $TimeTime = date("h:i a", strtotime($Time));
-
-    $resultsForClubs = mysqli_query($db, "SELECT * FROM club WHERE ClubID = '".$post["ClubID"]."'") or die(mysqli_error($db));
-    while(($clubrow = mysqli_fetch_assoc($resultsForClubs)))
+<main role="main" class="container text-center d-flex flex-column align-items-center" id="mainDocument">
+  <script>
+    var postID;
+    function getResults()
     {
-        $club['Name'] = $clubrow['ClubName'];
-        $clubName = $club['Name'];
+      $.ajax({
+        url : "stream-results.php",
+        success : function(result) {
+          document.getElementById("mainDocument").innerHTML = result;
+          //alert(result);
+        }
+      })
     }
 
-    $FrontEnd = ('
+    $(document).ready(function() {
+      //setInterval(getResults, 1000);
+      getResults();
+    })
+    var postID;
+    $(document).on("click","#refresh", function() {
+      getResults();
+    })
+    $(document).on("click", ".headline-container", function() {
+      postID = $(this).attr('id');
+    })
+    $(document).on("click", "#post_delete", function() {
+      console.log('Clicked.');
+      $.ajax({
+        type : 'POST',
+        url : 'postDeleteProcessing.php',
+        data : {postID : postID},
+        success : function(result) {
+          alert(result);
+        }
+      })
+  })
 
-    <div data-toggle="modal" data-target="#myModal1" class="headline-container my-3" id="%s">
-      <div class="headline">
-        <h1>%s</h1>
-        <p class="post-club-name">%s on %s at %s</p>
-      </div>
-      <div class="headline-text">%s</div>
-    </div>
-
- ');
-
- echo sprintf($FrontEnd, $post['ID'],$post['Headline'],$clubName , $TimeDay, $TimeTime, $Description, $Headline, $Description);
-}
-
-  ?>
-
+  </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')
@@ -108,21 +127,21 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+$(document).on("click", modal, function() {
   modal.style.display = "flex";
-}
+})
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+$(document).on("click", "span", function() {
   modal.style.display = "none";
-}
+})
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+$(document).on("click", "window", function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+})
 </script>
 <script>
 /* When the user clicks on the button,
@@ -147,20 +166,6 @@ window.onclick = function(event) {
 </script>
 <script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
-var postID;
-$('.headline-container').click(function() {
-  postID = $(this).attr('id');
-  $.ajax({
-    type : 'POST',
-    url : 'postDeleteProcessing.php',
-    data : {postID : postID},
-    success : function(result) {
-      alert(result);
-    }
-  })
-})
-</script>
 </body>
 
 </html>
