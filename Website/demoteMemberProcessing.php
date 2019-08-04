@@ -4,7 +4,7 @@ include('server3.php');
 
 try
 {
-    echo $_GET['id'];
+    //echo $_GET['id'];
     $stmt = "UPDATE `clubstudents` SET `Officer`= 0 WHERE `GoogleStudentID` = :studid";
     $prep = $dbh->prepare($stmt);
     $prep->bindParam(':studid', $_GET['id']);

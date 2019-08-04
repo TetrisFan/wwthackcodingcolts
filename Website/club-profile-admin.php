@@ -170,6 +170,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                    {
                                        $studentInfo['firstname'] = $rowTwo['first_name'];
                                        $studentInfo['lastname'] = $rowTwo['last_name'];
+                                       $studentsProcessed = str_replace(' ', '', $studentInfo['lastname']);
                                        $studentInfo['id'] = $rowTwo['uid'];
                                        $studentInfo['Officer'] = $students['Officer'];
                                        //$studentInfo['LastName'] = $rowTwo['LastName'];
@@ -180,7 +181,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                 ?>
                             <form action="club-profile-admin.php" method="post">
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id=<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname'] . "/" . $studentInfo['lastname'] . "/" . $studentInfo['Officer']?>>
+                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id=<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname'] . "/" . $studentsProcessed . "/" . $studentInfo['Officer'];?>>
                               <button href type="submit" style = "background-color: white;">
                               <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
                               <p class="club-role">Officer</p>
@@ -194,7 +195,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                                 ?>
                                 <form action="club-profile-admin.php" method="post">
                                   <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                                        <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id=<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname'] . "/" . $studentInfo['lastname']?>>
+                                        <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id=<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname'] . "/" . $studentsProcessed . "/" . $studentInfo['Officer'];?>>
                                         <button href type="submit" style = "background-color: white;">
                                         <a > <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?>  </a>
                                         <p class="club-role">Sub-Officer</p>
@@ -209,10 +210,10 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
 
                            <form action="club-profile-admin.php" method="post">
            <div class="col-lg-3 col-md-4 col-xs-6 d-flex flex-column align-items-center">
-                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id="<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname']?>>
+                              <img class="member-profile-pic" src="images/blank-avatar-green.png" alt="" data-toggle="modal" data-target="#remove-member" id=<?php echo $studentInfo['id'] . "/" . $studentInfo['firstname'] . "/" . $studentsProcessed . "/" . $studentInfo['Officer'];?>>
                               <button href type="submit" style = "background-color: white;">
                               <a> <?php echo $studentInfo["firstname"]." ".$studentInfo["lastname"];?> </a>
-                             <?php echo $studentInfo['Officer']; ?>
+                             
 
              <input type="checkbox" style="display: none;" name = "member" value=<?php echo $studentInfo['id']?> checked></input>
            </div>
@@ -251,7 +252,7 @@ $resultStudentsForInsertion = mysqli_query($db, "SELECT * FROM clubstudents WHER
                 <p class="mt-3 mb-4">How would you like to proceed?</p>
                 <div class="d-flex flex-row justify-content-center">
                 <form method="post" action="">
-                <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center mb-2" id="member_remove" role="button" name="remove_student">Delete Member</button>
+                <button href = "#" type="submit" class="btn btn-primary d-flex flex-row justify-content-center mb-2" id="member_remove" role="button" name="remove_student">Delete Member</button>
                   <div class="d-flex flex-row justify-content-center">
                     <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center ml-2 mr-2" id="member_promote" role="button" name="promote_member" style="background-color:#111753">Promote Member</button>
                     <button href = "club-profile-admin.php" type="submit" class="btn btn-primary d-flex flex-row justify-content-center ml-2" id="member_demote" role="button" name="demote_member" style="background-color:#660066">Demote Member</button>
@@ -506,6 +507,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
   <script>
   var id = "0";
   var site = window.location.pathname;
+  var information;
     $('#member_remove').click(function(){
       $.ajax ({
         type: "GET",
@@ -520,7 +522,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       });
     });
     $('.member-profile-pic').click(function() {
-      var information = $(this).attr('id').split("/");
+      information = $(this).attr('id').split("/");
       //console.log($(this).attr('id').split("/"));
       console.log(information);
       id = information[0];
@@ -530,7 +532,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       document.getElementById("needsMemberName").innerHTML = name;
         });
     $('#member_promote').click(function() {
-      if (information[3] != 2) 
+      if (information[3] != 1) 
       {
             $.ajax({
             type:'GET',
@@ -552,7 +554,7 @@ while(($row = mysqli_fetch_assoc($resultsOfPosts)))
       }
     })
     $('#member_demote').click(function() {
-      if (information[3] != 2) 
+      if (information[3] != 1) 
       {
             $.ajax ({
             type: 'GET',
